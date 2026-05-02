@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dante — 4-Oscillator Synthesizer for iOS & macOS</title>
+<meta name="description" content="Dante is a 4-oscillator monophonic synthesizer for iOS and macOS with full per-oscillator control, AUv3 support, and intelligent random preset generation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg-card: #0e0e12;
+    --bg-card-2: #14141a;
+    --border: #1f1f28;
+    --text: #f2f2f5;
+    --text-dim: #9a9aa6;
+    --text-muted: #6b6b78;
+    --osc-1: #5BA8E5;
+    --osc-2: #7BD957;
+    --osc-3: #F5A044;
+    --osc-4: #D060E5;
+    /* DANTE wordmark letter colors */
+    --letter-d: #00D9F5; /* Cyan */
+    --letter-a: #2E7BFF; /* Blue */
+    --letter-n: #7BD957; /* Green */
+    --letter-t: #F5A044; /* Orange */
+    --letter-e: #B14BE0; /* Purple */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Animated gradient background accent */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(91,168,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(208,96,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  /* DANTE wordmark — Futura Condensed Extra Bold with web-safe condensed fallbacks.
+     Final fallback is the inline SVG version (see .logo-svg / .hero-svg below). */
+  .logo, .hero h1 {
+    font-family: "Futura Condensed Extra Bold", "Futura-CondensedExtraBold",
+                 "Oswald", "Impact", "Haettenschweiler",
+                 "Arial Narrow Bold", sans-serif;
+    font-stretch: condensed;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .logo {
+    font-size: 26px;
+    letter-spacing: 3px;
+    display: inline-flex;
+    line-height: 1;
+  }
+  .logo span:nth-child(1) { color: var(--letter-d); }
+  .logo span:nth-child(2) { color: var(--letter-a); }
+  .logo span:nth-child(3) { color: var(--letter-n); }
+  .logo span:nth-child(4) { color: var(--letter-t); }
+  .logo span:nth-child(5) { color: var(--letter-e); }
+
+  /* SVG wordmark — guarantees correct visuals when Futura Condensed Extra Bold
+     isn't installed. The <text> uses the same font stack so installed-Futura
+     users get the real face; everyone else gets Oswald/Impact condensed. */
+  .wordmark-svg { display: block; height: auto; }
+  .wordmark-svg text {
+    font-family: "Futura Condensed Extra Bold", "Futura-CondensedExtraBold",
+                 "Oswald", "Impact", "Haettenschweiler",
+                 "Arial Narrow Bold", sans-serif;
+    font-weight: 800;
+    font-stretch: condensed;
+  }
+  .nav .wordmark-svg { height: 28px; }
+  .hero .wordmark-svg {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 24px;
+    filter: drop-shadow(0 0 60px rgba(0,217,245,0.18));
+  }
+  footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
+
+  .nav-cta {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid var(--osc-1);
+    border-radius: 999px;
+    color: var(--osc-1);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover {
+    background: var(--osc-1);
+    color: var(--bg);
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(72px, 16vw, 220px);
+    letter-spacing: clamp(4px, 1.2vw, 14px);
+    line-height: 0.95;
+    margin-bottom: 24px;
+    text-shadow: 0 0 60px rgba(0,217,245,0.18);
+  }
+  .hero h1 span:nth-child(1) { color: var(--letter-d); }
+  .hero h1 span:nth-child(2) { color: var(--letter-a); }
+  .hero h1 span:nth-child(3) { color: var(--letter-n); }
+  .hero h1 span:nth-child(4) { color: var(--letter-t); }
+  .hero h1 span:nth-child(5) { color: var(--letter-e); }
+
+  .hero-tagline {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    color: var(--text);
+    max-width: 720px;
+    margin: 0 auto 16px;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 40px;
+  }
+  .hero-question {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-style: italic;
+    font-weight: 300;
+    background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 auto 56px;
+    max-width: 720px;
+  }
+
+  .hero-image {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.02),
+      0 30px 80px rgba(0,0,0,0.6),
+      0 0 120px rgba(91,168,229,0.08);
+  }
+  .hero-image img { display: block; width: 100%; }
+
+  /* Sections */
+  section { padding: 100px 0; }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--osc-1);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .section-lead {
+    font-size: 19px;
+    color: var(--text-dim);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  /* Two-column rows */
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .row.reverse .row-text { order: 2; }
+  .row.reverse .row-image { order: 1; }
+
+  .row-image {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    background: var(--bg-card);
+  }
+  .row-image img { display: block; width: 100%; }
+
+  /* Feature list with osc colors */
+  .feature-list {
+    list-style: none;
+    margin-top: 24px;
+  }
+  .feature-list li {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--osc-1);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+  }
+  .feature-list li:hover {
+    background: var(--bg-card-2);
+    color: var(--text);
+    transform: translateX(4px);
+  }
+  .feature-list li:nth-child(4n+1) { border-left-color: var(--osc-1); }
+  .feature-list li:nth-child(4n+2) { border-left-color: var(--osc-2); }
+  .feature-list li:nth-child(4n+3) { border-left-color: var(--osc-3); }
+  .feature-list li:nth-child(4n)   { border-left-color: var(--osc-4); }
+
+  .feature-list strong { color: var(--text); font-weight: 600; }
+
+  /* Why Dante section */
+  .why-section {
+    text-align: center;
+    padding: 120px 0;
+  }
+  .why-section .section-title {
+    background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 40px;
+  }
+  .why-statement {
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--text-dim);
+    max-width: 760px;
+    margin: 0 auto 24px;
+    font-weight: 300;
+  }
+  .why-emphasis {
+    font-size: clamp(22px, 2.6vw, 28px);
+    color: var(--text);
+    font-weight: 500;
+    margin: 32px auto;
+    max-width: 720px;
+  }
+
+  /* Quad highlight (4 boxes representing 4 oscillators) */
+  .quad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .quad-card {
+    padding: 24px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: left;
+  }
+  .quad-card .num {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .quad-card h4 { font-size: 17px; margin-bottom: 6px; color: var(--text); }
+  .quad-card p { font-size: 14px; color: var(--text-dim); }
+  .quad-card:nth-child(1) { border-top: 2px solid var(--osc-1); }
+  .quad-card:nth-child(1) .num { color: var(--osc-1); }
+  .quad-card:nth-child(2) { border-top: 2px solid var(--osc-2); }
+  .quad-card:nth-child(2) .num { color: var(--osc-2); }
+  .quad-card:nth-child(3) { border-top: 2px solid var(--osc-3); }
+  .quad-card:nth-child(3) .num { color: var(--osc-3); }
+  .quad-card:nth-child(4) { border-top: 2px solid var(--osc-4); }
+  .quad-card:nth-child(4) .num { color: var(--osc-4); }
+
+  /* Includes grid */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .include-item {
+    padding: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .include-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--osc-1);
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .include-item:nth-child(5n+1) .dot { background: var(--osc-1); }
+  .include-item:nth-child(5n+2) .dot { background: var(--osc-2); }
+  .include-item:nth-child(5n+3) .dot { background: var(--osc-3); }
+  .include-item:nth-child(5n+4) .dot { background: var(--osc-4); }
+  .include-item:nth-child(5n)   .dot { background: var(--osc-1); }
+
+  .include-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .include-item p { font-size: 14px; color: var(--text-dim); }
+
+  /* Wide image (scope, song player) */
+  .wide-image {
+    max-width: 1100px;
+    margin: 60px auto 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .wide-image img { display: block; width: 100%; }
+
+  /* iPhone mockup row */
+  .platform-row {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .platform-row .iphone-img {
+    text-align: center;
+  }
+  .platform-row .iphone-img img {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(208,96,229,0.12);
+  }
+
+  /* Download / CTA */
+  .download {
+    text-align: center;
+    padding: 100px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 18px 42px;
+    background: linear-gradient(135deg, var(--osc-1), var(--osc-4));
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+    box-shadow: 0 12px 40px rgba(91,168,229,0.25), 0 12px 40px rgba(208,96,229,0.15);
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(91,168,229,0.4), 0 18px 50px rgba(208,96,229,0.3);
+  }
+
+  .requirements {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .requirements h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .requirements ul { list-style: none; }
+  .requirements li {
+    padding: 8px 0;
+    color: var(--text-dim);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .requirements li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--osc-2);
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .row, .platform-row { grid-template-columns: 1fr; gap: 40px; }
+    .row.reverse .row-text { order: 1; }
+    .row.reverse .row-image { order: 2; }
+    .quad-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 70px 0; }
+    .hero { padding: 80px 20px 60px; }
+  }
+  @media (max-width: 480px) {
+    .quad-grid { grid-template-columns: 1fr; }
+    .hero h1 { letter-spacing: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="wordmark-svg" viewBox="0 0 900 220" role="img" aria-label="Dante">
+    <text x="0"   y="190" font-size="240" fill="#00D9F5">D</text>
+    <text x="180" y="190" font-size="240" fill="#2E7BFF">A</text>
+    <text x="360" y="190" font-size="240" fill="#7BD957">N</text>
+    <text x="540" y="190" font-size="240" fill="#F5A044">T</text>
+    <text x="710" y="190" font-size="240" fill="#B14BE0">E</text>
+  </svg>
+  <p class="hero-tagline">Design sound at a level no other synth allows.</p>
+  <p class="hero-sub">A 4-oscillator monophonic synthesizer for iOS and macOS — AUv3 plugin and desktop app.</p>
+  <p class="hero-question">What if every oscillator had full control… not just the basics?</p>
+  <div class="hero-image">
+    <img src="images/oscillators.png" alt="Dante synthesizer main oscillator interface showing four colored oscillator panels">
+  </div>
+</header>
+
+<section id="control">
+  <div class="container">
+    <div class="row">
+      <div class="row-text">
+        <span class="section-eyebrow">Per-Oscillator Control</span>
+        <h2 class="section-title">Four engines. One instrument. Unrivalled depth.</h2>
+        <p class="section-lead">
+          This isn't layering. This isn't "multi-oscillator" in the usual sense.
+          Dante gives you four fully independent sound engines — each with its own complete signal path — something you won't find in hardware or software synths.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Waveforms</strong> — sine, triangle, saw, ramp, pulse, noise</li>
+          <li><strong>Filters</strong> — LP 6/12/18/24, BP, HP, Notch, Formant</li>
+          <li><strong>Envelopes</strong> — VCA + Filter, linear or exponential, drone mode</li>
+          <li><strong>LFOs</strong> — filter, volume, wavefold, with phase control &amp; reset</li>
+          <li><strong>Glide</strong> — exp, linear, log, S-curve, legato</li>
+          <li><strong>Effects</strong> — reverb &amp; delay</li>
+          <li><strong>Hard sync &amp; wavefolding</strong></li>
+          <li><strong>Link envelopes, filters, LFOs, glide or effects</strong> across oscillators when you want simplicity</li>
+        </ul>
+      </div>
+      <div class="row-image" style="background: transparent; border: none; box-shadow: none; display: flex; flex-direction: column; gap: 24px; align-items: stretch;">
+        <img src="images/iphone.png" alt="Dante running standalone on iPhone, showing the four-oscillator interface" style="width: 100%; border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(0,217,245,0.12);">
+        <img src="images/iphoneaum.png" alt="Dante running as an AUv3 plugin inside AUM on iPhone" style="width: 100%; border-radius: 18px; box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 80px rgba(208,96,229,0.12);">
+      </div>
+    </div>
+
+    <div class="quad-grid" style="margin-top: 80px;">
+      <div class="quad-card">
+        <div class="num">Osc 1</div>
+        <h4>Independent</h4>
+        <p>Its own waveform, filter, envelopes, LFOs, effects.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Osc 2</div>
+        <h4>Independent</h4>
+        <p>Run a saw through a notch while Osc 1 holds a sine.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Osc 3</div>
+        <h4>Independent</h4>
+        <p>Add a slow wavefold LFO without touching the others.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Osc 4</div>
+        <h4>Independent</h4>
+        <p>Detune, glide, and modulate completely on its own.</p>
+      </div>
+    </div>
+
+    <div class="wide-image" style="margin-top: 40px;">
+      <img src="images/scope.png" alt="Waveform scope showing the master output and four individual oscillator waveforms — sawtooth, pulse, sine and triangle">
+    </div>
+    <p style="text-align: center; color: var(--text-muted); font-size: 14px; margin-top: 16px;">
+      Visual feedback with per-oscillator scopes — see exactly what each engine is doing.
+    </p>
+  </div>
+</section>
+
+<section id="random" style="background: linear-gradient(180deg, transparent, rgba(245,160,68,0.04), transparent);">
+  <div class="container">
+    <div class="row reverse">
+      <div class="row-text">
+        <span class="section-eyebrow" style="color: var(--osc-3);">Intelligent Randomisation</span>
+        <h2 class="section-title">Random presets that actually sound musical.</h2>
+        <p class="section-lead">
+          Most randomisers create chaos. Dante creates ideas.
+          The built-in preset generator is musical, targeted, and controllable.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Musical</strong> — produces usable, inspiring sounds, not noise</li>
+          <li><strong>Targeted</strong> — choose categories like Bass, Lead, Pad, FX, Drone</li>
+          <li><strong>Controllable</strong> — refine results with precision</li>
+          <li><strong>Tweak system</strong> — pick which oscillators and parameters get touched, so you make subtle, context-aware changes instead of total resets</li>
+        </ul>
+        <p style="margin-top: 24px; color: var(--text); font-size: 17px;">
+          Go from <em>"that's interesting"</em> to <em>"that's the sound"</em> in seconds.
+        </p>
+      </div>
+      <div class="row-image">
+        <img src="images/random-generator.png" alt="Random Preset Generator dialog with category selectors and per-oscillator/per-parameter targeting">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="effortless">
+  <div class="container">
+    <div class="row">
+      <div class="row-text">
+        <span class="section-eyebrow" style="color: var(--osc-2);">Powerful, Yet Effortless</span>
+        <h2 class="section-title">Extreme depth. Zero friction.</h2>
+        <p class="section-lead">
+          Dante gives you serious sound design power without complexity getting in your way.
+          A consistent UI across all oscillators means once you know one, you know them all.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Consistent UI</strong> across all oscillators</li>
+          <li><strong>Quick access</strong> to every parameter</li>
+          <li><strong>Visual feedback</strong> with per-oscillator scopes</li>
+          <li><strong>Live LFO indicators</strong> — every parameter being modulated shows its movement directly on the control, so you can see at a glance exactly how each LFO is shaping your sound</li>
+          <li><strong>XY pad</strong> for expressive control</li>
+        </ul>
+        <p style="margin-top: 24px; color: var(--text-dim);">
+          Beginners can explore and create instantly. Advanced users can go deep without friction. No hidden layers. No menu diving. Just sound design that flows.
+        </p>
+      </div>
+      <div class="row-image">
+        <img src="images/lfo-indicators.png" alt="Two oscillators side by side showing white horizontal lines on each parameter slider, indicating live LFO modulation amounts">
+        <p style="padding: 18px 22px; margin: 0; font-size: 14px; color: var(--text-dim); border-top: 1px solid var(--border); background: var(--bg-card-2);">
+          The white lines on each parameter slider move up and down in real time, showing exactly how an LFO is impacting that parameter — no guesswork, no hidden modulation.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="standalone" style="background: linear-gradient(180deg, transparent, rgba(208,96,229,0.04), transparent);">
+  <div class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 40px;">
+      <span class="section-eyebrow" style="color: var(--osc-4);">Built-in Song Player</span>
+      <h2 class="section-title">Inspiration, instantly.</h2>
+      <p class="section-lead" style="margin: 0 auto 16px;">
+        The standalone iPad, iPhone and Mac apps include a built-in music player featuring public domain tracks — designed for quick experimentation and sound auditioning. MIDI input is also fully supported, so you can drive Dante from any controller or sequencer.
+      </p>
+      <p style="color: var(--text-dim); margin-bottom: 16px;">
+        Load a preset, hit play, and hear how it sits in real music — without setting up a Host.
+      </p>
+      <p style="color: var(--text); font-weight: 500;">
+        Great for kids and parties too — hear <em>Happy Birthday</em>, <em>Twinkle Twinkle</em> or <em>Für Elise</em> reimagined through wild, evolving synth sounds at the tap of a button.
+      </p>
+    </div>
+    <div class="wide-image">
+      <img src="images/foldlfo.png" alt="Wavefold LFO panel with the song player open showing public domain tracks like Für Elise and Greensleeves">
+    </div>
+  </div>
+</section>
+
+<section id="includes">
+  <div class="container">
+    <div style="text-align: center; max-width: 720px; margin: 0 auto 20px;">
+      <span class="section-eyebrow">Everything You Need</span>
+      <h2 class="section-title">Built to create.</h2>
+      <p class="section-lead" style="margin: 0 auto;">
+        Whether you're sketching ideas or building a finished track, Dante ships with the tools you need.
+      </p>
+    </div>
+    <div class="includes-grid">
+      <div class="include-item">
+        <h4><span class="dot"></span>100+ Presets</h4>
+        <p>Curated factory library, with import / export support.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Reverb &amp; Delay</h4>
+        <p>High-quality, tempo-syncable effects per oscillator.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>MIDI Note &amp; CC</h4>
+        <p>Full MIDI input and CC mapping (AUv3).</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Built-in Keyboard</h4>
+        <p>Play immediately on iPad standalone — no controller required.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Song Player</h4>
+        <p>Instant inspiration with public-domain tracks (standalone).</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>AUv3 Plugin</h4>
+        <p>Drop into AUM, Logic, GarageBand, Cubasis and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container">
+    <span class="section-eyebrow">Why Dante?</span>
+    <h2 class="section-title">Most synths limit how far you can push a sound.</h2>
+    <p class="why-emphasis">Dante removes that limit.</p>
+    <p class="why-statement">
+      True control per oscillator. Creative momentum through intelligent randomisation. A workflow that keeps you in the music.
+    </p>
+    <p class="why-statement" style="margin-top: 32px; color: var(--text); font-weight: 500;">
+      Create sounds no one else can.
+    </p>
+  </div>
+</section>
+
+<section class="download" id="download">
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom: 16px;">Get Dante</h2>
+    <p class="section-lead" style="margin: 0 auto 40px;">
+      Available on the Apple App Store for iPhone, iPad, and Mac.
+    </p>
+    <a href="#" class="cta-button">Download on the App Store</a>
+
+    <div class="requirements">
+      <h3>System Requirements</h3>
+      <ul>
+        <li>iOS 17.6 or later</li>
+        <li>Compatible with iPhone and iPad</li>
+        <li>macOS 14.6 or later</li>
+        <li>Mac with Apple Silicon chip</li>
+        <li>AUv3 host required for plugin use (iOS &amp; Mac)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <svg class="wordmark-svg" viewBox="0 0 220 40" role="img" aria-label="Dante" style="display:block;margin:0 auto 12px;">
+      <text x="0"   y="34" font-size="40" fill="#00D9F5">D</text>
+      <text x="44"  y="34" font-size="40" fill="#2E7BFF">A</text>
+      <text x="88"  y="34" font-size="40" fill="#7BD957">N</text>
+      <text x="132" y="34" font-size="40" fill="#F5A044">T</text>
+      <text x="172" y="34" font-size="40" fill="#B14BE0">E</text>
+    </svg>
+    <p>&copy; 2026 Swift Software Pty Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
