@@ -373,6 +373,50 @@
   }
   .include-item p { font-size: 14px; color: var(--text-dim); }
 
+  /* Top navigation bar */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-brand:hover { color: var(--osc-1); }
+  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
+  .topnav-links {
+    display: flex;
+    gap: 28px;
+  }
+  .topnav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topnav-links a:hover { color: var(--text); }
+  .topnav-links a.active { color: var(--osc-1); }
+
   /* Wide image (scope, song player) */
   .wide-image {
     max-width: 1100px;
@@ -486,6 +530,22 @@
 </style>
 </head>
 <body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-brand">
+      <svg class="ss-mark" width="38" height="24" viewBox="0 0 38 26" fill="none" aria-hidden="true">
+        <path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Swift Software
+    </a>
+    <div class="topnav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</nav>
 
 <header class="hero">
   <svg class="wordmark-svg" viewBox="0 0 900 220" role="img" aria-label="Dante">
