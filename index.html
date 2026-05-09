@@ -128,9 +128,9 @@
   .nav .wordmark-svg { height: 28px; }
   .hero .wordmark-svg {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto 24px;
-    filter: drop-shadow(0 0 60px rgba(0,217,245,0.18));
+    max-width: 560px;
+    margin: 0 auto 14px;
+    filter: drop-shadow(0 0 40px rgba(0,217,245,0.18));
   }
   footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
 
@@ -153,15 +153,15 @@
   /* Hero */
   .hero {
     text-align: center;
-    padding: 120px 24px 80px;
+    padding: 32px 24px 48px;
     position: relative;
   }
   .hero h1 {
-    font-size: clamp(72px, 16vw, 220px);
-    letter-spacing: clamp(4px, 1.2vw, 14px);
+    font-size: clamp(54px, 10vw, 130px);
+    letter-spacing: clamp(3px, 0.8vw, 10px);
     line-height: 0.95;
-    margin-bottom: 24px;
-    text-shadow: 0 0 60px rgba(0,217,245,0.18);
+    margin-bottom: 14px;
+    text-shadow: 0 0 40px rgba(0,217,245,0.18);
   }
   .hero h1 span:nth-child(1) { color: var(--letter-d); }
   .hero h1 span:nth-child(2) { color: var(--letter-a); }
@@ -170,27 +170,27 @@
   .hero h1 span:nth-child(5) { color: var(--letter-e); }
 
   .hero-tagline {
-    font-size: clamp(20px, 3vw, 32px);
+    font-size: clamp(18px, 2.4vw, 26px);
     font-weight: 300;
     color: var(--text);
     max-width: 720px;
-    margin: 0 auto 16px;
+    margin: 0 auto 8px;
   }
   .hero-sub {
-    font-size: 17px;
+    font-size: 15px;
     color: var(--text-dim);
     max-width: 680px;
-    margin: 0 auto 40px;
+    margin: 0 auto 16px;
   }
   .hero-question {
-    font-size: clamp(22px, 2.4vw, 28px);
+    font-size: clamp(17px, 1.8vw, 21px);
     font-style: italic;
     font-weight: 300;
     background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin: 0 auto 56px;
+    margin: 0 auto 28px;
     max-width: 720px;
   }
 
@@ -521,7 +521,7 @@
     .row.reverse .row-image { order: 2; }
     .quad-grid { grid-template-columns: repeat(2, 1fr); }
     section { padding: 70px 0; }
-    .hero { padding: 80px 20px 60px; }
+    .hero { padding: 24px 20px 36px; }
   }
   @media (max-width: 480px) {
     .quad-grid { grid-template-columns: 1fr; }
@@ -555,13 +555,50 @@
     <text x="540" y="190" font-size="240" fill="#F5A044">T</text>
     <text x="710" y="190" font-size="240" fill="#B14BE0">E</text>
   </svg>
-  <p class="hero-tagline">Design sound at a level no other synth allows.</p>
-  <p class="hero-sub">A 4-oscillator monophonic synthesizer for iOS and macOS — AUv3 plugin and desktop app.</p>
-  <p class="hero-question">What if every oscillator had full control… not just the basics?</p>
+  <p class="hero-tagline">Sounds nobody else can make. From a synth anyone can play.</p>
+  <p class="hero-question">What if having full control was actually the easy part?</p>
   <div class="hero-image">
     <img src="images/oscillators.jpg" alt="Dante synthesizer main oscillator interface showing four colored oscillator panels">
   </div>
 </header>
+
+<section id="dualphonic" style="background: linear-gradient(180deg, transparent, rgba(245,160,68,0.06), transparent);">
+  <div class="container">
+    <div style="text-align: center; max-width: 840px; margin: 0 auto 50px;">
+      <span class="section-eyebrow" style="color: var(--osc-3);">New — Dualphonic Sync</span>
+      <h2 class="section-title">Sounds you can't make on any other iOS synth.</h2>
+      <p class="section-lead" style="margin: 0 auto 20px;">
+        A new kind of synthesizer — and one anyone can play. Dante is the first <strong style="color: var(--text);">Dualphonic Sync Synthesizer</strong>, with <strong style="color: var(--text);">two parallel hard-sync chains</strong> instead of one. The result: shimmering harmonics, screaming overtones, evolving timbres no other iOS synth can give you. And you don't need to understand any of that to enjoy it. Hit the dice and Dante hands you a brand-new sound. Tweak it. Save it. Or dive deeper when you're ready. Whether it's your first synth or your fortieth, Dante meets you where you are.
+      </p>
+      <p style="color: var(--text-dim); margin: 0 auto; max-width: 720px;">
+        A new <strong style="color: var(--text);">Dualphonic Sync</strong> button cycles through every valid sync combination. Pair it with the <strong style="color: var(--text);">Generate</strong> dice and things get wild fast — territory you simply haven't heard before on iOS.
+      </p>
+    </div>
+
+    <div class="quad-grid">
+      <div class="quad-card">
+        <div class="num">Twin sync</div>
+        <h4>Two chains, side by side</h4>
+        <p>Each oscillator can join chain A, chain B, or run free. Two parallel sync arrangements where every other synth gives you one — opening up sound combinations only Dante can make.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Cycle</div>
+        <h4>Discover, don't dial</h4>
+        <p>One tap of the Dualphonic Sync button steps through every valid sync combination. Find new sonic territory in seconds.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Generate</div>
+        <h4>Wild in one click</h4>
+        <p>Combine with the musical random preset generator for instantly unfamiliar, never-heard-before sounds.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Signature</div>
+        <h4>10 curated presets</h4>
+        <p>Among 100+ presets, ten Signature sounds showcase exactly what Dualphonic Sync can do.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="control">
   <div class="container">
@@ -577,10 +614,10 @@
           <li><strong>Waveforms</strong> — sine, triangle, saw, ramp, pulse, noise</li>
           <li><strong>Filters</strong> — LP 6/12/18/24, BP, HP, Notch, Formant</li>
           <li><strong>Envelopes</strong> — VCA + Filter, linear or exponential, drone mode</li>
-          <li><strong>LFOs</strong> — filter, volume, wavefold, with phase control &amp; reset</li>
+          <li><strong>LFOs</strong> — filter, volume, wavefold, pitch — with phase control, reset, and clock sync</li>
           <li><strong>Glide</strong> — exp, linear, log, S-curve, legato</li>
-          <li><strong>Effects</strong> — reverb &amp; delay</li>
-          <li><strong>Hard sync &amp; wavefolding</strong></li>
+          <li><strong>Effects</strong> — reverb &amp; delay (delay is clock-syncable)</li>
+          <li><strong>Hard sync &amp; wavefolding</strong> — including the Dualphonic Sync chains covered above</li>
           <li><strong>Link envelopes, filters, LFOs, glide or effects</strong> across oscillators when you want simplicity</li>
         </ul>
       </div>
@@ -637,6 +674,7 @@
           <li><strong>Targeted</strong> — choose categories like Bass, Lead, Pad, FX, Drone</li>
           <li><strong>Controllable</strong> — refine results with precision</li>
           <li><strong>Tweak system</strong> — pick which oscillators and parameters get touched, so you make subtle, context-aware changes instead of total resets</li>
+          <li><strong>One-tap Generate</strong> — a dice button on the main screen rolls a fresh sound instantly. Stack it with Dualphonic Sync for genuinely surprising results.</li>
         </ul>
         <p style="margin-top: 24px; color: var(--text); font-size: 17px;">
           Go from <em>"that's interesting"</em> to <em>"that's the sound"</em> in seconds.
@@ -700,7 +738,7 @@
       </p>
     </div>
     <div class="wide-image">
-      <img src="images/foldlfo.png" alt="Wavefold LFO panel with the song player open showing public domain tracks like Für Elise and Greensleeves">
+      <img src="images/musicplayer.png" alt="Built-in song player showing public domain tracks like Für Elise, Twinkle Twinkle and Greensleeves">
     </div>
   </div>
 </section>
@@ -717,15 +755,19 @@
     <div class="includes-grid">
       <div class="include-item">
         <h4><span class="dot"></span>100+ Presets</h4>
-        <p>Curated factory library, with import / export support.</p>
+        <p>Including 10 Signature sounds built around Dualphonic Sync. Import / export supported.</p>
       </div>
       <div class="include-item">
         <h4><span class="dot"></span>Reverb &amp; Delay</h4>
-        <p>High-quality, tempo-syncable effects per oscillator.</p>
+        <p>High-quality effects per oscillator. Delay is clock-synced to your host.</p>
       </div>
       <div class="include-item">
-        <h4><span class="dot"></span>MIDI Note &amp; CC</h4>
-        <p>Full MIDI input and CC mapping (AUv3).</p>
+        <h4><span class="dot"></span>Clock-Synced LFOs</h4>
+        <p>Every LFO — Cut, Vol, Fold and Pitch — locks to host tempo for tight, in-time modulation.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Deep MIDI <span style="color: var(--text-muted); font-weight: 400;">(AUv3)</span></h4>
+        <p>Full Note + CC mapping, plus dedicated MIDI for Generate, Tweak, Dualphonic Sync, and opening Scope, Preset Browser, XY Pad and the Random Generator.</p>
       </div>
       <div class="include-item">
         <h4><span class="dot"></span>Built-in Keyboard</h4>
@@ -737,7 +779,7 @@
       </div>
       <div class="include-item">
         <h4><span class="dot"></span>AUv3 Plugin</h4>
-        <p>Drop into AUM, Logic, GarageBand, Cubasis and more.</p>
+        <p>Drop into AUM, Loopy Pro, Drambo, Logic, GarageBand, Cubasis and more.</p>
       </div>
     </div>
   </div>
@@ -749,7 +791,7 @@
     <h2 class="section-title">Most synths limit how far you can push a sound.</h2>
     <p class="why-emphasis">Dante removes that limit.</p>
     <p class="why-statement">
-      True control per oscillator. Creative momentum through intelligent randomisation. A workflow that keeps you in the music.
+      Dualphonic Sync. Full control per oscillator. Intelligent randomisation that keeps creative momentum going. A workflow that keeps you in the music.
     </p>
     <p class="why-statement" style="margin-top: 32px; color: var(--text); font-weight: 500;">
       Create sounds no one else can.
