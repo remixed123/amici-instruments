@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Swift SW</title>
+<meta name="description" content="Swift SW privacy policy. We do not collect any user data — period. Everything our apps do happens locally on your device.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg-card: #0e0e12;
+    --bg-card-2: #14141a;
+    --border: #1f1f28;
+    --text: #f2f2f5;
+    --text-dim: #9a9aa6;
+    --text-muted: #6b6b78;
+    --osc-1: #5BA8E5;
+    --osc-2: #7BD957;
+    --osc-3: #F5A044;
+    --osc-4: #D060E5;
+    --letter-d: #00D9F5;
+    --letter-a: #2E7BFF;
+    --letter-n: #7BD957;
+    --letter-t: #F5A044;
+    --letter-e: #B14BE0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(91,168,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(208,96,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Top navigation */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-brand:hover { color: var(--osc-1); }
+  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
+  .topnav-links {
+    display: flex;
+    gap: 28px;
+  }
+  .topnav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topnav-links a:hover { color: var(--text); }
+  .topnav-links a.active { color: var(--osc-1); }
+
+  /* Page header */
+  .page-header {
+    text-align: center;
+    padding: 80px 24px 30px;
+  }
+  .page-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--osc-1);
+    margin-bottom: 16px;
+  }
+  .page-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, var(--letter-d), var(--letter-a), var(--letter-n), var(--letter-t), var(--letter-e));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .page-lead {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .last-updated {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  main { flex: 1; padding-bottom: 60px; }
+
+  /* Lead callout */
+  .lead-callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--osc-2);
+    border-radius: 12px;
+    padding: 26px 28px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    color: var(--text);
+  }
+  .lead-callout strong { color: var(--text); }
+
+  /* Body content */
+  .policy-body {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .policy-body h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 32px;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .policy-body h2:first-child { margin-top: 0; }
+
+  .policy-body p {
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .policy-body p strong { color: var(--text); font-weight: 600; }
+
+  .policy-body ul {
+    margin: 0 0 18px 22px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .policy-body li { margin-bottom: 6px; }
+  .policy-body li::marker { color: var(--text-muted); }
+
+  .policy-body a {
+    color: var(--osc-1);
+    text-decoration: none;
+  }
+  .policy-body a:hover { text-decoration: underline; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+  }
+  footer .topnav-brand { color: var(--text-muted); font-size: 14px; }
+  .footer-links {
+    margin-top: 12px;
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    font-size: 13px;
+  }
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+  .footer-links a:hover { color: var(--text-dim); }
+
+  @media (max-width: 600px) {
+    .policy-body { padding: 26px 22px; }
+    .page-header { padding: 50px 24px 24px; }
+    .policy-body h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-brand">
+      <svg class="ss-mark" width="38" height="24" viewBox="0 0 38 26" fill="none" aria-hidden="true">
+        <path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Swift SW
+    </a>
+    <div class="topnav-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <span class="page-eyebrow">Privacy</span>
+  <h1 class="page-title">Privacy Policy</h1>
+  <p class="page-lead">How Swift SW handles information about you when you use our apps.</p>
+  <p class="last-updated">Last updated: 12 May 2026</p>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="lead-callout">
+      Our position is simple: <strong>our apps collect no data of any kind.</strong> Everything our apps do happens locally on your device. The only situation in which we ever receive any information is if you deliberately choose to submit a preset to us via this website — described below.
+    </div>
+
+    <div class="policy-body">
+
+      <h2>What We Don't Collect</h2>
+      <p>Our apps — including Dante and any other apps published by Swift SW — do not collect, store, transmit or share any personal information, usage analytics, device identifiers, location data, contacts, microphone input, photos, or any other data.</p>
+      <p>We do not use:</p>
+      <ul>
+        <li>Analytics SDKs (Google Analytics, Firebase, Mixpanel, Adjust, AppsFlyer, or similar)</li>
+        <li>Crash-reporting services that transmit identifiable information</li>
+        <li>Advertising networks or tracking pixels</li>
+        <li>Third-party data collection of any kind</li>
+        <li>User accounts, sign-ups, or login systems</li>
+        <li>Cookies, fingerprinting, or other browser-style tracking</li>
+      </ul>
+
+      <h2>Data You Create Inside the App</h2>
+      <p>Presets, projects, audio recordings, settings, and any other content you create or save inside our apps is stored locally on your device. If you've enabled iCloud sync at the system level, your content may sync between your own Apple devices — that is Apple's service operating under your Apple ID, and we have no access to that data.</p>
+
+      <h2>Apple App Store &amp; In-App Purchases</h2>
+      <p>When you download or purchase our apps from the App Store, Apple handles the transaction under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's privacy policy</a>. We do not receive any personally identifiable information about you from Apple.</p>
+      <p>If you choose to share App Analytics with developers in your iOS, iPadOS, or macOS settings, Apple may share aggregated, anonymised usage statistics with us. This information cannot be linked back to you as an individual.</p>
+
+      <h2>AUv3 Hosts, MIDI &amp; Audio</h2>
+      <p>When our apps run as AUv3 plugins inside a host (such as AUM, Loopy Pro, Drambo, Logic, GarageBand or Cubasis), data flow between the plugin and the host is entirely local audio and MIDI streaming. No data leaves your device through us.</p>
+
+      <h2>Network Activity</h2>
+      <p>Our apps do not make network requests. They do not contact our servers, check for usage, phone home, or transmit any information off your device. The apps will function with no internet connection.</p>
+
+      <h2>Optional Preset Submissions Via This Website</h2>
+      <p>Our apps include a "Copy Preset" button that places a small text snippet (the preset name and parameter values) onto your device's clipboard. <strong>The app itself does not transmit anything</strong> — this is a local clipboard operation that requires no network connection and cannot be triggered remotely.</p>
+      <p>If you then visit this website and choose to paste a preset into our submission form, our form provider (<a href="https://web3forms.com/privacy-policy" target="_blank" rel="noopener">Web3Forms</a>) receives:</p>
+      <ul>
+        <li>The preset JSON you pasted — a preset name (whatever text you chose) and parameter values</li>
+        <li>Standard form-submission metadata such as your IP address, handled by Web3Forms under their own privacy policy</li>
+      </ul>
+      <p>This entire flow requires you to deliberately copy, navigate, paste and submit. Nothing is sent automatically; nothing can be triggered remotely; the app cannot do this on your behalf.</p>
+      <p>Submitted presets are used only to consider them for inclusion as factory presets or to inform new sound design. They are not linked to any user account or identifier. Please don't include personal information in the preset name unless you're happy for us to have it.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Because we do not collect any information from anyone, our apps are safe for users of any age, including children. We comply with the U.S. Children's Online Privacy Protection Act (COPPA) and the EU General Data Protection Regulation (GDPR) by virtue of collecting no personal data at all.</p>
+
+      <h2>Your Rights Under GDPR, CCPA &amp; Similar Laws</h2>
+      <p>Privacy laws including the GDPR (EU/UK), CCPA (California) and equivalents grant you rights such as access, correction, deletion and portability of your personal data. As our apps hold no personal data about you, there is nothing for us to retrieve, correct, delete or export from the app side. You exercise full control of your locally-stored content directly inside the app and through your device's settings.</p>
+      <p>If you have voluntarily submitted a preset through this website's form and would like the submission deleted, please contact us via the <a href="support.html">Support page</a> and we will remove it.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>If we ever change this policy, we will update the "Last updated" date at the top and post the revised policy at this URL. Because we don't collect contact details, we can't notify you individually — please check back here if you'd like to stay informed.</p>
+
+      <h2>Contact</h2>
+      <p>If you have any questions about this privacy policy, please reach out via our <a href="support.html">Support page</a>.</p>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <a href="index.html" class="topnav-brand" style="justify-content: center;">
+      <svg class="ss-mark" width="32" height="20" viewBox="0 0 38 26" fill="none" aria-hidden="true">
+        <path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Swift SW
+    </a>
+    <p style="margin-top: 8px;">&copy; 2026 Swift SW. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

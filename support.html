@@ -315,18 +315,7 @@
 <main>
   <div class="container">
     <div class="form-card">
-      <!--
-        FORMSPREE SETUP
-        ---------------
-        1. Sign up at https://formspree.io (free tier: 50 submissions/month).
-        2. Create a new form, copy your endpoint (e.g. https://formspree.io/f/abcdwxyz).
-        3. Replace YOUR_FORM_ID below with your form ID.
-
-        Other compatible services (same drop-in <form action="..."> pattern):
-          - Web3Forms : action="https://api.web3forms.com/submit" + hidden <input name="access_key" value="..."/>
-          - Formsubmit: action="https://formsubmit.co/your@email.com"
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form id="form" action="https://api.web3forms.com/submit" method="POST">
         <div class="form-row">
           <label>
             Name
@@ -355,13 +344,13 @@
           <textarea name="message" required placeholder="Tell us what's going on. If you're reporting a bug, please mention your device, OS version, and the steps to reproduce."></textarea>
         </label>
 
-        <!-- Honeypot field — bots fill this in, humans don't see it. -->
+        <!-- Honeypot field — bots fill this in, humans don't see it. (Web3Forms convention) -->
         <div class="honeypot" aria-hidden="true">
-          <label>Do not fill this in: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+          <label>Do not fill this in: <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
         </div>
 
-        <!-- Optional: Formspree subject line in your inbox -->
-        <input type="hidden" name="_subject" value="Swift SW contact form">
+        <!-- Email subject line in your inbox -->
+        <input type="hidden" name="subject" value="Swift SW contact form">
 
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
@@ -384,8 +373,50 @@
       Swift SW
     </a>
     <p style="margin-top: 8px;">&copy; 2026 Swift SW. All rights reserved.</p>
+    <div style="margin-top: 12px; display: flex; gap: 22px; justify-content: center; font-size: 13px;">
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none;">Home</a>
+      <a href="support.html" style="color: var(--text-muted); text-decoration: none;">Support</a>
+      <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+    </div>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('form');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    formData.append("access_key", "f26eb0f5-ee86-4e91-b2bc-9553f6c0d671");
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Success! Your message has been sent.");
+        form.reset();
+      } else {
+        alert("Error: " + data.message);
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
