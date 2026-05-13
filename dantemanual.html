@@ -426,7 +426,9 @@
         <li><a href="#random">13. Random Preset Generator</a></li>
         <li><a href="#scope">14. Scope</a></li>
         <li><a href="#xy-pad">15. XY Pad</a></li>
-        <li><a href="#settings">16. Performance Settings</a></li>
+        <li><a href="#app-preferences">16. App Preferences</a></li>
+        <li class="subsection"><a href="#performance-settings">16.1 Performance Settings</a></li>
+        <li class="subsection"><a href="#app-information">16.2 App Information</a></li>
         <li><a href="#song-player">17. Song Player</a></li>
         <li><a href="#midi">18. MIDI</a></li>
         <li><a href="#sharing">19. Sharing Presets</a></li>
@@ -485,7 +487,7 @@
           <li><strong>Preset name</strong> (left) — tap to open the Preset Browser.</li>
           <li><strong>DANTE logo</strong> (centre) — purely decorative.</li>
           <li><strong>XY Pad button</strong> — opens the expressive XY control surface.</li>
-          <li><strong>⚙️ Settings cog</strong> (immediately right of XY Pad) — opens the Performance Settings dialog (see <a href="#settings">16. Performance Settings</a>).</li>
+          <li><strong>⚙️ Settings cog</strong> (immediately right of XY Pad) — opens the App Preferences dialog (see <a href="#app-preferences">16. App Preferences</a>).</li>
         </ul>
 
         <h3>Toolbar</h3>
@@ -733,7 +735,7 @@
         <p>Effects can be set <strong>per-oscillator</strong> or <strong>linked</strong>.</p>
 
         <div class="callout note">
-          <strong>Per-oscillator effects are CPU-heavy.</strong> Running four independent reverbs and delays can use 3–4× the DSP of a single shared pair. If you're hitting CPU limits — especially on iPhone or in busy AUv3 sessions — enable <strong>Force Linked Effects</strong> in <a href="#settings">Performance Settings</a> to keep the Effects panel locked in linked mode.
+          <strong>Per-oscillator effects are CPU-heavy.</strong> Running four independent reverbs and delays can use 3–4× the DSP of a single shared pair. If you're hitting CPU limits — especially on iPhone or in busy AUv3 sessions — enable <strong>Force Linked Effects</strong> in <a href="#performance-settings">App Preferences → Performance Settings</a> to keep the Effects panel locked in linked mode.
         </div>
       </section>
 
@@ -823,14 +825,17 @@
         </div>
       </section>
 
-      <section id="settings">
-        <h2><span class="num">16</span>Performance Settings</h2>
-        <p class="lead">Dante runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
+      <section id="app-preferences">
+        <h2><span class="num">16</span>App Preferences</h2>
+        <p class="lead">App Preferences is where you control Dante's resource usage and check version information. It's organised into two sections: <strong>Performance Settings</strong> for managing CPU/DSP load, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
 
-        <h3>Opening the Settings panel</h3>
-        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top header, immediately to the right of the XY Pad button. The Settings dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
+        <h3>Opening App Preferences</h3>
+        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top header, immediately to the right of the XY Pad button. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
 
-        <h3>Reverb Quality</h3>
+        <h3 id="performance-settings">16.1 Performance Settings</h3>
+        <p>Dante runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
+
+        <h4>Reverb Quality</h4>
         <p>The audible quality of the reverb depends on how many parallel delay lines it runs internally. More lines = denser, smoother reverb tail. Fewer lines = lighter CPU load.</p>
         <table class="param-table">
           <thead>
@@ -845,13 +850,13 @@
         </table>
         <p>The default is <strong>Full</strong>. Reach for the lower tiers only when you're trying to claw back CPU in a busy AUv3 session, or if you specifically want the character of a sparser reverb.</p>
 
-        <h3>Force Linked Effects</h3>
+        <h4>Force Linked Effects</h4>
         <p>By default, each oscillator can run its own independent reverb and delay. While powerful, this multiplies the effects' CPU cost by up to four.</p>
         <p>Turning <strong>Force Linked Effects</strong> on locks the Effects panel into linked mode: one reverb and one delay shared across all four oscillators. This single change can reduce DSP load by more than half in effect-heavy patches.</p>
         <p>If you load (or are already running) a preset with per-oscillator effects when you enable Force Linked Effects, Dante silently collapses the effects to linked mode, taking <strong>Osc 1's effects settings</strong> as the shared source. The sound of the other oscillators' effects is replaced; their settings are not preserved.</p>
-        <p>While Force Linked Effects is on, if you visit the Effects tab and try to switch back to per-oscillator mode, Dante will display a short dialog explaining that the change is being blocked by the Force Linked Effects setting, and pointing you to the Performance Settings panel where you can turn it off.</p>
+        <p>While Force Linked Effects is on, if you visit the Effects tab and try to switch back to per-oscillator mode, Dante will display a short dialog explaining that the change is being blocked by the Force Linked Effects setting, and pointing you to App Preferences where you can turn it off.</p>
 
-        <h3>When to use these settings</h3>
+        <h4>When to use these settings</h4>
         <p>Dante's defaults are designed to perform well across all supported devices. You typically only need to touch Performance Settings when:</p>
         <ul>
           <li>You're running Dante alongside many other AUv3 plugins inside a host, and the host's total DSP load is getting too high.</li>
@@ -861,8 +866,17 @@
         <p>In all of these cases, enabling <strong>Force Linked Effects</strong> is usually the biggest single win. Lowering <strong>Reverb Quality</strong> recovers additional headroom on top of that.</p>
 
         <div class="callout tip">
-          <strong>Performance Settings are app preferences, not part of a preset.</strong> Your choices persist between sessions and apply to every preset you load. Sharing or saving a preset never overrides another user's settings.
+          <strong>App Preferences persist between sessions, not per preset.</strong> Your choices apply to every preset you load. Sharing or saving a preset never overrides another user's preferences.
         </div>
+
+        <h3 id="app-information">16.2 App Information</h3>
+        <p>The App Information section of App Preferences shows you which build of Dante you're running and gives you quick access to documentation.</p>
+
+        <h4>Version &amp; Build</h4>
+        <p>Displays the current <strong>app version</strong> and <strong>build number</strong>. When you're reporting a bug or asking for help, please include both — it lets us pinpoint exactly which release you're on.</p>
+
+        <h4>User Guide</h4>
+        <p>A link to this user guide. Tapping it opens the Dante User Guide in your browser so you can look up any feature without leaving the app.</p>
       </section>
 
       <section id="song-player">
@@ -992,7 +1006,7 @@
         <h3>The DSP percentage is high</h3>
         <p>Dante runs comfortably on every supported device, so high DSP usually means your AUv3 host has a lot loaded into it. In order of impact:</p>
         <ul>
-          <li>Open <a href="#settings">Performance Settings</a> (cog icon) and enable <strong>Force Linked Effects</strong>. One shared reverb and delay across all four oscillators can cut effects CPU by more than half.</li>
+          <li>Open <a href="#app-preferences">App Preferences</a> (cog icon) and enable <strong>Force Linked Effects</strong> in the Performance Settings section. One shared reverb and delay across all four oscillators can cut effects CPU by more than half.</li>
           <li>In the same panel, drop <strong>Reverb Quality</strong> a tier — Full → Standard, or Standard → Light. The difference is most noticeable on long reverb tails.</li>
           <li>Turn <strong>OFF</strong> any oscillators you're not using. An off oscillator consumes no CPU.</li>
           <li>Heavy modulation (multiple LFOs at fast rates, all running per-oscillator) adds up. Where it doesn't change the sound, run LFOs in <strong>linked</strong> mode.</li>
