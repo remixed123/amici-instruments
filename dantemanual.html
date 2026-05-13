@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dante User Guide — Swift SW</title>
+<meta name="description" content="The complete user guide for Dante — the Dualphonic Sync Synthesizer for iOS and macOS.">
+<link rel="canonical" href="https://swiftsoftware.com.au/dantemanual.html">
+<meta name="theme-color" content="#050507">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://swiftsoftware.com.au/dantemanual.html">
+<meta property="og:title" content="Dante User Guide — Swift SW">
+<meta property="og:description" content="The complete user guide for Dante — the Dualphonic Sync Synthesizer for iOS and macOS.">
+<meta property="og:site_name" content="Swift SW">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg-card: #0e0e12;
+    --bg-card-2: #14141a;
+    --border: #1f1f28;
+    --text: #f2f2f5;
+    --text-dim: #9a9aa6;
+    --text-muted: #6b6b78;
+    --osc-1: #5BA8E5;
+    --osc-2: #7BD957;
+    --osc-3: #F5A044;
+    --osc-4: #D060E5;
+    --letter-d: #00D9F5;
+    --letter-a: #2E7BFF;
+    --letter-n: #7BD957;
+    --letter-t: #F5A044;
+    --letter-e: #B14BE0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(91,168,229,0.06), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(208,96,229,0.06), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Top navigation */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-brand:hover { color: var(--osc-1); }
+  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
+  .topnav-links { display: flex; gap: 28px; }
+  .topnav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topnav-links a:hover { color: var(--text); }
+  .topnav-links a.active { color: var(--osc-1); }
+
+  /* Page header */
+  .page-header {
+    text-align: center;
+    padding: 60px 24px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--osc-1);
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, var(--letter-d), var(--letter-a), var(--letter-n), var(--letter-t), var(--letter-e));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .page-lead {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Main layout */
+  main {
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+    width: 100%;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 50px;
+    align-items: start;
+  }
+
+  /* Sticky TOC sidebar */
+  .toc {
+    position: sticky;
+    top: 72px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 22px 0 22px 4px;
+    border-right: 1px solid var(--border);
+  }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-left: 12px;
+  }
+  .toc ul { list-style: none; }
+  .toc li { margin: 1px 0; }
+  .toc a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+    line-height: 1.4;
+  }
+  .toc a:hover {
+    color: var(--text);
+    border-left-color: var(--text-muted);
+  }
+  .toc a.active {
+    color: var(--osc-1);
+    border-left-color: var(--osc-1);
+    background: rgba(91,168,229,0.05);
+  }
+  .toc .subsection a {
+    padding-left: 28px;
+    font-size: 12.5px;
+  }
+
+  /* Content area */
+  .content { min-width: 0; max-width: 780px; }
+  .content section { padding: 28px 0; scroll-margin-top: 80px; }
+  .content section:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+  .content h2 {
+    font-size: clamp(26px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .content h2 .num {
+    font-size: 0.55em;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-right: 12px;
+    letter-spacing: 0;
+    vertical-align: middle;
+  }
+  .content h3 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 18px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .content .lead {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+
+  .content p {
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .content p strong, .content li strong { color: var(--text); font-weight: 600; }
+
+  .content ul, .content ol {
+    margin: 0 0 16px 22px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .content li { margin-bottom: 6px; }
+  .content li::marker { color: var(--text-muted); }
+
+  .content a {
+    color: var(--osc-1);
+    text-decoration: none;
+  }
+  .content a:hover { text-decoration: underline; }
+
+  /* Callouts */
+  .callout {
+    margin: 18px 0;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--osc-1);
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
+  .callout strong { color: var(--text); }
+  .callout.tip { border-left-color: var(--osc-2); }
+  .callout.note { border-left-color: var(--osc-3); }
+  .callout.todo { border-left-color: var(--osc-4); }
+
+  /* Param table */
+  .param-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .param-table th, .param-table td {
+    padding: 11px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .param-table th {
+    background: var(--bg-card-2);
+    color: var(--text-dim);
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .param-table tr:last-child td { border-bottom: none; }
+  .param-table td:first-child { color: var(--text); font-weight: 500; width: 30%; }
+  .param-table td { color: var(--text-dim); }
+
+  /* Inline code-like styling for UI element names */
+  .ui {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    padding: 2px 7px;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+  }
+
+  /* Oscillator color tags */
+  .osc-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .osc-tag.o1 { background: rgba(91,168,229,0.15); color: var(--osc-1); }
+  .osc-tag.o2 { background: rgba(123,217,87,0.15); color: var(--osc-2); }
+  .osc-tag.o3 { background: rgba(245,160,68,0.15); color: var(--osc-3); }
+  .osc-tag.o4 { background: rgba(208,96,229,0.15); color: var(--osc-4); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    .toc {
+      position: static;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0 0 22px 0;
+      margin-bottom: 12px;
+    }
+    .toc-title { padding-left: 0; }
+    .toc a { padding-left: 0; }
+    .toc .subsection a { padding-left: 16px; }
+    .page-header { padding: 40px 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="topnav-brand">
+      <svg class="ss-mark" width="38" height="24" viewBox="0 0 38 26" fill="none" aria-hidden="true">
+        <path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Swift SW
+    </a>
+    <div class="topnav-links">
+      <a href="index.html">Home</a>
+      <a href="dantemanual.html" class="active">Manual</a>
+      <a href="support.html">Support</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <span class="page-eyebrow">User Guide</span>
+  <h1 class="page-title">Dante User Guide</h1>
+  <p class="page-lead">A complete reference for the Dualphonic Sync Synthesizer — every control, every panel, every feature.</p>
+</header>
+
+<main>
+  <div class="layout">
+
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ul>
+        <li><a href="#welcome">1. Welcome</a></li>
+        <li><a href="#requirements">2. Requirements</a></li>
+        <li><a href="#getting-started">3. Getting Started</a></li>
+        <li><a href="#interface">4. Interface Tour</a></li>
+        <li><a href="#oscillators">5. The Oscillators</a></li>
+        <li class="subsection"><a href="#waveforms">5.1 Waveforms</a></li>
+        <li class="subsection"><a href="#osc-controls">5.2 Per-Osc Controls</a></li>
+        <li class="subsection"><a href="#octave">5.3 Octave &amp; Pitch</a></li>
+        <li><a href="#dualphonic">6. Dualphonic Sync</a></li>
+        <li><a href="#envelopes">7. Envelopes</a></li>
+        <li class="subsection"><a href="#vol-env">7.1 Volume Envelope</a></li>
+        <li class="subsection"><a href="#filt-env">7.2 Filter Envelope</a></li>
+        <li><a href="#filters">8. Filters</a></li>
+        <li><a href="#lfos">9. LFOs</a></li>
+        <li class="subsection"><a href="#cut-lfo">9.1 Cutoff LFO</a></li>
+        <li class="subsection"><a href="#vol-lfo">9.2 Volume LFO</a></li>
+        <li class="subsection"><a href="#fold-lfo">9.3 Wavefold LFO</a></li>
+        <li class="subsection"><a href="#pitch-lfo">9.4 Pitch LFO</a></li>
+        <li><a href="#glide">10. Glide</a></li>
+        <li><a href="#effects">11. Effects</a></li>
+        <li><a href="#presets">12. Presets</a></li>
+        <li><a href="#random">13. Random Preset Generator</a></li>
+        <li><a href="#scope">14. Scope</a></li>
+        <li><a href="#xy-pad">15. XY Pad</a></li>
+        <li><a href="#song-player">16. Song Player</a></li>
+        <li><a href="#midi">17. MIDI</a></li>
+        <li><a href="#sharing">18. Sharing Presets</a></li>
+        <li><a href="#tips">19. Tips &amp; Workflow</a></li>
+        <li><a href="#troubleshooting">20. Troubleshooting</a></li>
+        <li><a href="#support">21. Getting Help</a></li>
+      </ul>
+    </aside>
+
+    <article class="content">
+
+      <section id="welcome">
+        <h2><span class="num">1</span>Welcome to Dante</h2>
+        <p class="lead">Dante is the first <strong>Dualphonic Sync Synthesizer</strong> — a four-oscillator monophonic synth for iOS and macOS, with two independent hard-sync chains running in parallel.</p>
+        <p>This guide covers every panel and control. If you're new to synthesis, start at the top and read straight through. If you're looking for one specific feature, use the table of contents on the left to jump straight to it.</p>
+        <p>Dante is available three ways:</p>
+        <ul>
+          <li><strong>Standalone</strong> on iPad, iPhone and Mac — with a built-in keyboard and song player.</li>
+          <li><strong>AUv3 plugin</strong> on iOS and macOS — drops into AUM, Loopy Pro, Drambo, Logic, GarageBand, Cubasis and more.</li>
+        </ul>
+        <p>Most of what's in this guide applies to all three. Where things differ — for example, the song player only exists in standalone — that's flagged clearly in the section.</p>
+      </section>
+
+      <section id="requirements">
+        <h2><span class="num">2</span>System Requirements</h2>
+        <ul>
+          <li><strong>iOS / iPadOS:</strong> 17.6 or later. Compatible with iPhone and iPad.</li>
+          <li><strong>macOS:</strong> 14.6 (Sonoma) or later, Apple Silicon (M1, M2, M3, M4 …) required.</li>
+          <li><strong>AUv3 host</strong> required when using Dante as a plugin (e.g. AUM, Loopy Pro, Drambo, Logic, GarageBand, Cubasis).</li>
+        </ul>
+      </section>
+
+      <section id="getting-started">
+        <h2><span class="num">3</span>Getting Started</h2>
+        <p class="lead">The fastest way to make a great sound is to let Dante make one for you.</p>
+        <ol>
+          <li>Open Dante (standalone) or load it as an AUv3 plugin in your host.</li>
+          <li>Tap the dice button (<span class="ui">🎲</span>) in the top header to open the <strong>Random Preset Generator</strong>.</li>
+          <li>Pick a category (Bass, Lead, Pad, etc.) or leave it on <strong>All</strong>.</li>
+          <li>Tap <strong>Generate</strong>. A fresh preset rolls into place.</li>
+          <li>Play a few notes — on the built-in keyboard (standalone) or from your MIDI controller / DAW.</li>
+          <li>If you like the direction but want variation, tap <strong>Tweak</strong> to nudge the current preset rather than rolling a brand new one.</li>
+        </ol>
+        <p>When you find a sound you love, save it to your <strong>User</strong> library — see <a href="#presets">12. Presets</a>.</p>
+        <div class="callout tip">
+          <strong>Don't worry about understanding everything yet.</strong> The dice button gives you a working sound in one tap. You can dive into per-oscillator control whenever you're ready.
+        </div>
+      </section>
+
+      <section id="interface">
+        <h2><span class="num">4</span>Interface Tour</h2>
+        <p class="lead">A quick walkthrough of where everything lives.</p>
+
+        <h3>Top Header</h3>
+        <ul>
+          <li><strong>Preset name</strong> (left) — tap to open the Preset Browser.</li>
+          <li><strong>DANTE logo</strong> (centre) — purely decorative.</li>
+          <li><strong>XY Pad button</strong> (right) — opens the expressive XY control surface.</li>
+        </ul>
+
+        <h3>Toolbar</h3>
+        <p>Just below the header you'll find horizontal tabs to switch between modulation panels:</p>
+        <ul>
+          <li><span class="ui">Osc</span> — the four oscillators (waveform, volume, fold, detune, sync mode).</li>
+          <li><span class="ui">Vol Env</span> — volume (VCA) envelope per oscillator.</li>
+          <li><span class="ui">Filt Env</span> — filter envelope per oscillator.</li>
+          <li><span class="ui">Filter</span> — filter type and settings per oscillator.</li>
+          <li><span class="ui">Cut LFO</span> — filter cutoff LFO.</li>
+          <li><span class="ui">Vol LFO</span> — volume LFO.</li>
+          <li><span class="ui">Fold LFO</span> — wavefold LFO.</li>
+          <li><span class="ui">Pitch LFO</span> — pitch LFO.</li>
+          <li><span class="ui">Glide</span> — portamento between notes.</li>
+          <li><span class="ui">Effects</span> — reverb and delay.</li>
+        </ul>
+
+        <h3>Master Strip</h3>
+        <p>Above the four oscillator columns you'll see:</p>
+        <ul>
+          <li><strong>Output meter</strong> — shows the current master output level (and clipping in yellow/red).</li>
+          <li><strong>Gain</strong> — overall master gain.</li>
+          <li><strong>SCOPE</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
+          <li><strong>🎲 dice</strong> — opens the Random Preset Generator.</li>
+          <li><strong>DUALPHONIC SYNC</strong> — cycles through valid Dualphonic Sync combinations (see <a href="#dualphonic">6. Dualphonic Sync</a>).</li>
+        </ul>
+
+        <h3>The Four Oscillator Columns</h3>
+        <p>The main area shows four oscillator columns, each in its own colour: <span class="osc-tag o1">Osc 1</span> <span class="osc-tag o2">Osc 2</span> <span class="osc-tag o3">Osc 3</span> <span class="osc-tag o4">Osc 4</span>. The colour follows that oscillator everywhere in Dante — including the Scope, LFO panels, and Preset Browser.</p>
+
+        <div class="callout note">
+          <strong>About the white lines on parameter sliders.</strong> When an LFO is modulating a parameter, you'll see a horizontal white line move up and down inside the slider showing exactly how much the parameter is being pushed in real time. No guesswork required.
+        </div>
+      </section>
+
+      <section id="oscillators">
+        <h2><span class="num">5</span>The Oscillators</h2>
+        <p class="lead">Each of Dante's four oscillators is fully independent — its own waveform, volume, fold, detune and pulse width.</p>
+
+        <h3 id="waveforms">5.1 Waveforms</h3>
+        <p>Six waveforms are available per oscillator:</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Waveform</th><th>Character</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sine</td><td>Pure, smooth tone. Great as a sub bass or for additive blending.</td></tr>
+            <tr><td>Triangle</td><td>Hollow, mellow. A softer alternative to sine with more upper harmonics.</td></tr>
+            <tr><td>Saw</td><td>Bright, buzzy. The classic synth lead and bass waveform.</td></tr>
+            <tr><td>Ramp</td><td>Reverse saw. Same harmonic content as Saw but with different sync and phase behaviour.</td></tr>
+            <tr><td>Pulse</td><td>Square / pulse wave. Pulse width is controlled by the PWM parameter.</td></tr>
+            <tr><td>Noise</td><td>White noise. Useful for percussive elements, hi-hats, wind / breath layers.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="osc-controls">5.2 Per-Osc Controls</h3>
+        <p>Underneath the waveform row, each oscillator has four parameter sliders:</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Slider</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vol</td><td>Volume of this oscillator in the master mix (0–100%).</td></tr>
+            <tr><td>Fold</td><td>Wavefolding amount. Higher values fold the waveform back on itself, adding harmonics and grit.</td></tr>
+            <tr><td>Det</td><td>Detune in cents or semitones, depending on context. Lets you offset the pitch of this oscillator against the others.</td></tr>
+            <tr><td>PWM</td><td>Pulse Width Modulation amount. Only active when the waveform is Pulse — sets the duty cycle of the pulse wave.</td></tr>
+          </tbody>
+        </table>
+        <p>Each oscillator also has an <span class="ui">ON / OFF</span> button at the top right of its column. Turning off an oscillator removes it from the mix entirely — it consumes no CPU when off.</p>
+
+        <h3 id="octave">5.3 Octave &amp; Pitch</h3>
+        <p>Between the waveform selector and the parameter sliders, each oscillator has an octave selector: <span class="ui">-2 -1 0 +1 +2 +3</span>. Tap to shift this oscillator's playing range up or down by full octaves relative to the played note.</p>
+        <p>Combine octave with the <strong>Det</strong> (detune) slider for fine pitch offsets between oscillators — this is the foundation of fat, layered sounds.</p>
+      </section>
+
+      <section id="dualphonic">
+        <h2><span class="num">6</span>Dualphonic Sync</h2>
+        <p class="lead">Dualphonic Sync is what makes Dante different from every other iOS synth. It's worth understanding properly.</p>
+
+        <h3>What's hard sync?</h3>
+        <p>In classic synthesis, "hard sync" is when one oscillator (the <strong>master</strong>) forces another oscillator (the <strong>synced</strong>) to restart its waveform cycle every time the master completes a cycle. The synced oscillator's pitch becomes locked to the master's, but its harmonic content changes dramatically — producing characteristic glassy, aggressive, sweeping timbres.</p>
+
+        <h3>What makes Dante's sync different?</h3>
+        <p>Most synths offer one master/synced pair. Dante runs <strong>two independent hard-sync chains in parallel</strong> — chain A and chain B. Any oscillator can be assigned to either chain, or run completely independently.</p>
+
+        <h3>Sync mode buttons</h3>
+        <p>Underneath each oscillator's parameter row, you'll see two sync mode buttons. The choices are:</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Mode</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Master A</td><td>This oscillator drives sync chain A.</td></tr>
+            <tr><td>Synced A</td><td>This oscillator is synced to Master A.</td></tr>
+            <tr><td>Master B</td><td>This oscillator drives sync chain B.</td></tr>
+            <tr><td>Synced B</td><td>This oscillator is synced to Master B.</td></tr>
+            <tr><td>(neither)</td><td>This oscillator runs independently, ignoring sync.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>The DUALPHONIC SYNC button</h3>
+        <p>In the master strip at the top of the page, the <strong>DUALPHONIC SYNC</strong> button cycles through every valid Dualphonic Sync configuration. One tap re-rolls the sync assignments across all four oscillators — the fastest way to hear what your current preset can sound like with different sync relationships.</p>
+        <div class="callout tip">
+          <strong>Pair this with the dice button.</strong> Tap Generate to roll a fresh preset, then start tapping DUALPHONIC SYNC to walk through every sync arrangement of that sound. You'll discover textures you didn't know existed.
+        </div>
+      </section>
+
+      <section id="envelopes">
+        <h2><span class="num">7</span>Envelopes</h2>
+        <p class="lead">Envelopes shape how a parameter changes over the duration of a note. Dante has two envelopes per oscillator: the Volume Envelope and the Filter Envelope.</p>
+
+        <h3 id="vol-env">7.1 Volume Envelope (Vol Env)</h3>
+        <p>The Volume Envelope controls how loud the oscillator is from the moment a note is pressed until after it's released. Standard ADSR layout:</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Stage</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Attack</td><td>How quickly the volume ramps up after note-on. Fast = percussive; slow = pad-like.</td></tr>
+            <tr><td>Decay</td><td>How quickly the volume falls from the attack peak down to the sustain level.</td></tr>
+            <tr><td>Sustain</td><td>The held volume level while the note is held down.</td></tr>
+            <tr><td>Release</td><td>How quickly the volume fades to silence after note-off.</td></tr>
+          </tbody>
+        </table>
+        <p>Vol Env supports <strong>linear or exponential</strong> curves, and includes a <strong>drone mode</strong> for sustained, key-tracking-free output.</p>
+        <p>Vol Env can be set <strong>per-oscillator</strong> (each oscillator has its own envelope) or <strong>linked</strong> (one envelope drives all four). Toggle this at the top of the Vol Env panel.</p>
+
+        <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
+        <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout as the Volume Envelope.</p>
+        <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
+        <p>Like Vol Env, Filt Env supports linear/exponential curves and can be per-osc or linked.</p>
+      </section>
+
+      <section id="filters">
+        <h2><span class="num">8</span>Filters</h2>
+        <p class="lead">Each oscillator has its own filter, with eight filter types available.</p>
+
+        <h3>Filter types</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>Type</th><th>Character</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>LP 6</td><td>Low-pass, 6dB/octave slope. Gentle, transparent darkening.</td></tr>
+            <tr><td>LP 12</td><td>Low-pass, 12dB/octave. Classic synth low-pass, moderate squelch.</td></tr>
+            <tr><td>LP 18</td><td>Low-pass, 18dB/octave. Deeper cut, more pronounced resonance.</td></tr>
+            <tr><td>LP 24</td><td>Low-pass, 24dB/octave. Sharp, aggressive — the Moog-style ladder slope.</td></tr>
+            <tr><td>BP</td><td>Band-pass. Removes lows and highs, leaving a tunable mid-band.</td></tr>
+            <tr><td>Notch</td><td>Notch filter. Cuts a narrow frequency band, useful for phasing/sweep effects.</td></tr>
+            <tr><td>HP</td><td>High-pass. Removes lows below the cutoff. Tightens bass-heavy sounds.</td></tr>
+            <tr><td>Fmt</td><td>Formant filter. Produces vowel-like resonances ("ah", "oh", etc.).</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Filter parameters</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>Slider</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cut</td><td>Filter cutoff frequency, in Hz (typically 20 Hz – 20 kHz, log-scaled).</td></tr>
+            <tr><td>Res</td><td>Resonance. Emphasises frequencies around the cutoff. At high settings, can self-oscillate.</td></tr>
+            <tr><td>Env</td><td>Filter envelope depth — how much the Filter Envelope opens or closes the filter from rest position.</td></tr>
+            <tr><td>Key</td><td>Key tracking. How much the cutoff follows the played note's pitch. 0% = static; 100% = fully tracks pitch.</td></tr>
+          </tbody>
+        </table>
+
+        <p>Filters can be set <strong>per-oscillator</strong> or <strong>linked</strong> across all four.</p>
+      </section>
+
+      <section id="lfos">
+        <h2><span class="num">9</span>LFOs (Low-Frequency Oscillators)</h2>
+        <p class="lead">LFOs are slow modulators that move a parameter up and down over time — think of them as automated knob-twiddling. Dante has four LFOs, each targeting a different parameter.</p>
+
+        <h3>Shared LFO controls</h3>
+        <p>Every LFO has the same set of base controls:</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Control</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Waveform</td><td>Shape of the LFO motion: sine, triangle, saw, ramp, square.</td></tr>
+            <tr><td>Rate</td><td>Speed of the LFO, in Hz — or in note divisions when clock-synced.</td></tr>
+            <tr><td>Range</td><td>How much the LFO moves the parameter (modulation depth).</td></tr>
+            <tr><td>Fade</td><td>Time after note-on for the LFO to fade in from zero to full depth. <strong>Off</strong> disables fade-in (LFO starts at full).</td></tr>
+            <tr><td>Phase reset</td><td>Choose Gate, 0°, 90°, 180° or 270° — controls where in its cycle the LFO restarts on each note-on.</td></tr>
+            <tr><td>Clock sync</td><td>When enabled, locks the LFO rate to your host's tempo (or the standalone's BPM). Rate is then expressed in note divisions (1/4, 1/8, 1/16, etc.) instead of Hz.</td></tr>
+          </tbody>
+        </table>
+
+        <p>All LFOs can be <strong>per-oscillator</strong> (each oscillator gets its own independent LFO) or <strong>linked</strong> (one LFO drives all four).</p>
+
+        <h3 id="cut-lfo">9.1 Cutoff LFO (Cut LFO)</h3>
+        <p>Modulates the filter cutoff over time. The classic "wah-wah" sweeping effect.</p>
+
+        <h3 id="vol-lfo">9.2 Volume LFO (Vol LFO)</h3>
+        <p>Modulates the oscillator volume — produces tremolo (amplitude modulation).</p>
+
+        <h3 id="fold-lfo">9.3 Wavefold LFO (Fold LFO)</h3>
+        <p>Modulates the wavefolding amount. Produces evolving harmonic complexity — the fold parameter is one of Dante's strongest character controls.</p>
+
+        <h3 id="pitch-lfo">9.4 Pitch LFO</h3>
+        <p>Modulates the oscillator pitch — produces vibrato (frequency modulation).</p>
+
+        <div class="callout tip">
+          <strong>Phase reset matters more than you'd think.</strong> Setting phase reset to <strong>Gate</strong> means the LFO restarts at the same point every time you play a note — useful for tight, predictable modulation. Setting it to <strong>0°/90°/180°/270°</strong> picks a specific starting phase. Disabling reset (no specific value) lets the LFO free-run.
+        </div>
+      </section>
+
+      <section id="glide">
+        <h2><span class="num">10</span>Glide</h2>
+        <p class="lead">Glide (portamento) makes the pitch slide smoothly from one note to the next instead of jumping. Essential for expressive leads and 303-style basslines.</p>
+
+        <h3>Glide controls</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>Control</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Time</td><td>How long the slide takes between two pitches.</td></tr>
+            <tr><td>Curve</td><td>Shape of the slide — choose Exponential, Linear, Logarithmic or S-curve.</td></tr>
+            <tr><td>Legato</td><td>When enabled, glide only happens when notes overlap (true legato playing). Stacatto notes jump as normal.</td></tr>
+          </tbody>
+        </table>
+
+        <p>Glide can be set <strong>per-oscillator</strong> or <strong>linked</strong>. Per-osc glide is one of Dante's most expressive features — for example, gliding only Osc 1 while Osc 2 jumps creates a "rubber-band" detuning effect.</p>
+      </section>
+
+      <section id="effects">
+        <h2><span class="num">11</span>Effects</h2>
+        <p class="lead">Each oscillator can have its own effects, or share effects globally. Two effects are built in: Reverb and Delay.</p>
+
+        <h3>Reverb</h3>
+        <p>Adds ambience and space around the sound. High-quality algorithm suitable for everything from short room reflections to long, washed-out tails.</p>
+        <div class="callout todo">
+          <strong>TODO:</strong> List the specific Reverb parameters (Size, Decay, Mix, Damping, Pre-delay…) — let me know what's actually on the panel and I'll fill them in.
+        </div>
+
+        <h3>Delay</h3>
+        <p>Adds rhythmic echoes. The delay time can be set freely in milliseconds, or <strong>clock-synced</strong> to the host tempo — choose note divisions like 1/4, 1/8 dotted, 1/16 triplet, etc.</p>
+        <div class="callout todo">
+          <strong>TODO:</strong> List the specific Delay parameters (Time, Feedback, Mix, Filter…) — let me know what's on the panel and I'll fill them in.
+        </div>
+
+        <p>Effects can be set <strong>per-oscillator</strong> or <strong>linked</strong>.</p>
+      </section>
+
+      <section id="presets">
+        <h2><span class="num">12</span>Presets</h2>
+        <p class="lead">Dante ships with 100+ presets, including 10 Signature presets built specifically around Dualphonic Sync.</p>
+
+        <h3>Preset categories</h3>
+        <ul>
+          <li><strong>All</strong> — every preset in the library.</li>
+          <li><strong>Favourites</strong> — anything you've starred.</li>
+          <li><strong>Basic</strong> — simple, clean starting points.</li>
+          <li><strong>Bass</strong> — sub, mid, acid, sub-octave basslines.</li>
+          <li><strong>Lead</strong> — solo and melodic voices.</li>
+          <li><strong>Pad</strong> — slow, evolving sustained sounds.</li>
+          <li><strong>Keys</strong> — keyboard / piano / mallet-style sounds.</li>
+          <li><strong>FX</strong> — sound effects, hits, noise textures, atmospheres.</li>
+          <li><strong>Drone</strong> — sustained, evolving, no-key-off sounds.</li>
+          <li><strong>User</strong> — presets you've saved yourself.</li>
+        </ul>
+
+        <h3>The Preset Browser</h3>
+        <p>Tap the preset name at the top-left of the screen to open the Preset Browser. Categories are on the left, preset names on the right. Tap a star to add to favourites; tap a preset name to load it.</p>
+
+        <h3>Random / Import / Save Current</h3>
+        <p>The Preset Browser header has three buttons:</p>
+        <ul>
+          <li><strong>Random</strong> — opens the Random Preset Generator (same as the dice button).</li>
+          <li><strong>Import</strong> — load a preset file someone has shared with you.</li>
+          <li><strong>Save Current</strong> — save the current sound to your User library.</li>
+        </ul>
+
+        <h3>Signature presets</h3>
+        <p>Ten of the included presets are labelled <strong>Signature</strong> — these were built specifically to demonstrate what Dualphonic Sync can do. Listen through them to hear the range of sounds you can only get on Dante.</p>
+      </section>
+
+      <section id="random">
+        <h2><span class="num">13</span>Random Preset Generator</h2>
+        <p class="lead">Dante's random preset generator is musical, not chaotic. It produces usable, inspiring sounds — and lets you target exactly what gets randomised.</p>
+
+        <h3>Opening the generator</h3>
+        <p>Tap the dice button (🎲) anywhere it appears — in the master strip, in the Preset Browser header, or via a mapped MIDI CC (AUv3).</p>
+
+        <h3>Base preset source</h3>
+        <p>The top section chooses which category Dante draws inspiration from when rolling a new sound:</p>
+        <ul>
+          <li><strong>All / Favourites / Basic / Bass / Lead / Pad / Keys / FX / Drone / User</strong> — same categories as the Preset Browser.</li>
+        </ul>
+
+        <h3>Generate vs Tweak</h3>
+        <ul>
+          <li><strong>Generate</strong> — rolls a completely new preset from scratch (within your chosen category and parameter selections).</li>
+          <li><strong>Tweak</strong> — applies subtle, context-aware changes to the <em>current</em> preset. Use this when you like the direction but want variation.</li>
+        </ul>
+
+        <h3>Oscillator targeting</h3>
+        <p>The <strong>Oscillators</strong> row lets you choose which oscillators the generator is allowed to randomise. Untick an oscillator to leave it untouched — useful when you have, say, a bass layer you want to keep stable while randomising the other three.</p>
+
+        <h3>Parameter targeting</h3>
+        <p>The <strong>Parameters</strong> grid lets you control exactly which kinds of changes are allowed:</p>
+        <ul>
+          <li>Waveform, Volume, Octave, Detune, Pulse Width, Fold Amount, Osc On/Off, Vol Envelope, Filt Envelope, Filter, Effects, Volume LFO, Fold LFO, Cutoff LFO, Glide, Hard Sync.</li>
+        </ul>
+        <p>Tick the ones you want to be randomised; untick anything you want left alone. Use the <strong>None</strong> link to clear all, then enable just the parameters you're curious about.</p>
+
+        <div class="callout tip">
+          <strong>Example workflow.</strong> Like the filter and effects of your current preset but want a different rhythmic feel? Untick everything except <strong>Glide</strong> and <strong>Cutoff LFO</strong>, then tap Tweak a few times. You'll get fresh movement on the same sonic base.
+        </div>
+      </section>
+
+      <section id="scope">
+        <h2><span class="num">14</span>Scope</h2>
+        <p class="lead">The Waveform Scope shows you exactly what each oscillator — and the master output — is producing in real time.</p>
+        <p>Tap <strong>SCOPE</strong> in the master strip to open the scope view. You'll see:</p>
+        <ul>
+          <li><strong>Master Output</strong> — the combined waveform of all four oscillators after filtering and effects.</li>
+          <li><strong>Osc 1 / Osc 2 / Osc 3 / Osc 4</strong> — each oscillator's current waveform, colour-matched to its column. The waveform label shows the current type (Sawtooth, Pulse, Sine, Triangle, etc.).</li>
+        </ul>
+        <p>The scope is especially useful when you're combining oscillators with hard sync, wavefolding, or pitch LFO — you can see the harmonic interactions directly.</p>
+      </section>
+
+      <section id="xy-pad">
+        <h2><span class="num">15</span>XY Pad</h2>
+        <p class="lead">An expressive 2D control surface that lets you sweep two parameters at once with a single touch.</p>
+        <div class="callout todo">
+          <strong>TODO:</strong> Need to confirm what the X and Y axes are bound to (fixed parameters? user-assignable? specific to each preset?). Let me know how XY assignment works and I'll write this up properly.
+        </div>
+      </section>
+
+      <section id="song-player">
+        <h2><span class="num">16</span>Song Player <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Standalone only)</span></h2>
+        <p class="lead">The standalone iPad, iPhone and Mac apps include a built-in song player — a fast way to hear how your current preset sounds inside real music, without setting up a host.</p>
+
+        <h3>Included tracks</h3>
+        <p>All tracks are in the public domain:</p>
+        <ul>
+          <li>You Are My Sunshine</li>
+          <li>Twinkle Twinkle</li>
+          <li>Happy Birthday</li>
+          <li>Brahms' Lullaby</li>
+          <li>Ode to Joy</li>
+          <li>Mary Had a Little Lamb</li>
+          <li>London Bridge</li>
+          <li>Jingle Bells</li>
+          <li>Frère Jacques</li>
+          <li>When the Saints</li>
+          <li>Silent Night</li>
+          <li>Row Your Boat</li>
+          <li>Für Elise</li>
+          <li>Scarborough Fair</li>
+          <li>Greensleeves</li>
+          <li>Amazing Grace</li>
+          <li>Auld Lang Syne</li>
+          <li>Pachelbel's Canon</li>
+          <li>Beethoven's Fifth</li>
+          <li>Morning (Grieg)</li>
+        </ul>
+
+        <h3>How to use it</h3>
+        <ol>
+          <li>Tap to open the <strong>Song Player</strong> drawer (typically at the bottom of the screen).</li>
+          <li>Tap the green play button next to any track. Dante will start playing the melody using the current preset.</li>
+          <li>Tap the red stop button to stop playback.</li>
+          <li>Switch presets while a song is playing to A/B sounds quickly.</li>
+        </ol>
+
+        <div class="callout note">
+          <strong>Great for kids and parties.</strong> Even a complete beginner can pick a preset, hit play, and instantly hear Happy Birthday played through wild evolving Dualphonic Sync sounds. Hand the iPad to someone and let them explore.
+        </div>
+
+        <p><strong>MIDI input is also supported in standalone</strong> — connect any USB or Bluetooth MIDI controller and play Dante directly.</p>
+      </section>
+
+      <section id="midi">
+        <h2><span class="num">17</span>MIDI <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Full mapping AUv3)</span></h2>
+        <p class="lead">Dante supports MIDI note input on all platforms. The AUv3 version adds extensive MIDI CC mapping for parameters and UI controls.</p>
+
+        <h3>Note input</h3>
+        <p>Standard MIDI note on/off triggers Dante. Note velocity, pitch bend, mod wheel and aftertouch are all received.</p>
+
+        <h3>CC mapping (AUv3)</h3>
+        <p>The AUv3 version provides MIDI CC mapping across virtually every parameter — filter cutoff, fold amount, LFO rates, envelope stages, glide time, effect mix, and more.</p>
+
+        <h3>Button MIDI mapping (AUv3)</h3>
+        <p>In addition to parameter mapping, the following buttons can be driven directly from MIDI:</p>
+        <ul>
+          <li><strong>Generate</strong> (random preset)</li>
+          <li><strong>Tweak</strong></li>
+          <li><strong>Dualphonic Sync</strong> (cycle valid sync combinations)</li>
+        </ul>
+
+        <h3>UI window MIDI mapping (AUv3)</h3>
+        <p>You can also map MIDI to open/close UI windows — useful when you're in a live performance or DAW workflow and don't want to touch the screen:</p>
+        <ul>
+          <li><strong>Scope</strong></li>
+          <li><strong>Preset Browser</strong></li>
+          <li><strong>XY Pad</strong></li>
+          <li><strong>Random Generator</strong></li>
+        </ul>
+
+        <div class="callout todo">
+          <strong>TODO:</strong> Document the specific MIDI Learn workflow — long-press, two-finger tap, or a dedicated MIDI mapping page? Let me know and I'll fill in the step-by-step.
+        </div>
+      </section>
+
+      <section id="sharing">
+        <h2><span class="num">18</span>Sharing Presets</h2>
+        <p class="lead">Made a great sound? You can share it back with us so we can consider it for future factory libraries.</p>
+        <ol>
+          <li>Inside Dante, navigate to your preset and tap the <strong>Copy Preset</strong> button. This places the preset (a small JSON snippet) onto your device's clipboard.</li>
+          <li>Open <a href="support.html">our website's submission form</a> in a browser.</li>
+          <li>Paste the preset into the form's preset field.</li>
+          <li>Submit.</li>
+        </ol>
+        <p>The whole flow requires you to deliberately copy, navigate, paste and submit — Dante never sends anything automatically. See our <a href="privacy.html">Privacy Policy</a> for the full disclosure on what happens with submitted presets.</p>
+      </section>
+
+      <section id="tips">
+        <h2><span class="num">19</span>Tips &amp; Workflow</h2>
+
+        <h3>Start from a preset, don't start from blank</h3>
+        <p>Building a sound from scratch is slow. Roll the dice, find something you like, then modify. Even pros usually start from an existing patch.</p>
+
+        <h3>Use Tweak more than Generate</h3>
+        <p>Generate gives you a brand-new sound — useful for inspiration but easy to lose your direction. Once you have a promising starting point, switch to Tweak. You'll iterate faster and end up with sounds that feel intentional.</p>
+
+        <h3>Cycle DUALPHONIC SYNC to find unique textures</h3>
+        <p>Most people leave sync alone. Don't. After you've found a sound, tap the DUALPHONIC SYNC button 5–10 times — you'll often discover a variation more interesting than the original.</p>
+
+        <h3>Pay attention to the white LFO indicators</h3>
+        <p>When you can't tell what's making a parameter move, look for the moving white line inside the slider. It's showing you exactly what an LFO is doing in real time — invaluable when sounds get complex.</p>
+
+        <h3>Use linked mode when you're learning</h3>
+        <p>Per-oscillator everything gets overwhelming fast. When you're learning, start with most modules in <strong>linked</strong> mode (one envelope drives all four oscillators) and only break individual modules out to per-osc when you need that specific control.</p>
+
+        <h3>Keep the Scope open</h3>
+        <p>The Scope teaches you what each waveform actually sounds like by showing it visually. After a few sessions you'll start <em>predicting</em> what changes will do before you make them — that's when sound design starts to feel intuitive.</p>
+      </section>
+
+      <section id="troubleshooting">
+        <h2><span class="num">20</span>Troubleshooting</h2>
+        <div class="callout todo">
+          <strong>TODO:</strong> This section should cover common issues — no audio, high CPU/DSP, MIDI not received, preset import errors, etc. Tell me the issues you're getting from real users and I'll write up answers.
+        </div>
+
+        <h3>I can't hear anything</h3>
+        <ul>
+          <li>Check the master <strong>Output meter</strong> at the top of the screen — is it moving when you play?</li>
+          <li>Check the <strong>Gain</strong> slider isn't at zero.</li>
+          <li>Make sure at least one oscillator is <strong>ON</strong> and its <strong>Vol</strong> slider is above zero.</li>
+          <li>If using AUv3, check that the host's track is unmuted and routed correctly.</li>
+        </ul>
+
+        <h3>The DSP percentage is high</h3>
+        <ul>
+          <li>Turn <strong>OFF</strong> any oscillators you're not using.</li>
+          <li>Long reverb tails and heavy modulation use more CPU. Try a shorter reverb decay or simpler LFO setup.</li>
+          <li>On iPhone or older iPad models, you may need to reduce the host's audio buffer size for more headroom.</li>
+        </ul>
+      </section>
+
+      <section id="support">
+        <h2><span class="num">21</span>Getting Help</h2>
+        <p>Questions, bug reports, feature requests — head to the <a href="support.html">Support page</a>. We aim to reply within 1–2 business days.</p>
+        <p>For privacy questions, see the <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>Thanks for using Dante.</p>
+      </section>
+
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container" style="max-width: 800px; margin: 0 auto;">
+    <a href="index.html" class="topnav-brand" style="justify-content: center;">
+      <svg class="ss-mark" width="32" height="20" viewBox="0 0 38 26" fill="none" aria-hidden="true">
+        <path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Swift SW
+    </a>
+    <p style="margin-top: 8px;">&copy; 2026 Swift SW. All rights reserved.</p>
+    <div style="margin-top: 12px; display: flex; gap: 22px; justify-content: center; font-size: 13px;">
+      <a href="index.html" style="color: var(--text-muted); text-decoration: none;">Home</a>
+      <a href="dantemanual.html" style="color: var(--text-muted); text-decoration: none;">Manual</a>
+      <a href="support.html" style="color: var(--text-muted); text-decoration: none;">Support</a>
+      <a href="privacy.html" style="color: var(--text-muted); text-decoration: none;">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Highlight current TOC item based on scroll position
+  const sections = document.querySelectorAll('.content section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
