@@ -521,6 +521,47 @@
         <div class="callout note">
           <strong>About the white lines on parameter sliders.</strong> When an LFO is modulating a parameter, you'll see a horizontal white line move up and down inside the slider showing exactly how much the parameter is being pushed in real time. No guesswork required.
         </div>
+
+        <h3 id="linked-perosc">Per-Osc and Linked Modes</h3>
+        <p>One concept appears everywhere in Dante, so it's worth learning straight away: most modulation panels can run in either <strong>Per-Osc</strong> or <strong>Linked</strong> mode. You toggle between the two using the button next to each panel's title — it shows the current mode (<span class="ui">PER-OSC</span> or <span class="ui">LINKED</span>).</p>
+
+        <h4>Per-Osc mode</h4>
+        <p>Each of the four oscillators gets its own independent copy of that module. So in Per-Osc Filter mode you might run a 24dB low-pass filter wide open on <span class="osc-tag o1">Osc 1</span>, a swept notch on <span class="osc-tag o2">Osc 2</span>, a band-pass on <span class="osc-tag o3">Osc 3</span> and a formant filter on <span class="osc-tag o4">Osc 4</span> — all at the same time. Each oscillator's controls are colour-coded so you always know which oscillator you're editing.</p>
+
+        <h4>Linked mode</h4>
+        <p>All four oscillators share a single instance of that module. One set of controls drives every oscillator at once. It's lighter on CPU, simpler to dial in, and often exactly what you want when you're after a cohesive sound rather than four contrasting voices.</p>
+
+        <p>Per-Osc and Linked exist for the following panels: <strong>Vol Env</strong>, <strong>Filt Env</strong>, <strong>Filter</strong>, <strong>Cut LFO</strong>, <strong>Vol LFO</strong>, <strong>Fold LFO</strong>, <strong>Pitch LFO</strong>, <strong>Glide</strong>, and <strong>Effects</strong>. The Oscillators panel itself is always per-oscillator by nature — each oscillator has its own waveform, volume, fold, detune and sync mode.</p>
+
+        <h4>A special case: Filter, Filt Env and Cut LFO</h4>
+        <p>The <strong>Filter Envelope</strong> and <strong>Cutoff LFO</strong> both modulate the Filter's cutoff — they share a target. Because of this, their Per-Osc / Linked modes are tied to the Filter's mode by a simple rule:</p>
+        <div class="callout note" style="font-size: 15.5px;">
+          A modulator can have <em>fewer or equal</em> instances to its target — never more.
+        </div>
+        <p>In practice:</p>
+        <ul>
+          <li>If the <strong>Filter</strong> is in <strong>Linked</strong> mode (one shared filter), then the <strong>Filt Env</strong> and <strong>Cut LFO</strong> must also be in Linked mode. One envelope and one LFO drive the single shared filter.</li>
+          <li>If the <strong>Filter</strong> is in <strong>Per-Osc</strong> mode (four independent filters), then the <strong>Filt Env</strong> and <strong>Cut LFO</strong> can be in either mode. Set them to <strong>Linked</strong> and one envelope/LFO broadcasts to all four filters; set them to <strong>Per-Osc</strong> and each filter has its own dedicated envelope and LFO.</li>
+        </ul>
+        <p>The same principle applies between the <strong>Filter</strong> and the <strong>Cut LFO</strong> directly — wherever one module modulates another, the modulator can have fewer instances than its target, but never more.</p>
+        <p>You'll see this play out as you switch modes: changing the Filter to Linked while the Filt Env or Cut LFO are in Per-Osc will adjust them to match, and trying to put a modulator into Per-Osc mode while its target is Linked will be blocked with a short dialog explaining what to switch first.</p>
+        <div class="callout todo">
+          <strong>To confirm:</strong> exact enforcement behaviour — does Dante <em>auto-collapse</em> Filt Env/Cut LFO when you change Filter to Linked (silently), or does it <em>warn first</em> with a dialog? And when blocking a Per-Osc switch, what's the exact dialog wording? Let me know and I'll tighten the description above.
+        </div>
+
+        <div class="callout tip">
+          <strong>When to use which.</strong> Start in <strong>Linked</strong> when you're learning a new sound, or when all four oscillators are playing the same role (e.g. layered unison). Switch a specific module to <strong>Per-Osc</strong> the moment you want oscillators to behave differently from each other — for example, giving one oscillator its own filter envelope to make it pop out of the mix.
+        </div>
+
+        <h3 id="consistent-ui">A Consistent Interface</h3>
+        <p>Dante's UI is designed so that learning any one panel teaches you most of the others. A few things to notice as you explore:</p>
+        <ul>
+          <li><strong>Oscillator colours follow everywhere.</strong> Osc 1 is always blue, Osc 2 green, Osc 3 orange, Osc 4 magenta — in every panel, the Scope, the Preset Browser. Glance at any control and you instantly know which oscillator it belongs to.</li>
+          <li><strong>Same layout, repeated.</strong> All four LFO panels share the same control structure (Rate / Range / Fade / Phase reset / Clock sync). Both envelopes share the same ADSR layout. Learn one, you can drive the others without re-reading anything.</li>
+          <li><strong>Modes work the same way.</strong> The PER-OSC / LINKED toggle is in the same position on every panel that has it. The On/Off button is in the same position on every oscillator column.</li>
+          <li><strong>Modulation is visible.</strong> The white indicator lines on parameter sliders show exactly which parameters are being moved by an LFO and by how much — so when something changes in the sound, you can always see why.</li>
+        </ul>
+        <p>The payoff: even Dante's deepest features stay easy to navigate, because the colour-coding and consistent layout always tell you what you're looking at.</p>
       </section>
 
       <section id="oscillators">
@@ -619,6 +660,9 @@
         <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout as the Volume Envelope.</p>
         <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
         <p>Like Vol Env, Filt Env supports linear/exponential curves and can be per-osc or linked.</p>
+        <div class="callout note">
+          <strong>Mode constraint.</strong> Filt Env's Per-Osc / Linked mode is tied to the <strong>Filter's</strong> mode. You can have <em>fewer or equal</em> envelopes than filters, never more — see <a href="#linked-perosc">Per-Osc and Linked Modes</a> for the full rule.
+        </div>
       </section>
 
       <section id="filters">
@@ -656,6 +700,9 @@
         </table>
 
         <p>Filters can be set <strong>per-oscillator</strong> or <strong>linked</strong> across all four.</p>
+        <div class="callout note">
+          <strong>The Filter is the target.</strong> Filt Env and Cut LFO both modulate the filter cutoff, so their Per-Osc / Linked modes are tied to the Filter's mode. If the Filter is Linked, those modulators must be Linked too — see <a href="#linked-perosc">Per-Osc and Linked Modes</a> for the full rule.
+        </div>
       </section>
 
       <section id="lfos">
@@ -682,6 +729,9 @@
 
         <h3 id="cut-lfo">9.1 Cutoff LFO (Cut LFO)</h3>
         <p>Modulates the filter cutoff over time. The classic "wah-wah" sweeping effect.</p>
+        <div class="callout note">
+          <strong>Mode constraint.</strong> Cut LFO modulates the Filter, so its Per-Osc / Linked mode is tied to the Filter's mode. You can have <em>fewer or equal</em> LFOs than filters, never more — see <a href="#linked-perosc">Per-Osc and Linked Modes</a> for the full rule.
+        </div>
 
         <h3 id="vol-lfo">9.2 Volume LFO (Vol LFO)</h3>
         <p>Modulates the oscillator volume — produces tremolo (amplitude modulation).</p>
