@@ -426,12 +426,13 @@
         <li><a href="#random">13. Random Preset Generator</a></li>
         <li><a href="#scope">14. Scope</a></li>
         <li><a href="#xy-pad">15. XY Pad</a></li>
-        <li><a href="#song-player">16. Song Player</a></li>
-        <li><a href="#midi">17. MIDI</a></li>
-        <li><a href="#sharing">18. Sharing Presets</a></li>
-        <li><a href="#tips">19. Tips &amp; Workflow</a></li>
-        <li><a href="#troubleshooting">20. Troubleshooting</a></li>
-        <li><a href="#support">21. Getting Help</a></li>
+        <li><a href="#settings">16. Performance Settings</a></li>
+        <li><a href="#song-player">17. Song Player</a></li>
+        <li><a href="#midi">18. MIDI</a></li>
+        <li><a href="#sharing">19. Sharing Presets</a></li>
+        <li><a href="#tips">20. Tips &amp; Workflow</a></li>
+        <li><a href="#troubleshooting">21. Troubleshooting</a></li>
+        <li><a href="#support">22. Getting Help</a></li>
       </ul>
     </aside>
 
@@ -483,7 +484,8 @@
         <ul>
           <li><strong>Preset name</strong> (left) — tap to open the Preset Browser.</li>
           <li><strong>DANTE logo</strong> (centre) — purely decorative.</li>
-          <li><strong>XY Pad button</strong> (right) — opens the expressive XY control surface.</li>
+          <li><strong>XY Pad button</strong> — opens the expressive XY control surface.</li>
+          <li><strong>⚙️ Settings cog</strong> (immediately right of XY Pad) — opens the Performance Settings dialog (see <a href="#settings">16. Performance Settings</a>).</li>
         </ul>
 
         <h3>Toolbar</h3>
@@ -729,6 +731,10 @@
         </div>
 
         <p>Effects can be set <strong>per-oscillator</strong> or <strong>linked</strong>.</p>
+
+        <div class="callout note">
+          <strong>Per-oscillator effects are CPU-heavy.</strong> Running four independent reverbs and delays can use 3–4× the DSP of a single shared pair. If you're hitting CPU limits — especially on iPhone or in busy AUv3 sessions — enable <strong>Force Linked Effects</strong> in <a href="#settings">Performance Settings</a> to keep the Effects panel locked in linked mode.
+        </div>
       </section>
 
       <section id="presets">
@@ -817,8 +823,50 @@
         </div>
       </section>
 
+      <section id="settings">
+        <h2><span class="num">16</span>Performance Settings</h2>
+        <p class="lead">Dante runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
+
+        <h3>Opening the Settings panel</h3>
+        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top header, immediately to the right of the XY Pad button. The Settings dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
+
+        <h3>Reverb Quality</h3>
+        <p>The audible quality of the reverb depends on how many parallel delay lines it runs internally. More lines = denser, smoother reverb tail. Fewer lines = lighter CPU load.</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Setting</th><th>Internal lines</th><th>Character</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Off</td><td>0 (bypassed)</td><td>No reverb. Maximum CPU savings.</td></tr>
+            <tr><td>Light</td><td>2</td><td>Lo-fi, grainy reverb. Very low CPU.</td></tr>
+            <tr><td>Standard</td><td>4</td><td>Balanced reverb quality. Moderate CPU.</td></tr>
+            <tr><td>Full</td><td>8</td><td>Highest-quality reverb. <strong>Default.</strong></td></tr>
+          </tbody>
+        </table>
+        <p>The default is <strong>Full</strong>. Reach for the lower tiers only when you're trying to claw back CPU in a busy AUv3 session, or if you specifically want the character of a sparser reverb.</p>
+
+        <h3>Force Linked Effects</h3>
+        <p>By default, each oscillator can run its own independent reverb and delay. While powerful, this multiplies the effects' CPU cost by up to four.</p>
+        <p>Turning <strong>Force Linked Effects</strong> on locks the Effects panel into linked mode: one reverb and one delay shared across all four oscillators. This single change can reduce DSP load by more than half in effect-heavy patches.</p>
+        <p>If you load (or are already running) a preset with per-oscillator effects when you enable Force Linked Effects, Dante silently collapses the effects to linked mode, taking <strong>Osc 1's effects settings</strong> as the shared source. The sound of the other oscillators' effects is replaced; their settings are not preserved.</p>
+        <p>While Force Linked Effects is on, if you visit the Effects tab and try to switch back to per-oscillator mode, Dante will display a short dialog explaining that the change is being blocked by the Force Linked Effects setting, and pointing you to the Performance Settings panel where you can turn it off.</p>
+
+        <h3>When to use these settings</h3>
+        <p>Dante's defaults are designed to perform well across all supported devices. You typically only need to touch Performance Settings when:</p>
+        <ul>
+          <li>You're running Dante alongside many other AUv3 plugins inside a host, and the host's total DSP load is getting too high.</li>
+          <li>You're stacking multiple instances of Dante in the same session.</li>
+          <li>You want the deliberate character of a sparser reverb (Light or Standard) rather than the lush default.</li>
+        </ul>
+        <p>In all of these cases, enabling <strong>Force Linked Effects</strong> is usually the biggest single win. Lowering <strong>Reverb Quality</strong> recovers additional headroom on top of that.</p>
+
+        <div class="callout tip">
+          <strong>Performance Settings are app preferences, not part of a preset.</strong> Your choices persist between sessions and apply to every preset you load. Sharing or saving a preset never overrides another user's settings.
+        </div>
+      </section>
+
       <section id="song-player">
-        <h2><span class="num">16</span>Song Player <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Standalone only)</span></h2>
+        <h2><span class="num">17</span>Song Player <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Standalone only)</span></h2>
         <p class="lead">The standalone iPad, iPhone and Mac apps include a built-in song player — a fast way to hear how your current preset sounds inside real music, without setting up a host.</p>
 
         <h3>Included tracks</h3>
@@ -862,7 +910,7 @@
       </section>
 
       <section id="midi">
-        <h2><span class="num">17</span>MIDI <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Full mapping AUv3)</span></h2>
+        <h2><span class="num">18</span>MIDI <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Full mapping AUv3)</span></h2>
         <p class="lead">Dante supports MIDI note input on all platforms. The AUv3 version adds extensive MIDI CC mapping for parameters and UI controls.</p>
 
         <h3>Note input</h3>
@@ -894,7 +942,7 @@
       </section>
 
       <section id="sharing">
-        <h2><span class="num">18</span>Sharing Presets</h2>
+        <h2><span class="num">19</span>Sharing Presets</h2>
         <p class="lead">Made a great sound? You can share it back with us so we can consider it for future factory libraries.</p>
         <ol>
           <li>Inside Dante, navigate to your preset and tap the <strong>Copy Preset</strong> button. This places the preset (a small JSON snippet) onto your device's clipboard.</li>
@@ -906,7 +954,7 @@
       </section>
 
       <section id="tips">
-        <h2><span class="num">19</span>Tips &amp; Workflow</h2>
+        <h2><span class="num">20</span>Tips &amp; Workflow</h2>
 
         <h3>Start from a preset, don't start from blank</h3>
         <p>Building a sound from scratch is slow. Roll the dice, find something you like, then modify. Even pros usually start from an existing patch.</p>
@@ -928,7 +976,7 @@
       </section>
 
       <section id="troubleshooting">
-        <h2><span class="num">20</span>Troubleshooting</h2>
+        <h2><span class="num">21</span>Troubleshooting</h2>
         <div class="callout todo">
           <strong>TODO:</strong> This section should cover common issues — no audio, high CPU/DSP, MIDI not received, preset import errors, etc. Tell me the issues you're getting from real users and I'll write up answers.
         </div>
@@ -942,15 +990,18 @@
         </ul>
 
         <h3>The DSP percentage is high</h3>
+        <p>Dante runs comfortably on every supported device, so high DSP usually means your AUv3 host has a lot loaded into it. In order of impact:</p>
         <ul>
-          <li>Turn <strong>OFF</strong> any oscillators you're not using.</li>
-          <li>Long reverb tails and heavy modulation use more CPU. Try a shorter reverb decay or simpler LFO setup.</li>
-          <li>On iPhone or older iPad models, you may need to reduce the host's audio buffer size for more headroom.</li>
+          <li>Open <a href="#settings">Performance Settings</a> (cog icon) and enable <strong>Force Linked Effects</strong>. One shared reverb and delay across all four oscillators can cut effects CPU by more than half.</li>
+          <li>In the same panel, drop <strong>Reverb Quality</strong> a tier — Full → Standard, or Standard → Light. The difference is most noticeable on long reverb tails.</li>
+          <li>Turn <strong>OFF</strong> any oscillators you're not using. An off oscillator consumes no CPU.</li>
+          <li>Heavy modulation (multiple LFOs at fast rates, all running per-oscillator) adds up. Where it doesn't change the sound, run LFOs in <strong>linked</strong> mode.</li>
+          <li>If your host gives you control, raising the audio buffer size also gives more headroom (at the cost of slightly more latency).</li>
         </ul>
       </section>
 
       <section id="support">
-        <h2><span class="num">21</span>Getting Help</h2>
+        <h2><span class="num">22</span>Getting Help</h2>
         <p>Questions, bug reports, feature requests — head to the <a href="support.html">Support page</a>. We aim to reply within 1–2 business days.</p>
         <p>For privacy questions, see the <a href="privacy.html">Privacy Policy</a>.</p>
         <p>Thanks for using Dante.</p>
