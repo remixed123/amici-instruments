@@ -483,11 +483,14 @@
         <p class="lead">A quick walkthrough of where everything lives.</p>
 
         <h3>Top Header</h3>
+        <p>From left to right across the top of the screen:</p>
         <ul>
-          <li><strong>Preset name</strong> (left) — tap to open the Preset Browser.</li>
-          <li><strong>DANTE logo</strong> (centre) — purely decorative.</li>
-          <li><strong>XY Pad button</strong> — opens the expressive XY control surface.</li>
-          <li><strong>⚙️ Settings cog</strong> (immediately right of XY Pad) — opens the App Preferences dialog (see <a href="#app-preferences">16. App Preferences</a>).</li>
+          <li><strong>DANTE logo</strong> (top-left) — the multi-coloured wordmark; purely decorative.</li>
+          <li><strong>Pitch / frequency readout</strong> <em>(iPad / iPhone standalone)</em> — shows the most recently played note and its frequency in Hz.</li>
+          <li><strong>Preset selector</strong> (centre) — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the preset name itself to open the full Preset Browser (see <a href="#presets">12. Presets</a>).</li>
+          <li><strong>Randomiser button</strong> (orange) — labelled with the current <strong>Base Preset Source</strong> (e.g. <em>Randomiser — All</em>, <em>Randomiser — Bass</em>). Tap to open the Random Preset Generator, where you can change the Base Preset Source as well as choose which oscillators and parameters get randomised (see <a href="#random">13. Random Preset Generator</a>).</li>
+          <li><strong>Keyboard toggle</strong> <em>(iPad / iPhone standalone)</em> — shows or hides the built-in keyboard at the top of the screen.</li>
+          <li><strong>⚙️ Settings cog</strong> (top-right) — opens the App Preferences dialog (see <a href="#app-preferences">16. App Preferences</a>).</li>
         </ul>
 
         <h3>Toolbar</h3>
@@ -506,14 +509,18 @@
         </ul>
 
         <h3>Master Strip</h3>
-        <p>Above the four oscillator columns you'll see:</p>
+        <p>Just above the four oscillator columns, the Master Strip gathers your global controls and quick-access dialog buttons. From left to right:</p>
         <ul>
-          <li><strong>Output meter</strong> — shows the current master output level (and clipping in yellow/red).</li>
-          <li><strong>Gain</strong> — overall master gain.</li>
-          <li><strong>SCOPE</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
-          <li><strong>🎲 dice</strong> — opens the Random Preset Generator.</li>
+          <li><strong>Output meter</strong> — a horizontal level meter showing the master output. Green is healthy, yellow is approaching clip, red means you're clipping; pull down the Gain if you see red.</li>
+          <li><strong>Gain</strong> — overall master output level.</li>
+          <li><strong>Scope icon</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
+          <li><strong>XY Pad icon</strong> — opens the expressive XY control surface (see <a href="#xy-pad">15. XY Pad</a>).</li>
+          <li><strong>🎲 Dice icon</strong> — a quick-generate trigger. One tap rolls a new preset using the Base Preset Source currently set in the Randomiser, without opening the Randomiser dialog.</li>
           <li><strong>DUALPHONIC SYNC</strong> — cycles through valid Dualphonic Sync combinations (see <a href="#dualphonic">6. Dualphonic Sync</a>).</li>
         </ul>
+        <div class="callout tip">
+          <strong>Randomiser button vs. dice icon.</strong> The orange <strong>Randomiser</strong> button in the top header opens the full Random Preset Generator dialog where you set the Base Preset Source, target oscillators and parameters. The small <strong>dice icon</strong> in the Master Strip is a one-tap shortcut that re-rolls a fresh preset using whatever settings you last configured in the Randomiser.
+        </div>
 
         <h3>The Four Oscillator Columns</h3>
         <p>The main area shows four oscillator columns, each in its own colour: <span class="osc-tag o1">Osc 1</span> <span class="osc-tag o2">Osc 2</span> <span class="osc-tag o3">Osc 3</span> <span class="osc-tag o4">Osc 4</span>. The colour follows that oscillator everywhere in Dante — including the Scope, LFO panels, and Preset Browser.</p>
@@ -544,10 +551,7 @@
           <li>If the <strong>Filter</strong> is in <strong>Per-Osc</strong> mode (four independent filters), then the <strong>Filt Env</strong> and <strong>Cut LFO</strong> can be in either mode. Set them to <strong>Linked</strong> and one envelope/LFO broadcasts to all four filters; set them to <strong>Per-Osc</strong> and each filter has its own dedicated envelope and LFO.</li>
         </ul>
         <p>The same principle applies between the <strong>Filter</strong> and the <strong>Cut LFO</strong> directly — wherever one module modulates another, the modulator can have fewer instances than its target, but never more.</p>
-        <p>You'll see this play out as you switch modes: changing the Filter to Linked while the Filt Env or Cut LFO are in Per-Osc will adjust them to match, and trying to put a modulator into Per-Osc mode while its target is Linked will be blocked with a short dialog explaining what to switch first.</p>
-        <div class="callout todo">
-          <strong>To confirm:</strong> exact enforcement behaviour — does Dante <em>auto-collapse</em> Filt Env/Cut LFO when you change Filter to Linked (silently), or does it <em>warn first</em> with a dialog? And when blocking a Per-Osc switch, what's the exact dialog wording? Let me know and I'll tighten the description above.
-        </div>
+        <p>You don't need to manage any of this yourself. Dante adjusts the related modules dynamically as you work — no dialogs, no warnings, no blocked actions. If you switch the Filter to Linked while the Filt Env or Cut LFO are in Per-Osc, they'll quietly collapse to match. Likewise, switching a modulator to Per-Osc while its target is Linked will expand the target as needed. The interface always keeps the configuration valid for you in the background.</p>
 
         <div class="callout tip">
           <strong>When to use which.</strong> Start in <strong>Linked</strong> when you're learning a new sound, or when all four oscillators are playing the same role (e.g. layered unison). Switch a specific module to <strong>Per-Osc</strong> the moment you want oscillators to behave differently from each other — for example, giving one oscillator its own filter envelope to make it pop out of the mix.
@@ -808,7 +812,7 @@
         </ul>
 
         <h3>The Preset Browser</h3>
-        <p>Tap the preset name at the top-left of the screen to open the Preset Browser. Categories are on the left, preset names on the right. Tap a star to add to favourites; tap a preset name to load it.</p>
+        <p>Tap the preset name in the top-centre of the screen to open the Preset Browser. Categories are on the left, preset names on the right. Tap a star to add to favourites; tap a preset name to load it. You can also step through presets one at a time using the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side of the preset name without opening the browser.</p>
 
         <h3>Random / Import / Save Current</h3>
         <p>The Preset Browser header has three buttons:</p>
@@ -827,7 +831,12 @@
         <p class="lead">Dante's random preset generator is musical, not chaotic. It produces usable, inspiring sounds — and lets you target exactly what gets randomised.</p>
 
         <h3>Opening the generator</h3>
-        <p>Tap the dice button (🎲) anywhere it appears — in the master strip, in the Preset Browser header, or via a mapped MIDI CC (AUv3).</p>
+        <p>There are two ways to reach it:</p>
+        <ul>
+          <li><strong>Randomiser button</strong> in the top header — labelled with the current Base Preset Source (e.g. <em>Randomiser — All</em>). Tap it to open the full Random Preset Generator dialog where you can configure source, oscillators and parameters.</li>
+          <li><strong>🎲 Dice icon</strong> in the Master Strip — a one-tap shortcut that rolls a fresh preset using your current Randomiser settings, without opening the dialog.</li>
+        </ul>
+        <p>You can also trigger Generate via a mapped MIDI CC in the AUv3 version (see <a href="#midi">18. MIDI</a>).</p>
 
         <h3>Base preset source</h3>
         <p>The top section chooses which category Dante draws inspiration from when rolling a new sound:</p>
@@ -880,7 +889,7 @@
         <p class="lead">App Preferences is where you control Dante's resource usage and check version information. It's organised into two sections: <strong>Performance Settings</strong> for managing CPU/DSP load, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
 
         <h3>Opening App Preferences</h3>
-        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top header, immediately to the right of the XY Pad button. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
+        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top-right corner of the header. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
 
         <h3 id="performance-settings">16.1 Performance Settings</h3>
         <p>Dante runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
