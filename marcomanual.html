@@ -392,6 +392,7 @@
         <li><a href="#requirements">2. Requirements</a></li>
         <li><a href="#getting-started">3. Getting Started</a></li>
         <li><a href="#interface">4. Interface Tour</a></li>
+        <li class="subsection"><a href="#hints">4.1 Hints (? button)</a></li>
         <li><a href="#oscillators">5. The Oscillators</a></li>
         <li class="subsection"><a href="#waveforms">5.1 Waveforms</a></li>
         <li class="subsection"><a href="#osc-controls">5.2 Per-Osc Controls</a></li>
@@ -420,9 +421,10 @@
         <li><a href="#presets">12. Presets</a></li>
         <li><a href="#random">13. Random Preset Generator</a></li>
         <li class="subsection"><a href="#three-systems">13.1 Three ways to randomise</a></li>
-        <li class="subsection"><a href="#category-modes">13.6 Category Modes</a></li>
-        <li class="subsection"><a href="#master-randomisation">13.7 Master &amp; Randomisation</a></li>
-        <li class="subsection"><a href="#rpg-history">13.8 Random Preset History</a></li>
+        <li class="subsection"><a href="#styles">13.2 Styles (Mild/Wild/Recipe)</a></li>
+        <li class="subsection"><a href="#category-modes">13.7 Category behaviours</a></li>
+        <li class="subsection"><a href="#master-randomisation">13.8 Master &amp; Randomisation</a></li>
+        <li class="subsection"><a href="#rpg-history">13.9 Random Preset History</a></li>
         <li><a href="#scope">14. Scope</a></li>
         <li><a href="#xy-pad">15. XY Pad</a></li>
         <li><a href="#app-preferences">16. App Preferences</a></li>
@@ -512,11 +514,12 @@
         <h3>Master Strip</h3>
         <p>Just above the four oscillator columns, the Master Strip gathers your global controls and quick-access dialog buttons. From left to right:</p>
         <ul>
+          <li><strong>? Hints button</strong> (far left) — opens a context-aware Hints dialog for whatever tab you're currently on. The button changes colour to match the active tab. See <a href="#hints">Hints — the ? button</a> below.</li>
           <li><strong>Output meter</strong> — a horizontal level meter showing the master output. Green is healthy, yellow is approaching clip, red means you're clipping; pull down the Gain if you see red.</li>
           <li><strong>Gain</strong> — overall master output level.</li>
           <li><strong>Scope icon</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
           <li><strong>XY Pad icon</strong> — opens the expressive XY control surface (see <a href="#xy-pad">15. XY Pad</a>).</li>
-          <li><strong>◀ 🎲 ▶ Dice &amp; history chevrons</strong> — the dice is a quick-generate trigger (one tap rolls a new preset using the Base Preset Source set in the Randomiser, without opening the dialog). The orange chevrons either side step back and forward through your last 30 randomised sounds (see <a href="#rpg-history">13.8 Random Preset History</a>).</li>
+          <li><strong>◀ 🎲 ▶ Dice &amp; history chevrons</strong> — the dice is a quick-generate trigger (one tap rolls a new preset using the Base Preset Source and Styles set in the Randomiser, without opening the dialog). A small live label under the dice reads <span class="ui">Category.Styles</span> — telling you what the next roll will produce before you tap it (see <a href="#dice-label">the dice label</a>). The orange chevrons either side step back and forward through your last 30 randomised sounds (see <a href="#rpg-history">Random Preset History</a>).</li>
           <li><strong>DUALPHONIC SYNC</strong> — cycles through valid Dualphonic Sync combinations (see <a href="#dualphonic">6. Dualphonic Sync</a>).</li>
         </ul>
         <div class="callout tip">
@@ -577,6 +580,16 @@
           <li><strong>Modulation is visible.</strong> The white indicator lines on parameter sliders show exactly which parameters are being moved by an LFO and by how much — so when something changes in the sound, you can always see why.</li>
         </ul>
         <p>The payoff: even Marco's deepest features stay easy to navigate, because the colour-coding and consistent layout always tell you what you're looking at.</p>
+
+        <h3 id="hints">Hints — the <span class="ui">?</span> button</h3>
+        <p>Every synth tab has its own built-in help, so you never have to leave Marco to look something up. Tap the <span class="ui">?</span> button at the far left of the Master Strip to open the <strong>Hints</strong> dialog for whatever tab you're currently on. The button takes on the colour of the active tab so it always feels part of where you are.</p>
+        <p>Each Hints dialog has three parts:</p>
+        <ul>
+          <li><strong>A summary</strong> of what the current tab does.</li>
+          <li><strong>Controls</strong> — a plain-language description of every slider and toggle on that tab.</li>
+          <li><strong>Tips &amp; Recipes</strong> — worked examples you can dial in straight away (e.g. "Acid bass", "Living pad", "Trance gate").</li>
+        </ul>
+        <p>Hints are available on every panel — Oscillators, Vol Env, Filt Env, Filter, Cut LFO, Vol LFO, Fold LFO, Pitch LFO, Glide and Master — plus a dedicated entry for the Random Preset Generator, reached via the <span class="ui">?</span> button in that panel's own header. Tap outside the dialog or the <span class="ui">×</span> in its header to dismiss it. The Hints system is identical in the standalone app and the AUv3 plugin.</p>
       </section>
 
       <section id="oscillators">
@@ -875,11 +888,12 @@
           <tbody>
             <tr><td>Width</td><td>Slider</td><td>Stereo spread via allpass decorrelation (0–100%). Always available.</td></tr>
             <tr><td>Drift</td><td>Slider</td><td>Slow stereo movement — a 0.3 Hz LFO gently pans the image side to side (0–100%).</td></tr>
+            <tr><td>FOLD</td><td>Button</td><td>Asymmetric tanh saturation (left ×1.15, right ×0.85) that drives the two channels differently, producing harmonic stereo divergence and a wider, more characterful image.</td></tr>
             <tr><td>B.MONO</td><td>Button</td><td>Bass Mono — sums frequencies below ~200 Hz to mono, keeping the low end coherent for production.</td></tr>
             <tr><td>SAFE</td><td>Button</td><td>Mono compatibility — reduces the stereo side signal by 40% so the mix translates well to mono playback.</td></tr>
           </tbody>
         </table>
-        <p><strong>Signal flow:</strong> Width decorrelator → Drift → Bass Mono → Safe.</p>
+        <p><strong>Signal flow:</strong> Width decorrelator → Drift → Fold → Bass Mono → Safe.</p>
 
         <h3 id="master-limiter">11.7 Limiter</h3>
         <p>Brick-wall limiter at the end of the chain. Catches any peaks before they leave Marco.</p>
@@ -897,8 +911,19 @@
         <h3 id="master-presets">11.8 Master Presets</h3>
         <p>Marco's Master chain has its own preset system, separate from voice presets. You can swap the entire effects chain (Drive, Compressor, Delay, Reverb, Stereo, Limiter settings) independently of the sound you're playing — useful when you want to keep the voice you've designed but try a completely different sonic space.</p>
 
+        <h4>The Master nav button</h4>
+        <p>Master presets are driven from the <strong>Master nav button</strong> — a green pill sitting next to the main preset selector. It shows the name of the active Master preset, and like the voice-preset selector it has <span class="ui">&lt;</span> and <span class="ui">&gt;</span> chevrons for stepping through Master presets one at a time, plus tap-to-browse, save and overwrite.</p>
+
+        <h4>Edit tracking</h4>
+        <p>The Master nav button keeps you honest about whether what you're hearing still matches the named Master preset:</p>
+        <ul>
+          <li><strong><span class="ui">Name*</span> (asterisk)</strong> — appears after the active Master preset's name as soon as you change any Master tab slider or button. It clears when you navigate with the chevrons, pick a preset in the browser, save, or overwrite.</li>
+          <li><strong>"Custom"</strong> — replaces the Master preset name whenever you load a regular (voice) preset. Voice presets carry their own baked-in effects, so loading one means the previously-shown Master preset no longer describes what's playing. Loading or saving a Master preset replaces "Custom" with that preset's name again.</li>
+          <li><strong>"Custom*"</strong> — the two states combine: edit a Master control after loading a voice preset and the button reads <span class="ui">Custom*</span>.</li>
+        </ul>
+
         <div class="callout note">
-          <strong>The Master tab is never randomised.</strong> None of Marco's three randomisation systems (Generate, Tweak, Per-Osc Tweak) directly mutates the Master tab. Generate <em>does</em> change the Master chain indirectly — because it first loads a random base preset, the base preset's Master settings come with it. Tweak and Per-Osc Tweak leave Master alone entirely. See <a href="#master-randomisation">13.7 Master and Randomisation</a> for full details.
+          <strong>The Master tab is never randomised.</strong> None of Marco's three randomisation systems (Generate, Tweak, Per-Osc Tweak) directly mutates the Master tab. Generate <em>does</em> change the Master chain indirectly — because it first loads a random base preset, the base preset's Master settings come with it. Tweak and Per-Osc Tweak leave Master alone entirely. See <a href="#master-randomisation">13.8 Master and Randomisation</a> for full details.
         </div>
       </section>
 
@@ -950,7 +975,7 @@
             <tr>
               <td>Generate</td>
               <td>"Generate" button in the Random Preset panel, or the 🎲 dice button on the main toolbar</td>
-              <td>Picks a random base preset from your selected category, then mutates all its parameters using <strong>category-aware ranges</strong>. Produces a completely new sound rooted in an existing preset's DNA. The toolbar dice does exactly the same thing as the panel's Generate button.</td>
+              <td>Rolls a completely new sound. Each press picks one of your enabled <strong>Styles</strong> (Mild, Wild or Recipe — see <a href="#styles">13.2 Styles</a>) and uses it to build a preset from your selected category. Produces a fresh sound that still belongs to the category you chose. The toolbar dice does exactly the same thing as the panel's Generate button.</td>
             </tr>
             <tr>
               <td>Tweak</td>
@@ -965,17 +990,45 @@
           </tbody>
         </table>
 
-        <h3 id="opening-rpg">13.2 Opening the panel &amp; the toolbar dice</h3>
+        <h3 id="styles">13.2 Styles — Mild, Wild &amp; Recipe</h3>
+        <p>Sitting above the category, three <strong>Style</strong> pills decide <em>how</em> adventurous each Generate roll is. Styles are <strong>multi-select</strong> — turn on any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Style</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mild</td><td>Gentle, musical variation. Stays close to safe, usable territory — great when you want fresh ideas that are easy to play with straight away.</td></tr>
+            <tr><td>Wild</td><td>Wide-open randomisation across the full parameter ranges. More surprising and more extreme — the place to go hunting for the unexpected.</td></tr>
+            <tr><td>Recipe</td><td>Builds the sound from one of Marco's curated <strong>sonic archetypes</strong> — think "Moog Lead", "Acid 303", "Glass Pad", "Riser". Recipes roll within a coherent character rather than rolling every parameter independently, so the result reliably sounds like a real, intentional patch.</td></tr>
+          </tbody>
+        </table>
+        <p>With more than one Style enabled, Marco alternates between them from roll to roll, so a run of dice taps gives you a mix of safe variations, wild surprises and curated archetypes.</p>
+        <div class="callout note">
+          <strong>Recipe isn't available everywhere.</strong> Recipes are curated for the <strong>All, Bass, Lead, Pad, Keys, Drone, FX</strong> and <strong>Signature</strong> categories. For <strong>User, Favourites, Artists</strong> and <strong>Basic</strong> there are no recipes (those categories are about varying your own or curated sounds), so the Recipe pill <strong>dims</strong> — it stays tappable, but a roll there falls back to Mild or Wild. If you end up with no Style enabled, Marco falls back to Mild so you always get a usable sound.
+        </div>
+        <div class="callout tip">
+          <strong>Not sure which to use?</strong> Leave all three on. Tap the <span class="ui">?</span> button in the Random Preset panel's header any time for an in-panel explanation of the Styles, the multi-select behaviour, the source category and the dice label.
+        </div>
+
+        <h3 id="opening-rpg">13.3 Opening the panel &amp; the toolbar dice</h3>
         <ul>
-          <li><strong>Randomiser button</strong> in the top header — labelled with the current Base Preset Source (e.g. <em>Randomiser — All</em>). Tap it to open the Random Preset panel, where the Generate button, Tweak button and all the targeting toggles live.</li>
-          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the panel. It's flanked by history chevrons (see <a href="#rpg-history">13.8 Random Preset History</a>).</li>
+          <li><strong>Randomiser button</strong> in the top header — labelled with the current Base Preset Source (e.g. <em>Randomiser — All</em>). Tap it to open the Random Preset panel, where the Generate button, Tweak button, the Style pills and all the targeting toggles live. The panel header also has a <span class="ui">?</span> hint button explaining how the generator works.</li>
+          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the panel. It's flanked by history chevrons (see <a href="#rpg-history">Random Preset History</a>).</li>
         </ul>
 
-        <h3 id="base-source">13.3 Base Preset Source</h3>
-        <p>The top of the panel chooses which category Marco draws inspiration from when Generate rolls a new sound. Any of the factory categories (<strong>Basic, Bass, Lead, Pad, Keys, FX, Drone</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>.</p>
-        <p>Each category isn't just a filter for the base preset — it also changes <em>how</em> Generate mutates parameters. See <a href="#category-modes">13.6 Category Modes</a> below.</p>
+        <h4 id="dice-label">The dice label</h4>
+        <p>A small live caption under the Master Strip dice tells you what the <em>next</em> roll will produce, in the form <span class="ui">Category.Styles</span>:</p>
+        <ul>
+          <li>The <strong>category</strong> is your active Base Preset Source. Longer names are shortened: Favourites → <span class="ui">Favs</span>, Signature → <span class="ui">Sig</span>, Artists → <span class="ui">Art</span>; the rest are shown in full.</li>
+          <li>The <strong>dot-suffix</strong> encodes which Styles are enabled: <span class="ui">M</span> = Mild, <span class="ui">W</span> = Wild, <span class="ui">R</span> = Recipe. A single letter means only that Style fires; combinations mean any of them can fire on a given roll.</li>
+        </ul>
+        <p>So <span class="ui">Bass.MR</span> means "Bass category, alternating between Mild and Recipe rolls", and <span class="ui">Favs.MWR</span> means "Favourites, any Style". The label updates instantly whenever you change the source category or the Style selection.</p>
 
-        <h3 id="targeting">13.4 Oscillator &amp; Parameter Targeting</h3>
+        <h3 id="base-source">13.4 Base Preset Source</h3>
+        <p>The top of the panel chooses which category Marco draws inspiration from when Generate rolls a new sound. Any of the factory categories (<strong>Basic, Bass, Lead, Pad, Keys, FX, Drone</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>.</p>
+        <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#category-modes">13.7 Category behaviours</a> below.</p>
+
+        <h3 id="targeting">13.5 Oscillator &amp; Parameter Targeting</h3>
         <p>Both Generate and Tweak (in the panel) respect two sets of toggles:</p>
         <ul>
           <li><strong>Oscillators</strong> — choose which of the four oscillators the generator is allowed to randomise. Untick an oscillator to leave it untouched (e.g. keep a bass layer stable while randomising the other three).</li>
@@ -983,11 +1036,11 @@
         </ul>
         <p>Use the <strong>None</strong> link to clear everything, then enable just the parameters you're curious about.</p>
 
-        <h3 id="lfo-sync">13.5 LFO Sync</h3>
+        <h3 id="lfo-sync">13.6 LFO Sync</h3>
         <p>A separate <strong>LFO Sync</strong> toggle lets you choose whether LFO rates get tempo-synced when the generator randomises them. Turn it on for in-time modulation; leave it off for free-running LFOs.</p>
 
-        <h3 id="category-modes">13.6 Category Modes (Generate only)</h3>
-        <p>This is where Marco's randomiser gets clever. When you Generate from a specific category, the mutation algorithm adjusts its parameter ranges and probabilities to suit that style:</p>
+        <h3 id="category-modes">13.7 Category behaviours (Generate only)</h3>
+        <p>On top of the Style you pick, the chosen category shapes the result. For the <strong>Mild</strong> and <strong>Wild</strong> Styles the generator tunes its parameter ranges to suit the category; the <strong>Recipe</strong> Style draws on archetypes built for that category. A handful of categories also apply structural rules to every roll regardless of Style.</p>
 
         <h4>Tuned ranges (Bass / Lead / Pad / Keys / Drone)</h4>
         <p>These categories use category-specific envelope, filter cutoff and oscillator octave ranges so the result actually sounds like that category. For example:</p>
@@ -997,7 +1050,7 @@
           <li><strong>Pad</strong> — long attack (0.2–2 s), long release (0.8–3 s), high sustain, mellow filter range (300–6000 Hz), octaves biased mid.</li>
           <li><strong>Keys</strong> — fast attack, percussive decay, lower sustain, balanced filter range (500–8000 Hz, even spread).</li>
           <li><strong>Drone</strong> — long attack and release, very high sustain, low-mid filter range (200–4000 Hz), low octaves.</li>
-          <li><strong>FX</strong> — filter cutoff carries a deliberate bright bias (300–8000 Hz, weighted toward the top end) on top of its Wild Mode behaviour below.</li>
+          <li><strong>FX</strong> — filter cutoff carries a deliberate bright bias (300–8000 Hz, weighted toward the top end) on top of its Wild Style behaviour below.</li>
         </ul>
 
         <h4>Special category behaviours</h4>
@@ -1009,18 +1062,18 @@
             <tr><td>Drone</td><td>Forces the <strong>VCA envelope off</strong> (Drone Mode) so the sound sustains indefinitely. Drone presets are also <strong>isolated</strong> from the base-preset pool of every other category — a drone will only ever appear when Drone is the selected source, so you'll never get an unexpected drone when generating from All, Favourites, User or any other category. (Tweak is drone-safe too: tweaking a Drone preset keeps its drone character; tweaking a non-drone never turns it into one.)</td></tr>
             <tr><td>Signature</td><td>Always forces one of the <strong>six Dualphonic Sync modes</strong> during generation — every roll showcases what hard sync can do, no matter what the base preset's sync settings were.</td></tr>
             <tr><td>Basic</td><td>Strips all LFOs and Glide after mutation — produces a pure oscillator + envelope + filter sound, no modulation movement.</td></tr>
-            <tr><td>FX (Wild Mode)</td><td>Dramatically boosts the probability of fresh LFOs, glide, and hard sync — every roll is full of motion and character. Pitch LFOs always come up in free mode rather than vibrato.</td></tr>
-            <tr><td>User / Favourites / Artists (Gentle Mode)</td><td>Uses small perturbations around the base preset's values instead of rolling fresh random numbers. Preserves the character of the saved or curated sound while introducing subtle variation. Filter type, LFO shape, sync settings and hard sync are never freshly generated in this mode — only nudged or left as-is.</td></tr>
+            <tr><td>FX (on Wild)</td><td>On Wild rolls, dramatically boosts the probability of fresh LFOs, glide, and hard sync — every roll is full of motion and character. Pitch LFOs always come up in free mode rather than vibrato.</td></tr>
+            <tr><td>User / Favourites / Artists</td><td>No recipes here (the Recipe pill dims). Rolls perturb the base preset's own values rather than rolling fresh random numbers — preserving the character of the saved or curated sound while introducing subtle variation. Filter type, LFO shape, sync settings and hard sync are nudged or left as-is, never freshly generated.</td></tr>
             <tr><td>Bass / Lead / Pad / Keys</td><td>Use the tuned ranges above; no other special rules.</td></tr>
             <tr><td>All</td><td>Uses default (wide) ranges with no category-specific tuning.</td></tr>
           </tbody>
         </table>
 
         <div class="callout tip">
-          <strong>Gentle Mode in practice.</strong> If you want variations on a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong>, <strong>Favourites</strong> or <strong>Artists</strong> and tap Generate a few times. You'll get versions of an existing sound, not random new ones — perfect for finding sibling presets without losing the original character. Note: if the chosen category is empty (e.g. you haven't saved any User presets or starred any Favourites yet), Marco falls back to the <strong>All</strong> category.
+          <strong>Variations on your own sounds.</strong> If you want variations on a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong>, <strong>Favourites</strong> or <strong>Artists</strong> and tap Generate a few times. You'll get versions of an existing sound, not random new ones — perfect for finding sibling presets without losing the original character. Note: if the chosen category is empty (e.g. you haven't saved any User presets or starred any Favourites yet), Marco falls back to the <strong>All</strong> category.
         </div>
 
-        <h3 id="master-randomisation">13.7 Master Section and Randomisation</h3>
+        <h3 id="master-randomisation">13.8 Master Section and Randomisation</h3>
         <div class="callout note">
           <strong>The Master tab is never directly mutated.</strong> Drive, Compressor, Delay, Reverb, Stereo and Limiter settings are not touched by any of the three randomisation systems.
         </div>
@@ -1031,7 +1084,7 @@
           <strong>Workflow example.</strong> Like the master chain of your current preset but want a different rhythmic feel? Untick everything except <strong>Glide</strong> and <strong>Cutoff LFO</strong>, then tap Tweak a few times — fresh movement, same sonic base, untouched effects.
         </div>
 
-        <h3 id="rpg-history">13.8 Random Preset History</h3>
+        <h3 id="rpg-history">13.9 Random Preset History</h3>
         <p>Randomisation is meant to be explored fearlessly — so Marco remembers where you've been. Every result from all three systems is pushed to a shared <strong>history</strong> of the last <strong>30</strong> randomised sounds, and you can step back and forward through them at any time.</p>
 
         <p>These actions add an entry to the history:</p>
@@ -1227,6 +1280,10 @@
           <li><strong>Modulation wheel.</strong></li>
           <li><strong>Sustain pedal</strong> (CC 64).</li>
         </ul>
+
+        <div class="callout note">
+          <strong>MIDI activity indicator.</strong> The MIDI toolbar button (the piano-keys icon) carries a small status dot: a black dot with a thin white border at rest, turning solid green the moment a MIDI note arrives. The indicator is always present, so the piano-keys glyph never shifts position whether or not MIDI is coming in — a quick glance confirms Marco is receiving.
+        </div>
 
         <h3>MIDI Learn</h3>
         <p>Marco's UI controls can be mapped to MIDI CC messages from a hardware controller, so you can drive parameters with knobs, faders and pads. MIDI Learn lets you assign any incoming CC to any mappable control.</p>
