@@ -397,7 +397,6 @@
         <li class="subsection"><a href="#waveforms">5.1 Waveforms</a></li>
         <li class="subsection"><a href="#osc-controls">5.2 Per-Osc Controls</a></li>
         <li class="subsection"><a href="#octave">5.3 Octave &amp; Pitch</a></li>
-        <li class="subsection"><a href="#hold-latch">5.4 Hold (Latch)</a></li>
         <li><a href="#dualphonic">6. Dualphonic Sync</a></li>
         <li><a href="#envelopes">7. Envelopes</a></li>
         <li class="subsection"><a href="#vol-env">7.1 Volume Envelope</a></li>
@@ -630,9 +629,6 @@
         <h3 id="octave">5.3 Octave &amp; Pitch</h3>
         <p>Between the waveform selector and the parameter sliders, each oscillator has an octave selector: <span class="ui">−3 −2 −1 0 +1 +2 +3</span>. Tap to shift this oscillator's playing range up or down by full octaves relative to the played note.</p>
         <p>Combine octave with the <strong>Det</strong> (detune) slider for fine pitch offsets between oscillators — this is the foundation of fat, layered sounds.</p>
-
-        <h3 id="hold-latch">5.4 Hold (Latch)</h3>
-        <p>Each oscillator can be <strong>latched</strong> so it continues sounding after the MIDI note is released. Use this for drones, sustained pads or to layer a held tone against newly-played notes. Hold is per-oscillator, so you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
       </section>
 
       <section id="dualphonic">
@@ -688,6 +684,9 @@
           </tbody>
         </table>
         <p>Vol Env can be set <strong>per-oscillator</strong> (each oscillator has its own envelope) or <strong>linked</strong> (one envelope drives all four). Toggle this at the top of the Vol Env panel.</p>
+
+        <h4 id="hold-latch">Hold (Latch)</h4>
+        <p>The Vol Env tab also carries a per-oscillator <strong>Hold</strong> (latch) control. When latched, the oscillator continues sounding after the MIDI note is released. Use this for drones, sustained pads or to layer a held tone against newly-played notes. Because Hold is per-oscillator, you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
 
         <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
         <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout, same Exponential / Exp Rate options as the Volume Envelope.</p>
