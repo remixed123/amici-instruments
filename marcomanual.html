@@ -419,8 +419,8 @@
         <li class="subsection"><a href="#master-presets">11.8 Master Presets</a></li>
         <li><a href="#presets">12. Presets</a></li>
         <li><a href="#random">13. Random Preset Generator</a></li>
-        <li class="subsection"><a href="#three-systems">13.1 Three ways to randomise</a></li>
-        <li class="subsection"><a href="#styles">13.2 Styles (Mild/Wild/Recipe)</a></li>
+        <li class="subsection"><a href="#styles">13.1 Styles (Mild/Wild/Recipe)</a></li>
+        <li class="subsection"><a href="#three-systems">13.2 Three ways to randomise</a></li>
         <li class="subsection"><a href="#category-modes">13.7 Category behaviours</a></li>
         <li class="subsection"><a href="#master-randomisation">13.8 Master &amp; Randomisation</a></li>
         <li class="subsection"><a href="#rpg-history">13.9 Random Preset History</a></li>
@@ -963,9 +963,30 @@
       <section id="random">
         <h2><span class="num">13</span>Random Preset Generator</h2>
         <p class="lead">Marco's randomisation system is musical, not chaotic. It's designed around a principle of <em>happy accident and discoverability</em> — every roll should produce something you can actually use, while still surprising you.</p>
+        <p>Every <strong>Generate</strong> combines three things: a <strong>Style</strong> (Mild / Wild / Recipe — pick any), a <strong>Base Preset Source</strong> (which category to draw from), and an optional set of <strong>selective toggles</strong> (which oscillators and controls are allowed to change). The Style comes first — it sets the whole character of the roll — so that's where this section starts.</p>
 
-        <h3 id="three-systems">13.1 Three ways to randomise</h3>
-        <p>Marco has three distinct randomisation entry points, each suited to a different stage of sound design:</p>
+        <h3 id="styles">13.1 Styles — Mild, Wild &amp; Recipe</h3>
+        <p>Three <strong>Style</strong> pills at the top of the Random Preset panel decide <em>how</em> each roll is built. Styles are <strong>multi-select</strong> — enable any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Style</th><th>What it does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mild</td><td>Small, musical mutations around the source preset's character. Best for refining a patch you already like — keeps the vibe, varies the details.</td></tr>
+            <tr><td>Wild</td><td>Aggressive, broad-spectrum randomisation with power-curve distributions. Wider range, more surprises — ideal for discovery sessions.</td></tr>
+            <tr><td>Recipe</td><td>Picks from 35 codified <strong>sonic archetypes</strong> (think "Moog Lead", "Acid 303", "Glass Pad", "Riser") and builds a coherent patch inside that archetype's design constraints. The most curated Style — usable patches out of the box.</td></tr>
+          </tbody>
+        </table>
+        <p>With more than one Style enabled, Marco picks one at random for each roll — so "Mild + Recipe" alternates between curated and gentle-mutation results. An empty selection is treated as all three.</p>
+        <div class="callout note">
+          <strong>Recipe isn't available everywhere.</strong> Recipes are curated for the <strong>All, Bass, Lead, Pad, Keys, Drone, FX</strong> and <strong>Signature</strong> categories. The other categories — <strong>User, Favourites, Artists</strong> and <strong>Basic</strong> — have no recipes (they're about varying your own or curated sounds), so the Recipe pill <strong>dims</strong> there; it stays tappable, but a roll falls back to Mild or Wild.
+        </div>
+        <div class="callout tip">
+          <strong>Not sure which to use?</strong> Leave all three on. Tap the <span class="ui">?</span> button in the Random Preset panel's header any time for an in-panel explanation of the Styles, the multi-select behaviour, the source category and the dice label.
+        </div>
+
+        <h3 id="three-systems">13.2 Three ways to randomise</h3>
+        <p>The Style governs <strong>Generate</strong>, but Marco actually has three distinct randomisation entry points, each suited to a different stage of sound design:</p>
         <table class="param-table">
           <thead>
             <tr><th>System</th><th>Where</th><th>What it does</th></tr>
@@ -974,7 +995,7 @@
             <tr>
               <td>Generate</td>
               <td>"Generate" button in the Random Preset panel, or the 🎲 dice button on the main toolbar</td>
-              <td>Rolls a completely new sound. Each press picks one of your enabled <strong>Styles</strong> (Mild, Wild or Recipe — see <a href="#styles">13.2 Styles</a>) and uses it to build a preset from your selected category. Produces a fresh sound that still belongs to the category you chose. The toolbar dice does exactly the same thing as the panel's Generate button.</td>
+              <td>Rolls a completely new sound, using your active <strong>Style</strong> (see <a href="#styles">13.1 Styles</a>) and selected category. Produces a fresh sound that still belongs to the category you chose. The toolbar dice does exactly the same thing as the panel's Generate button.</td>
             </tr>
             <tr>
               <td>Tweak</td>
@@ -988,26 +1009,6 @@
             </tr>
           </tbody>
         </table>
-
-        <h3 id="styles">13.2 Styles — Mild, Wild &amp; Recipe</h3>
-        <p>Sitting above the category, three <strong>Style</strong> pills decide <em>how</em> adventurous each Generate roll is. Styles are <strong>multi-select</strong> — turn on any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
-        <table class="param-table">
-          <thead>
-            <tr><th>Style</th><th>What it does</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Mild</td><td>Gentle, musical variation. Stays close to safe, usable territory — great when you want fresh ideas that are easy to play with straight away.</td></tr>
-            <tr><td>Wild</td><td>Wide-open randomisation across the full parameter ranges. More surprising and more extreme — the place to go hunting for the unexpected.</td></tr>
-            <tr><td>Recipe</td><td>Builds the sound from one of Marco's curated <strong>sonic archetypes</strong> — think "Moog Lead", "Acid 303", "Glass Pad", "Riser". Recipes roll within a coherent character rather than rolling every parameter independently, so the result reliably sounds like a real, intentional patch.</td></tr>
-          </tbody>
-        </table>
-        <p>With more than one Style enabled, Marco alternates between them from roll to roll, so a run of dice taps gives you a mix of safe variations, wild surprises and curated archetypes.</p>
-        <div class="callout note">
-          <strong>Recipe isn't available everywhere.</strong> Recipes are curated for the <strong>All, Bass, Lead, Pad, Keys, Drone, FX</strong> and <strong>Signature</strong> categories. For <strong>User, Favourites, Artists</strong> and <strong>Basic</strong> there are no recipes (those categories are about varying your own or curated sounds), so the Recipe pill <strong>dims</strong> — it stays tappable, but a roll there falls back to Mild or Wild. If you end up with no Style enabled, Marco falls back to Mild so you always get a usable sound.
-        </div>
-        <div class="callout tip">
-          <strong>Not sure which to use?</strong> Leave all three on. Tap the <span class="ui">?</span> button in the Random Preset panel's header any time for an in-panel explanation of the Styles, the multi-select behaviour, the source category and the dice label.
-        </div>
 
         <h3 id="opening-rpg">13.3 Opening the panel &amp; the toolbar dice</h3>
         <ul>
