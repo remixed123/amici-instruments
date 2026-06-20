@@ -91,9 +91,15 @@
 
   /* ----------------------------------------------------------- brand mark */
   var brandMark =
-    '<svg class="ss-mark" width="38" height="24" viewBox="0 0 38 26" fill="none" aria-hidden="true">' +
-      '<path d="M 4 2 L 4 22 L 36 22" stroke="#9a9aa6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="M 6 12 Q 8.75 0 11.5 12 Q 14.25 24 17 12 Q 18.5 6 20 12 Q 21.5 18 23 12 Q 25.75 0 28.5 12 Q 31.25 24 34 12" stroke="#00D9F5" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<svg class="ss-mark" width="26" height="26" viewBox="0 0 512 512" aria-hidden="true">' +
+      '<defs><clipPath id="ss-mark-nav"><rect width="512" height="512" rx="96" ry="96"/></clipPath></defs>' +
+      '<g clip-path="url(#ss-mark-nav)">' +
+        '<rect y="0" width="512" height="102.4" fill="#2E7BFF"/>' +
+        '<rect y="102.4" width="512" height="102.4" fill="#00D9F5"/>' +
+        '<rect y="204.8" width="512" height="102.4" fill="#7BD957"/>' +
+        '<rect y="307.2" width="512" height="102.4" fill="#F5A044"/>' +
+        '<rect y="409.6" width="512" height="102.4" fill="#B14BE0"/>' +
+      '</g>' +
     '</svg>';
 
   /* --------------------------------------------------- desktop menu HTML */

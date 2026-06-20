@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Swift Software logo">
+  <defs>
+    <clipPath id="rounded">
+      <rect x="0" y="0" width="512" height="512" rx="96" ry="96"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#rounded)">
+    <rect x="0" y="0"     width="512" height="102.4" fill="#2E7BFF"/>
+    <rect x="0" y="102.4" width="512" height="102.4" fill="#00D9F5"/>
+    <rect x="0" y="204.8" width="512" height="102.4" fill="#7BD957"/>
+    <rect x="0" y="307.2" width="512" height="102.4" fill="#F5A044"/>
+    <rect x="0" y="409.6" width="512" height="102.4" fill="#B14BE0"/>
+  </g>
+</svg>
