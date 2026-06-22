@@ -1,5 +1,5 @@
 /*
-  Shared site footer for Swift SW.
+  Shared site footer for Amici Instruments.
   ---------------------------------
   Each page includes:  <div id="site-footer"></div><script src="footer.js"></script>
   To change footer links site-wide, edit the FOOTER_LINKS array below.
@@ -39,9 +39,9 @@
   var footerHtml =
     '<footer>' +
       '<a href="index.html" class="topnav-brand" style="justify-content:center;color:#6b6b78;font-size:14px;">' +
-        brandMark + ' Swift SW' +
+        brandMark + ' Amici Instruments' +
       '</a>' +
-      '<p style="margin-top:8px;">&copy; ' + year + ' Swift SW. All rights reserved.</p>' +
+      '<p style="margin-top:8px;">&copy; ' + year + ' Amici Instruments. All rights reserved.</p>' +
       '<div style="margin-top:12px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:13px;">' +
         linksHtml +
       '</div>' +

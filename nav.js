@@ -1,5 +1,5 @@
 /*
-  Shared site navigation for Swift SW.
+  Shared site navigation for Amici Instruments.
   -------------------------------------
   Each page includes:  <div id="site-nav"></div><script src="nav.js"></script>
 
@@ -140,7 +140,7 @@
   var navHtml =
     '<nav class="topnav">' +
       '<div class="topnav-inner">' +
-        '<a href="index.html" class="topnav-brand">' + brandMark + ' Swift SW</a>' +
+        '<a href="index.html" class="topnav-brand">' + brandMark + ' Amici Instruments</a>' +
         '<div class="topnav-links">' + desktopHtml + '</div>' +
         '<button class="nav-burger" type="button" aria-label="Menu">' +
           '<span></span><span></span><span></span>' +
