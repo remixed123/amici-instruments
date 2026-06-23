@@ -149,6 +149,54 @@
     letter-spacing: 0.3px;
     margin-top: 10px;
   }
+
+  /* Hero preview — visual peek between hero and manifesto (two apps side by side) */
+  .hero-preview {
+    padding: 8px 24px 36px;
+  }
+  .hero-preview-grid {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .hero-preview-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .hero-preview-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  a.hero-preview-card:hover img {
+    transform: translateY(-3px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  }
+  .hero-preview-caption {
+    display: block;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+  }
+  a.hero-preview-card:hover .hero-preview-caption {
+    color: var(--text);
+  }
+  @media (max-width: 760px) {
+    .hero-preview-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
   .hero h1 {
     font-size: clamp(38px, 6vw, 68px);
     font-weight: 700;
@@ -390,14 +438,27 @@
   <p class="hero-subtitle">A different future for music on iOS.</p>
 </header>
 
+<section class="hero-preview">
+  <div class="hero-preview-grid">
+    <a href="marco.html" class="hero-preview-card" aria-label="Meet Marco — Dualphonic Sync Synthesizer">
+      <img src="images/marco-hero.jpg" alt="Marco — colourful four-oscillator synthesizer interface with Dualphonic Sync">
+      <span class="hero-preview-caption">Meet Marco — Dualphonic Sync Synthesizer →</span>
+    </a>
+    <div class="hero-preview-card">
+      <img src="images/bruno-hero.jpg" alt="Bruno — drum and percussion synthesizer with multiple sound engines">
+      <span class="hero-preview-caption">Meet Bruno — Coming soon</span>
+    </div>
+  </div>
+</section>
+
 <section class="manifesto">
   <div class="manifesto-inner">
 
-    <p class="manifesto-lead">Most music software still thinks like hardware — knobs, panels, layouts inherited from machines built around physical constraints. Constraints digital doesn't have.</p>
+    <p class="manifesto-lead">Most music software honours hardware — beautifully crafted knobs, panels, and layouts inherited from machines musicians grew up with. There's wonderful work being done there. We just wanted to explore what becomes possible when digital lets go of those physical constraints.</p>
 
     <p><strong>We start somewhere else.</strong></p>
 
-    <p>Vintage sounds aren't the enemy — Marco can do those too, happily. But sound isn't the frontier. <strong>Workflow is.</strong></p>
+    <p>Vintage sounds aren't the enemy — Marco and Bruno can do those too, happily. But sound isn't the frontier. <strong>Workflow is.</strong></p>
 
     <p>When nothing has to fit on a metal box, the question changes:</p>
 
