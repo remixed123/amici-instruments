@@ -26,7 +26,7 @@
     ]},
     { type: 'menu', label: 'Manuals', items: [
         { href: 'marcomanual.html', label: 'Marco' },
-        { label: 'Bruno', soon: true }
+        { href: 'brunomanual.html', label: 'Bruno' }
     ]},
     { type: 'link', href: 'support.html', label: 'Support' }
   ];

@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruno User Guide — Amici Instruments</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="description" content="The complete user guide for Bruno — the layered drum synthesizer for iOS.">
+<link rel="canonical" href="https://amici-instruments.com/brunomanual.html">
+<meta name="theme-color" content="#050507">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://amici-instruments.com/brunomanual.html">
+<meta property="og:title" content="Bruno User Guide — Amici Instruments">
+<meta property="og:description" content="The complete user guide for Bruno — the layered drum synthesizer for iOS.">
+<meta property="og:site_name" content="Amici Instruments">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg-card: #0e0e12;
+    --bg-card-2: #14141a;
+    --border: #1f1f28;
+    --text: #f2f2f5;
+    --text-dim: #9a9aa6;
+    --text-muted: #6b6b78;
+    /* Four engine colours — shared with Marco's oscillator palette */
+    --analog: #5BA8E5;
+    --fm: #7BD957;
+    --fold: #F5A044;
+    --reso: #D060E5;
+    --accent: #5BA8E5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(91,168,229,0.06), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(208,96,229,0.06), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Top navigation */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-brand:hover { color: var(--accent); }
+  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
+  .topnav-links { display: flex; gap: 28px; }
+  .topnav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topnav-links a:hover { color: var(--text); }
+  .topnav-links a.active { color: var(--accent); }
+
+  /* Page header */
+  .page-header {
+    text-align: center;
+    padding: 60px 24px 30px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, var(--analog), var(--fm), var(--fold), var(--reso));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .page-lead {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Main layout */
+  main {
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 24px 60px;
+    width: 100%;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 50px;
+    align-items: start;
+  }
+
+  /* Sticky TOC sidebar */
+  .toc {
+    position: sticky;
+    top: 72px;
+    max-height: calc(100vh - 90px);
+    overflow-y: auto;
+    padding: 22px 0 22px 4px;
+    border-right: 1px solid var(--border);
+  }
+  .toc-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    padding-left: 12px;
+  }
+  .toc ul { list-style: none; }
+  .toc li { margin: 1px 0; }
+  .toc a {
+    display: block;
+    padding: 6px 12px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.15s ease;
+    line-height: 1.4;
+  }
+  .toc a:hover {
+    color: var(--text);
+    border-left-color: var(--text-muted);
+  }
+  .toc a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+    background: rgba(91,168,229,0.05);
+  }
+  .toc .subsection a {
+    padding-left: 28px;
+    font-size: 12.5px;
+  }
+
+  /* Content area */
+  .content { min-width: 0; max-width: 780px; }
+  .content section { padding: 28px 0; scroll-margin-top: 80px; }
+  .content section:not(:last-child) { border-bottom: 1px solid var(--border); }
+
+  .content h2 {
+    font-size: clamp(26px, 3vw, 32px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .content h2 .num {
+    font-size: 0.55em;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-right: 12px;
+    letter-spacing: 0;
+    vertical-align: middle;
+  }
+  .content h3 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 28px;
+    margin-bottom: 10px;
+  }
+  .content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 18px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .content .lead {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+
+  .content p {
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .content p strong, .content li strong { color: var(--text); font-weight: 600; }
+
+  .content ul, .content ol {
+    margin: 0 0 16px 22px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+  .content li { margin-bottom: 6px; }
+  .content li::marker { color: var(--text-muted); }
+
+  .content a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .content a:hover { text-decoration: underline; }
+
+  /* Callouts */
+  .callout {
+    margin: 18px 0;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
+  .callout strong { color: var(--text); }
+  .callout.tip { border-left-color: var(--fm); }
+  .callout.note { border-left-color: var(--fold); }
+  .callout.todo { border-left-color: var(--reso); }
+
+  /* Param table */
+  .param-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 20px;
+    font-size: 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .param-table th, .param-table td {
+    padding: 11px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .param-table th {
+    background: var(--bg-card-2);
+    color: var(--text-dim);
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  .param-table tr:last-child td { border-bottom: none; }
+  .param-table td:first-child { color: var(--text); font-weight: 500; width: 30%; }
+  .param-table td { color: var(--text-dim); }
+
+  /* Inline code-like styling for UI element names */
+  .ui {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    padding: 2px 7px;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+  }
+
+  /* Engine colour tags */
+  .eng-tag {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  .eng-tag.analog { background: rgba(91,168,229,0.15); color: var(--analog); }
+  .eng-tag.fm     { background: rgba(123,217,87,0.15); color: var(--fm); }
+  .eng-tag.fold   { background: rgba(245,160,68,0.15); color: var(--fold); }
+  .eng-tag.reso   { background: rgba(208,96,229,0.15); color: var(--reso); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 0; }
+    .toc {
+      position: static;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 0 0 22px 0;
+      margin-bottom: 12px;
+    }
+    .toc-title { padding-left: 0; }
+    .toc a { padding-left: 0; }
+    .toc .subsection a { padding-left: 16px; }
+    .page-header { padding: 40px 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <span class="page-eyebrow">User Guide</span>
+  <h1 class="page-title">Bruno User Guide</h1>
+  <p class="page-lead">A complete reference for the layered drum synthesizer — six voices, four engines, every control and panel.</p>
+</header>
+
+<main>
+  <div class="layout">
+
+    <aside class="toc">
+      <div class="toc-title">Contents</div>
+      <ul>
+        <li><a href="#welcome">1. Welcome</a></li>
+        <li><a href="#requirements">2. Requirements</a></li>
+        <li><a href="#getting-started">3. Getting Started</a></li>
+        <li><a href="#interface">4. Interface Tour</a></li>
+        <li class="subsection"><a href="#header-bar">4.1 Header Bar</a></li>
+        <li class="subsection"><a href="#master-strip">4.2 Master Strip</a></li>
+        <li class="subsection"><a href="#engine-cards">4.3 Engine Cards</a></li>
+        <li class="subsection"><a href="#copy-tweak">4.4 Copy to All &amp; Tweak</a></li>
+        <li class="subsection"><a href="#hints">4.5 Hints (? button)</a></li>
+        <li><a href="#engines">5. The Four Engines</a></li>
+        <li><a href="#voices">6. Voices</a></li>
+        <li class="subsection"><a href="#voice-kick">6.1 Kick</a></li>
+        <li class="subsection"><a href="#voice-snare">6.2 Snare</a></li>
+        <li class="subsection"><a href="#voice-hat">6.3 Hat</a></li>
+        <li class="subsection"><a href="#voice-clap">6.4 Clap</a></li>
+        <li class="subsection"><a href="#voice-tom">6.5 Tom</a></li>
+        <li class="subsection"><a href="#voice-pluck">6.6 Pluck</a></li>
+        <li class="subsection"><a href="#voice-switching">6.7 Voice Switching</a></li>
+        <li><a href="#voices-tab">7. Voices Tab</a></li>
+        <li><a href="#pitch-env">8. Pitch Env</a></li>
+        <li><a href="#vol-env">9. Vol Env</a></li>
+        <li><a href="#body">10. Body</a></li>
+        <li><a href="#filter">11. Filter</a></li>
+        <li><a href="#lfos">12. LFOs</a></li>
+        <li><a href="#compressor">13. Compressor</a></li>
+        <li><a href="#drive">14. Drive</a></li>
+        <li><a href="#delay">15. Delay</a></li>
+        <li><a href="#eq">16. EQ</a></li>
+        <li><a href="#master">17. Master Tab</a></li>
+        <li class="subsection"><a href="#master-sat">17.1 Saturation</a></li>
+        <li class="subsection"><a href="#master-comp">17.2 Compressor</a></li>
+        <li class="subsection"><a href="#master-transient">17.3 Transient Shaper</a></li>
+        <li class="subsection"><a href="#master-reverb">17.4 Reverb</a></li>
+        <li class="subsection"><a href="#master-stereo">17.5 Stereo</a></li>
+        <li class="subsection"><a href="#master-limiter">17.6 Limiter</a></li>
+        <li><a href="#presets">18. Presets</a></li>
+        <li><a href="#random">19. Random Preset Generator</a></li>
+        <li><a href="#scope">20. Scope &amp; Spectrum</a></li>
+        <li><a href="#midi">21. MIDI</a></li>
+        <li><a href="#keyboard-song">22. Keyboard &amp; Song Player</a></li>
+        <li><a href="#sharing">23. Sharing Presets</a></li>
+        <li><a href="#tips">24. Tips &amp; Workflow</a></li>
+        <li><a href="#troubleshooting">25. Troubleshooting</a></li>
+        <li><a href="#support">26. Getting Help</a></li>
+      </ul>
+    </aside>
+
+    <article class="content">
+
+      <section id="welcome">
+        <h2><span class="num">1</span>Welcome to Bruno</h2>
+        <p class="lead">Bruno is a <strong>layered drum synthesizer</strong> for iPad and iPhone (and any Apple Silicon Mac running iPad apps). Each instance produces one percussion sound by layering up to four independent synthesis engines.</p>
+        <p>You load <strong>one Bruno per drum track</strong> — a kick on one, a snare on another, a hat on a third. Inside each instance, four engines (<span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>) run in parallel and sum together, so a single drum can be as simple as one clean sine or as rich as four stacked layers.</p>
+        <p>You choose a <strong>voice type</strong> — Kick, Snare, Hat, Clap, Tom or Pluck — and that reconfigures all four engines for that drum's frequency range and character. From there, every engine has its own complete signal chain: tune, envelopes, filter, three LFOs, compressor, drive, delay and EQ.</p>
+        <p>This guide covers every panel and control. If you're new to drum synthesis, start at the top and read straight through. If you're after one specific feature, use the table of contents on the left.</p>
+        <p>Bruno is available two ways:</p>
+        <ul>
+          <li><strong>Standalone</strong> app on iPad and iPhone — with a built-in keyboard, MIDI input and a Song Player for auditioning sounds in musical context.</li>
+          <li><strong>AUv3 plugin</strong> — drops into Logic Pro for iPad, GarageBand, AUM and other compatible AUv3 hosts, where you load one Bruno per drum track.</li>
+        </ul>
+        <p>The same build also runs natively on Apple Silicon Macs (M1 and later) via the App Store. Most of this guide applies to both standalone and plugin; where things differ — the Song Player and on-screen keyboard only exist in standalone — that's flagged in the section.</p>
+        <div class="callout note">
+          <strong>Bruno and Marco are family.</strong> Bruno shares Marco's visual language, master effects chain and random-preset philosophy. If you already know Marco, much of Bruno will feel familiar — the big difference is that Bruno is built around <em>voices</em> and <em>engines</em> rather than oscillators and hard sync.
+        </div>
+      </section>
+
+      <section id="requirements">
+        <h2><span class="num">2</span>System Requirements</h2>
+        <ul>
+          <li><strong>iPad</strong> running a current version of iPadOS.</li>
+          <li><strong>iPhone</strong> running a current version of iOS.</li>
+          <li><strong>Apple Silicon Mac</strong> (M1 or later) — the iPad app is available on the Mac App Store and runs natively in its own window.</li>
+          <li><strong>AUv3 host</strong> required when using Bruno as a plugin (e.g. Logic Pro for iPad, GarageBand, AUM and other compatible hosts).</li>
+        </ul>
+        <div class="callout note">
+          <strong>One instance per drum.</strong> Bruno is monophonic and designed as a single-drum instrument. To build a full kit in a host, load several instances — one for the kick, one for the snare, and so on. There is no link or unlink between instances; each is completely independent.
+        </div>
+      </section>
+
+      <section id="getting-started">
+        <h2><span class="num">3</span>Getting Started</h2>
+        <p class="lead">The fastest way to a great drum sound is to let Bruno make one for you.</p>
+        <ol>
+          <li>Open Bruno (standalone) or load it as an AUv3 plugin in your host.</li>
+          <li>Pick a <strong>voice</strong> from the Voice Selector in the header (Kick, Snare, Hat, Clap, Tom or Pluck).</li>
+          <li>Tap the <strong>dice</strong> button (<span class="ui">🎲</span>) in the Master Strip to roll a fresh random preset for that voice.</li>
+          <li>Trigger the sound — tap a <strong>HIT</strong> button on any engine card, play the on-screen keyboard (standalone), or send a MIDI note from your controller / DAW.</li>
+          <li>Like the direction but want a variation? Open the Random panel and tap <strong>Tweak</strong> to nudge the current sound instead of rolling a brand new one.</li>
+          <li>Want to change just one layer? Tap the small <strong>dice</strong> on a single engine card to reroll only that engine.</li>
+        </ol>
+        <p>When you find a sound you love, save it to your <strong>User</strong> library — see <a href="#presets">18. Presets</a>.</p>
+        <div class="callout tip">
+          <strong>Don't worry about understanding everything yet.</strong> The dice gives you a working drum in one tap. Pick a voice, roll, and start playing — you can dive into per-engine control whenever you're ready.
+        </div>
+      </section>
+
+      <section id="interface">
+        <h2><span class="num">4</span>Interface Tour</h2>
+        <p class="lead">A quick walkthrough of where everything lives. Bruno organises all its controls into tabs, and every tab shows the same four engine cards side by side.</p>
+
+        <h3 id="header-bar">4.1 Header Bar</h3>
+        <p>Across the top of the screen, from left to right:</p>
+        <ul>
+          <li><strong>BRUNO logo</strong> — the multi-coloured wordmark; purely decorative.</li>
+          <li><strong>Voice Selector</strong> — choose the drum voice: Kick, Snare, Hat, Clap, Tom or Pluck. On iPhone this shows 2-letter codes (<span class="ui">KK / SN / HH / CL / TM / PL</span>).</li>
+          <li><strong>Preset selector</strong> — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the name to open the full Preset Browser (see <a href="#presets">18. Presets</a>).</li>
+          <li><strong>Random panel button</strong> — opens the Random Preset Generator, where you set the source category, styles and what gets randomised (see <a href="#random">19. Random Preset Generator</a>).</li>
+          <li><strong>MIDI button</strong> <em>(standalone only)</em> — a piano-keys icon with an always-present activity dot: black with a white border at rest, green the moment a MIDI note arrives. Opens MIDI input settings (see <a href="#midi">21. MIDI</a>).</li>
+          <li><strong>⚙️ Settings cog</strong> — app preferences.</li>
+        </ul>
+
+        <h3>Toolbar tabs</h3>
+        <p>Below the header, horizontal tabs switch between panels. Every tab shows the four engine cards; the tab decides which set of controls those cards display:</p>
+        <ul>
+          <li><span class="ui">Voices</span> — core sound per engine (mode, Vol, Tune, Character, Decay).</li>
+          <li><span class="ui">Pitch Env</span> — the pitch sweep that's fundamental to every drum.</li>
+          <li><span class="ui">Vol Env</span> — volume envelope, click/transient, and voice-specific extras.</li>
+          <li><span class="ui">Body</span> — per-engine body-peak EQ.</li>
+          <li><span class="ui">Filter</span> — per-engine multimode filter (8 types).</li>
+          <li><span class="ui">Cut LFO</span> / <span class="ui">Pitch LFO</span> / <span class="ui">Char LFO</span> — three LFOs per engine.</li>
+          <li><span class="ui">Comp</span> — per-engine compressor.</li>
+          <li><span class="ui">Drive</span> — per-engine saturation / distortion.</li>
+          <li><span class="ui">Delay</span> — per-engine delay.</li>
+          <li><span class="ui">EQ</span> — per-engine 3-band parametric EQ.</li>
+          <li><span class="ui">Master</span> — the global effects chain that processes all four engines summed together.</li>
+        </ul>
+        <p>On iPhone the tab hairlines are grouped to make the layout easier to scan: <span class="ui">Voices Pitch Env Vol Env | Body | Filter | Cut LFO Pitch LFO Char LFO | Comp Drive Delay EQ | Master</span>.</p>
+
+        <h3 id="master-strip">4.2 Master Strip</h3>
+        <p>Just above the four engine cards, the Master Strip gathers global controls and quick-access buttons. From left to right:</p>
+        <ul>
+          <li><strong>? Hints button</strong> (far left) — opens context-aware help for whatever tab you're on. Tinted to match the active tab. See <a href="#hints">Hints</a> below.</li>
+          <li><strong>Stereo output meter</strong> — a dual-bar (L/R) LED meter. Green is healthy, yellow from 70%, red from 90%; the border turns red when you're clipping.</li>
+          <li><strong>Gain slider</strong> — master output level (0–150%), with the current percentage shown below it.</li>
+          <li><strong>Scope button</strong> (cyan) — opens the Waveform Scope and Engine Spectrum overlay (see <a href="#scope">20. Scope &amp; Spectrum</a>).</li>
+          <li><strong>◀ 🎲 ▶ Dice &amp; history</strong> (orange) — the dice rolls a fresh random preset using the current source category; the chevrons step back and forward through the last 30 randomised sounds.</li>
+          <li><strong>HIT</strong> — auditions the current sound without needing MIDI or the keyboard.</li>
+        </ul>
+
+        <h3 id="engine-cards">4.3 Engine Cards</h3>
+        <p>The main area shows four engine cards side by side, each in its own colour: <span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>. The colour follows that engine everywhere in Bruno — including the Scope spectrum, the LFO panels and the header buttons.</p>
+        <p>Across the top of every engine card sits a coherent set of header buttons (engine-coloured):</p>
+        <ul>
+          <li><strong>ON / OFF</strong> — enables or disables the engine. An engine that's off is silent and adds nothing to the mix.</li>
+          <li><strong>HIT</strong> (double-width) — triggers this engine on its own so you can audition it.</li>
+          <li><strong>Wand</strong> — a per-tab Tweak that rerolls only this engine's parameters for the current tab (see below).</li>
+          <li><strong>Copy to All</strong> — on tabs that support it, copies this engine's settings for the current tab to the other three (see below).</li>
+        </ul>
+        <p>The Voices tab card also has its own <strong>dice</strong> button that rerolls only that engine's core parameters — perfect for finding a new layer without disturbing the rest of the sound.</p>
+        <div class="callout note">
+          <strong>The engines are always independent.</strong> Unlike Marco's link / unlink system, Bruno's four engines never share controls. Each has its own complete signal chain and is mixed in parallel. There is no "linked" mode to learn.
+        </div>
+
+        <h3 id="copy-tweak">4.4 Copy to All &amp; Per-tab Tweak</h3>
+        <h4>Copy to All</h4>
+        <p>Seven tabs include a <strong>Copy to All</strong> button (the doc-on-doc icon) on each engine card: <strong>Body, Filter, Compressor, Drive, Delay, EQ</strong> and the three <strong>LFO</strong> tabs. One tap copies the current engine's settings for that tab to the other three engines. It's a one-shot operation — afterwards all four engines are still fully independent and can be tweaked freely. The button is tinted to match the engine (Analog blue, FM green, Fold orange, Resonant purple).</p>
+        <p>The <strong>Voices, Pitch Env, Vol Env</strong> and <strong>Master</strong> tabs have no Copy to All, because their parameters are usually meant to differ between engines (different modes, tuning and character).</p>
+        <h4>Per-tab Tweak (the wand)</h4>
+        <p>Every engine card on every tab has a small <strong>wand</strong> button. Tapping it rerolls <em>only that engine's parameters for that one tab</em>, following the Mild / Wild styles you've set in the Random panel. Tweak never flips an engine on or off, and never toggles a section's enabled state (filter on/off, body on/off, etc.). On the Master tab, each FX section has its own green wand; the Limiter has none, because Bruno manages it automatically.</p>
+
+        <h3 id="hints">4.5 Hints — the <span class="ui">?</span> button</h3>
+        <p>Every tab has its own built-in help, so you never have to leave Bruno to look something up. Tap the <span class="ui">?</span> at the far left of the Master Strip to open the <strong>Hints</strong> dialog for the current tab. The button takes on the colour of the active tab, and dims to grey on any tab that isn't yet covered.</p>
+        <p>Each Hints dialog has three parts:</p>
+        <ul>
+          <li><strong>A summary</strong> of what the tab does and where it sits in the signal chain.</li>
+          <li><strong>Controls</strong> — a plain-language description of every slider, button and toggle on that tab.</li>
+          <li><strong>Tips &amp; Recipes</strong> — a few non-obvious ways to use the controls together.</li>
+        </ul>
+        <p>For the <strong>Voices, Vol Env</strong> and <strong>Pitch Env</strong> tabs the content is <strong>voice-aware</strong> — it describes what those controls do on the voice you're currently using, so the same slider reads as "Slap" on a Snare, "Chirp" on a Tom or "Sub" on an FM Kick. The Random Preset Generator has its own <span class="ui">?</span> button too. Tap outside the dialog or the <span class="ui">×</span> to dismiss it. Hints are identical in the standalone app and the AUv3 plugin.</p>
+      </section>
+
+      <section id="engines">
+        <h2><span class="num">5</span>The Four Engines</h2>
+        <p class="lead">Every Bruno voice is built from the same four engines. The names never change, but the DSP inside each one is voice-appropriate — so "Analog" means a clean sine kick on the Kick voice and a metallic shimmer on the Hat voice.</p>
+
+        <p>All four engines sum in parallel, and each carries its own complete signal chain:</p>
+        <div class="callout">
+          <strong>Per-engine signal chain:</strong> Engine DSP → Body Peak → Filter → Compressor → Drive → Delay → EQ → Output, then the four engine outputs sum into the <a href="#master">Master</a> section.
+        </div>
+
+        <h3>What each engine is for</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>Engine</th><th>Synthesis</th><th>Character</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Classic oscillator synthesis (sine, triangle, square)</td><td>The cleanest and most "drum-machine" of the four. Deep sub kicks, vintage snare bodies, classic hat shimmer.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Frequency modulation (carrier + modulator)</td><td>Punchy, metallic, inharmonic. Tight techno kicks, bright snare crack, cymbal-like hats.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Wavefolding</td><td>Rich, aggressive, evolving harmonics. Grungy kicks, industrial snares, crunchy hats.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Physical / modal synthesis (damped sine modes &amp; resonators)</td><td>Sounds <em>struck</em> rather than synthesised. Rubbery kicks, acoustic-feel snares, bell-like hats.</td></tr>
+          </tbody>
+        </table>
+
+        <p>You can use a single engine for a pure, focused sound, or stack several. A typical layered snare might use Analog for the body and punch, FM for the metallic crack, Fold for harmonic warmth, and Resonant for shell resonance and the stick edge. Turn each engine on or off with its header toggle.</p>
+        <div class="callout tip">
+          <strong>Start with one engine, then layer.</strong> Solo each engine with its ON/OFF toggle (or its HIT button) to hear what it contributes, then bring the others back in. Because every engine has its own filter, drive and EQ, you can carve each layer to sit cleanly with the rest.
+        </div>
+      </section>
+
+      <section id="voices">
+        <h2><span class="num">6</span>Voices</h2>
+        <p class="lead">A voice is the drum type the whole instance is configured for. Bruno has six: Kick, Snare, Hat, Clap, Tom and Pluck. Selecting a voice reconfigures all four engines — their frequency ranges, their DSP, and the meaning of several controls — for that drum.</p>
+        <p>Because the engine names stay the same but their behaviour changes per voice, a few sliders are <strong>relabelled per voice and per engine</strong>. The Character slider on the Voices tab, for example, reads "Sweep" on an Analog Kick, "Mod Idx" on an FM Hat, and "Spread" on a Resonant Pluck. The voice sections below describe each drum's character; the tab sections (<a href="#voices-tab">7</a> onward) give the full per-engine control reference.</p>
+
+        <h3 id="voice-kick">6.1 Kick</h3>
+        <p>Bass drums in the low-frequency range. Tune is narrowed to the musical kick range (<strong>20–150 Hz</strong>) so the slider always lands somewhere usable.</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Kick character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Clean sine or triangle with a pitch envelope — the classic deep, subby 808-style and 909-style kick. An optional <strong>Sat</strong> mode adds 909-style circuit warmth.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Punchy, metallic kicks from tight techno hits to industrial drops. The ratio buttons (x1–x7) set how metallic and complex the tone is.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>A sine pushed through a wavefolder for harmonically rich, aggressive kicks. The fold decays over time, giving a bright attack that settles into a clean sub tail. A <strong>Sub</strong> slider blends the clean fundamental back in.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>A struck modal kick — four damped sine modes at drum-shell ratios. Organic, elastic and rubbery, like a real struck drum. Choose Tight, Body or Full for how many shell modes ring.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Voice-specific extras:</strong> the Kick's Vol Env tab carries an integrated <strong>techno rumble</strong> (R-Tone, R-Sus, R-Mix) — a filtered reverb tail that blooms after each hit, ducked by the kick envelope. There's also an <strong>Attack</strong> bloom slider and a per-engine <strong>Tick</strong> toggle for an 808-style pitch-overshoot snap. On the Analog Kick the Pitch Env <strong>Drop</strong> control sets where the pitch sweep lands, down to two octaves below Tune — classic sub-slide territory.</p>
+
+        <h3 id="voice-snare">6.2 Snare</h3>
+        <p>Mid-frequency drums with a pitched body and filtered noise "wires". Body fundamental sits around 100–400 Hz. All four engines synthesise both a body and the wires.</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Snare character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>A 909-style two-oscillator body (a bottom head plus a fixed-ratio top head) with high-passed noise wires. Tight / Open set the top-head decay; an optional <strong>Sat</strong> warms the body while the wires stay crisp.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Bright metallic crack from 2-operator FM. The decaying FM envelope opens metallic and settles tonal — authentic inharmonic snare character.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Wavefolded body plus wires; aggressive and industrial. The Asym mode adds a growling, grungy tail.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Modal shell body with a brief stick exciter for the "stick on shell" attack. A Tonal mode mutes the wires for rimshot and brush flavours.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Voice-specific extras:</strong> a per-engine <strong>BP</strong> toggle switches the wires between broadband high-passed noise (909-style) and a tighter band-passed character (boutique-style). The Vol Env <strong>Slap</strong> slider adds a short upward body chirp, and <strong>Tail</strong> sets the wires' decay independently of the body.</p>
+
+        <h3 id="voice-hat">6.3 Hat</h3>
+        <p>Hi-hats and cymbals in the high-frequency range. All engines emphasise metallic, inharmonic tones and use bright high-passed noise. Length is set entirely by the Decay slider, with a <strong>Choke</strong> control on the Vol Env tab handling note-off cut for overlapping hits.</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Hat character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Two detuned square waves whose beating creates the classic 808-style metallic shimmer, plus high-passed noise. Character is a bandpass "Tone".</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Carrier / modulator FM with non-integer ratios for cymbal-like inharmonicity. Bright and complex.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Six inharmonic sine oscillators summed and wavefolded — dense, crunchy, aggressive metallic content.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Six oscillators with ring modulation between pairs, plus a continuous shimmer that rings through the envelope. Bell-like and shimmering.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Voice-specific extras:</strong> every Hat hit runs through automatic <strong>spectral evolution</strong> — a low-pass that opens bright on the strike (~18 kHz) and closes as the sound decays (~4 kHz), mimicking how a real cymbal loses its top end as it rings out. The Hat also has a unique <strong>Mode Toggle</strong> row, one engine-specific switch per card: Analog <strong>Stick</strong> (adds a stick-tap transient), FM <strong>Wavetable</strong> (hybrid 909-style character), Fold <strong>Wide BP</strong> (Character sweeps the bandpass), and Resonant <strong>Ring</strong> (ring-mod sidebands).</p>
+
+        <h3 id="voice-clap">6.4 Clap</h3>
+        <p>The defining feature of a clap is multiple rapid bursts — Bruno fires 1–7 of them, 3–30 ms apart, to mimic many hands hitting slightly out of sync. All four engines share this multi-burst sequencer and differ only in how each burst is generated. Tune is centred near the classic 808-style clap territory (~1.2 kHz).</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Clap character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Noise through a resonant bandpass — the cleanest, most "drum-machine" clap. 808 (wider, roomier) or 909 (brighter, tighter) sub-options.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Bright, snappy FM bursts, with a <strong>Stack</strong> mode that layers a short pitched front-attack over a noise body — the modern "snap + clap" recipe.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Wavefolded noise; trashy and lo-fi. A <strong>Crush</strong> mode adds sample-rate and bit-depth reduction for genuine 8-bit / vintage-sampler grit.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Noise exciting four resonators that ring between bursts. Stick / Block / Tap are stacked-clap layer roles; <strong>Spread</strong> uses hand-clap formant ratios and works as a standalone clap.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Voice-specific extras:</strong> the Vol Env tab maps Click Amount to <strong>Bursts</strong> (count), Click Tone to <strong>Spacing</strong>, and adds a <strong>Human</strong> slider that introduces per-burst amplitude and pitch jitter — the single biggest difference between a stiff drum-machine clap and a natural "sampled" one. A <strong>Droop</strong> control on the Pitch Env tab drops each successive burst's pitch slightly.</p>
+
+        <h3 id="voice-tom">6.5 Tom</h3>
+        <p>Pitched percussion with a sustained tonal ring. Each engine reaches "tom-ness" through a different route, but all share a tune-proportional pitch sweep, a fast secondary <strong>Chirp</strong> overshoot, a band-passed stick exciter, an always-on <strong>Sub</strong> layer, and a decoupled bottom-head <strong>Tail</strong>.</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Tom character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Sine or triangle plus a short shell-cavity comb filter and gentle two-head detune — a hollow drum-machine tom. Optional Sat adds 909-style growl.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Synthetic / melodic tom via 2-operator FM. Wood / Skin / Bell / Metal / Clave ratios; Skin (1.5×) is the canonical tom ratio.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Folded sine with a stable sub anchor for body — warm and distorted. Sym or Asym fold.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Acoustic-style modal tom with inter-mode detune for head-beating. Rack / Mid / Floor pick the upper-mode set, from bright-and-tight to big-and-woody.</td></tr>
+          </tbody>
+        </table>
+        <p>The Tom uses a five-slot Vol Env (Click, Tone, Chirp, Sub, Tail). On the Analog engine you can dial 909-style (Sat on, strong Chirp, short Tail) or 808-style (Sat off, gentler Chirp, longer Tail) character from one card.</p>
+
+        <h3 id="voice-pluck">6.6 Pluck</h3>
+        <p>A pitched, naturally-decaying melodic voice — not strictly a drum. Three engines use Karplus-Strong delay-line synthesis; the Resonant engine uses modal synthesis. A short excitation drives the core and the result rings out musically. Tune covers 20–1000 Hz.</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Pluck character</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Classic Karplus-Strong string / mallet / wood. String, Mallet and Block sub-options shape the exciter from bright broadband to mellow felt to clicky wood.</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>Metallic FM-excited strike that smooths through the string loop. The sub-option sets the carrier ratio (×1 to ×7) — the perceived strike pitch.</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Evolving tone — each pass through the loop adds fold harmonics, so the timbre grows then settles rather than only dying away.</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Bell / gamelan modal synthesis with four inharmonic resonators (Bell, Steel, Wood, Glass ratios), oversampled for clean high partials.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Voice-specific extras:</strong> the Vol Env <strong>Curve</strong> slot becomes <strong>Attack</strong> (0–250 ms), letting a pluck swell from an instant percussive strike to a bowed, pad-like onset. Header toggles add character: <strong>Stiff</strong> (inharmonic stretch — electric-piano / clavichord colour) on Analog/FM/Fold, and <strong>Soft</strong> + <strong>Hum</strong> (mellow mallet exciter and a sub-fundamental mode) on Resonant. A <strong>Pickup</strong> control on the Pitch Env tab adds a pickup-position comb for hollow, woody tones.</p>
+
+        <h3 id="voice-switching">6.7 Voice Switching</h3>
+        <p>Switching voice changes only the DSP routing — <strong>all engine parameters are preserved</strong>. The same values are reinterpreted through the new voice's algorithms. This is deliberate: switching a carefully tuned Kick to Snare can produce unexpected, creative "happy accidents".</p>
+        <div class="callout note">
+          <strong>For voice-appropriate defaults, load a preset.</strong> Because voice switching keeps your current parameters, it won't reset to sensible values for the new drum. If you just want a clean starting point for a different voice, load a preset designed for it rather than switching voice on the current sound.
+        </div>
+      </section>
+
+      <section id="voices-tab">
+        <h2><span class="num">7</span>Voices Tab</h2>
+        <p class="lead">The main screen. Each engine card shows its header buttons plus the core sound controls for that engine.</p>
+        <h3>Core controls (per engine)</h3>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>Enables or disables the engine.</td></tr>
+            <tr><td>HIT</td><td>Triggers this engine to audition it.</td></tr>
+            <tr><td>Dice</td><td>Randomises only this engine's parameters.</td></tr>
+            <tr><td>Mode / sub-options</td><td>Engine- and voice-specific settings (waveform, FM ratio, fold symmetry, modal mode count, etc.).</td></tr>
+            <tr><td>Vol</td><td>Engine volume in the mix (0–100%).</td></tr>
+            <tr><td>Tune</td><td>Base pitch. The displayed range depends on the voice (see below).</td></tr>
+            <tr><td>Character</td><td>The defining timbre control of the current engine. Its label and meaning change per engine and voice (see below).</td></tr>
+            <tr><td>Decay</td><td>How quickly the sound fades after the trigger (2 ms–10 s, cubic taper so most drum decays sit in the middle of the travel).</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Tune range per voice</h3>
+        <p>Tune is remapped per voice so the slider always covers that drum's useful territory:</p>
+        <table class="param-table">
+          <thead><tr><th>Voice</th><th>Displayed range</th></tr></thead>
+          <tbody>
+            <tr><td>Kick</td><td>20–150 Hz</td></tr>
+            <tr><td>Snare</td><td>100–400 Hz</td></tr>
+            <tr><td>Hat</td><td>~3–8 kHz</td></tr>
+            <tr><td>Clap</td><td>~300–4000 Hz (centred near ~1.2 kHz)</td></tr>
+            <tr><td>Tom</td><td>Pitched percussion range</td></tr>
+            <tr><td>Pluck</td><td>20–1000 Hz</td></tr>
+          </tbody>
+        </table>
+
+        <h3>What "Character" controls</h3>
+        <p>Character is a single slider, but it drives a different part of each engine — and is relabelled to match. A few examples:</p>
+        <table class="param-table">
+          <thead><tr><th>Engine</th><th>Kick</th><th>Snare</th><th>Hat</th><th>Clap</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Sweep</td><td>Snap</td><td>Tone (kHz)</td><td>Q</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>FM Dep</td><td>FM Dep</td><td>Mod Idx</td><td>Chaos</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Fold</td><td>Fold</td><td>Fold</td><td>Fold</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Reso</td><td>Reso</td><td>Reso (ms)</td><td>Damp</td></tr>
+          </tbody>
+        </table>
+        <p>On Tom and Pluck, Character keeps shaping timbre too (Tom resonance / FM depth / fold; Pluck damping, FM depth, fold amount, or modal Spread). The in-app <a href="#hints">Hints</a> always show the correct label for the voice and engine you're on.</p>
+      </section>
+
+      <section id="pitch-env">
+        <h2><span class="num">8</span>Pitch Env</h2>
+        <p class="lead">The rapid pitch sweep at the start of a hit is fundamental to almost every drum sound. The Pitch Env tab controls it per engine.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Chromatic</td><td>On/Off</td><td>Full-width toggle at the top of the card. OFF (default) = the engine plays at a fixed pitch regardless of MIDI note (classic drum behaviour). ON = the engine tracks incoming MIDI chromatically (one semitone per note).</td></tr>
+            <tr><td>Time</td><td>1–500 ms (Pluck 0–250 ms)</td><td>How quickly the pitch reaches its resting frequency — the sweep time.</td></tr>
+            <tr><td>Mode env / Drop</td><td>engine-specific</td><td>The engine-dependent tonal envelope. Relabelled per engine: e.g. Analog Kick "Drop" (where the sweep lands, down to two octaves below Tune), FM "FM Dec", Fold "Fold Dec", Resonant "Ring" / "Shell Dec".</td></tr>
+            <tr><td>Curve</td><td>0–100%</td><td>Shape of the pitch sweep (exponential ↔ logarithmic). Relabelled <strong>Depth</strong> on Pluck (sweep amount), <strong>Droop</strong> on Clap (per-burst pitch drift), and <strong>Sub</strong> on FM Kick (sub-sine mix).</td></tr>
+            <tr><td>Pickup <em>(Pluck only)</em></td><td>Off / 0–100%</td><td>A pickup-position comb on the string output. 0 = bright (bridge); midway = hollow / woody; full = a deep fundamental notch.</td></tr>
+            <tr><td>Oct</td><td>−3 to +3</td><td>Octave transposition (integer octaves, detented slider).</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="vol-env">
+        <h2><span class="num">9</span>Vol Env</h2>
+        <p class="lead">Shapes the volume envelope and the click / transient layer. This is one of the most voice-specific tabs — its slot layout changes per voice.</p>
+        <h3>The common layout (most voices)</h3>
+        <table class="param-table">
+          <thead><tr><th>Slot</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Click Amount</td><td>Level of the initial transient burst (or, on Clap, the number of bursts).</td></tr>
+            <tr><td>Click Tone</td><td>Frequency character of the transient — low is a thud, high is a tick. Per-voice meaning (HP cutoff on Hat, burst spacing on Clap, and so on).</td></tr>
+            <tr><td>Decay Curve</td><td>Shape of the volume decay (exponential ↔ linear). Becomes <strong>Attack</strong> (swell-in) on Pluck.</td></tr>
+            <tr><td>Tail / Choke</td><td>Voice-dependent: <strong>Tail</strong> (ambient / wires decay) on Snare and Clap; <strong>Choke</strong> (note-off damping) on Hat and Pluck.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Voice-specific layouts</h3>
+        <ul>
+          <li><strong>Kick</strong> — Click, Attack (bloom), then the techno-rumble trio R-Tone (rumble brightness), R-Sus (rumble length) and R-Mix (rumble level). A per-engine <strong>Tick</strong> toggle adds an 808-style pitch-overshoot snap.</li>
+          <li><strong>Snare</strong> — Click, Tone, Slap (body pitch chirp) and Tail (wires decay), plus a per-engine <strong>BP</strong> toggle for the wire character.</li>
+          <li><strong>Clap</strong> — Bursts, Spacing, Human (per-burst jitter) and Tail.</li>
+          <li><strong>Tom</strong> — a five-slot layout: Click, Tone, Chirp, Sub and Tail.</li>
+          <li><strong>Pluck</strong> — Click, Tone, Attack and Choke, with header toggles <strong>Stiff</strong> (Analog/FM/Fold) or <strong>Soft</strong> + <strong>Hum</strong> (Resonant).</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The Kick rumble is a sound in itself.</strong> Leave R-Mix at 0 for a dry kick. Bring R-Mix up to 20–50% with R-Tone around 200–800 Hz and R-Sus near 0.4–1.0 s for the deep, ducked techno rumble that blooms after each hit. Above 50% it starts to dominate — great for breakdowns, less so elsewhere.
+        </div>
+      </section>
+
+      <section id="body">
+        <h2><span class="num">10</span>Body</h2>
+        <p class="lead">A per-engine peaking EQ placed between each engine's oscillator and its main filter. It adds the "body punch" that pure-sine drums otherwise lack — most impactful on Kick and Tom.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>—</td><td>Enables the body peak for this engine. Off by default.</td></tr>
+            <tr><td>Freq</td><td>40–3000 Hz</td><td>Centre frequency of the body resonance.</td></tr>
+            <tr><td>Q</td><td>0.5–8</td><td>Peak width — broad warmth to a sharp, focused bump.</td></tr>
+            <tr><td>Amount</td><td>0–100%</td><td>Boost level (up to about 12 dB).</td></tr>
+            <tr><td>Mod</td><td>0–100%</td><td>Envelope modulation — the peak starts higher at trigger and decays to Freq over the sweep time, giving the "body chirp" of pro kick synths.</td></tr>
+          </tbody>
+        </table>
+        <p>Typical Kick settings: Freq 60–90 Hz, Q 2–4, Amount 40–70%. When you switch to Snare or Tom, the default Freq moves to a voice-appropriate centre (around 200 Hz for Snare, 150 Hz for Tom) — unless you've already customised it.</p>
+      </section>
+
+      <section id="filter">
+        <h2><span class="num">11</span>Filter</h2>
+        <p class="lead">A per-engine multimode filter with eight types and its own envelope. Each engine has an independent filter with its own ON/OFF toggle.</p>
+        <h3>Filter types</h3>
+        <table class="param-table">
+          <thead><tr><th>Type</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>LP 6</td><td>Low-pass, gentle 6 dB/oct. Subtle high-frequency roll-off.</td></tr>
+            <tr><td>LP 12</td><td>Low-pass, 12 dB/oct. The standard warm, musical synth low-pass.</td></tr>
+            <tr><td>LP 18</td><td>Low-pass, 18 dB/oct. Steeper, more pronounced.</td></tr>
+            <tr><td>LP 24</td><td>Low-pass, 24 dB/oct. The aggressive Moog-style ladder slope.</td></tr>
+            <tr><td>BP</td><td>Band-pass. Passes a narrow band; great for isolating a tonal region.</td></tr>
+            <tr><td>Notch</td><td>Cuts a narrow band, passing everything else. Hollow, phase-like character.</td></tr>
+            <tr><td>HP</td><td>High-pass. Thins out a layer so it sits on top of others.</td></tr>
+            <tr><td>Fmt</td><td>Formant. Vowel-like resonances for a vocal quality.</td></tr>
+          </tbody>
+        </table>
+        <h3>Filter parameters</h3>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Cutoff</td><td>20–8000 Hz</td><td>The filter's corner frequency.</td></tr>
+            <tr><td>Reso</td><td>0–100%</td><td>Resonance / emphasis at the cutoff.</td></tr>
+            <tr><td>Env</td><td>−100% to +100%</td><td>Bipolar filter-envelope amount. Positive opens the cutoff on the hit and settles (classic motion); negative inverts it so the cutoff closes on the hit and opens on decay. Centre detent at 0.</td></tr>
+            <tr><td>Decay</td><td>10–2000 ms</td><td>How quickly the filter envelope returns to the base cutoff.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>Negative Env is especially useful on drums.</strong> It gives you closing acid sweeps, resonant chirp-downs, a high-pass that reveals the body as it decays, and auto-wah on plucks.
+        </div>
+      </section>
+
+      <section id="lfos">
+        <h2><span class="num">12</span>LFOs (Cut / Pitch / Char)</h2>
+        <p class="lead">Bruno gives each engine three independent LFOs — twelve in total across the four engines. They share one control layout, so learning one teaches you all three.</p>
+        <table class="param-table">
+          <thead><tr><th>LFO tab</th><th>Target</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Cut LFO</td><td>Filter cutoff</td><td>Rhythmic or evolving filter sweeps.</td></tr>
+            <tr><td>Pitch LFO</td><td>Tune frequency</td><td>Vibrato, pitch wobble, siren effects.</td></tr>
+            <tr><td>Char LFO</td><td>Character parameter</td><td>Timbral animation (sweep / FM depth / fold / resonance, depending on engine).</td></tr>
+          </tbody>
+        </table>
+        <h3>Shared LFO controls</h3>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>Enables this LFO for this engine.</td></tr>
+            <tr><td>Waveform</td><td>Sine, Triangle, Saw (instant rise, linear fall), Ramp (linear rise, instant drop), or Square.</td></tr>
+            <tr><td>SYNC</td><td>Locks the rate to host tempo. The Rate slider then selects musical divisions (1/64 up to 4 bars, including triplets and dotted values).</td></tr>
+            <tr><td>GATE</td><td>ON = the LFO phase resets on every note, so the modulation shape is identical on each hit (essential for consistent drums). OFF = the LFO free-runs, so each hit catches it at a different point.</td></tr>
+            <tr><td>Rate</td><td>Free (0.1–20 Hz) when unsynced and ungated; musical divisions when SYNC is on; up to 0.1–100 Hz in GATE mode, since per-hit LFOs often need fast rates to complete a useful shape within a short decay.</td></tr>
+            <tr><td>Range</td><td>A dual-handle slider setting the low and high bounds of the modulation. The filled region between the handles is the active depth; setting both equal gives no modulation.</td></tr>
+            <tr><td>Phase</td><td>Starting phase (0–360°), with detents at 0/90/180/270°. In GATE mode it sets where in the cycle each note begins; otherwise it's a constant offset, handy for phasing one engine's LFO against another's.</td></tr>
+          </tbody>
+        </table>
+        <p>The LFOs modulate multiplicatively — the Cut LFO multiplies the cutoff frequency, the Pitch LFO multiplies the tune, and the Char LFO multiplies the character-derived value.</p>
+      </section>
+
+      <section id="compressor">
+        <h2><span class="num">13</span>Compressor</h2>
+        <p class="lead">A per-engine compressor for shaping each synthesis layer independently — tame peaky FM transients without squashing the Analog sub, or add sustain to a Resonant layer without pumping the whole mix.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>—</td><td>Enables the compressor for this engine.</td></tr>
+            <tr><td>Thresh</td><td>−60 to 0 dB</td><td>Level above which compression begins.</td></tr>
+            <tr><td>Ratio</td><td>1:1 to 20:1</td><td>How firmly signal above threshold is reduced.</td></tr>
+            <tr><td>Attack</td><td>0.1–100 ms</td><td>How quickly it reacts. Fast catches transients; slower lets the initial hit through.</td></tr>
+            <tr><td>Release</td><td>5–500 ms</td><td>How quickly it recovers after the signal drops.</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Parallel-compression blend — the go-to for adding punch without killing natural dynamics.</td></tr>
+          </tbody>
+        </table>
+        <p>A real-time <strong>GR meter</strong> shows the gain reduction in dB. The compressor sits after the filter in each engine's chain.</p>
+        <div class="callout tip">
+          <strong>Classic drum compression:</strong> fast attack (1–5 ms), medium release (50–100 ms), moderate ratio (4:1), and Mix around 50–70% for parallel punch.
+        </div>
+      </section>
+
+      <section id="drive">
+        <h2><span class="num">14</span>Drive</h2>
+        <p class="lead">Per-engine saturation and distortion with four switchable types. Each engine drives independently. The nonlinear stage is oversampled so the harder types stay clean instead of aliasing into digital fizz.</p>
+        <h3>Drive types</h3>
+        <table class="param-table">
+          <thead><tr><th>Type</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Soft</td><td>Warm, smooth saturation. Good for warming clean sine kicks or adding body to FM.</td></tr>
+            <tr><td>Hard</td><td>Brick-wall clipping — biting upper harmonics. Loudness-matched to Soft, so switching changes character, not level.</td></tr>
+            <tr><td>Crush</td><td>Bit-depth reduction with optional sample-rate decimation (via Bias). Lo-fi / vintage-sampler aesthetic.</td></tr>
+            <tr><td>Fold</td><td>Post-synthesis wavefolding on the full signal — metallic, bell-like overtones on any engine.</td></tr>
+          </tbody>
+        </table>
+        <h3>Parameters</h3>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Drive</td><td>0–100%</td><td>Intensity. Level-compensated so loudness stays roughly constant across the sweep.</td></tr>
+            <tr><td>Tone</td><td>0–100%</td><td>Tilt EQ around ~1 kHz. 50% is flat; below darkens, above brightens (about ±4 dB at the extremes).</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Dry / wet blend for parallel distortion.</td></tr>
+            <tr><td>Bias</td><td>0–100%</td><td>Signal-dependent asymmetric saturation — adds even harmonics that grow with hit level (growl-on-hit). In Crush mode, repurposed as a sample-rate decimator.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="delay">
+        <h2><span class="num">15</span>Delay</h2>
+        <p class="lead">Per-engine delay with four characterful types. Different delay times per engine create rhythmic separation between your layers.</p>
+        <table class="param-table">
+          <thead><tr><th>Type</th><th>Character</th></tr></thead>
+          <tbody>
+            <tr><td>Digital</td><td>Clean, precise repeats with a gentle tone tilt. Best for tight rhythmic effects and flam doubling.</td></tr>
+            <tr><td>BBD</td><td>Bucket-brigade emulation — warm, smeared, gently modulated, like classic analog drum machines.</td></tr>
+            <tr><td>Tape</td><td>Tape echo with wow, flutter and soft saturation. Organic and alive; each repeat slightly different.</td></tr>
+            <tr><td>Spring</td><td>Metallic, resonant spring character with a splashy "boing". Great on snares and hats for dub flavour.</td></tr>
+          </tbody>
+        </table>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>SYNC</td><td>On/Off</td><td>Switches Time from milliseconds to musical divisions (1/64 up to 4 bars).</td></tr>
+            <tr><td>Time</td><td>5–2000 ms or division</td><td>Delay time.</td></tr>
+            <tr><td>Feedback</td><td>0–95%</td><td>How much delayed signal feeds back — more repeats.</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Dry / wet blend.</td></tr>
+            <tr><td>Tone</td><td>0–100%</td><td>Character of the feedback and output — higher is brighter / more metallic.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>Try short, dry flams.</strong> A 5–30 ms delay with zero feedback on just the FM engine (leaving Analog clean) thickens a hit into a flam without washing it out. Spring at 10–20 ms with high feedback pairs beautifully with the Resonant engine.
+        </div>
+      </section>
+
+      <section id="eq">
+        <h2><span class="num">16</span>EQ</h2>
+        <p class="lead">A per-engine 3-band parametric EQ — the final stage in each engine's chain, after Delay and before the four engines sum. Placing it last catches everything, including the harmonics Drive adds and the repeats Delay adds.</p>
+        <table class="param-table">
+          <thead><tr><th>Band</th><th>Type</th><th>Range</th></tr></thead>
+          <tbody>
+            <tr><td>Low</td><td>Shelf, fixed 150 Hz</td><td>±12 dB</td></tr>
+            <tr><td>Mid</td><td>Bell, variable 200 Hz–5 kHz, Q 0.3–8.0</td><td>±12 dB</td></tr>
+            <tr><td>High</td><td>Shelf, fixed 6 kHz</td><td>±12 dB</td></tr>
+          </tbody>
+        </table>
+        <p>The five sliders are Low, Mid Freq, Mid Q, Mid Gain and High. A broad Mid Q (around 1.0) is musical; 4.0+ is surgical for de-mudding narrow zones around 350 Hz or 700 Hz. Each engine also has a row of six voice-specific one-tap presets (e.g. Kick: Flat / Sub / Body / Punch / De-Mud / Cut Lows). They snap the sliders to a starting point you can tweak from; nothing locks.</p>
+        <div class="callout tip">
+          <strong>Stacking engines without mud.</strong> Drop a few dB at 350 Hz with a tight Q on engines 2–4 to clear room for the Kick body, and high-pass the click / air layers so they don't add to the sub. Tap "Flat" (or the ON/OFF toggle) to A/B against the change.
+        </div>
+      </section>
+
+      <section id="master">
+        <h2><span class="num">17</span>Master Tab</h2>
+        <p class="lead">The Master tab processes the summed output of all four engines through six sections, left to right. It's adapted from Marco's master chain, tuned for percussion.</p>
+        <div class="callout">
+          <strong>Master signal chain:</strong> Saturation → Compressor → Transient Shaper → Reverb → Stereo → Limiter.
+        </div>
+        <p>Each section (except the always-on Stereo and the auto-managed Limiter) has its own ON/OFF toggle and its own green Tweak wand.</p>
+
+        <h3 id="master-sat">17.1 Saturation</h3>
+        <p>An oversampled saturator with four analogue-modelled types: <strong>Tape</strong> (smooth, warm, transparent), <strong>Tube</strong> (asymmetric, rich even harmonics), <strong>XFM</strong> (transformer-style, dynamic and "alive"), and <strong>Tran</strong> (transistor — clean below threshold, punchy and gritty above). Controls: Drive (intensity), Tone (±12 dB tilt at 1 kHz), Mix (parallel blend).</p>
+
+        <h3 id="master-comp">17.2 Compressor</h3>
+        <p>An RMS-detecting, soft-knee compressor built for summed percussion. RMS detection responds to the composite energy of layered drums rather than individual spikes, and a dual-stage release automatically lengthens under heavy gain reduction to avoid pumping. Controls: Thresh, Ratio, Atk, Rel and an AUTO GAIN button for automatic makeup. A GR meter shows the gain reduction.</p>
+
+        <h3 id="master-transient">17.3 Transient Shaper</h3>
+        <p>A level-independent processor that splits the signal into attack and sustain, letting you boost or cut each. A <strong>SPLIT</strong> mode (on by default) crosses over at 250 Hz so the sub-bass passes untouched while only the click / snap is shaped — essential for boosting a kick's attack without clipping its sub.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Attack</td><td>−100% to +100%</td><td>Boost (punch, snap) or cut (softer hit) the transient.</td></tr>
+            <tr><td>Sustn</td><td>−100% to +100%</td><td>Boost (body, ring-out) or cut (tighter decay) the sustain.</td></tr>
+            <tr><td>Sens</td><td>0–100%</td><td>How aggressively it distinguishes attack from sustain.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-reverb">17.4 Reverb</h3>
+        <p>An 8-line Feedback Delay Network reverb with a percussion-specific low-cut on its input. Four damping presets — <strong>DARK</strong>, <strong>WARM</strong> (default), <strong>CLR</strong>, <strong>BRGT</strong> — set the tail's brightness.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Decay</td><td>0–100%</td><td>How long the reverb rings.</td></tr>
+            <tr><td>Size</td><td>0.2×–2.0×</td><td>Room size. Larger is more spacious.</td></tr>
+            <tr><td>PrDly</td><td>0–100 ms</td><td>Pre-delay — separates the dry hit from the wash, preserving punch.</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Wet level blended over the always-present dry signal.</td></tr>
+            <tr><td>LoCut</td><td>20–500 Hz</td><td>High-passes the reverb input. Set to 150–300 Hz on kicks to keep the sub dry while the click and body get space — the key percussion control.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>Pre-delay is your friend for drum reverb.</strong> Even 10–25 ms of separation between the dry hit and the reverb onset makes a huge difference to clarity.
+        </div>
+
+        <h3 id="master-stereo">17.5 Stereo</h3>
+        <p>An allpass-decorrelator widener with a bass-mono crossover — critical for percussion, since kick sub-bass must stay centred for club / PA playback while the click, body and hats can spread.</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>Range</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Width</td><td>0–100%</td><td>Stereo spread. 0% is pure mono.</td></tr>
+            <tr><td>Xover</td><td>20–500 Hz</td><td>Below this frequency is summed to mono; above it spreads.</td></tr>
+            <tr><td>B.MON</td><td>Button</td><td>One-tap bass-mono: snaps Xover to 200 Hz (engaged) or 20 Hz (off). Handy as an A/B.</td></tr>
+            <tr><td>SAFE</td><td>On/Off</td><td>Mono-compatibility — reduces the side signal by 40% so the mix translates to mono playback.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-limiter">17.6 Limiter</h3>
+        <p>A zero-latency brickwall limiter — the absolute last stage before the output. It catches peaks on the same sample they occur, so it adds no latency. Controls: <strong>Ceil</strong> (−12 to 0 dB maximum output) and <strong>Rel</strong> (1–500 ms release). A GR meter shows how hard it's working.</p>
+        <div class="callout note">
+          <strong>Let the GR meter guide you.</strong> If the limiter's meter is constantly lit, the input is too hot — pull back the Gain slider or individual engine volumes rather than relying on the limiter to do all the work.
+        </div>
+      </section>
+
+      <section id="presets">
+        <h2><span class="num">18</span>Presets</h2>
+        <p class="lead">Bruno ships with a curated factory library and full support for saving, organising and sharing your own sounds. A preset captures the complete state of all four engines plus the voice type.</p>
+        <h3>Preset categories</h3>
+        <ul>
+          <li><strong>All</strong> — every preset in the library.</li>
+          <li><strong>Favourites</strong> — anything you've starred.</li>
+          <li><strong>User</strong> — presets you've saved yourself.</li>
+          <li>Plus the factory categories, organised by drum type and character.</li>
+        </ul>
+        <h3>The Preset Browser</h3>
+        <p>Tap the preset name in the header to open the browser. Categories are on the left, names on the right; tap a star to favourite, tap a name to load. The current preset name shows an asterisk (<span class="ui">*</span>) when you've edited it. You can also step through presets with the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows in the header without opening the browser.</p>
+        <h3>Import &amp; Export</h3>
+        <p>Presets export and import as small JSON files, so you can move sounds between devices or share them with other users — see <a href="#sharing">23. Sharing Presets</a>.</p>
+      </section>
+
+      <section id="random">
+        <h2><span class="num">19</span>Random Preset Generator</h2>
+        <p class="lead">Bruno's fastest way to discover new drum sounds. Every roll is biased toward musically useful results — Bruno knows a Kick lives at 35–80 Hz, a Hat at 4–10 kHz, a Snare's body peak belongs near 200 Hz, and a clean rumble tail is under a second.</p>
+        <p>It works three ways:</p>
+        <table class="param-table">
+          <thead><tr><th>System</th><th>Where</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Generate</td><td>Generate button in the panel, or the 🎲 dice on the Master Strip</td><td>Rolls a completely new sound in the selected category.</td></tr>
+            <tr><td>Tweak</td><td>Tweak button in the panel</td><td>Mutates the sound you've got, affecting only the engines and parameter groups you've ticked. Evolves a patch without losing it.</td></tr>
+            <tr><td>Per-engine dice / wand</td><td>Each engine card</td><td>Rerolls a single engine — the card dice on the Voices tab, the per-tab wand elsewhere.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Styles — Mild, Wild &amp; Recipe</h3>
+        <p>Three Style pills at the top of the panel decide <em>how</em> each roll is built. They're multi-select — enable any combination and each roll picks one at random.</p>
+        <table class="param-table">
+          <thead><tr><th>Style</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Mild</td><td>Small, musical mutations around the source sound. Best for refining a patch you already like.</td></tr>
+            <tr><td>Wild</td><td>Bigger, broader swings inside the voice's ranges. Ideal for discovery sessions.</td></tr>
+            <tr><td>Recipe</td><td>Stamps a curated drum-voice archetype (e.g. "Punchy Sub Kick", "Trap Snap") onto a base preset — the most coherent, usable-out-of-the-box Style. Falls back to Mild where a category has no recipes.</td></tr>
+          </tbody>
+        </table>
+        <p>The Style selection persists across launches and is shared by every random entry point. Note that <strong>Tweak always strips Recipe</strong> from the pool — Recipe applies on Generate and the dice buttons.</p>
+
+        <h3>Chromatic mode &amp; source category</h3>
+        <p>A <strong>Chromatic</strong> override decides whether new sounds track MIDI pitch, affecting both Generate and Tweak. The <strong>Base Preset Source</strong> grid picks which category Generate draws from (it silently falls back to All if the chosen category is empty) — and the category also shapes the bias ranges for both Generate and Tweak.</p>
+
+        <h3>History</h3>
+        <p>Every result from all three systems is pushed to a shared history of the last <strong>30</strong> sounds. The orange chevrons either side of the dice (and either side of the Generate button) step back and forward through it; a chevron dims when there's nowhere further to go. Stepping back never erases anything — new rolls are simply appended.</p>
+        <div class="callout tip">
+          <strong>Roll freely, then walk it back.</strong> Hit the dice ten times chasing an idea, then use the back chevron to return to the one that caught your ear three rolls ago.
+        </div>
+      </section>
+
+      <section id="scope">
+        <h2><span class="num">20</span>Scope &amp; Spectrum</h2>
+        <p class="lead">Tap the cyan Scope button in the Master Strip to open a visual overlay with two panels.</p>
+        <ul>
+          <li><strong>Master Output</strong> — a zero-crossing-locked oscilloscope of the final left (cyan) and right (pink) channels on a shared, auto-scaled axis.</li>
+          <li><strong>Engine Spectrum</strong> — a real-time FFT of each enabled engine's pre-effects output, drawn as a translucent filled curve in the engine's colour (Analog blue, FM green, Fold orange, Resonant purple) on a log-frequency axis from 20 Hz to 20 kHz. Peak-hold smoothing keeps a transient drum hit visible long enough to read which frequency range each layer occupies.</li>
+        </ul>
+        <p>The spectrum is the quickest way to spot two engines masking each other, or a hole in the mix where no engine is contributing. Disabled engines are cleared and greyed out in the legend.</p>
+      </section>
+
+      <section id="midi">
+        <h2><span class="num">21</span>MIDI</h2>
+        <p class="lead">Bruno responds to MIDI in both the standalone app and the AUv3 plugin.</p>
+        <h3>MIDI behaviour</h3>
+        <ul>
+          <li><strong>Note-on</strong> triggers all enabled engines simultaneously.</li>
+          <li><strong>Note-off</strong> is ignored on most voices — drums decay naturally via the Decay parameter. The Hat and Pluck voices use note-off for their <strong>Choke</strong> damping.</li>
+          <li><strong>Velocity</strong> scales the trigger intensity when velocity sensitivity is enabled.</li>
+          <li><strong>Tempo</strong> changes from the host update the BPM for sync-locked LFOs and delays.</li>
+        </ul>
+        <h3>MIDI settings (standalone)</h3>
+        <p>The MIDI button (the piano-keys icon, with its activity dot) opens settings for enabling MIDI, choosing the channel (0 = omni, or 1–16), toggling velocity sensitivity, and selecting which connected device to listen to. Your choices persist across launches; if a selected device isn't plugged in at launch, Bruno reconnects to it automatically once it reappears.</p>
+        <h3>Pitch tracking</h3>
+        <p>Pitch tracking is per engine, set on the <a href="#pitch-env">Pitch Env</a> tab: the <strong>Chromatic</strong> toggle decides whether an engine follows the MIDI note, and <strong>Oct</strong> transposes on top. In the AUv3 plugin the host manages MIDI routing, so there are no in-app MIDI settings.</p>
+      </section>
+
+      <section id="keyboard-song">
+        <h2><span class="num">22</span>Keyboard &amp; Song Player <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(Standalone only)</span></h2>
+        <h3>Piano keyboard</h3>
+        <p>The standalone app has a one-octave touch keyboard at the top of the screen. Drag across the keys to play different notes, use the octave buttons on either side to shift range, and watch the visual feedback for the currently pressed key. Every key triggers all enabled engines at full velocity.</p>
+        <h3>Song Player</h3>
+        <p>A collapsible panel at the bottom of the standalone app plays patterns so you can audition your drum in musical context. Pick a pattern, start playback, and switch presets while it plays to A/B your sounds quickly.</p>
+        <div class="callout note">
+          <strong>Plugin?</strong> The keyboard and Song Player are standalone-only. When running Bruno as an AUv3 plugin, use your host's transport and tracks instead.
+        </div>
+      </section>
+
+      <section id="sharing">
+        <h2><span class="num">23</span>Sharing Presets</h2>
+        <p class="lead">Made a great drum? Share it back so we can consider it for future factory libraries.</p>
+        <ol>
+          <li>Export or copy your preset from the Preset Browser — it's a small JSON file containing the name and parameter values.</li>
+          <li>Open <a href="support.html">our website's submission form</a> in a browser.</li>
+          <li>Attach or paste the preset and submit.</li>
+        </ol>
+        <p>The flow is entirely manual — Bruno never sends anything automatically. See our <a href="privacy.html">Privacy Policy</a> for the full disclosure on what happens with submitted presets.</p>
+      </section>
+
+      <section id="tips">
+        <h2><span class="num">24</span>Tips &amp; Workflow</h2>
+
+        <h3>Pick a voice, then roll</h3>
+        <p>Building a drum from scratch is slow. Choose the voice, hit the dice, and start from something that already works — then shape it. Even experienced sound designers usually start from an existing patch.</p>
+
+        <h3>Solo engines to understand the layers</h3>
+        <p>Use each engine's ON/OFF toggle (or its HIT button) to hear it on its own. Once you know what each contributes, bring them back together and carve them with their per-engine filter, drive and EQ so they stack cleanly.</p>
+
+        <h3>Use the per-engine dice for fresh layers</h3>
+        <p>When a sound is almost right but one layer is dull, tap that engine's dice rather than rolling the whole preset. You'll find a new idea for that layer without disturbing the rest.</p>
+
+        <h3>Keep the sub mono</h3>
+        <p>On the Master Stereo section, use the bass-mono crossover so the kick's low end stays centred while the click and higher layers spread. Check with SAFE on before finalising anything that might play in mono.</p>
+
+        <h3>Watch the spectrum</h3>
+        <p>Open the Scope's Engine Spectrum when layering. If two engines pile up in the same frequency band, EQ one out of the other's way — the visual makes masking obvious.</p>
+
+        <h3>Tweak more than you Generate</h3>
+        <p>Generate is great for inspiration but easy to lose your direction with. Once you have a promising sound, switch to Tweak (untick everything except the groups you want to move) to iterate without losing what you've built.</p>
+      </section>
+
+      <section id="troubleshooting">
+        <h2><span class="num">25</span>Troubleshooting</h2>
+
+        <h3>I can't hear anything</h3>
+        <ul>
+          <li>Check the <strong>output meter</strong> in the Master Strip — is it moving when you trigger a hit?</li>
+          <li>Make sure the <strong>Gain</strong> slider isn't at zero.</li>
+          <li>Make sure at least one engine is <strong>ON</strong> and its <strong>Vol</strong> is above zero.</li>
+          <li>Trigger the sound with a <strong>HIT</strong> button to rule out a MIDI routing issue.</li>
+          <li>On the Master tab, check the <strong>Limiter Ceiling</strong> isn't pulled all the way down, and that no effect with a low Mix is swallowing the signal.</li>
+          <li>If using the AUv3, confirm the host's track is unmuted and routed correctly.</li>
+        </ul>
+
+        <h3>My drum has no low end</h3>
+        <ul>
+          <li>On the <strong>Fold Kick</strong>, raise the <strong>Sub</strong> slider — at high Character the folder can eat the fundamental.</li>
+          <li>On the <strong>FM Kick</strong>, the Pitch Env <strong>Sub</strong> control blends in a locked sub-sine when high ratios thin out the low end.</li>
+          <li>Try the <strong>Body</strong> tab — a peak around 60–90 Hz adds weight that pure-sine kicks lack.</li>
+          <li>Check the Master <strong>Transient Shaper</strong> has SPLIT on, so boosting attack isn't fighting the sub.</li>
+        </ul>
+
+        <h3>My clap sounds robotic</h3>
+        <p>Raise the <strong>Human</strong> slider on the Clap's Vol Env tab. It adds the per-burst amplitude and pitch jitter that separates a stiff drum-machine clap from a natural, sampled-sounding one.</p>
+
+        <h3>MIDI isn't triggering</h3>
+        <ul>
+          <li>In standalone, confirm MIDI is enabled and the <strong>channel</strong> matches your controller (or set it to omni), and that the correct device is selected.</li>
+          <li>In the AUv3, make sure the host has routed MIDI to Bruno's track.</li>
+          <li>Remember that note-off is ignored on most voices — Bruno triggers on note-on and decays naturally.</li>
+        </ul>
+      </section>
+
+      <section id="support">
+        <h2><span class="num">26</span>Getting Help</h2>
+        <p>Questions, bug reports, feature requests — head to the <a href="support.html">Support page</a>. We aim to reply within 1–2 business days.</p>
+        <p>For privacy questions, see the <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>Thanks for using Bruno.</p>
+      </section>
+
+    </article>
+
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+
+<script>
+  // Highlight current TOC item based on scroll position
+  const sections = document.querySelectorAll('.content section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

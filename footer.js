@@ -14,6 +14,7 @@
     { href: 'index.html',       label: 'Home' },
     { href: 'marco.html',       label: 'Marco' },
     { href: 'marcomanual.html', label: 'Marco Manual' },
+    { href: 'brunomanual.html', label: 'Bruno Manual' },
     { href: 'support.html',     label: 'Support' },
     { href: 'privacy.html',     label: 'Privacy' }
   ];
