@@ -22,7 +22,7 @@
     { type: 'link', href: 'index.html', label: 'Home' },
     { type: 'menu', label: 'Apps', items: [
         { href: 'marco.html', label: 'Marco' },
-        { label: 'Bruno', soon: true }
+        { href: 'bruno.html', label: 'Bruno' }
     ]},
     { type: 'menu', label: 'Manuals', items: [
         { href: 'marcomanual.html', label: 'Marco' },

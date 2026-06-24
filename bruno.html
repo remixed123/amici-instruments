@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruno — Layered Drum &amp; Pluck Synthesizer | Amici Instruments</title>
+<link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<meta name="description" content="Bruno is a layered drum and pluck synthesizer for iOS and macOS — six voices, four engines per drum. A drum machine that thinks like a synth. From an instrument anyone can play.">
+<link rel="canonical" href="https://amici-instruments.com/bruno.html">
+<meta name="theme-color" content="#050507">
+
+<!-- Open Graph / social link previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amici-instruments.com/bruno.html">
+<meta property="og:title" content="Bruno — Layered Drum &amp; Pluck Synthesizer">
+<meta property="og:description" content="Six voices, four engines per drum. A drum machine that thinks like a synth. From an instrument anyone can play.">
+<meta property="og:image" content="https://amici-instruments.com/images/bruno-hero.jpg">
+<meta property="og:image:alt" content="Bruno — layered drum synthesizer interface showing four coloured sound engines">
+<meta property="og:site_name" content="Amici Instruments">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bruno — Layered Drum &amp; Pluck Synthesizer">
+<meta name="twitter:description" content="Six voices, four engines per drum. A drum machine that thinks like a synth. From an instrument anyone can play.">
+<meta name="twitter:image" content="https://amici-instruments.com/images/bruno-hero.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050507;
+    --bg-card: #0e0e12;
+    --bg-card-2: #14141a;
+    --border: #1f1f28;
+    --text: #f2f2f5;
+    --text-dim: #9a9aa6;
+    --text-muted: #6b6b78;
+    /* Four engine colours: Analog / FM / Fold / Resonant */
+    --osc-1: #5BA8E5;
+    --osc-2: #7BD957;
+    --osc-3: #F5A044;
+    --osc-4: #D060E5;
+    /* BRUNO wordmark letter colors */
+    --letter-b: #00D9F5; /* Cyan */
+    --letter-r: #2E7BFF; /* Blue */
+    --letter-u: #7BD957; /* Green */
+    --letter-n: #F5A044; /* Orange */
+    --letter-o: #B14BE0; /* Purple */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Animated gradient background accent */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(91,168,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(208,96,229,0.08), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* MARCO/BRUNO wordmark — Futura Condensed Extra Bold with web-safe condensed fallbacks. */
+  .logo, .hero h1 {
+    font-family: "Futura Condensed Extra Bold", "Futura-CondensedExtraBold",
+                 "Oswald", "Impact", "Haettenschweiler",
+                 "Arial Narrow Bold", sans-serif;
+    font-stretch: condensed;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  /* SVG wordmark — guarantees correct visuals when Futura Condensed Extra Bold
+     isn't installed. */
+  .wordmark-svg { display: block; height: auto; }
+  .wordmark-svg text {
+    font-family: "Futura Condensed Extra Bold", "Futura-CondensedExtraBold",
+                 "Oswald", "Impact", "Haettenschweiler",
+                 "Arial Narrow Bold", sans-serif;
+    font-weight: 800;
+    font-stretch: condensed;
+  }
+  .hero .wordmark-svg {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto 14px;
+    filter: drop-shadow(0 0 40px rgba(0,217,245,0.18));
+  }
+  footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 32px 24px 48px;
+    position: relative;
+  }
+  .hero h1 {
+    font-size: clamp(54px, 10vw, 130px);
+    letter-spacing: clamp(3px, 0.8vw, 10px);
+    line-height: 0.95;
+    margin-bottom: 14px;
+    text-shadow: 0 0 40px rgba(0,217,245,0.18);
+  }
+
+  .hero-tagline {
+    font-size: clamp(18px, 2.4vw, 26px);
+    font-weight: 300;
+    color: var(--text);
+    max-width: 720px;
+    margin: 0 auto 8px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 16px;
+  }
+  .hero-question {
+    font-size: clamp(17px, 1.8vw, 21px);
+    font-style: italic;
+    font-weight: 300;
+    background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0 auto 28px;
+    max-width: 720px;
+  }
+
+  .hero-image {
+    max-width: 1100px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.02),
+      0 30px 80px rgba(0,0,0,0.6),
+      0 0 120px rgba(91,168,229,0.08);
+  }
+  .hero-image img { display: block; width: 100%; }
+
+  /* Sections */
+  section { padding: 100px 0; }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--osc-1);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .section-lead {
+    font-size: 19px;
+    color: var(--text-dim);
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  /* Two-column rows */
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .row.reverse .row-text { order: 2; }
+  .row.reverse .row-image { order: 1; }
+
+  .row-image {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    background: var(--bg-card);
+  }
+  .row-image img { display: block; width: 100%; }
+
+  /* Feature list with engine colors */
+  .feature-list {
+    list-style: none;
+    margin-top: 24px;
+  }
+  .feature-list li {
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--osc-1);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+  }
+  .feature-list li:hover {
+    background: var(--bg-card-2);
+    color: var(--text);
+    transform: translateX(4px);
+  }
+  .feature-list li:nth-child(4n+1) { border-left-color: var(--osc-1); }
+  .feature-list li:nth-child(4n+2) { border-left-color: var(--osc-2); }
+  .feature-list li:nth-child(4n+3) { border-left-color: var(--osc-3); }
+  .feature-list li:nth-child(4n)   { border-left-color: var(--osc-4); }
+
+  .feature-list strong { color: var(--text); font-weight: 600; }
+
+  /* Why Bruno section */
+  .why-section {
+    text-align: center;
+    padding: 120px 0;
+  }
+  .why-section .section-title {
+    background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 40px;
+  }
+  .why-statement {
+    font-size: clamp(20px, 2.4vw, 26px);
+    color: var(--text-dim);
+    max-width: 760px;
+    margin: 0 auto 24px;
+    font-weight: 300;
+  }
+  .why-emphasis {
+    font-size: clamp(22px, 2.6vw, 28px);
+    color: var(--text);
+    font-weight: 500;
+    margin: 32px auto;
+    max-width: 720px;
+  }
+
+  /* Quad highlight (4 boxes representing the 4 engines) */
+  .quad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .quad-card {
+    padding: 24px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: left;
+  }
+  .quad-card .num {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .quad-card h4 { font-size: 17px; margin-bottom: 6px; color: var(--text); }
+  .quad-card p { font-size: 14px; color: var(--text-dim); }
+  .quad-card:nth-child(1) { border-top: 2px solid var(--osc-1); }
+  .quad-card:nth-child(1) .num { color: var(--osc-1); }
+  .quad-card:nth-child(2) { border-top: 2px solid var(--osc-2); }
+  .quad-card:nth-child(2) .num { color: var(--osc-2); }
+  .quad-card:nth-child(3) { border-top: 2px solid var(--osc-3); }
+  .quad-card:nth-child(3) .num { color: var(--osc-3); }
+  .quad-card:nth-child(4) { border-top: 2px solid var(--osc-4); }
+  .quad-card:nth-child(4) .num { color: var(--osc-4); }
+
+  /* Includes / voices grid */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .include-item {
+    padding: 22px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .include-item .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--osc-1);
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .include-item:nth-child(5n+1) .dot { background: var(--osc-1); }
+  .include-item:nth-child(5n+2) .dot { background: var(--osc-2); }
+  .include-item:nth-child(5n+3) .dot { background: var(--osc-3); }
+  .include-item:nth-child(5n+4) .dot { background: var(--osc-4); }
+  .include-item:nth-child(5n)   .dot { background: var(--osc-1); }
+
+  .include-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .include-item p { font-size: 14px; color: var(--text-dim); }
+
+  /* Top navigation bar */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topnav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .topnav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .topnav-brand:hover { color: var(--osc-1); }
+  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
+  .topnav-links {
+    display: flex;
+    gap: 28px;
+  }
+  .topnav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .topnav-links a:hover { color: var(--text); }
+  .topnav-links a.active { color: var(--osc-1); }
+
+  /* Wide image */
+  .wide-image {
+    max-width: 1100px;
+    margin: 60px auto 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+  .wide-image img { display: block; width: 100%; }
+
+  /* Download / CTA */
+  .download {
+    text-align: center;
+    padding: 100px 24px;
+    border-top: 1px solid var(--border);
+  }
+  .cta-button {
+    display: inline-block;
+    padding: 18px 42px;
+    background: linear-gradient(135deg, var(--osc-1), var(--osc-4));
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 999px;
+    transition: all 0.25s ease;
+    box-shadow: 0 12px 40px rgba(91,168,229,0.25), 0 12px 40px rgba(208,96,229,0.15);
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(91,168,229,0.4), 0 18px 50px rgba(208,96,229,0.3);
+  }
+  .cta-secondary {
+    display: inline-block;
+    margin-top: 22px;
+    font-size: 15px;
+    color: var(--osc-1);
+    text-decoration: none;
+  }
+  .cta-secondary:hover { text-decoration: underline; }
+
+  .requirements {
+    margin-top: 60px;
+    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .requirements h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .requirements ul { list-style: none; }
+  .requirements li {
+    padding: 8px 0;
+    color: var(--text-dim);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .requirements li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--osc-2);
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--text-muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .row { grid-template-columns: 1fr; gap: 40px; }
+    .row.reverse .row-text { order: 1; }
+    .row.reverse .row-image { order: 2; }
+    .quad-grid { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 70px 0; }
+    .hero { padding: 24px 20px 36px; }
+  }
+  @media (max-width: 480px) {
+    .quad-grid { grid-template-columns: 1fr; }
+    .hero h1 { letter-spacing: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="hero">
+  <svg class="wordmark-svg" viewBox="0 0 900 220" role="img" aria-label="Bruno">
+    <text x="0"   y="190" font-size="240" fill="#00D9F5">B</text>
+    <text x="175" y="190" font-size="240" fill="#2E7BFF">R</text>
+    <text x="350" y="190" font-size="240" fill="#7BD957">U</text>
+    <text x="535" y="190" font-size="240" fill="#F5A044">N</text>
+    <text x="720" y="190" font-size="240" fill="#B14BE0">O</text>
+  </svg>
+  <p class="hero-tagline">A drum machine that thinks like a synth.</p>
+  <p class="hero-question">Colourful and eager to play, Bruno is inviting from the very first hit.</p>
+  <div class="hero-image">
+    <img src="images/bruno-hero.jpg" alt="Bruno layered drum synthesizer interface showing four coloured sound engines">
+  </div>
+</header>
+
+<section id="layered" style="background: linear-gradient(180deg, transparent, rgba(245,160,68,0.06), transparent);">
+  <div class="container">
+    <div style="text-align: center; max-width: 840px; margin: 0 auto 50px;">
+      <span class="section-eyebrow" style="color: var(--osc-3);">Layered Drum Synthesis</span>
+      <h2 class="section-title">One drum. Four engines. Endless character.</h2>
+      <p style="font-size: clamp(17px, 1.8vw, 21px); font-style: italic; font-weight: 300; background: linear-gradient(90deg, var(--osc-1), var(--osc-2), var(--osc-3), var(--osc-4)); -webkit-background-clip: text; background-clip: text; color: transparent; margin: 0 auto 24px; max-width: 720px;">Four independent synthesis engines, layered into a single percussion sound. Always ready to play.</p>
+      <p class="section-lead" style="margin: 0 auto 20px;">
+        Bruno asks a different question. Not <em>"which drum machine should we sample?"</em> — but <em>"what does a drum become when each layer is a full synthesizer?"</em>
+      </p>
+      <p class="section-lead" style="margin: 0 auto 20px;">
+        You load one Bruno per drum. Inside, four engines — <strong style="color: var(--text);">Analog</strong>, <strong style="color: var(--text);">FM</strong>, <strong style="color: var(--text);">Fold</strong> and <strong style="color: var(--text);">Resonant</strong> — run in parallel and sum together. A kick can be one clean sine, or four stacked layers with their own filters, envelopes, drive and EQ. Hit the dice. Tweak it. Save it. Or dive deeper when you're ready. Whether it's your first drum sound or your thousandth, Bruno meets you where you are.
+      </p>
+      <p style="color: var(--text-dim); margin: 0 auto; max-width: 720px;">
+        Pick a <strong style="color: var(--text);">voice</strong> — Kick, Snare, Hat, Clap, Tom or Pluck — and all four engines reconfigure for that drum. Then shape each engine as deep as you like.
+      </p>
+    </div>
+
+    <div class="quad-grid">
+      <div class="quad-card">
+        <div class="num">Analog</div>
+        <h4>Clean &amp; classic</h4>
+        <p>Pure oscillator synthesis — the deepest sub kicks, vintage snare bodies and classic hat shimmer. The most drum-machine of the four.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">FM</div>
+        <h4>Punchy &amp; metallic</h4>
+        <p>Frequency modulation for tight techno kicks, bright snare crack and cymbal-like hats. Inharmonic and aggressive.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Fold</div>
+        <h4>Rich &amp; evolving</h4>
+        <p>Wavefolding that grows harmonics over time — grungy kicks, industrial snares, crunchy hats and lo-fi claps.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Resonant</div>
+        <h4>Struck &amp; physical</h4>
+        <p>Modal synthesis that sounds struck, not synthesised. Rubbery kicks, acoustic-feel snares and bell-like plucks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="container">
+    <div style="text-align: center; max-width: 760px; margin: 0 auto 20px;">
+      <span class="section-eyebrow" style="color: var(--osc-2);">Six Voices</span>
+      <h2 class="section-title">A whole kit, one drum at a time.</h2>
+      <p class="section-lead" style="margin: 0 auto;">
+        Switching voice reconfigures every engine for that drum's range and character — from a sub-shaking kick to a shimmering cymbal to a gamelan pluck. Load one Bruno per part and build the whole kit.
+      </p>
+    </div>
+    <div class="includes-grid">
+      <div class="include-item">
+        <h4><span class="dot"></span>Kick</h4>
+        <p>Deep, subby 808-style and 909-style kicks, punchy FM, grungy fold, and rubbery modal — with an integrated techno rumble.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Snare</h4>
+        <p>Body plus wires across all four engines. Vintage 909-style snap, metallic FM crack, industrial fold and acoustic-feel shell.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Hat</h4>
+        <p>Metallic, inharmonic shimmer with automatic spectral decay, so each cymbal darkens as it rings out — just like the real thing.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Clap</h4>
+        <p>A true multi-burst clap engine — 1 to 7 bursts with humanisation, so it sounds like real hands, not a stiff machine.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Tom</h4>
+        <p>Pitched percussion with a sustained ring, a 909-style chirp, a sub layer and a decoupled bottom-head tail.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Pluck</h4>
+        <p>Karplus-Strong and modal synthesis for strings, mallets, bells and gamelan — a melodic voice that's a drum machine's secret weapon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="control" style="background: linear-gradient(180deg, transparent, rgba(91,168,229,0.05), transparent);">
+  <div class="container">
+    <div class="row">
+      <div class="row-text">
+        <span class="section-eyebrow">Per-Engine Control</span>
+        <h2 class="section-title">Four engines. One drum. Unrivalled depth.</h2>
+        <p class="section-lead">
+          This isn't a sample with a few knobs. Every one of Bruno's four engines is a full synthesis voice with its own complete signal chain — something you won't find in a sampled drum machine.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Pitch &amp; Vol envelopes</strong> — the pitch sweep and transient at the heart of every drum, per engine</li>
+          <li><strong>Body peak EQ</strong> — the punch that pure-synth drums otherwise lack</li>
+          <li><strong>Filters</strong> — LP 6/12/18/24, BP, HP, Notch, Formant, with a bipolar envelope</li>
+          <li><strong>Three LFOs</strong> — cutoff, pitch and character, with gate, clock sync and phase control</li>
+          <li><strong>Compressor</strong> — per-engine, so you can tame FM transients without squashing the sub</li>
+          <li><strong>Drive</strong> — Soft, Hard, Crush and Fold saturation, oversampled and clean</li>
+          <li><strong>Delay</strong> — Digital, BBD, Tape and Spring, free or tempo-synced</li>
+          <li><strong>3-band EQ</strong> — the final per-engine stage, with voice-specific quick presets</li>
+        </ul>
+      </div>
+      <div class="row-image">
+        <img src="images/bruno-card.png" alt="Bruno interface showing four colour-coded engines side by side: Analog, FM, Fold and Resonant">
+        <p style="padding: 18px 22px; margin: 0; font-size: 14px; color: var(--text-dim); border-top: 1px solid var(--border); background: var(--bg-card-2);">
+          Four colour-coded engines, side by side. Each has its own complete signal path — solo one, layer all four, or anything between.
+        </p>
+      </div>
+    </div>
+
+    <div class="quad-grid" style="margin-top: 80px;">
+      <div class="quad-card">
+        <div class="num">Analog</div>
+        <h4>Independent</h4>
+        <p>Its own tune, envelopes, filter, drive and EQ.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">FM</div>
+        <h4>Independent</h4>
+        <p>Add a metallic crack while Analog holds the body.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Fold</div>
+        <h4>Independent</h4>
+        <p>Push harmonic grit without touching the others.</p>
+      </div>
+      <div class="quad-card">
+        <div class="num">Resonant</div>
+        <h4>Independent</h4>
+        <p>Layer a struck shell or bell entirely on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="random" style="background: linear-gradient(180deg, transparent, rgba(245,160,68,0.04), transparent);">
+  <div class="container">
+    <div class="row reverse">
+      <div class="row-text">
+        <span class="section-eyebrow" style="color: var(--osc-3);">Intelligent Randomisation</span>
+        <h2 class="section-title">Random drums that actually sound musical.</h2>
+        <p class="section-lead">
+          Random and Tweak aren't gimmicks bolted onto a drum machine. They're <strong style="color: var(--text);">part of the writing</strong> — a workflow only digital can offer, designed to keep you moving from one idea to the next.
+        </p>
+        <p class="section-lead">
+          Most randomisers create chaos. Bruno creates drums — because it knows a kick lives at 35–80 Hz, a hat at 4–10 kHz, and a clean rumble tail is under a second.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Musical</strong> — every roll is biased toward a usable drum, not noise</li>
+          <li><strong>Styled</strong> — Mild, Wild and Recipe, including curated drum archetypes</li>
+          <li><strong>Per-engine dice</strong> — reroll a single layer to find a fresh idea without losing the rest</li>
+          <li><strong>Tweak system</strong> — choose which engines and parameters get touched, for subtle, context-aware changes instead of total resets</li>
+          <li><strong>30-step history</strong> — roll fearlessly, then walk back to the one that caught your ear</li>
+        </ul>
+        <p style="margin-top: 24px; color: var(--text); font-size: 17px;">
+          Go from <em>"that's interesting"</em> to <em>"that's the sound"</em> in seconds.
+        </p>
+      </div>
+      <div class="row-image" style="background: transparent; border: none; box-shadow: none; display: flex; flex-direction: column; gap: 20px;">
+        <blockquote style="margin: 0; padding: 26px 30px; border-left: 3px solid var(--osc-3); background: var(--bg-card); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text); font-size: 20px; line-height: 1.45;">
+          A random generator that produces <strong style="color: var(--text); font-style: normal;">musical</strong> sounds, not chaos — and a tweak system that doesn't just kick off your sound design, it becomes part of the writing itself.
+          <span style="display:block; margin-top: 14px; font-style: normal; font-size: 13px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase;">— The Amici idea</span>
+        </blockquote>
+        <blockquote style="margin: 0; padding: 26px 30px; border-left: 3px solid var(--osc-2); background: var(--bg-card); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text); font-size: 20px; line-height: 1.45;">
+          Discovery as a workflow. Tweaking as a writing tool. Drums that feel alive the moment you touch them.
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="master">
+  <div class="container">
+    <div class="row">
+      <div class="row-text">
+        <span class="section-eyebrow" style="color: var(--osc-4);">Mix As You Go</span>
+        <h2 class="section-title">A full master chain, built for percussion.</h2>
+        <p class="section-lead">
+          Every Bruno carries a complete master section, tuned for drums — so your sound is finished, punchy and mix-ready before it leaves the instrument.
+        </p>
+        <ul class="feature-list">
+          <li><strong>Saturation</strong> — four analogue-modelled characters, oversampled and clean</li>
+          <li><strong>Compressor</strong> — RMS-detecting glue built for summed percussion</li>
+          <li><strong>Transient Shaper</strong> — boost attack without touching the sub, thanks to a bass-split crossover</li>
+          <li><strong>Reverb</strong> — a feedback-delay-network space with a percussion-specific low-cut to keep the sub dry</li>
+          <li><strong>Stereo</strong> — widen the highs while a bass-mono crossover keeps the low end centred</li>
+          <li><strong>Limiter</strong> — a zero-latency brickwall, auto-managed so your output stays clean</li>
+        </ul>
+      </div>
+      <div class="row-text" style="display: flex; flex-direction: column; justify-content: center; gap: 18px;">
+        <blockquote style="margin: 0; padding: 26px 30px; border-left: 3px solid var(--osc-4); background: var(--bg-card); border-radius: 0 12px 12px 0; color: var(--text); font-size: 19px; line-height: 1.5;">
+          See exactly what each layer is doing. The built-in <strong>Scope</strong> shows the stereo waveform, and the <strong>Engine Spectrum</strong> overlays every engine's frequency content in its own colour — so masking between layers is obvious at a glance.
+        </blockquote>
+        <p style="color: var(--text-dim); font-size: 15px;">
+          Analog blue, FM green, Fold orange, Resonant purple — the colour follows each engine everywhere, including the spectrum.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="includes" style="background: linear-gradient(180deg, transparent, rgba(208,96,229,0.04), transparent);">
+  <div class="container">
+    <div style="text-align: center; max-width: 720px; margin: 0 auto 20px;">
+      <span class="section-eyebrow">Everything You Need</span>
+      <h2 class="section-title">Built to create.</h2>
+      <p class="section-lead" style="margin: 0 auto;">
+        Whether you're sketching a beat or finishing a track, Bruno ships with the tools you need.
+      </p>
+    </div>
+    <div class="includes-grid">
+      <div class="include-item">
+        <h4><span class="dot"></span>Factory Presets</h4>
+        <p>A curated library across all six voices. Save your own, mark favourites, import and export.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Per-Engine Effects</h4>
+        <p>Compressor, drive, delay and 3-band EQ on every one of the four engines.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Scope &amp; Spectrum</h4>
+        <p>A stereo oscilloscope plus a per-engine frequency view, so you can see your layers stack.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>MIDI</h4>
+        <p>Play from any controller or DAW, with per-engine chromatic pitch tracking.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Built-in Keyboard</h4>
+        <p>Trigger Bruno immediately on iPhone and iPad standalone — no controller required.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Song Player</h4>
+        <p>Audition your drum in musical context, instantly (standalone).</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>AUv3 Plugin</h4>
+        <p>Load one Bruno per track in AUM, Loopy Pro, Drambo, Logic, GarageBand, Cubasis and more.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>In-app Hints</h4>
+        <p>Context-aware help on every tab, voice-aware where it counts — never leave the app to learn it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container">
+    <span class="section-eyebrow">Why Bruno?</span>
+    <h2 class="section-title">Most drum machines start with the sound.</h2>
+    <p class="why-emphasis">Bruno starts with the workflow. The sound follows.</p>
+    <p class="why-statement">
+      Four full synthesis engines per drum. Six voices that span a whole kit. A random generator that produces drums, not noise. A tweak system that's part of the writing, not just a starting point. Workflow designed for digital — and percussion nobody else can give you.
+    </p>
+    <p class="why-statement" style="margin-top: 32px; color: var(--text); font-weight: 500;">
+      Deep enough for an experienced sound designer. Immediate enough for your very first beat.
+    </p>
+  </div>
+</section>
+
+<section class="download" id="coming-soon">
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom: 16px;">Bruno is on its way.</h2>
+    <p class="section-lead" style="margin: 0 auto 40px;">
+      Bruno is in the studio, getting ready for the App Store. Get in touch via the Support page if you'd like to hear the moment he launches.
+    </p>
+    <a href="support.html" class="cta-button">Hear when Bruno launches</a>
+    <div><a href="brunomanual.html" class="cta-secondary">Read the Bruno user guide →</a></div>
+
+    <div class="requirements">
+      <h3>Planned Requirements</h3>
+      <ul>
+        <li>iOS 17.6 or later</li>
+        <li>Compatible with iPhone and iPad</li>
+        <li>macOS 11.0 or later</li>
+        <li>Mac with Apple Silicon chip</li>
+        <li>AUv3 host required for plugin use (iOS &amp; Mac)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+
+</body>
+</html>
