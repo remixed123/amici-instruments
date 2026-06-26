@@ -373,7 +373,12 @@
   .product-name.marco span:nth-child(3) { color: var(--letter-r); }
   .product-name.marco span:nth-child(4) { color: var(--letter-c); }
   .product-name.marco span:nth-child(5) { color: var(--letter-o); }
-  .product-name.bruno { color: var(--text-muted); }
+  /* Bruno multi-colour wordmark — matches the bruno.html hero letters */
+  .product-name.bruno span:nth-child(1) { color: var(--letter-m); }
+  .product-name.bruno span:nth-child(2) { color: var(--letter-a); }
+  .product-name.bruno span:nth-child(3) { color: var(--letter-r); }
+  .product-name.bruno span:nth-child(4) { color: var(--letter-c); }
+  .product-name.bruno span:nth-child(5) { color: var(--letter-o); }
 
   .product-tagline {
     font-size: 15px;
@@ -435,7 +440,6 @@
 <header class="hero">
   <span class="hero-eyebrow">Manifesto</span>
   <h1>Workflow is the <span class="gradient">instrument</span>.</h1>
-  <p class="hero-subtitle">A different future for music on iOS.</p>
 </header>
 
 <section class="hero-preview">
@@ -444,23 +448,23 @@
       <img src="images/marco-hero.jpg" alt="Marco — colourful four-oscillator synthesizer interface with Dualphonic Sync">
       <span class="hero-preview-caption">Meet Marco — First Ever 4 Oscillator Dualphonic Sync Synthesizer →</span>
     </a>
-    <div class="hero-preview-card">
+    <a href="bruno.html" class="hero-preview-card" aria-label="Meet Bruno — Powerful Layered Drum and Pluck Synthesizer">
       <img src="images/bruno-hero.jpg" alt="Bruno — drum and percussion synthesizer with multiple sound engines">
-      <span class="hero-preview-caption">Meet Bruno — Powerful Layered Drum and Pluck Synthesizer</span>
-    </div>
+      <span class="hero-preview-caption">Meet Bruno — Powerful Layered Drum and Pluck Synthesizer →</span>
+    </a>
   </div>
 </section>
 
 <section class="manifesto">
   <div class="manifesto-inner">
 
-    <p class="manifesto-lead">Most music software honours hardware — knobs, panels, and layouts inherited from machines musicians grew up with. There's wonderful work being done there. We just wanted to explore what becomes possible when digital lets go of those physical constraints.</p>
+    <p class="manifesto-lead">Most software synthesizers honour hardware — the knobs, panels and layouts inherited from the machines musicians grew up with. There's wonderful work being done there, and we love it. We just wanted to explore what becomes possible when digital lets go of those physical constraints.</p>
 
-    <p><strong>We start somewhere else.</strong></p>
+    <p><strong>So we decided to start somewhere else.</strong></p>
 
-    <p>Vintage sounds aren't the enemy — Marco and Bruno can do those too, happily. But sound isn't the frontier. <strong>Workflow is.</strong></p>
+    <p>Vintage sounds are wonderful — Marco and Bruno make them happily too. But for us, sound isn't the frontier. <strong>Workflow is.</strong></p>
 
-    <p>When nothing has to fit on a metal box, the question changes:</p>
+    <p>When nothing has to fit on a physical panel, the question changes:</p>
 
     <p class="manifesto-question">What if workflow was the design — <em>and the sound followed?</em></p>
 
@@ -468,7 +472,7 @@
 
     <p>It leads to instruments that use space the way only digital can. A random generator that produces <strong>musical</strong> sounds, not chaos. A tweak system that doesn't just kick off your sound design — it becomes part of the writing itself.</p>
 
-    <p class="manifesto-block"><strong>Discovery as a workflow.</strong><br><strong>Tweaking as a writing tool.</strong><br>New ideas — like Dualphonic Sync — emerging because the way you make music is finally free to invent them.</p>
+    <p class="manifesto-block"><strong>Discovery as a workflow.</strong><br><strong>Tweaking as a writing tool.</strong><br>New ideas — like Dualphonic Sync — emerging because the way music gets made is finally free to invent them.</p>
 
     <p><strong>Amici</strong> means <em>friends</em> in Italian — and that's what our apps are meant to be. They have first names too: <strong>Marco. Bruno.</strong> Colourful, a little bit toy-like, eager to play. Pick one up and it feels inviting from the very first touch.</p>
 
@@ -492,10 +496,10 @@
           <img src="images/marco-card.png" alt="Marco synthesizer interface showing four colored oscillator panels">
         </div>
         <div class="product-body">
-          <span class="product-eyebrow">Synthesizer · iOS &amp; macOS</span>
+          <span class="product-eyebrow">Synthesizer · iPhone, iPad &amp; Mac</span>
           <h2 class="product-name marco"><span>M</span><span>A</span><span>R</span><span>C</span><span>O</span></h2>
           <p class="product-tagline">The first Dualphonic Sync Synthesizer.</p>
-          <p class="product-desc">Four oscillators, two hard-synced voices, one sound. Sounds nobody else can make — from a synth anyone can play. Available as a standalone app and an AUv3 plugin.</p>
+          <p class="product-desc">Four fully independent oscillators, each its own signal path, driving two hard-synced voices. A musical random generator and a Tweak system that's part of the writing — sounds nobody else can make, from a synth anyone can play. Available as a standalone app and an AUv3 plugin.</p>
           <span class="product-cta">Explore Marco</span>
         </div>
       </a>
@@ -505,11 +509,11 @@
           <img src="images/bruno-card.png" alt="Bruno drum synthesizer interface showing four colored sound engines">
         </div>
         <div class="product-body">
-          <span class="product-eyebrow">Drum &amp; Pluck Synthesizer · Coming soon</span>
-          <h2 class="product-name bruno">Bruno</h2>
+          <span class="product-eyebrow">Drum &amp; Pluck Synthesizer · iPhone, iPad &amp; Mac</span>
+          <h2 class="product-name bruno"><span>B</span><span>R</span><span>U</span><span>N</span><span>O</span></h2>
           <p class="product-tagline">A drum machine that thinks like a synth.</p>
-          <p class="product-desc">Six voices, four synthesis engines per drum. Layer Analog, FM, Fold and Resonant into one living percussion sound. On its way to the App Store.</p>
-          <span class="product-cta soon">Explore Bruno</span>
+          <p class="product-desc">Six voices, four synthesis engines per drum. Stack Analog, FM, Fold and Resonant the way the pros build big drums — for a punchy, mix-ready sound. Roll the dice on any engine, then tweak: a fast, musical workflow that keeps fresh ideas coming. Available as a standalone app and an AUv3 plugin.</p>
+          <span class="product-cta">Explore Bruno</span>
         </div>
       </a>
 
