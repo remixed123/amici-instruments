@@ -169,8 +169,14 @@
 
         <h3>Master Strip</h3>
         <p>Just above the four oscillator columns, the Master Strip gathers your global controls and quick-access dialog buttons. From left to right:</p>
+
+        <figure class="manual-figure">
+          <img src="images/masterstrip.png" alt="The Master Strip — left to right: the ? Hints button, Linked/Per-Osc toggle, output meter, Gain, Scope icon, XY Pad icon, the back/dice/forward randomisation controls with the dice label, and the Dual Hard Sync button.">
+          <figcaption>The Master Strip, left to right: ? Hints, the Per-Osc/Linked toggle, output meter, Gain, Scope, XY Pad, the ◀ 🎲 ▶ randomiser with its live dice label, and Dual Hard Sync.</figcaption>
+        </figure>
         <ul>
           <li><strong>? Hints button</strong> (far left) — opens a context-aware Hints dialog for whatever tab you're currently on. The button changes colour to match the active tab. See <a href="#hints">Hints — the ? button</a> below.</li>
+          <li><strong>Per-Osc / Linked toggle</strong> — sets whether the current tab's module runs as four independent per-oscillator copies or one shared instance (see <a href="#linked-perosc">Per-Osc and Linked Modes</a>). It appears on every modulation tab, but <strong>not</strong> on the <strong>Oscillator</strong> tab (always per-oscillator) or the <strong>Master</strong> tab (always linked).</li>
           <li><strong>Output meter</strong> — a horizontal level meter showing the master output. Green is healthy, yellow is approaching clip, red means you're clipping; pull down the Gain if you see red.</li>
           <li><strong>Gain</strong> — overall master output level.</li>
           <li><strong>Scope icon</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
@@ -200,6 +206,17 @@
 
         <h3 id="linked-perosc">Per-Osc and Linked Modes</h3>
         <p>One concept appears everywhere in Marco, so it's worth learning straight away: most modulation panels can run in either <strong>Per-Osc</strong> or <strong>Linked</strong> mode. You toggle between the two using the button next to each panel's title — it shows the current mode (<span class="ui">PER-OSC</span> or <span class="ui">LINKED</span>).</p>
+
+        <div class="figure-compare">
+          <figure class="manual-figure">
+            <img src="images/linked.png" alt="A module in Linked mode — a single shared 'All Osc' panel controlling all four oscillators at once.">
+            <figcaption><strong>Linked</strong> — one shared panel (&ldquo;All Osc&rdquo;) drives all four oscillators.</figcaption>
+          </figure>
+          <figure class="manual-figure">
+            <img src="images/per-osc.png" alt="The same module in Per-Osc mode — four independent, colour-coded panels, one per oscillator.">
+            <figcaption><strong>Per-Osc</strong> — four independent, colour-coded copies, one per oscillator.</figcaption>
+          </figure>
+        </div>
 
         <h4>Per-Osc mode</h4>
         <p>Each of the four oscillators gets its own independent copy of that module. So in Per-Osc Filter mode you might run a 24dB low-pass filter wide open on <span class="osc-tag o1">Osc 1</span>, a swept notch on <span class="osc-tag o2">Osc 2</span>, a band-pass on <span class="osc-tag o3">Osc 3</span> and a formant filter on <span class="osc-tag o4">Osc 4</span> — all at the same time. Each oscillator's controls are colour-coded so you always know which oscillator you're editing.</p>
@@ -249,15 +266,14 @@
       </section>
 
       <section id="oscillators">
-        <h2><span class="num">5</span>The Oscillators</h2>
         <div class="feature-row">
           <div class="feature-text">
+            <h2><span class="num">5</span>The Oscillators</h2>
             <p class="lead">Each of Marco's four oscillators is fully independent — its own waveform, volume, fold, detune and pulse width.</p>
             <p>Each column carries, top to bottom: the six waveform buttons, the octave selector (−3 to +3), the two sync-mode buttons, and the Vol / Fold / Det / PWM sliders. The wand icon re-rolls just this oscillator's settings, and the white lines inside the sliders show any live LFO movement.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/oscillator.png" alt="A single oscillator column (Osc 1) — six waveform buttons, the octave selector, Master A / Sync B buttons, and Vol, Fold, Det and PWM sliders.">
-            <figcaption>One oscillator column: waveform, octave, sync mode and the four parameter sliders.</figcaption>
           </figure>
         </div>
 
@@ -309,6 +325,11 @@
 
         <h3>Sync mode buttons</h3>
         <p>Underneath each oscillator's parameter row, you'll see two sync mode buttons. The choices are:</p>
+
+        <figure class="manual-figure">
+          <img src="images/dualhardsync.png" alt="Four oscillator columns with both sync groups active: Osc 2 set to Master A driving Osc 1 (Synced A), and Osc 4 set to Master B driving Osc 3 (Synced B).">
+          <figcaption>Both sync groups running at once: Osc 2 is <strong>Master A</strong> driving Osc 1 (<strong>Synced A</strong>), while Osc 4 is <strong>Master B</strong> driving Osc 3 (<strong>Synced B</strong>) — Marco's two parallel hard-sync groups.</figcaption>
+        </figure>
         <table class="param-table">
           <thead>
             <tr><th>Mode</th><th>Meaning</th></tr>
@@ -333,14 +354,13 @@
         <h2><span class="num">7</span>Envelopes</h2>
         <p class="lead">Envelopes shape how a parameter changes over the duration of a note. Marco has two envelopes per oscillator: the Volume Envelope and the Filter Envelope.</p>
 
-        <h3 id="vol-env">7.1 Volume Envelope (Vol Env)</h3>
         <div class="feature-row">
           <div class="feature-text">
+            <h3 id="vol-env">7.1 Volume Envelope (Vol Env)</h3>
             <p>The Volume Envelope controls how loud the oscillator is from the moment a note is pressed until after it's released. The per-oscillator <strong>Hold</strong> (latch) and <strong>Drone</strong> buttons sit across the top, alongside the curve selector (Lin / Exp / Soft / Med / Hard), with the standard ADSR sliders below.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/volenv.png" alt="The Volume Envelope panel — Hold, Env and Drone buttons, a Lin/Exp/Soft/Med/Hard curve selector, and Attack, Decay, Sustain and Release sliders.">
-            <figcaption>The Volume Envelope: Hold and Drone options, curve selector, and the ADSR sliders.</figcaption>
           </figure>
         </div>
         <p>Standard ADSR layout:</p>
@@ -363,16 +383,15 @@
         <h4 id="hold-latch">Hold (Latch)</h4>
         <p>The Vol Env tab also carries a per-oscillator <strong>Hold</strong> (latch) control. When latched, the oscillator continues sounding after the MIDI note is released. Use this for drones, sustained pads or to layer a held tone against newly-played notes. Because Hold is per-oscillator, you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
 
-        <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
         <div class="feature-row">
           <div class="feature-text">
+            <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
             <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout and curve options as the Volume Envelope, but without the Hold and Drone buttons.</p>
             <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
             <p>Filt Env can be per-osc or linked, just like Vol Env.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/filtenv.png" alt="The Filter Envelope panel — a Lin/Exp/Soft/Med/Hard curve selector above Attack, Decay, Sustain and Release sliders.">
-            <figcaption>The Filter Envelope: curve selector and ADSR sliders, shaping filter cutoff over time.</figcaption>
           </figure>
         </div>
         <div class="callout note">
@@ -381,15 +400,14 @@
       </section>
 
       <section id="filters">
-        <h2><span class="num">8</span>Filters</h2>
         <div class="feature-row">
           <div class="feature-text">
+            <h2><span class="num">8</span>Filters</h2>
             <p class="lead">A state-variable filter with eight modes, applied per-oscillator or linked across all four.</p>
             <p>The filter-type buttons (LP 6 / LP 12 / LP 18 / LP 24 / BP / Notch / HP / Formant) sit at the top of the panel; below them are the Cut, Res, Env and Key sliders detailed in the tables below.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/filter.png" alt="The Filter panel — eight filter-type buttons (LP 6 through Formant) above Cut, Res, Env and Key sliders.">
-            <figcaption>The Filter panel: filter-type buttons above Cutoff, Resonance, Env Amount and Key Tracking.</figcaption>
           </figure>
         </div>
 
@@ -469,20 +487,27 @@
         <h3 id="vol-lfo">9.2 Volume LFO (Vol LFO)</h3>
         <p>Modulates the oscillator volume — produces tremolo (amplitude modulation).</p>
 
-        <h3 id="fold-lfo">9.3 Wavefold LFO (Fold LFO)</h3>
         <div class="feature-row">
           <div class="feature-text">
+            <h3 id="fold-lfo">9.3 Wavefold LFO (Fold LFO)</h3>
             <p>Modulates the wavefolding amount. Produces evolving harmonic complexity — the fold parameter is one of Marco's strongest character controls.</p>
             <p>Its layout is shared by all four LFOs: the shape buttons and Sync / Gate toggles across the top, then the Div (rate), Range, Fade and Phase sliders — so learning this panel teaches you the Cutoff, Volume and Pitch LFOs too.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/foldlfo.png" alt="The Wavefold LFO panel — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
-            <figcaption>The Wavefold LFO — the control layout shared by all four of Marco's LFOs.</figcaption>
           </figure>
         </div>
 
-        <h3 id="pitch-lfo">9.4 Pitch LFO</h3>
-        <p>Modulates the oscillator pitch — produces vibrato (frequency modulation). Includes a dedicated vibrato mode for natural-sounding pitch movement.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3 id="pitch-lfo">9.4 Pitch LFO</h3>
+            <p>Modulates the oscillator pitch — produces vibrato (frequency modulation). Includes a dedicated vibrato mode for natural-sounding pitch movement.</p>
+            <p>It uses the same control layout as the other LFOs (shape, Sync / Gate, Div, Range, Fade and Phase), so a slow triangle gives gentle vibrato while faster rates and wider ranges push into siren and warble territory.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/pitchlfo.png" alt="The Pitch LFO panel — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
+          </figure>
+        </div>
 
         <div class="callout tip">
           <strong>Gate + Phase Offset matters more than you'd think.</strong> With <strong>Gate</strong> on, the LFO restarts on every note at the angle you set in <strong>Phase Offset</strong> — useful for tight, predictable modulation. With Gate off, the LFO free-runs continuously regardless of when you play.
@@ -490,8 +515,16 @@
       </section>
 
       <section id="glide">
-        <h2><span class="num">10</span>Glide</h2>
-        <p class="lead">Glide (portamento) makes the pitch slide smoothly from one note to the next instead of jumping. Essential for expressive leads and 303-style basslines.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <h2><span class="num">10</span>Glide</h2>
+            <p class="lead">Glide (portamento) makes the pitch slide smoothly from one note to the next instead of jumping. Essential for expressive leads and 303-style basslines.</p>
+            <p>The panel sets the slide Time, its Curve, whether glide is Legato-only, and a Max Range cap — and like most modules it can run per-oscillator or linked.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/glide.png" alt="The Glide panel — Enabled toggle, Time, Curve, Legato Only and Max Range controls.">
+          </figure>
+        </div>
 
         <h3>Glide controls</h3>
         <table class="param-table">
@@ -659,6 +692,11 @@
 
         <h3>The Preset Browser</h3>
         <p>Tap the preset name in the top-centre of the screen to open the Preset Browser. Categories are on the left, preset names on the right. Tap a star to add to favourites; tap a preset name to load it. You can also step through presets one at a time using the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side of the preset name without opening the browser.</p>
+
+        <figure class="manual-figure">
+          <img src="images/presetbrowser.png" alt="The Preset Browser — category list on the left, preset names on the right, each colour-coded, with stars for favourites.">
+          <figcaption>The Preset Browser: categories on the left, presets on the right. Tap a star to favourite, or a name to load.</figcaption>
+        </figure>
 
         <h3>Save vs Save New</h3>
         <p>Marco distinguishes between updating an existing user preset and creating a fresh one:</p>
@@ -1116,6 +1154,28 @@
     });
   }, { rootMargin: '-80px 0px -70% 0px' });
   sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+  // Click-to-zoom lightbox for manual figures
+  (function () {
+    const imgs = document.querySelectorAll('.content figure.feature-figure img, .content figure.manual-figure img');
+    if (!imgs.length) return;
+    const box = document.createElement('div');
+    box.className = 'img-lightbox';
+    box.innerHTML = '<img alt="">';
+    document.body.appendChild(box);
+    const big = box.querySelector('img');
+    const close = () => { box.classList.remove('open'); document.body.style.overflow = ''; big.removeAttribute('src'); };
+    imgs.forEach(img => img.addEventListener('click', () => {
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }));
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
 </script>
 
 </body>
