@@ -8,374 +8,22 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<meta name="description" content="The complete user guide for Marco — the Dualphonic Sync Synthesizer for iPad.">
+<meta name="description" content="The complete user guide for Marco — the Dual Hard Sync Synthesizer for iPad.">
 <link rel="canonical" href="https://amici-instruments.com/marcomanual.html">
 <meta name="theme-color" content="#050507">
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://amici-instruments.com/marcomanual.html">
 <meta property="og:title" content="Marco User Guide — Amici Instruments">
-<meta property="og:description" content="The complete user guide for Marco — the Dualphonic Sync Synthesizer for iPad.">
+<meta property="og:description" content="The complete user guide for Marco — the Dual Hard Sync Synthesizer for iPad.">
 <meta property="og:site_name" content="Amici Instruments">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #050507;
-    --bg-card: #0e0e12;
-    --bg-card-2: #14141a;
-    --border: #1f1f28;
-    --text: #f2f2f5;
-    --text-dim: #9a9aa6;
-    --text-muted: #6b6b78;
-    --osc-1: #5BA8E5;
-    --osc-2: #7BD957;
-    --osc-3: #F5A044;
-    --osc-4: #D060E5;
-    --letter-d: #00D9F5;
-    --letter-a: #2E7BFF;
-    --letter-n: #7BD957;
-    --letter-t: #F5A044;
-    --letter-e: #B14BE0;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    top: -20%;
-    left: -10%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, rgba(91,168,229,0.06), transparent 70%);
-    z-index: -1;
-    pointer-events: none;
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    bottom: -20%;
-    right: -10%;
-    width: 60%;
-    height: 60%;
-    background: radial-gradient(circle, rgba(208,96,229,0.06), transparent 70%);
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* Top navigation */
-  .topnav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(5, 5, 7, 0.85);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--border);
-  }
-  .topnav-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 24px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .topnav-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: var(--text);
-    text-decoration: none;
-  }
-  .topnav-brand:hover { color: var(--osc-1); }
-  .topnav-brand .ss-mark { flex-shrink: 0; display: block; }
-  .topnav-links { display: flex; gap: 28px; }
-  .topnav-links a {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .topnav-links a:hover { color: var(--text); }
-  .topnav-links a.active { color: var(--osc-1); }
-
-  /* Page header */
-  .page-header {
-    text-align: center;
-    padding: 60px 24px 30px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .page-eyebrow {
-    display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--osc-1);
-    margin-bottom: 14px;
-  }
-  .page-title {
-    font-size: clamp(36px, 5vw, 54px);
-    font-weight: 700;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    background: linear-gradient(90deg, var(--letter-d), var(--letter-a), var(--letter-n), var(--letter-t), var(--letter-e));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .page-lead {
-    font-size: 17px;
-    color: var(--text-dim);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  /* Main layout */
-  main {
-    flex: 1;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 30px 24px 60px;
-    width: 100%;
-  }
-
-  .layout {
-    display: grid;
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 50px;
-    align-items: start;
-  }
-
-  /* Sticky TOC sidebar */
-  .toc {
-    position: sticky;
-    top: 72px;
-    max-height: calc(100vh - 90px);
-    overflow-y: auto;
-    padding: 22px 0 22px 4px;
-    border-right: 1px solid var(--border);
-  }
-  .toc-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-    padding-left: 12px;
-  }
-  .toc ul { list-style: none; }
-  .toc li { margin: 1px 0; }
-  .toc a {
-    display: block;
-    padding: 6px 12px;
-    font-size: 13.5px;
-    color: var(--text-dim);
-    text-decoration: none;
-    border-left: 2px solid transparent;
-    transition: all 0.15s ease;
-    line-height: 1.4;
-  }
-  .toc a:hover {
-    color: var(--text);
-    border-left-color: var(--text-muted);
-  }
-  .toc a.active {
-    color: var(--osc-1);
-    border-left-color: var(--osc-1);
-    background: rgba(91,168,229,0.05);
-  }
-  .toc .subsection a {
-    padding-left: 28px;
-    font-size: 12.5px;
-  }
-
-  /* Content area */
-  .content { min-width: 0; max-width: 780px; }
-  .content section { padding: 28px 0; scroll-margin-top: 80px; }
-  .content section:not(:last-child) { border-bottom: 1px solid var(--border); }
-
-  .content h2 {
-    font-size: clamp(26px, 3vw, 32px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-  .content h2 .num {
-    font-size: 0.55em;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-right: 12px;
-    letter-spacing: 0;
-    vertical-align: middle;
-  }
-  .content h3 {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--text);
-    margin-top: 28px;
-    margin-bottom: 10px;
-  }
-  .content h4 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-top: 18px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-  }
-
-  .content .lead {
-    font-size: 16px;
-    color: var(--text-dim);
-    margin-bottom: 18px;
-  }
-
-  .content p {
-    color: var(--text-dim);
-    margin-bottom: 14px;
-    font-size: 15px;
-  }
-  .content p strong, .content li strong { color: var(--text); font-weight: 600; }
-
-  .content ul, .content ol {
-    margin: 0 0 16px 22px;
-    color: var(--text-dim);
-    font-size: 15px;
-  }
-  .content li { margin-bottom: 6px; }
-  .content li::marker { color: var(--text-muted); }
-
-  .content a {
-    color: var(--osc-1);
-    text-decoration: none;
-  }
-  .content a:hover { text-decoration: underline; }
-
-  /* Callouts */
-  .callout {
-    margin: 18px 0;
-    padding: 16px 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--osc-1);
-    border-radius: 10px;
-    font-size: 14.5px;
-    color: var(--text-dim);
-  }
-  .callout strong { color: var(--text); }
-  .callout.tip { border-left-color: var(--osc-2); }
-  .callout.note { border-left-color: var(--osc-3); }
-  .callout.todo { border-left-color: var(--osc-4); }
-
-  /* Param table */
-  .param-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 14px 0 20px;
-    font-size: 14px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .param-table th, .param-table td {
-    padding: 11px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .param-table th {
-    background: var(--bg-card-2);
-    color: var(--text-dim);
-    font-size: 11.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-  .param-table tr:last-child td { border-bottom: none; }
-  .param-table td:first-child { color: var(--text); font-weight: 500; width: 30%; }
-  .param-table td { color: var(--text-dim); }
-
-  /* Inline code-like styling for UI element names */
-  .ui {
-    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    font-size: 0.9em;
-    padding: 2px 7px;
-    background: var(--bg-card-2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text);
-  }
-
-  /* Oscillator color tags */
-  .osc-tag {
-    display: inline-block;
-    padding: 2px 9px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 6px;
-  }
-  .osc-tag.o1 { background: rgba(91,168,229,0.15); color: var(--osc-1); }
-  .osc-tag.o2 { background: rgba(123,217,87,0.15); color: var(--osc-2); }
-  .osc-tag.o3 { background: rgba(245,160,68,0.15); color: var(--osc-3); }
-  .osc-tag.o4 { background: rgba(208,96,229,0.15); color: var(--osc-4); }
-
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 30px 24px;
-    color: var(--text-muted);
-    font-size: 14px;
-    border-top: 1px solid var(--border);
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .layout { grid-template-columns: 1fr; gap: 0; }
-    .toc {
-      position: static;
-      max-height: none;
-      border-right: none;
-      border-bottom: 1px solid var(--border);
-      padding: 0 0 22px 0;
-      margin-bottom: 12px;
-    }
-    .toc-title { padding-left: 0; }
-    .toc a { padding-left: 0; }
-    .toc .subsection a { padding-left: 16px; }
-    .page-header { padding: 40px 24px 20px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
-<body>
+<body class="manual">
 
 <div id="site-nav"></div>
 <script src="nav.js"></script>
@@ -383,7 +31,7 @@
 <header class="page-header">
   <span class="page-eyebrow">User Guide</span>
   <h1 class="page-title">Marco User Guide</h1>
-  <p class="page-lead">A complete reference for the Dualphonic Sync Synthesizer — every control, every panel, every feature.</p>
+  <p class="page-lead">A complete reference for the Dual Hard Sync Synthesizer — every control, every panel, every feature.</p>
 </header>
 
 <main>
@@ -401,7 +49,7 @@
         <li class="subsection"><a href="#waveforms">5.1 Waveforms</a></li>
         <li class="subsection"><a href="#osc-controls">5.2 Per-Osc Controls</a></li>
         <li class="subsection"><a href="#octave">5.3 Octave &amp; Pitch</a></li>
-        <li><a href="#dualphonic">6. Dualphonic Sync</a></li>
+        <li><a href="#dualphonic">6. Dual Hard Sync</a></li>
         <li><a href="#envelopes">7. Envelopes</a></li>
         <li class="subsection"><a href="#vol-env">7.1 Volume Envelope</a></li>
         <li class="subsection"><a href="#filt-env">7.2 Filter Envelope</a></li>
@@ -446,7 +94,7 @@
 
       <section id="welcome">
         <h2><span class="num">1</span>Welcome to Marco</h2>
-        <p class="lead">Marco is the first <strong>Dualphonic Sync Synthesizer</strong> — a four-oscillator monophonic synth for iPad and iPhone (and any Apple Silicon Mac running iPad apps), with two independent hard-sync groups running in parallel.</p>
+        <p class="lead">Marco is the first <strong>Dual Hard Sync Synthesizer</strong> — a four-oscillator monophonic synth for iPad and iPhone (and any Apple Silicon Mac running iPad apps), with two independent hard-sync groups running in parallel.</p>
         <p>This guide covers every panel and control. If you're new to synthesis, start at the top and read straight through. If you're looking for one specific feature, use the table of contents on the left to jump straight to it.</p>
         <p>Marco is available two ways:</p>
         <ul>
@@ -488,6 +136,11 @@
         <h2><span class="num">4</span>Interface Tour</h2>
         <p class="lead">A quick walkthrough of where everything lives.</p>
 
+        <figure class="manual-figure">
+          <img src="images/oscillators.jpg" alt="Marco's main interface — the top header and toolbar above four colour-coded oscillator columns (Osc 1 blue, Osc 2 green, Osc 3 orange, Osc 4 magenta).">
+          <figcaption>Marco's main screen: the header and toolbar sit above the four colour-coded oscillator columns. The colour of each oscillator follows it everywhere in the app.</figcaption>
+        </figure>
+
         <h3>Top Header</h3>
         <p>From left to right across the top of the screen:</p>
         <ul>
@@ -523,7 +176,7 @@
           <li><strong>Scope icon</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
           <li><strong>XY Pad icon</strong> — opens the expressive XY control surface (see <a href="#xy-pad">15. XY Pad</a>).</li>
           <li><strong>◀ 🎲 ▶ Dice &amp; history chevrons</strong> — the dice is a quick-generate trigger (one tap rolls a new preset using the Base Preset Source and Styles set in the Randomiser, without opening the dialog). A small live label under the dice reads <span class="ui">Category.Styles</span> — telling you what the next roll will produce before you tap it (see <a href="#dice-label">the dice label</a>). The orange chevrons either side step back and forward through your last 30 randomised sounds (see <a href="#rpg-history">Random Preset History</a>).</li>
-          <li><strong>DUALPHONIC SYNC</strong> — cycles through valid Dualphonic Sync combinations (see <a href="#dualphonic">6. Dualphonic Sync</a>).</li>
+          <li><strong>DUAL HARD SYNC</strong> — cycles through valid Dual Hard Sync combinations (see <a href="#dualphonic">6. Dual Hard Sync</a>).</li>
         </ul>
         <div class="callout tip">
           <strong>Randomiser button vs. dice icon.</strong> The orange <strong>Randomiser</strong> button in the top header opens the full Random Preset Generator dialog where you set the Base Preset Source, target oscillators and parameters. The small <strong>dice icon</strong> in the Master Strip is a one-tap shortcut that re-rolls a fresh preset using whatever settings you last configured in the Randomiser.
@@ -597,7 +250,16 @@
 
       <section id="oscillators">
         <h2><span class="num">5</span>The Oscillators</h2>
-        <p class="lead">Each of Marco's four oscillators is fully independent — its own waveform, volume, fold, detune and pulse width.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p class="lead">Each of Marco's four oscillators is fully independent — its own waveform, volume, fold, detune and pulse width.</p>
+            <p>Each column carries, top to bottom: the six waveform buttons, the octave selector (−3 to +3), the two sync-mode buttons, and the Vol / Fold / Det / PWM sliders. The wand icon re-rolls just this oscillator's settings, and the white lines inside the sliders show any live LFO movement.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/oscillator.png" alt="A single oscillator column (Osc 1) — six waveform buttons, the octave selector, Master A / Sync B buttons, and Vol, Fold, Det and PWM sliders.">
+            <figcaption>One oscillator column: waveform, octave, sync mode and the four parameter sliders.</figcaption>
+          </figure>
+        </div>
 
         <h3 id="waveforms">5.1 Waveforms</h3>
         <p>Six waveforms are available per oscillator:</p>
@@ -636,8 +298,8 @@
       </section>
 
       <section id="dualphonic">
-        <h2><span class="num">6</span>Dualphonic Sync</h2>
-        <p class="lead">Dualphonic Sync is what makes Marco different from every other iOS synth. It's worth understanding properly.</p>
+        <h2><span class="num">6</span>Dual Hard Sync</h2>
+        <p class="lead">Dual Hard Sync is what makes Marco different from every other iOS synth. It's worth understanding properly.</p>
 
         <h3>What's hard sync?</h3>
         <p>In classic synthesis, "hard sync" is when one oscillator (the <strong>master</strong>) forces another oscillator (the <strong>synced</strong>) to restart its waveform cycle every time the master completes a cycle. The synced oscillator's pitch becomes locked to the master's, but its harmonic content changes dramatically — producing characteristic glassy, aggressive, sweeping timbres.</p>
@@ -660,10 +322,10 @@
           </tbody>
         </table>
 
-        <h3>The DUALPHONIC SYNC button</h3>
-        <p>In the master strip at the top of the page, the <strong>DUALPHONIC SYNC</strong> button cycles through every valid sync configuration. One tap re-rolls the sync assignments across all four oscillators — the fastest way to hear what your current preset can sound like with different sync relationships.</p>
+        <h3>The DUAL HARD SYNC button</h3>
+        <p>In the master strip at the top of the page, the <strong>DUAL HARD SYNC</strong> button cycles through every valid sync configuration. One tap re-rolls the sync assignments across all four oscillators — the fastest way to hear what your current preset can sound like with different sync relationships.</p>
         <div class="callout tip">
-          <strong>Pair this with the dice button.</strong> Tap Generate to roll a fresh preset, then start tapping DUALPHONIC SYNC to walk through every sync arrangement of that sound. You'll discover textures you didn't know existed.
+          <strong>Pair this with the dice button.</strong> Tap Generate to roll a fresh preset, then start tapping DUAL HARD SYNC to walk through every sync arrangement of that sound. You'll discover textures you didn't know existed.
         </div>
       </section>
 
@@ -672,7 +334,16 @@
         <p class="lead">Envelopes shape how a parameter changes over the duration of a note. Marco has two envelopes per oscillator: the Volume Envelope and the Filter Envelope.</p>
 
         <h3 id="vol-env">7.1 Volume Envelope (Vol Env)</h3>
-        <p>The Volume Envelope controls how loud the oscillator is from the moment a note is pressed until after it's released. Standard ADSR layout:</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p>The Volume Envelope controls how loud the oscillator is from the moment a note is pressed until after it's released. The per-oscillator <strong>Hold</strong> (latch) and <strong>Drone</strong> buttons sit across the top, alongside the curve selector (Lin / Exp / Soft / Med / Hard), with the standard ADSR sliders below.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/volenv.png" alt="The Volume Envelope panel — Hold, Env and Drone buttons, a Lin/Exp/Soft/Med/Hard curve selector, and Attack, Decay, Sustain and Release sliders.">
+            <figcaption>The Volume Envelope: Hold and Drone options, curve selector, and the ADSR sliders.</figcaption>
+          </figure>
+        </div>
+        <p>Standard ADSR layout:</p>
         <table class="param-table">
           <thead>
             <tr><th>Stage</th><th>Range</th><th>What it does</th></tr>
@@ -693,9 +364,17 @@
         <p>The Vol Env tab also carries a per-oscillator <strong>Hold</strong> (latch) control. When latched, the oscillator continues sounding after the MIDI note is released. Use this for drones, sustained pads or to layer a held tone against newly-played notes. Because Hold is per-oscillator, you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
 
         <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
-        <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout, same Exponential / Exp Rate options as the Volume Envelope.</p>
-        <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
-        <p>Filt Env can be per-osc or linked, just like Vol Env.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout and curve options as the Volume Envelope, but without the Hold and Drone buttons.</p>
+            <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
+            <p>Filt Env can be per-osc or linked, just like Vol Env.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/filtenv.png" alt="The Filter Envelope panel — a Lin/Exp/Soft/Med/Hard curve selector above Attack, Decay, Sustain and Release sliders.">
+            <figcaption>The Filter Envelope: curve selector and ADSR sliders, shaping filter cutoff over time.</figcaption>
+          </figure>
+        </div>
         <div class="callout note">
           <strong>Mode constraint.</strong> Filt Env's Per-Osc / Linked mode is tied to the <strong>Filter's</strong> mode. You can have <em>fewer or equal</em> envelopes than filters, never more — see <a href="#linked-perosc">Per-Osc and Linked Modes</a> for the full rule.
         </div>
@@ -703,7 +382,16 @@
 
       <section id="filters">
         <h2><span class="num">8</span>Filters</h2>
-        <p class="lead">A state-variable filter with eight modes, applied per-oscillator or linked across all four.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p class="lead">A state-variable filter with eight modes, applied per-oscillator or linked across all four.</p>
+            <p>The filter-type buttons (LP 6 / LP 12 / LP 18 / LP 24 / BP / Notch / HP / Formant) sit at the top of the panel; below them are the Cut, Res, Env and Key sliders detailed in the tables below.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/filter.png" alt="The Filter panel — eight filter-type buttons (LP 6 through Formant) above Cut, Res, Env and Key sliders.">
+            <figcaption>The Filter panel: filter-type buttons above Cutoff, Resonance, Env Amount and Key Tracking.</figcaption>
+          </figure>
+        </div>
 
         <h3>Filter types</h3>
         <table class="param-table">
@@ -767,6 +455,11 @@
 
         <p>All LFOs can be <strong>per-oscillator</strong> (each oscillator gets its own independent LFO) or <strong>linked</strong> (one LFO drives all four).</p>
 
+        <figure class="manual-figure">
+          <img src="images/lfo-indicators.png" alt="Two oscillator columns side by side, each parameter slider carrying a white horizontal line that shows how far an LFO is pushing that parameter in real time.">
+          <figcaption>The white line inside each slider moves in real time, showing exactly which parameters an LFO is driving and by how much — no hidden modulation.</figcaption>
+        </figure>
+
         <h3 id="cut-lfo">9.1 Cutoff LFO (Cut LFO)</h3>
         <p>Modulates the filter cutoff over time. The classic "wah-wah" sweeping effect.</p>
         <div class="callout note">
@@ -777,7 +470,16 @@
         <p>Modulates the oscillator volume — produces tremolo (amplitude modulation).</p>
 
         <h3 id="fold-lfo">9.3 Wavefold LFO (Fold LFO)</h3>
-        <p>Modulates the wavefolding amount. Produces evolving harmonic complexity — the fold parameter is one of Marco's strongest character controls.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p>Modulates the wavefolding amount. Produces evolving harmonic complexity — the fold parameter is one of Marco's strongest character controls.</p>
+            <p>Its layout is shared by all four LFOs: the shape buttons and Sync / Gate toggles across the top, then the Div (rate), Range, Fade and Phase sliders — so learning this panel teaches you the Cutoff, Volume and Pitch LFOs too.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/foldlfo.png" alt="The Wavefold LFO panel — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
+            <figcaption>The Wavefold LFO — the control layout shared by all four of Marco's LFOs.</figcaption>
+          </figure>
+        </div>
 
         <h3 id="pitch-lfo">9.4 Pitch LFO</h3>
         <p>Modulates the oscillator pitch — produces vibrato (frequency modulation). Includes a dedicated vibrato mode for natural-sounding pitch movement.</p>
@@ -811,6 +513,11 @@
       <section id="effects">
         <h2><span class="num">11</span>Master Tab</h2>
         <p class="lead">The Master tab is Marco's full output processing chain — gain staging, drive, dynamics, time-based effects, stereo imaging and limiting. Every section processes the combined mix of all four oscillators.</p>
+
+        <figure class="manual-figure">
+          <img src="images/master.png" alt="Marco's Master tab showing the built-in bus effects chain — drive, compressor, delay, reverb, stereo width and limiter.">
+          <figcaption>The Master tab: the full output chain — gain, drive, compressor, delay, reverb, stereo and limiter — all processing the mixed output of the four oscillators.</figcaption>
+        </figure>
 
         <p>Each section (except Stereo) has its own <span class="ui">ON / OFF</span> toggle. When a section is off, its controls grey out and the signal passes through untouched.</p>
 
@@ -938,7 +645,7 @@
         <ul>
           <li><strong>All</strong> — every preset in the library.</li>
           <li><strong>Favourites</strong> — anything you've starred.</li>
-          <li><strong>Signature</strong> — curated presets that showcase Dualphonic Sync.</li>
+          <li><strong>Signature</strong> — curated presets that showcase Dual Hard Sync.</li>
           <li><strong>Artists</strong> — presets contributed by featured artists.</li>
           <li><strong>Basic</strong> — simple, clean starting points.</li>
           <li><strong>Bass</strong> — sub, mid, acid, sub-octave basslines.</li>
@@ -968,6 +675,11 @@
         <h2><span class="num">13</span>Random Preset Generator</h2>
         <p class="lead">Marco's randomisation system is musical, not chaotic. It's designed around a principle of <em>happy accident and discoverability</em> — every roll should produce something you can actually use, while still surprising you.</p>
         <p>Every <strong>Generate</strong> combines three things: a <strong>Style</strong> (Mild / Wild / Recipe — pick any), a <strong>Base Preset Source</strong> (which category to draw from), and an optional set of <strong>selective toggles</strong> (which oscillators and controls are allowed to change). The Style comes first — it sets the whole character of the roll — so that's where this section starts.</p>
+
+        <figure class="manual-figure">
+          <img src="images/random-generator.png" alt="The Random Preset Generator panel with Style pills, Base Preset Source category selector, and per-oscillator and per-parameter targeting toggles.">
+          <figcaption>The Random Preset Generator: Style pills, the Base Preset Source category, and the oscillator/parameter toggles that decide what each roll is allowed to change.</figcaption>
+        </figure>
 
         <h3 id="styles">13.1 Styles — Mild, Wild &amp; Recipe</h3>
         <p>Three <strong>Style</strong> pills at the top of the Random Preset panel decide <em>how</em> each roll is built. Styles are <strong>multi-select</strong> — enable any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
@@ -1064,7 +776,7 @@
           </thead>
           <tbody>
             <tr><td>Drone</td><td>Forces the <strong>VCA envelope off</strong> (Drone Mode) so the sound sustains indefinitely. Drone presets are also <strong>isolated</strong> from the base-preset pool of every other category — a drone will only ever appear when Drone is the selected source, so you'll never get an unexpected drone when generating from All, Favourites, User or any other category. (Tweak is drone-safe too: tweaking a Drone preset keeps its drone character; tweaking a non-drone never turns it into one.)</td></tr>
-            <tr><td>Signature</td><td>Always forces one of the <strong>six Dualphonic Sync modes</strong> during generation — every roll showcases what hard sync can do, no matter what the base preset's sync settings were.</td></tr>
+            <tr><td>Signature</td><td>Always forces one of the <strong>six Dual Hard Sync modes</strong> during generation — every roll showcases what hard sync can do, no matter what the base preset's sync settings were.</td></tr>
             <tr><td>Basic</td><td>Strips all LFOs and Glide after mutation — produces a pure oscillator + envelope + filter sound, no modulation movement.</td></tr>
             <tr><td>FX (on Wild)</td><td>On Wild rolls, dramatically boosts the probability of fresh LFOs, glide, and hard sync — every roll is full of motion and character. Pitch LFOs always come up in free mode rather than vibrato.</td></tr>
             <tr><td>User / Favourites / Artists</td><td>No recipes here (the Recipe pill dims). Rolls perturb the base preset's own values rather than rolling fresh random numbers — preserving the character of the saved or curated sound while introducing subtle variation. Filter type, LFO shape, sync settings and hard sync are nudged or left as-is, never freshly generated.</td></tr>
@@ -1116,6 +828,12 @@
       <section id="scope">
         <h2><span class="num">14</span>Scope</h2>
         <p class="lead">The Waveform Scope shows you exactly what each oscillator — and the master output — is producing in real time.</p>
+
+        <figure class="manual-figure">
+          <img src="images/scope.png" alt="The Waveform Scope showing the master output waveform alongside the four individual oscillator waveforms, each colour-matched to its column.">
+          <figcaption>The Scope: the combined master output plus each oscillator's own waveform, colour-matched to its column.</figcaption>
+        </figure>
+
         <p>Tap <strong>SCOPE</strong> in the master strip to open the scope view. You'll see:</p>
         <ul>
           <li><strong>Master Output</strong> — the combined waveform of all four oscillators after filtering and effects.</li>
@@ -1127,6 +845,11 @@
       <section id="xy-pad">
         <h2><span class="num">15</span>XY Pad</h2>
         <p class="lead">An expressive 2D touch surface for sweeping the filter by feel. A single touch moves both filter parameters at once; a purple dot tracks your position.</p>
+
+        <figure class="manual-figure">
+          <img src="images/xy-pad.png" alt="The Filter XY Pad — a large grid with Osc 1–4 selection buttons across the top, Cutoff mapped to the vertical axis and Resonance to the horizontal axis, with a glowing dot marking the current filter position.">
+          <figcaption>The Filter XY Pad: drag anywhere to sweep Cutoff (vertical) and Resonance (horizontal) at once. The Osc 1–4 buttons choose which oscillators' filters your touch drives.</figcaption>
+        </figure>
         <ul>
           <li><strong>X axis (left → right)</strong> — Filter <strong>Resonance</strong>, 0–100%. The response is finer at the low end, so you have more control over subtle resonance before it gets aggressive.</li>
           <li><strong>Y axis (bottom → top)</strong> — Filter <strong>Cutoff</strong>, 20 Hz – 8 kHz. Mapped logarithmically so equal finger movement gives a perceptually even frequency sweep.</li>
@@ -1320,8 +1043,8 @@
         <h3>Use Tweak more than Generate</h3>
         <p>Generate gives you a brand-new sound — useful for inspiration but easy to lose your direction. Once you have a promising starting point, switch to Tweak. You'll iterate faster and end up with sounds that feel intentional.</p>
 
-        <h3>Cycle DUALPHONIC SYNC to find unique textures</h3>
-        <p>Most people leave sync alone. Don't. After you've found a sound, tap the DUALPHONIC SYNC button 5–10 times — you'll often discover a variation more interesting than the original.</p>
+        <h3>Cycle DUAL HARD SYNC to find unique textures</h3>
+        <p>Most people leave sync alone. Don't. After you've found a sound, tap the DUAL HARD SYNC button 5–10 times — you'll often discover a variation more interesting than the original.</p>
 
         <h3>Pay attention to the white LFO indicators</h3>
         <p>When you can't tell what's making a parameter move, look for the moving white line inside the slider. It's showing you exactly what an LFO is doing in real time — invaluable when sounds get complex.</p>
