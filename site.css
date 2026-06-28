@@ -693,6 +693,7 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
 .quad-card:nth-child(4) { border-top: 2px solid var(--osc-4); }
 .quad-card:nth-child(4) .num { color: var(--osc-4); }
 .includes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
+.includes-grid-3 { grid-template-columns: repeat(3, 1fr); }
 .include-item { padding: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
 .include-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--osc-1); display: inline-block; margin-right: 10px; }
 .include-item:nth-child(5n+1) .dot { background: var(--osc-1); }
@@ -702,6 +703,26 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
 .include-item:nth-child(5n)   .dot { background: var(--osc-1); }
 .include-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
 .include-item p { font-size: 14px; color: var(--text-dim); }
+/* At-a-glance spec list — dense, scannable feature rundown */
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin-top: 48px; }
+.spec-group { border-top: 2px solid var(--border); padding-top: 16px; }
+.spec-group:nth-child(5n+1) { border-top-color: var(--osc-1); }
+.spec-group:nth-child(5n+2) { border-top-color: var(--osc-2); }
+.spec-group:nth-child(5n+3) { border-top-color: var(--osc-3); }
+.spec-group:nth-child(5n+4) { border-top-color: var(--osc-4); }
+.spec-group:nth-child(5n)   { border-top-color: var(--osc-1); }
+.spec-group h4 { font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; }
+.spec-group:nth-child(5n+1) h4 { color: var(--osc-1); }
+.spec-group:nth-child(5n+2) h4 { color: var(--osc-2); }
+.spec-group:nth-child(5n+3) h4 { color: var(--osc-3); }
+.spec-group:nth-child(5n+4) h4 { color: var(--osc-4); }
+.spec-group:nth-child(5n)   h4 { color: var(--osc-1); }
+.spec-group.spec-green { border-top-color: var(--osc-2); }
+.spec-group.spec-green h4 { color: var(--osc-2); }
+.spec-group ul { list-style: none; }
+.spec-group li { font-size: 15px; color: var(--text-dim); line-height: 1.4; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.spec-group li:last-child { border-bottom: none; }
+.spec-group li strong { color: var(--text); font-weight: 600; }
 .wide-image { max-width: 1100px; margin: 60px auto 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
 .wide-image img { display: block; width: 100%; }
 .platform-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
@@ -721,11 +742,13 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
   .row.reverse .row-text { order: 1; }
   .row.reverse .row-image { order: 2; }
   .quad-grid { grid-template-columns: repeat(2, 1fr); }
+  .includes-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .product section { padding: 70px 0; }
   .hero { padding: 24px 20px 36px; }
 }
 @media (max-width: 480px) {
   .quad-grid { grid-template-columns: 1fr; }
+  .includes-grid-3 { grid-template-columns: 1fr; }
 }
 
 /* Repeated content blocks that used to be inline styles on the product pages */
