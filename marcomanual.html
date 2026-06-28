@@ -8,14 +8,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-<meta name="description" content="The complete user guide for Marco — the Dual Hard Sync Synthesizer for iPad.">
+<meta name="description" content="The complete user guide for Marco — a 4-oscillator synth with independent shaping and dual hard sync, for iPad.">
 <link rel="canonical" href="https://amici-instruments.com/marcomanual.html">
 <meta name="theme-color" content="#050507">
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://amici-instruments.com/marcomanual.html">
 <meta property="og:title" content="Marco User Guide — Amici Instruments">
-<meta property="og:description" content="The complete user guide for Marco — the Dual Hard Sync Synthesizer for iPad.">
+<meta property="og:description" content="The complete user guide for Marco — a 4-oscillator synth with independent shaping and dual hard sync, for iPad.">
 <meta property="og:site_name" content="Amici Instruments">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
 <header class="page-header">
   <span class="page-eyebrow">User Guide</span>
   <h1 class="page-title">Marco User Guide</h1>
-  <p class="page-lead">A complete reference for the Dual Hard Sync Synthesizer — every control, every panel, every feature.</p>
+  <p class="page-lead">A complete reference for the 4-oscillator synth with independent shaping and dual hard sync — every control, every tab, every feature.</p>
 </header>
 
 <main>
@@ -61,14 +61,13 @@
         <li class="subsection"><a href="#pitch-lfo">9.4 Pitch LFO</a></li>
         <li><a href="#glide">10. Glide</a></li>
         <li><a href="#effects">11. Master Tab</a></li>
-        <li class="subsection"><a href="#master-gain">11.1 Gain Controls</a></li>
-        <li class="subsection"><a href="#master-drive">11.2 Drive</a></li>
-        <li class="subsection"><a href="#master-compressor">11.3 Compressor</a></li>
-        <li class="subsection"><a href="#master-delay">11.4 Delay</a></li>
-        <li class="subsection"><a href="#master-reverb">11.5 Reverb</a></li>
-        <li class="subsection"><a href="#master-stereo">11.6 Stereo</a></li>
-        <li class="subsection"><a href="#master-limiter">11.7 Limiter</a></li>
-        <li class="subsection"><a href="#master-presets">11.8 Master Presets</a></li>
+        <li class="subsection"><a href="#master-drive">11.1 Drive</a></li>
+        <li class="subsection"><a href="#master-compressor">11.2 Compressor</a></li>
+        <li class="subsection"><a href="#master-delay">11.3 Delay</a></li>
+        <li class="subsection"><a href="#master-reverb">11.4 Reverb</a></li>
+        <li class="subsection"><a href="#master-stereo">11.5 Stereo</a></li>
+        <li class="subsection"><a href="#master-limiter">11.6 Limiter</a></li>
+        <li class="subsection"><a href="#master-presets">11.7 Master Presets</a></li>
         <li><a href="#presets">12. Presets</a></li>
         <li><a href="#random">13. Random Preset Generator</a></li>
         <li class="subsection"><a href="#styles">13.1 Styles (Mild/Wild/Recipe)</a></li>
@@ -80,7 +79,8 @@
         <li><a href="#xy-pad">15. XY Pad</a></li>
         <li><a href="#app-preferences">16. App Preferences</a></li>
         <li class="subsection"><a href="#performance-settings">16.1 Performance Settings</a></li>
-        <li class="subsection"><a href="#app-information">16.2 App Information</a></li>
+        <li class="subsection"><a href="#midi-controls">16.2 MIDI Controls</a></li>
+        <li class="subsection"><a href="#app-information">16.3 App Information</a></li>
         <li><a href="#song-player">17. Song Player</a></li>
         <li><a href="#midi">18. MIDI</a></li>
         <li><a href="#sharing">19. Sharing Presets</a></li>
@@ -94,24 +94,24 @@
 
       <section id="welcome">
         <h2><span class="num">1</span>Welcome to Marco</h2>
-        <p class="lead">Marco is the first <strong>Dual Hard Sync Synthesizer</strong> — a four-oscillator monophonic synth for iPad and iPhone (and any Apple Silicon Mac running iPad apps), with two independent hard-sync groups running in parallel.</p>
-        <p>This guide covers every panel and control. If you're new to synthesis, start at the top and read straight through. If you're looking for one specific feature, use the table of contents on the left to jump straight to it.</p>
+        <p class="lead">Marco is a <strong>4-Oscillator Synth with Independent Shaping and Dual Hard Sync</strong> — a monophonic synth for iPad and iPhone (and any Apple Silicon Mac running iPad apps), with two independent hard-sync groups running in parallel.</p>
+        <p>This guide covers every tab and control. If you're new to synthesis, start at the top and read straight through. If you're looking for one specific feature, use the table of contents on the left to jump straight to it.</p>
         <p>Marco is available two ways:</p>
         <ul>
           <li><strong>Standalone</strong> app on iPad and iPhone — with a built-in keyboard, MIDI input and a Song Player of public-domain melodies.</li>
-          <li><strong>The Marco</strong> AUv3 plugin — drops into Logic Pro for iPad, GarageBand, AUM and other compatible AUv3 hosts.</li>
+          <li><strong>The Marco</strong> AUv3 plugin — drops into Logic Pro for iPad, Loopy Pro, AUM and other compatible AUv3 hosts.</li>
         </ul>
-        <p>The same build also runs natively on Apple Silicon Macs (M1 and later) via the App Store — install it like any iPad app and it opens in its own window on macOS.</p>
+        <p>The same build also runs on Apple Silicon Macs (M1 and later) — find it in the Mac App Store under iPhone &amp; iPad Apps and install it like any iPad app. You can run it standalone or load The Marco AUv3 plugin in a macOS host such as Logic Pro, Ableton Live or AUM.</p>
         <p>Most of what's in this guide applies to both. Where things differ — for example, the Song Player only exists in standalone — that's flagged clearly in the section.</p>
       </section>
 
       <section id="requirements">
         <h2><span class="num">2</span>System Requirements</h2>
         <ul>
-          <li><strong>iPad</strong> running a current version of iPadOS. Tested on iPad Air M2.</li>
+          <li><strong>iPad</strong> running a current version of iPadOS.</li>
           <li><strong>iPhone</strong> running a current version of iOS.</li>
-          <li><strong>Apple Silicon Mac</strong> (M1 or later) — the iPad app is available on the Mac App Store and runs natively in its own window.</li>
-          <li><strong>AUv3 host</strong> required when using The Marco plugin (e.g. Logic Pro for iPad, GarageBand, AUM and other compatible hosts).</li>
+          <li><strong>Apple Silicon Mac</strong> (M1 or later) — Marco can be found in the Mac App Store under iPhone &amp; iPad Apps.</li>
+          <li><strong>AUv3 host</strong> required when using The Marco plugin (e.g. Logic Pro for iPad, Loopy Pro, AUM and other compatible hosts).</li>
         </ul>
       </section>
 
@@ -121,6 +121,7 @@
         <ol>
           <li>Open Marco (standalone) or load it as an AUv3 plugin in your host.</li>
           <li>Tap the dice button (<span class="ui">🎲</span>) in the top header to open the <strong>Random Preset Generator</strong>.</li>
+          <li>Leave all three <strong>Style</strong> pills — <strong>Mild</strong>, <strong>Wild</strong> and <strong>Recipe</strong> — selected. They're multi-select, so each roll picks one at random and you hear the widest range of sounds.</li>
           <li>Pick a category (Bass, Lead, Pad, etc.) or leave it on <strong>All</strong>.</li>
           <li>Tap <strong>Generate</strong>. A fresh preset rolls into place.</li>
           <li>Play a few notes — on the built-in keyboard (standalone) or from your MIDI controller / DAW.</li>
@@ -145,17 +146,16 @@
         <p>From left to right across the top of the screen:</p>
         <ul>
           <li><strong>MARCO logo</strong> (top-left) — the multi-coloured wordmark; purely decorative.</li>
-          <li><strong>Pitch / frequency readout</strong> <em>(standalone)</em> — shows the most recently played note and its frequency in Hz.</li>
           <li><strong>Preset selector</strong> (centre) — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the preset name itself to open the full Preset Browser (see <a href="#presets">12. Presets</a>).</li>
-          <li><strong>Randomiser button</strong> (orange) — labelled with the current <strong>Base Preset Source</strong> (e.g. <em>Randomiser — All</em>, <em>Randomiser — Bass</em>). Tap to open the Random Preset Generator, where you can change the Base Preset Source as well as choose which oscillators and parameters get randomised (see <a href="#random">13. Random Preset Generator</a>).</li>
-          <li><strong>Keyboard toggle</strong> <em>(standalone)</em> — shows or hides the built-in keyboard at the top of the screen.</li>
+          <li><strong>Randomiser button</strong> (orange) — labelled with the current <strong>Base Preset Source</strong> (e.g. <em>All</em>, <em>Bass</em>). Tap to open the Random Preset Generator, where you can change the Base Preset Source as well as choose which oscillators and parameters get randomised (see <a href="#random">13. Random Preset Generator</a>).</li>
+          <li><strong>MIDI Settings</strong> <em>(standalone)</em> — opens the MIDI settings dialog.</li>
           <li><strong>⚙️ Settings cog</strong> (top-right) — opens the App Preferences dialog (see <a href="#app-preferences">16. App Preferences</a>).</li>
         </ul>
 
         <h3>Toolbar</h3>
-        <p>Just below the header you'll find horizontal tabs to switch between modulation panels:</p>
+        <p>Just below the header you'll find the horizontal tabs that switch between Marco's modules:</p>
         <ul>
-          <li><span class="ui">Osc</span> — the four oscillators (waveform, volume, fold, detune, sync mode).</li>
+          <li><span class="ui">Oscillators</span> — the four oscillators (waveform, volume, fold, detune, sync mode).</li>
           <li><span class="ui">Vol Env</span> — volume (VCA) envelope per oscillator.</li>
           <li><span class="ui">Filt Env</span> — filter envelope per oscillator.</li>
           <li><span class="ui">Filter</span> — filter type and settings per oscillator.</li>
@@ -164,7 +164,7 @@
           <li><span class="ui">Fold LFO</span> — wavefold LFO.</li>
           <li><span class="ui">Pitch LFO</span> — pitch LFO.</li>
           <li><span class="ui">Glide</span> — portamento between notes.</li>
-          <li><span class="ui">Master</span> — full output chain: gain, drive, compressor, delay, reverb, stereo, limiter.</li>
+          <li><span class="ui">Master</span> — full output chain: drive, compressor, delay, reverb, stereo, limiter.</li>
         </ul>
 
         <h3>Master Strip</h3>
@@ -181,31 +181,31 @@
           <li><strong>Gain</strong> — overall master output level.</li>
           <li><strong>Scope icon</strong> — opens the Waveform Scope (see <a href="#scope">14. Scope</a>).</li>
           <li><strong>XY Pad icon</strong> — opens the expressive XY control surface (see <a href="#xy-pad">15. XY Pad</a>).</li>
-          <li><strong>◀ 🎲 ▶ Dice &amp; history chevrons</strong> — the dice is a quick-generate trigger (one tap rolls a new preset using the Base Preset Source and Styles set in the Randomiser, without opening the dialog). A small live label under the dice reads <span class="ui">Category.Styles</span> — telling you what the next roll will produce before you tap it (see <a href="#dice-label">the dice label</a>). The orange chevrons either side step back and forward through your last 30 randomised sounds (see <a href="#rpg-history">Random Preset History</a>).</li>
+          <li><strong>◀ 🎲 ▶ Dice &amp; history chevrons</strong> — the dice is a quick-generate trigger (one tap rolls a new preset using the Base Preset Source and Styles set in the Randomiser, without opening the dialog). A small live label under the dice reads <span class="ui">Category.Styles</span> — telling you what the next roll will produce before you tap it (see <a href="#dice-label">the dice label</a>). The orange chevrons either side step back and forward through your last 100 randomised and tweaked sounds (see <a href="#rpg-history">Random Preset History</a>).</li>
           <li><strong>DUAL HARD SYNC</strong> — cycles through valid Dual Hard Sync combinations (see <a href="#dualphonic">6. Dual Hard Sync</a>).</li>
         </ul>
         <div class="callout tip">
-          <strong>Randomiser button vs. dice icon.</strong> The orange <strong>Randomiser</strong> button in the top header opens the full Random Preset Generator dialog where you set the Base Preset Source, target oscillators and parameters. The small <strong>dice icon</strong> in the Master Strip is a one-tap shortcut that re-rolls a fresh preset using whatever settings you last configured in the Randomiser.
+          <strong>Randomiser button vs. dice icon.</strong> The orange <strong>Randomiser</strong> button in the top header opens the full Random Preset Generator dialog where you set the Style, Base Preset Source, and access the full Tweak system where you select target oscillators and parameters. The small <strong>dice icon</strong> in the Master Strip is a one-tap shortcut that re-rolls a fresh preset using whatever settings you last configured in the Randomiser.
         </div>
 
         <h3>The Four Oscillator Columns</h3>
-        <p>The main area shows four oscillator columns, each in its own colour: <span class="osc-tag o1">Osc 1</span> <span class="osc-tag o2">Osc 2</span> <span class="osc-tag o3">Osc 3</span> <span class="osc-tag o4">Osc 4</span>. The colour follows that oscillator everywhere in Marco — including the Scope, LFO panels, and Preset Browser.</p>
+        <p>The main area shows four oscillator columns, each in its own colour: <span class="osc-tag o1">Osc 1</span> <span class="osc-tag o2">Osc 2</span> <span class="osc-tag o3">Osc 3</span> <span class="osc-tag o4">Osc 4</span>. The colour follows that oscillator everywhere in Marco — including the Scope, LFO tabs, and Preset Browser.</p>
 
         <div class="callout note">
           <strong>About the white lines on parameter sliders.</strong> When an LFO is modulating a parameter, you'll see a horizontal white line move up and down inside the slider showing exactly how much the parameter is being pushed in real time. No guesswork required.
         </div>
 
         <h3>Per-Oscillator Wand Buttons</h3>
-        <p>Every tab except <strong>Master</strong> has a small <strong>wand icon</strong> in each oscillator's column header. Tapping it runs a <strong>Per-Oscillator Tweak</strong> — a surgical randomisation that only re-rolls the parameters visible on the current tab for that one oscillator.</p>
+        <p>Every tab has a small <strong>wand icon</strong>. On the oscillator-based tabs it sits in each oscillator's column header, and tapping it runs a <strong>Per-Oscillator Tweak</strong> — a surgical nudge that only varies the parameters visible on the current tab for that one oscillator. The <strong>Master</strong> tab carries a wand icon on each of its sections too, so you can tweak just that section (for example, nudge the reverb without touching the delay or drive).</p>
         <ul>
-          <li>Wand on Osc 2's Filter tab → re-rolls Osc 2's filter type, cutoff, resonance, envelope amount and key tracking. Nothing else changes.</li>
-          <li>Wand on Osc 1's Vol Env tab → re-rolls just Osc 1's ADSR.</li>
-          <li>The wand is disabled when that section's ON/OFF toggle is off (nothing to re-roll).</li>
+          <li>Wand on Osc 2's Filter tab → tweaks Osc 2's filter type, cutoff, resonance, envelope amount and key tracking. Nothing else changes.</li>
+          <li>Wand on Osc 1's Vol Env tab → tweaks just Osc 1's ADSR.</li>
+          <li>The wand is disabled when that section's ON/OFF toggle is off (nothing to tweak).</li>
         </ul>
         <p>It's the fastest way to add a fresh idea to a sound without touching everything else. Full details in <a href="#random">13. Random Preset Generator</a>.</p>
 
         <h3 id="linked-perosc">Per-Osc and Linked Modes</h3>
-        <p>One concept appears everywhere in Marco, so it's worth learning straight away: most modulation panels can run in either <strong>Per-Osc</strong> or <strong>Linked</strong> mode. You toggle between the two using the button next to each panel's title — it shows the current mode (<span class="ui">PER-OSC</span> or <span class="ui">LINKED</span>).</p>
+        <p>One concept appears everywhere in Marco, so it's worth learning straight away: most modulation tabs can run in either <strong>Per-Osc</strong> or <strong>Linked</strong> mode. You toggle between the two using the button next to each tab's title — it shows the current mode (<span class="ui">PER-OSC</span> or <span class="ui">LINKED</span>).</p>
 
         <div class="figure-compare">
           <figure class="manual-figure">
@@ -222,9 +222,9 @@
         <p>Each of the four oscillators gets its own independent copy of that module. So in Per-Osc Filter mode you might run a 24dB low-pass filter wide open on <span class="osc-tag o1">Osc 1</span>, a swept notch on <span class="osc-tag o2">Osc 2</span>, a band-pass on <span class="osc-tag o3">Osc 3</span> and a formant filter on <span class="osc-tag o4">Osc 4</span> — all at the same time. Each oscillator's controls are colour-coded so you always know which oscillator you're editing.</p>
 
         <h4>Linked mode</h4>
-        <p>All four oscillators share a single instance of that module. One set of controls drives every oscillator at once. It's lighter on CPU, simpler to dial in, and often exactly what you want when you're after a cohesive sound rather than four contrasting voices.</p>
+        <p>All four oscillators share a single instance of that module. One set of controls drives every oscillator at once. It's lighter on CPU, faster to dial in, and a great starting point — adjust one control and all four voices move together. Switch to Per-Osc whenever you want to shape each oscillator independently.</p>
 
-        <p>Per-Osc and Linked exist for the following panels: <strong>Vol Env</strong>, <strong>Filt Env</strong>, <strong>Filter</strong>, <strong>Cut LFO</strong>, <strong>Vol LFO</strong>, <strong>Fold LFO</strong>, <strong>Pitch LFO</strong>, and <strong>Glide</strong>. The Oscillators panel itself is always per-oscillator by nature — each oscillator has its own waveform, volume, fold, detune and sync mode. The <strong>Master tab</strong> (drive, compressor, delay, reverb, stereo, limiter) is always linked — it processes the mixed output of all four oscillators.</p>
+        <p>Per-Osc and Linked exist for the following tabs: <strong>Vol Env</strong>, <strong>Filt Env</strong>, <strong>Filter</strong>, <strong>Cut LFO</strong>, <strong>Vol LFO</strong>, <strong>Fold LFO</strong>, <strong>Pitch LFO</strong>, and <strong>Glide</strong>. The Oscillators tab itself is always per-oscillator by nature — each oscillator has its own waveform, volume, fold, detune and sync mode. The <strong>Master tab</strong> (drive, compressor, delay, reverb, stereo, limiter) is always linked — it processes the mixed output of all four oscillators.</p>
         <p>When you switch a module from Per-Osc to Linked, Marco uses <strong>Osc 1's settings</strong> as the shared source — the other oscillators' settings are replaced.</p>
 
         <h4>A special case: Filter, Filt Env and Cut LFO</h4>
@@ -245,11 +245,11 @@
         </div>
 
         <h3 id="consistent-ui">A Consistent Interface</h3>
-        <p>Marco's UI is designed so that learning any one panel teaches you most of the others. A few things to notice as you explore:</p>
+        <p>Marco's UI is designed so that learning any one tab teaches you most of the others. A few things to notice as you explore:</p>
         <ul>
-          <li><strong>Oscillator colours follow everywhere.</strong> Osc 1 is always blue, Osc 2 green, Osc 3 orange, Osc 4 magenta — in every panel, the Scope, the Preset Browser. Glance at any control and you instantly know which oscillator it belongs to.</li>
-          <li><strong>Same layout, repeated.</strong> All four LFO panels share the same control structure (Rate / Range / Fade / Phase reset / Clock sync). Both envelopes share the same ADSR layout. Learn one, you can drive the others without re-reading anything.</li>
-          <li><strong>Modes work the same way.</strong> The PER-OSC / LINKED toggle is in the same position on every panel that has it. The On/Off button is in the same position on every oscillator column.</li>
+          <li><strong>Oscillator colours follow everywhere.</strong> Osc 1 is always blue, Osc 2 green, Osc 3 orange, Osc 4 magenta — in every tab, the Scope, the Preset Browser. Glance at any control and you instantly know which oscillator it belongs to.</li>
+          <li><strong>Same layout, repeated.</strong> All four LFO tabs share the same control structure (Rate / Range / Fade / Phase reset / Clock sync). Both envelopes share the same ADSR layout. Learn one, you can drive the others without re-reading anything.</li>
+          <li><strong>Modes work the same way.</strong> The PER-OSC / LINKED toggle is in the same position on every tab that has it. The On/Off button is in the same position on every oscillator column.</li>
           <li><strong>Modulation is visible.</strong> The white indicator lines on parameter sliders show exactly which parameters are being moved by an LFO and by how much — so when something changes in the sound, you can always see why.</li>
         </ul>
         <p>The payoff: even Marco's deepest features stay easy to navigate, because the colour-coding and consistent layout always tell you what you're looking at.</p>
@@ -262,7 +262,7 @@
           <li><strong>Controls</strong> — a plain-language description of every slider and toggle on that tab.</li>
           <li><strong>Tips &amp; Recipes</strong> — worked examples you can dial in straight away (e.g. "Acid bass", "Living pad", "Trance gate").</li>
         </ul>
-        <p>Hints are available on every panel — Oscillators, Vol Env, Filt Env, Filter, Cut LFO, Vol LFO, Fold LFO, Pitch LFO, Glide and Master — plus a dedicated entry for the Random Preset Generator, reached via the <span class="ui">?</span> button in that panel's own header. Tap outside the dialog or the <span class="ui">×</span> in its header to dismiss it. The Hints system is identical in the standalone app and the AUv3 plugin.</p>
+        <p>Hints are available on every tab — Oscillators, Vol Env, Filt Env, Filter, Cut LFO, Vol LFO, Fold LFO, Pitch LFO, Glide and Master — plus a dedicated entry for the Random Preset Generator, reached via the <span class="ui">?</span> button in that tab's own header. Tap outside the dialog or the <span class="ui">×</span> in its header to dismiss it. The Hints system is identical in the standalone app and the AUv3 plugin.</p>
       </section>
 
       <section id="oscillators">
@@ -270,7 +270,7 @@
           <div class="feature-text">
             <h2><span class="num">5</span>The Oscillators</h2>
             <p class="lead">Each of Marco's four oscillators is fully independent — its own waveform, volume, fold, detune and pulse width.</p>
-            <p>Each column carries, top to bottom: the six waveform buttons, the octave selector (−3 to +3), the two sync-mode buttons, and the Vol / Fold / Det / PWM sliders. The wand icon re-rolls just this oscillator's settings, and the white lines inside the sliders show any live LFO movement.</p>
+            <p>Each column carries, top to bottom: the six waveform buttons, the octave selector (−3 to +3), the two sync-mode buttons, and the Vol / Fold / Det / PWM sliders. The wand icon tweaks just this oscillator's settings, and the white lines inside the sliders show any live LFO movement.</p>
           </div>
           <figure class="feature-figure">
             <img src="images/oscillator.png" alt="A single oscillator column (Osc 1) — six waveform buttons, the octave selector, Master A / Sync B buttons, and Vol, Fold, Det and PWM sliders.">
@@ -302,7 +302,7 @@
           <tbody>
             <tr><td>Vol</td><td>0–100%</td><td>Volume of this oscillator in the master mix.</td></tr>
             <tr><td>Fold</td><td>0–100%</td><td>Wavefolding amount. Higher values fold the waveform back on itself, adding harmonics by folding the waveform back on itself.</td></tr>
-            <tr><td>Det</td><td>−100 to +100 cents</td><td>Fine pitch offset against the other oscillators.</td></tr>
+            <tr><td>Det</td><td>−24 to +24 semitones</td><td>Pitch offset against the other oscillators — from subtle detuning up to ±2 octaves.</td></tr>
             <tr><td>PWM</td><td>10–90%</td><td>Pulse-width duty cycle. Only active when the waveform is Pulse.</td></tr>
           </tbody>
         </table>
@@ -310,7 +310,7 @@
 
         <h3 id="octave">5.3 Octave &amp; Pitch</h3>
         <p>Between the waveform selector and the parameter sliders, each oscillator has an octave selector: <span class="ui">−3 −2 −1 0 +1 +2 +3</span>. Tap to shift this oscillator's playing range up or down by full octaves relative to the played note.</p>
-        <p>Combine octave with the <strong>Det</strong> (detune) slider for fine pitch offsets between oscillators — this is the foundation of fat, layered sounds.</p>
+        <p>Combine octave with the <strong>Det</strong> slider for everything from subtle detuning to wide interval stacks (up to ±2 octaves) between oscillators — this is the foundation of fat, layered sounds.</p>
       </section>
 
       <section id="dualphonic">
@@ -360,7 +360,7 @@
             <p>The Volume Envelope controls how loud the oscillator is from the moment a note is pressed until after it's released. The per-oscillator <strong>Hold</strong> (latch) and <strong>Drone</strong> buttons sit across the top, alongside the curve selector (Lin / Exp / Soft / Med / Hard), with the standard ADSR sliders below.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/volenv.png" alt="The Volume Envelope panel — Hold, Env and Drone buttons, a Lin/Exp/Soft/Med/Hard curve selector, and Attack, Decay, Sustain and Release sliders.">
+            <img src="images/volenv.png" alt="The Volume Envelope tab — Hold, Env and Drone buttons, a Lin/Exp/Soft/Med/Hard curve selector, and Attack, Decay, Sustain and Release sliders.">
           </figure>
         </div>
         <p>Standard ADSR layout:</p>
@@ -369,29 +369,28 @@
             <tr><th>Stage</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
-            <tr><td>Attack</td><td>0–5 s</td><td>Time to reach full volume after note-on. Fast = percussive; slow = pad-like.</td></tr>
-            <tr><td>Decay</td><td>0–5 s</td><td>Time to fall from the attack peak down to the sustain level.</td></tr>
+            <tr><td>Attack</td><td>0–2 s</td><td>Time to reach full volume after note-on. Fast = percussive; slow = pad-like.</td></tr>
+            <tr><td>Decay</td><td>0–2 s</td><td>Time to fall from the attack peak down to the sustain level.</td></tr>
             <tr><td>Sustain</td><td>0–100%</td><td>Volume level held while the note is pressed.</td></tr>
-            <tr><td>Release</td><td>0–5 s</td><td>Time to silence after note-off.</td></tr>
+            <tr><td>Release</td><td>0–3 s</td><td>Time to silence after note-off.</td></tr>
             <tr><td>Exponential</td><td>On/Off</td><td>Use exponential rather than linear envelope curves.</td></tr>
-            <tr><td>Exp Rate</td><td>0.1–10</td><td>Steepness of the exponential curve.</td></tr>
             <tr><td>Drone Mode</td><td>On/Off</td><td>When on, the oscillator sustains indefinitely without needing a held note — useful for drones, sustained pads, and continuous textures. Bypasses the normal ADSR gate behaviour.</td></tr>
           </tbody>
         </table>
-        <p>Vol Env can be set <strong>per-oscillator</strong> (each oscillator has its own envelope) or <strong>linked</strong> (one envelope drives all four). Toggle this at the top of the Vol Env panel.</p>
+        <p>Vol Env can be set <strong>per-oscillator</strong> (each oscillator has its own envelope) or <strong>linked</strong> (one envelope drives all four). Toggle this at the top of the Vol Env tab.</p>
 
         <h4 id="hold-latch">Hold (Latch)</h4>
-        <p>The Vol Env tab also carries a per-oscillator <strong>Hold</strong> (latch) control. When latched, the oscillator continues sounding after the MIDI note is released. Use this for drones, sustained pads or to layer a held tone against newly-played notes. Because Hold is per-oscillator, you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
+        <p>The Vol Env tab also carries a per-oscillator <strong>Hold</strong> (latch) control. When latched, the oscillator continues sounding after the MIDI note is released. Use this for sustained pads or to layer a held tone against newly-played notes. Because Hold is per-oscillator, you can latch a sub layer while the lead oscillator still responds normally to your playing.</p>
 
         <div class="feature-row">
           <div class="feature-text">
             <h3 id="filt-env">7.2 Filter Envelope (Filt Env)</h3>
             <p>The Filter Envelope shapes the filter cutoff over time, independent of the volume envelope. Same ADSR layout and curve options as the Volume Envelope, but without the Hold and Drone buttons.</p>
-            <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter panel — see <a href="#filters">8. Filters</a>.</p>
+            <p>The depth of the filter envelope's effect on the cutoff is set by the <strong>Env</strong> slider in the Filter tab — see <a href="#filters">8. Filters</a>.</p>
             <p>Filt Env can be per-osc or linked, just like Vol Env.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/filtenv.png" alt="The Filter Envelope panel — a Lin/Exp/Soft/Med/Hard curve selector above Attack, Decay, Sustain and Release sliders.">
+            <img src="images/filtenv.png" alt="The Filter Envelope tab — a Lin/Exp/Soft/Med/Hard curve selector above Attack, Decay, Sustain and Release sliders.">
           </figure>
         </div>
         <div class="callout note">
@@ -404,10 +403,10 @@
           <div class="feature-text">
             <h2><span class="num">8</span>Filters</h2>
             <p class="lead">A state-variable filter with eight modes, applied per-oscillator or linked across all four.</p>
-            <p>The filter-type buttons (LP 6 / LP 12 / LP 18 / LP 24 / BP / Notch / HP / Formant) sit at the top of the panel; below them are the Cut, Res, Env and Key sliders detailed in the tables below.</p>
+            <p>The filter-type buttons (LP 6 / LP 12 / LP 18 / LP 24 / BP / Notch / HP / Formant) sit at the top of the tab; below them are the Cut, Res, Env and Key sliders detailed in the tables below.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/filter.png" alt="The Filter panel — eight filter-type buttons (LP 6 through Formant) above Cut, Res, Env and Key sliders.">
+            <img src="images/filter.png" alt="The Filter tab — eight filter-type buttons (LP 6 through Formant) above Cut, Res, Env and Key sliders.">
           </figure>
         </div>
 
@@ -434,7 +433,7 @@
             <tr><th>Control</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
-            <tr><td>Cutoff</td><td>20 Hz – 20 kHz</td><td>Cutoff frequency, log-scaled.</td></tr>
+            <tr><td>Cutoff</td><td>20 Hz – 8 kHz</td><td>Cutoff frequency, log-scaled.</td></tr>
             <tr><td>Resonance</td><td>0–100%</td><td>Filter Q. At high settings, can self-oscillate.</td></tr>
             <tr><td>Env Amount</td><td>−100% to +100%</td><td>How much the Filter Envelope opens (positive) or closes (negative) the filter from rest.</td></tr>
             <tr><td>Key Tracking</td><td>0–100%</td><td>How much the cutoff follows the played note's pitch. 0% = static; 100% = 1:1 tracking.</td></tr>
@@ -459,10 +458,11 @@
             <tr><th>Control</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
+            <tr><td>Enabled</td><td>On/Off</td><td>Turns this LFO on or off. When off, the LFO stops modulating and consumes no CPU.</td></tr>
             <tr><td>Shape</td><td>Sine, Triangle, Saw, Ramp, Square</td><td>LFO waveform.</td></tr>
             <tr><td>Rate</td><td>0.1–20 Hz</td><td>LFO speed — or musical division when Sync is on.</td></tr>
-            <tr><td>Min Level</td><td>0–100%</td><td>Lower bound of the modulation range.</td></tr>
-            <tr><td>Max Level</td><td>0–100%</td><td>Upper bound of the modulation range. Together with Min Level, sets where the LFO swings between.</td></tr>
+            <tr><td>Range (Min Level)</td><td>0–100%</td><td>Lower bound of the modulation range.</td></tr>
+            <tr><td>Range (Max Level)</td><td>0–100%</td><td>Upper bound of the modulation range. Together with Range (Min Level), sets where the LFO swings between.</td></tr>
             <tr><td>Gate</td><td>On/Off</td><td>When on, the LFO restarts on each note. When off, the LFO free-runs.</td></tr>
             <tr><td>Phase Offset</td><td>0–360°</td><td>Starting phase when Gate is on. Any angle, not just the four cardinal positions.</td></tr>
             <tr><td>Fade In</td><td>0–5 s</td><td>Gradual onset — the LFO ramps up to full depth over this time after note-on.</td></tr>
@@ -491,10 +491,10 @@
           <div class="feature-text">
             <h3 id="fold-lfo">9.3 Wavefold LFO (Fold LFO)</h3>
             <p>Modulates the wavefolding amount. Produces evolving harmonic complexity — the fold parameter is one of Marco's strongest character controls.</p>
-            <p>Its layout is shared by all four LFOs: the shape buttons and Sync / Gate toggles across the top, then the Div (rate), Range, Fade and Phase sliders — so learning this panel teaches you the Cutoff, Volume and Pitch LFOs too.</p>
+            <p>Its layout is shared by all four LFOs: the shape buttons and Sync / Gate toggles across the top, then the Div (rate), Range, Fade and Phase sliders — so learning this tab teaches you the Cutoff, Volume and Pitch LFOs too.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/foldlfo.png" alt="The Wavefold LFO panel — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
+            <img src="images/foldlfo.png" alt="The Wavefold LFO tab — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
           </figure>
         </div>
 
@@ -505,7 +505,7 @@
             <p>It uses the same control layout as the other LFOs (shape, Sync / Gate, Div, Range, Fade and Phase), so a slow triangle gives gentle vibrato while faster rates and wider ranges push into siren and warble territory.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/pitchlfo.png" alt="The Pitch LFO panel — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
+            <img src="images/pitchlfo.png" alt="The Pitch LFO tab — LFO shape buttons, Sync and Gate toggles, and Div, Range, Fade and Phase sliders.">
           </figure>
         </div>
 
@@ -519,10 +519,10 @@
           <div class="feature-text">
             <h2><span class="num">10</span>Glide</h2>
             <p class="lead">Glide (portamento) makes the pitch slide smoothly from one note to the next instead of jumping. Essential for expressive leads and 303-style basslines.</p>
-            <p>The panel sets the slide Time, its Curve, whether glide is Legato-only, and a Max Range cap — and like most modules it can run per-oscillator or linked.</p>
+            <p>The tab sets the slide Time, its Curve, whether glide is Legato-only, and a Max Range cap — and like most modules it can run per-oscillator or linked.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/glide.png" alt="The Glide panel — Enabled toggle, Time, Curve, Legato Only and Max Range controls.">
+            <img src="images/glide.png" alt="The Glide tab — Enabled toggle, Time, Curve, Legato Only and Max Range controls.">
           </figure>
         </div>
 
@@ -545,23 +545,20 @@
 
       <section id="effects">
         <h2><span class="num">11</span>Master Tab</h2>
-        <p class="lead">The Master tab is Marco's full output processing chain — gain staging, drive, dynamics, time-based effects, stereo imaging and limiting. Every section processes the combined mix of all four oscillators.</p>
+        <p class="lead">The Master tab is Marco's full output processing chain — drive, dynamics, time-based effects, stereo imaging and limiting. Every section processes the combined mix of all four oscillators.</p>
 
         <figure class="manual-figure">
           <img src="images/master.png" alt="Marco's Master tab showing the built-in bus effects chain — drive, compressor, delay, reverb, stereo width and limiter.">
-          <figcaption>The Master tab: the full output chain — gain, drive, compressor, delay, reverb, stereo and limiter — all processing the mixed output of the four oscillators.</figcaption>
+          <figcaption>The Master tab: the full output chain — drive, compressor, delay, reverb, stereo and limiter — all processing the mixed output of the four oscillators.</figcaption>
         </figure>
 
         <p>Each section (except Stereo) has its own <span class="ui">ON / OFF</span> toggle. When a section is off, its controls grey out and the signal passes through untouched.</p>
 
         <div class="callout note">
-          <strong>Effects are always linked.</strong> Drive, Compressor, Delay, Reverb, Stereo and Limiter all run on the mixed output — there is no per-oscillator effects mode. This keeps CPU usage predictable and matches how most analogue and modular signal chains work.
+          <strong>Effects are always linked.</strong> Drive, Compressor, Delay, Reverb, Stereo and Limiter all run on the mixed output — there is no per-oscillator effects mode.
         </div>
 
-        <h3 id="master-gain">11.1 Gain Controls</h3>
-        <p>Input and output gain meters and sliders sit at the top of the Master tab. Use the input gain to set how hot the signal is driving the chain (especially relevant for Drive and Compressor); use the output gain to set the final master level.</p>
-
-        <h3 id="master-drive">11.2 Drive</h3>
+        <h3 id="master-drive">11.1 Drive</h3>
         <p>Saturation / distortion. Adds warmth, grit or destruction depending on type and amount.</p>
         <table class="param-table">
           <thead>
@@ -575,7 +572,7 @@
           </tbody>
         </table>
 
-        <h3 id="master-compressor">11.3 Compressor</h3>
+        <h3 id="master-compressor">11.2 Compressor</h3>
         <p>Dynamics processing to even out peaks and add density.</p>
         <table class="param-table">
           <thead>
@@ -591,54 +588,53 @@
           </tbody>
         </table>
 
-        <h3 id="master-delay">11.4 Delay</h3>
+        <h3 id="master-delay">11.3 Delay</h3>
         <p>Digital delay with optional tempo sync.</p>
         <table class="param-table">
           <thead>
-            <tr><th>Control</th><th>What it does</th></tr>
+            <tr><th>Control</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
-            <tr><td>Time / Div</td><td>Delay time in seconds (0.05–1.0 s) or musical division when Sync is on.</td></tr>
-            <tr><td>Feedback</td><td>How much delayed signal feeds back into the input (0–95%).</td></tr>
-            <tr><td>Mix</td><td>Dry / wet blend (0–100%).</td></tr>
-            <tr><td>BPM</td><td>Tempo for sync mode (40–240). <em>Standalone only — the AUv3 plugin uses host tempo.</em></td></tr>
-            <tr><td>Sync</td><td>Toggle tempo-synced delay timing.</td></tr>
+            <tr><td>Time / Div</td><td>0.05–1.0 s</td><td>Delay time in seconds, or musical division when Sync is on.</td></tr>
+            <tr><td>Feedback</td><td>0–95%</td><td>How much delayed signal feeds back into the input.</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Dry / wet blend.</td></tr>
+            <tr><td>BPM</td><td>40–240</td><td>Tempo for sync mode. <em>Standalone only — the AUv3 plugin uses host tempo.</em></td></tr>
+            <tr><td>Sync</td><td>On/Off</td><td>Toggle tempo-synced delay timing.</td></tr>
           </tbody>
         </table>
         <p><strong>Sync divisions</strong> (fastest to slowest): 1/32, 1/16T, 1/16, 1/8T, 1/16D, 1/8, 1/4T, 1/8D, 1/4, 1/4D, 1/2, 1/1, 2 Bars, 4 Bars.</p>
 
-        <h3 id="master-reverb">11.5 Reverb</h3>
+        <h3 id="master-reverb">11.4 Reverb</h3>
         <p>FDN (Feedback Delay Network) reverb with configurable quality. The number of internal delay lines used by the reverb is set globally in <a href="#performance-settings">App Preferences → Performance Settings</a>.</p>
         <table class="param-table">
           <thead>
-            <tr><th>Control</th><th>What it does</th></tr>
+            <tr><th>Control</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
-            <tr><td>Damping</td><td>High-frequency absorption preset — DARK, WARM, CLEAR, BRIGHT.</td></tr>
-            <tr><td>Mix</td><td>Dry / wet blend (0–100%).</td></tr>
-            <tr><td>Decay</td><td>Reverb tail length (0–100%).</td></tr>
-            <tr><td>Size</td><td>Room size scaling (0.2× to 2.0×).</td></tr>
-            <tr><td>Pre-Delay</td><td>Time between the dry signal and the first reverb reflection (0–100 ms).</td></tr>
+            <tr><td>Damping</td><td>DARK / WARM / CLEAR / BRIGHT</td><td>High-frequency absorption preset.</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>Dry / wet blend.</td></tr>
+            <tr><td>Decay</td><td>0–100%</td><td>Reverb tail length.</td></tr>
+            <tr><td>Size</td><td>0.2× to 2.0×</td><td>Room size scaling.</td></tr>
+            <tr><td>Pre-Delay</td><td>0–100 ms</td><td>Time between the dry signal and the first reverb reflection.</td></tr>
           </tbody>
         </table>
 
-        <h3 id="master-stereo">11.6 Stereo</h3>
+        <h3 id="master-stereo">11.5 Stereo</h3>
         <p>Stereo imaging and spatial processing. <strong>Always active</strong> — there is no on/off toggle. Sits in the chain immediately after the Reverb.</p>
         <table class="param-table">
           <thead>
-            <tr><th>Control</th><th>Type</th><th>What it does</th></tr>
+            <tr><th>Control</th><th>Range</th><th>What it does</th></tr>
           </thead>
           <tbody>
-            <tr><td>Width</td><td>Slider</td><td>Stereo spread via allpass decorrelation (0–100%). Always available.</td></tr>
-            <tr><td>Drift</td><td>Slider</td><td>Slow stereo movement — a 0.3 Hz LFO gently pans the image side to side (0–100%).</td></tr>
-            <tr><td>FOLD</td><td>Button</td><td>Asymmetric tanh saturation (left ×1.15, right ×0.85) that drives the two channels differently, producing harmonic stereo divergence and a wider, more characterful image.</td></tr>
-            <tr><td>B.MONO</td><td>Button</td><td>Bass Mono — sums frequencies below ~200 Hz to mono, keeping the low end coherent for production.</td></tr>
-            <tr><td>SAFE</td><td>Button</td><td>Mono compatibility — reduces the stereo side signal by 40% so the mix translates well to mono playback.</td></tr>
+            <tr><td>Width</td><td>0–100%</td><td>Stereo spread via allpass decorrelation. Always available.</td></tr>
+            <tr><td>Drift</td><td>0–100%</td><td>Slow stereo movement — a 0.3 Hz LFO gently pans the image side to side.</td></tr>
+            <tr><td>B.MONO</td><td>On/Off</td><td>Bass Mono — sums frequencies below ~200 Hz to mono, keeping the low end coherent for production.</td></tr>
+            <tr><td>SAFE</td><td>On/Off</td><td>Mono compatibility — reduces the stereo side signal by 40% so the mix translates well to mono playback.</td></tr>
           </tbody>
         </table>
-        <p><strong>Signal flow:</strong> Width decorrelator → Drift → Fold → Bass Mono → Safe.</p>
+        <p><strong>Signal flow:</strong> Width decorrelator → Drift → Bass Mono → Safe.</p>
 
-        <h3 id="master-limiter">11.7 Limiter</h3>
+        <h3 id="master-limiter">11.6 Limiter</h3>
         <p>Brick-wall limiter at the end of the chain. Catches any peaks before they leave Marco.</p>
         <table class="param-table">
           <thead>
@@ -651,7 +647,7 @@
           </tbody>
         </table>
 
-        <h3 id="master-presets">11.8 Master Presets</h3>
+        <h3 id="master-presets">11.7 Master Presets</h3>
         <p>Marco's Master chain has its own preset system, separate from voice presets. You can swap the entire effects chain (Drive, Compressor, Delay, Reverb, Stereo, Limiter settings) independently of the sound you're playing — useful when you want to keep the voice you've designed but try a completely different sonic space.</p>
 
         <h4>The Master nav button</h4>
@@ -666,7 +662,7 @@
         </ul>
 
         <div class="callout note">
-          <strong>The Master tab is never randomised.</strong> None of Marco's three randomisation systems (Generate, Tweak, Per-Osc Tweak) directly mutates the Master tab. Generate <em>does</em> change the Master chain indirectly — because it first loads a random base preset, the base preset's Master settings come with it. Tweak and Per-Osc Tweak leave Master alone entirely. See <a href="#master-randomisation">13.8 Master and Randomisation</a> for full details.
+          <strong>The Master tab can be tweaked.</strong> Generate changes the Master chain indirectly — it first loads a random base preset, so that preset's Master settings come with it. The Tweak system can also target the Master tab directly: use the Tweak section of the Random Preset Generator dialog, or tap the wand button on any section of the Master tab to tweak just that section. See <a href="#master-randomisation">13.8 Master and Randomisation</a> for full details.
         </div>
       </section>
 
@@ -711,16 +707,16 @@
 
       <section id="random">
         <h2><span class="num">13</span>Random Preset Generator</h2>
-        <p class="lead">Marco's randomisation system is musical, not chaotic. It's designed around a principle of <em>happy accident and discoverability</em> — every roll should produce something you can actually use, while still surprising you.</p>
-        <p>Every <strong>Generate</strong> combines three things: a <strong>Style</strong> (Mild / Wild / Recipe — pick any), a <strong>Base Preset Source</strong> (which category to draw from), and an optional set of <strong>selective toggles</strong> (which oscillators and controls are allowed to change). The Style comes first — it sets the whole character of the roll — so that's where this section starts.</p>
+        <p class="lead">Marco's randomisation system is musical, not chaotic. It's designed around a principle of <em>happy accident and discoverability</em> — our goal is that every roll should produce something you can actually use, while still surprising you.</p>
+        <p>Every <strong>Generate</strong> combines two things: a <strong>Style</strong> (Mild / Wild / Recipe — pick any) and a <strong>Base Preset Source</strong> (which category to draw from). The same dialog also houses the <strong>Tweak</strong> system, whose oscillator and parameter toggles let you vary the sound you're currently hearing rather than rolling a new one.</p>
 
         <figure class="manual-figure">
-          <img src="images/random-generator.png" alt="The Random Preset Generator panel with Style pills, Base Preset Source category selector, and per-oscillator and per-parameter targeting toggles.">
-          <figcaption>The Random Preset Generator: Style pills, the Base Preset Source category, and the oscillator/parameter toggles that decide what each roll is allowed to change.</figcaption>
+          <img src="images/random-generator.png" alt="The Random Preset Generator dialog with Style pills, Base Preset Source category selector, and per-oscillator and per-parameter targeting toggles.">
+          <figcaption>The Random Preset Generator: the Style pills and Base Preset Source category drive <strong>Generate</strong> when rolling new presets, while the oscillator and parameter toggles let you <strong>Tweak</strong> the sound you're currently hearing.</figcaption>
         </figure>
 
         <h3 id="styles">13.1 Styles — Mild, Wild &amp; Recipe</h3>
-        <p>Three <strong>Style</strong> pills at the top of the Random Preset panel decide <em>how</em> each roll is built. Styles are <strong>multi-select</strong> — enable any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
+        <p>Three <strong>Style</strong> pills at the top of the Random Preset dialog decide <em>how</em> each roll is built. Styles are <strong>multi-select</strong> — enable any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
         <table class="param-table">
           <thead>
             <tr><th>Style</th><th>What it does</th></tr>
@@ -728,15 +724,15 @@
           <tbody>
             <tr><td>Mild</td><td>Small, musical mutations around the source preset's character. Best for refining a patch you already like — keeps the vibe, varies the details.</td></tr>
             <tr><td>Wild</td><td>Aggressive, broad-spectrum randomisation with power-curve distributions. Wider range, more surprises — ideal for discovery sessions.</td></tr>
-            <tr><td>Recipe</td><td>Picks from 35 codified <strong>sonic archetypes</strong> (think "Moog Lead", "Acid 303", "Glass Pad", "Riser") and builds a coherent patch inside that archetype's design constraints. The most curated Style — usable patches out of the box.</td></tr>
+            <tr><td>Recipe</td><td>Picks from 35 codified <strong>sonic archetypes</strong> (think "Moog-style Lead", "Acid 303-style", "Glass Pad", "Riser") and builds a coherent patch inside that archetype's design constraints. The most curated Style — usable patches out of the box.</td></tr>
           </tbody>
         </table>
-        <p>With more than one Style enabled, Marco picks one at random for each roll — so "Mild + Recipe" alternates between curated and gentle-mutation results. An empty selection is treated as all three.</p>
+        <p>With more than one Style enabled, Marco picks one at random for each roll — so "Mild + Recipe" randomly chooses between curated and gentle-mutation results on each roll. An empty selection is treated as all three.</p>
         <div class="callout note">
           <strong>Recipe isn't available everywhere.</strong> Recipes are curated for the <strong>All, Bass, Lead, Pad, Keys, Drone, FX</strong> and <strong>Signature</strong> categories. The other categories — <strong>User, Favourites, Artists</strong> and <strong>Basic</strong> — have no recipes (they're about varying your own or curated sounds), so the Recipe pill <strong>dims</strong> there; it stays tappable, but a roll falls back to Mild or Wild.
         </div>
         <div class="callout tip">
-          <strong>Not sure which to use?</strong> Leave all three on. Tap the <span class="ui">?</span> button in the Random Preset panel's header any time for an in-panel explanation of the Styles, the multi-select behaviour, the source category and the dice label.
+          <strong>Not sure which to use?</strong> Leave all three on. Tap the <span class="ui">?</span> button in the Random Preset dialog's header any time for an in-app explanation of the Styles, the multi-select behaviour, the source category and the dice label.
         </div>
 
         <h3 id="three-systems">13.2 Three ways to randomise</h3>
@@ -748,26 +744,26 @@
           <tbody>
             <tr>
               <td>Generate</td>
-              <td>"Generate" button in the Random Preset panel, or the 🎲 dice button on the main toolbar</td>
-              <td>Rolls a completely new sound, using your active <strong>Style</strong> (see <a href="#styles">13.1 Styles</a>) and selected category. Produces a fresh sound that still belongs to the category you chose. The toolbar dice does exactly the same thing as the panel's Generate button.</td>
+              <td>"Generate" button in the Random Preset dialog, or the 🎲 dice button on the main toolbar</td>
+              <td>Rolls a completely new sound, using your active <strong>Style</strong> (see <a href="#styles">13.1 Styles</a>) and selected category. Produces a fresh sound that still belongs to the category you chose. The toolbar dice does exactly the same thing as the dialog's Generate button.</td>
             </tr>
             <tr>
               <td>Tweak</td>
-              <td>Wand button in the Random Preset panel</td>
-              <td>Mutates the <strong>currently loaded sound</strong>. Only affects the oscillators and parameters you've toggled on in the panel. Uses wide, default ranges (no category-specific tuning).</td>
+              <td>Wand button in the Random Preset dialog</td>
+              <td>Mutates the <strong>currently loaded sound</strong>. Only affects the oscillators and parameters you've toggled on in the dialog. Uses wide, default ranges (no category-specific tuning).</td>
             </tr>
             <tr>
               <td>Per-Osc Tweak</td>
-              <td>Small wand icon in each tab's column header</td>
-              <td>Mutates only the parameters visible on that <strong>specific tab</strong> for that <strong>specific oscillator</strong>. Tight, surgical changes — e.g. a wand tap in the Filter tab on Osc 2 only re-rolls Osc 2's filter settings. Available on every tab except Master. The button is disabled when that section is OFF.</td>
+              <td>Small wand icon in each oscillator column header (or each section on the Master tab)</td>
+              <td>Mutates only the parameters visible on that <strong>specific tab</strong> for that <strong>specific oscillator</strong>. Tight, surgical changes — e.g. a wand tap in the Filter tab on Osc 2 only tweaks Osc 2's filter settings. Available on every tab; on the Master tab each section has its own wand that tweaks just that section. The button is disabled when that section is OFF.</td>
             </tr>
           </tbody>
         </table>
 
-        <h3 id="opening-rpg">13.3 Opening the panel &amp; the toolbar dice</h3>
+        <h3 id="opening-rpg">13.3 Opening the dialog &amp; the toolbar dice</h3>
         <ul>
-          <li><strong>Randomiser button</strong> in the top header — labelled with the current Base Preset Source (e.g. <em>Randomiser — All</em>). Tap it to open the Random Preset panel, where the Generate button, Tweak button, the Style pills and all the targeting toggles live. The panel header also has a <span class="ui">?</span> hint button explaining how the generator works.</li>
-          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the panel. It's flanked by history chevrons (see <a href="#rpg-history">Random Preset History</a>).</li>
+          <li><strong>Randomiser button</strong> in the top header — labelled with the current Base Preset Source (e.g. <em>All</em>). Tap it to open the Random Preset dialog, where the Generate button, Tweak button, the Style pills and all the targeting toggles live. The dialog header also has a <span class="ui">?</span> hint button explaining how the generator works.</li>
+          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the dialog. It's flanked by history chevrons (see <a href="#rpg-history">Random Preset History</a>).</li>
         </ul>
 
         <h4 id="dice-label">The dice label</h4>
@@ -779,72 +775,60 @@
         <p>So <span class="ui">Bass.MR</span> means "Bass category, alternating between Mild and Recipe rolls", and <span class="ui">Favs.MWR</span> means "Favourites, any Style". The label updates instantly whenever you change the source category or the Style selection.</p>
 
         <h3 id="base-source">13.4 Base Preset Source</h3>
-        <p>The top of the panel chooses which category Marco draws inspiration from when Generate rolls a new sound. Any of the factory categories (<strong>Basic, Bass, Lead, Pad, Keys, FX, Drone</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>.</p>
+        <p>The top of the dialog chooses which category Marco draws inspiration from when Generate rolls a new sound. Any of the factory categories (<strong>Basic, Bass, Lead, Pad, Keys, FX, Drone</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>.</p>
         <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#category-modes">13.7 Category behaviours</a> below.</p>
 
         <h3 id="targeting">13.5 Oscillator &amp; Parameter Targeting</h3>
-        <p>Both Generate and Tweak (in the panel) respect two sets of toggles:</p>
+        <p>Only <strong>Tweak</strong> respects these two sets of toggles — Generate ignores them and always rolls a complete new preset:</p>
         <ul>
-          <li><strong>Oscillators</strong> — choose which of the four oscillators the generator is allowed to randomise. Untick an oscillator to leave it untouched (e.g. keep a bass layer stable while randomising the other three).</li>
+          <li><strong>Oscillators</strong> — choose which of the four oscillators Tweak is allowed to change. Untick an oscillator to leave it untouched (e.g. keep a bass layer stable while tweaking the other three).</li>
           <li><strong>Parameters</strong> — control exactly what kinds of changes are allowed. Available toggles: Waveform, Volume, Octave, Detune, Pulse Width, Fold Amount, Osc On/Off, Hard Sync, Vol Envelope, Filt Envelope, Filter, Volume LFO, Fold LFO, Cutoff LFO, Pitch LFO, Glide.</li>
         </ul>
         <p>Use the <strong>None</strong> link to clear everything, then enable just the parameters you're curious about.</p>
 
         <h3 id="lfo-sync">13.6 LFO Sync</h3>
-        <p>A separate <strong>LFO Sync</strong> toggle lets you choose whether LFO rates get tempo-synced when the generator randomises them. Turn it on for in-time modulation; leave it off for free-running LFOs.</p>
+        <p>A separate <strong>LFO Sync</strong> toggle lets you choose whether LFO rates get tempo-synced when <strong>Tweak</strong> changes them. Turn it on for in-time modulation; leave it off for free-running LFOs.</p>
 
         <h3 id="category-modes">13.7 Category behaviours (Generate only)</h3>
-        <p>On top of the Style you pick, the chosen category shapes the result. For the <strong>Mild</strong> and <strong>Wild</strong> Styles the generator tunes its parameter ranges to suit the category; the <strong>Recipe</strong> Style draws on archetypes built for that category. A handful of categories also apply structural rules to every roll regardless of Style.</p>
+        <p>On top of the Style you pick, the chosen category shapes the result. For the <strong>Mild</strong> and <strong>Wild</strong> Styles the generator tunes the sound to suit the category; the <strong>Recipe</strong> Style draws on archetypes built for that category. Each category is designed to give you results that sound like that category — the table below shows what to expect from each, so you can choose deliberately.</p>
 
-        <h4>Tuned ranges (Bass / Lead / Pad / Keys / Drone)</h4>
-        <p>These categories use category-specific envelope, filter cutoff and oscillator octave ranges so the result actually sounds like that category. For example:</p>
-        <ul>
-          <li><strong>Bass</strong> — fast attack (0.001–0.03 s), tight release, filter cutoff biased low (200–3000 Hz), oscillator octaves biased low.</li>
-          <li><strong>Lead</strong> — fast attack, medium release, wider filter range (400–8000 Hz, even spread), octaves biased mid-to-high.</li>
-          <li><strong>Pad</strong> — long attack (0.2–2 s), long release (0.8–3 s), high sustain, mellow filter range (300–6000 Hz), octaves biased mid.</li>
-          <li><strong>Keys</strong> — fast attack, percussive decay, lower sustain, balanced filter range (500–8000 Hz, even spread).</li>
-          <li><strong>Drone</strong> — long attack and release, very high sustain, low-mid filter range (200–4000 Hz), low octaves.</li>
-          <li><strong>FX</strong> — filter cutoff carries a deliberate bright bias (300–8000 Hz, weighted toward the top end) on top of its Wild Style behaviour below.</li>
-        </ul>
-
-        <h4>Special category behaviours</h4>
         <table class="param-table">
           <thead>
-            <tr><th>Category</th><th>Special rule</th></tr>
+            <tr><th>Category</th><th>What to expect</th></tr>
           </thead>
           <tbody>
-            <tr><td>Drone</td><td>Forces the <strong>VCA envelope off</strong> (Drone Mode) so the sound sustains indefinitely. Drone presets are also <strong>isolated</strong> from the base-preset pool of every other category — a drone will only ever appear when Drone is the selected source, so you'll never get an unexpected drone when generating from All, Favourites, User or any other category. (Tweak is drone-safe too: tweaking a Drone preset keeps its drone character; tweaking a non-drone never turns it into one.)</td></tr>
-            <tr><td>Signature</td><td>Always forces one of the <strong>six Dual Hard Sync modes</strong> during generation — every roll showcases what hard sync can do, no matter what the base preset's sync settings were.</td></tr>
-            <tr><td>Basic</td><td>Strips all LFOs and Glide after mutation — produces a pure oscillator + envelope + filter sound, no modulation movement.</td></tr>
-            <tr><td>FX (on Wild)</td><td>On Wild rolls, dramatically boosts the probability of fresh LFOs, glide, and hard sync — every roll is full of motion and character. Pitch LFOs always come up in free mode rather than vibrato.</td></tr>
-            <tr><td>User / Favourites / Artists</td><td>No recipes here (the Recipe pill dims). Rolls perturb the base preset's own values rather than rolling fresh random numbers — preserving the character of the saved or curated sound while introducing subtle variation. Filter type, LFO shape, sync settings and hard sync are nudged or left as-is, never freshly generated.</td></tr>
-            <tr><td>Bass / Lead / Pad / Keys</td><td>Use the tuned ranges above; no other special rules.</td></tr>
-            <tr><td>All</td><td>Uses default (wide) ranges with no category-specific tuning.</td></tr>
+            <tr><td>Bass / Lead / Pad / Keys</td><td>Sounds tuned to fit that role — envelopes, filter and octave ranges shaped to match.</td></tr>
+            <tr><td>Drone</td><td>Sustaining sounds that hold indefinitely. Drones stay separate from the other categories, so you only ever get one when you pick Drone.</td></tr>
+            <tr><td>Signature</td><td>Every roll showcases Dual Hard Sync.</td></tr>
+            <tr><td>Basic</td><td>Clean oscillator + envelope + filter sounds, with no LFO or glide movement.</td></tr>
+            <tr><td>FX (on Wild)</td><td>Full of motion and character — lots of LFOs, glide and hard sync.</td></tr>
+            <tr><td>User / Favourites</td><td>Variations on your own saved sounds rather than something brand-new.</td></tr>
+            <tr><td>All</td><td>Draws from everything for the widest range of results.</td></tr>
           </tbody>
         </table>
 
         <div class="callout tip">
-          <strong>Variations on your own sounds.</strong> If you want variations on a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong>, <strong>Favourites</strong> or <strong>Artists</strong> and tap Generate a few times. You'll get versions of an existing sound, not random new ones — perfect for finding sibling presets without losing the original character. Note: if the chosen category is empty (e.g. you haven't saved any User presets or starred any Favourites yet), Marco falls back to the <strong>All</strong> category.
+          <strong>Variations on your own sounds.</strong> If you want variations on a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong> or <strong>Favourites</strong> and tap Generate a few times. You'll get versions of an existing sound, not random new ones — perfect for finding sibling presets without losing the original character. Note: if the chosen category is empty (e.g. you haven't saved any User presets or starred any Favourites yet), Marco falls back to the <strong>All</strong> category.
         </div>
 
         <h3 id="master-randomisation">13.8 Master Section and Randomisation</h3>
         <div class="callout note">
-          <strong>The Master tab is never directly mutated.</strong> Drive, Compressor, Delay, Reverb, Stereo and Limiter settings are not touched by any of the three randomisation systems.
+          <strong>Generate doesn't roll the Master chain from scratch, but the Tweak system can target it.</strong> A fresh Generate never randomises Drive, Compressor, Delay, Reverb, Stereo and Limiter directly — but you can tweak them deliberately whenever you want to.
         </div>
-        <p>However, <strong>Generate does change the Master chain indirectly</strong>: because Generate first loads a random base preset (then mutates the voice parameters on top), the base preset's effects chain comes along for the ride. Each Generate press therefore brings a different, complementary effects character — designed alongside the sound — rather than mangled random effects.</p>
-        <p><strong>Tweak</strong> and <strong>Per-Osc Tweak</strong> never touch the Master chain at all. They mutate the current sound in place; whatever you've got on the Master tab stays exactly as it is.</p>
+        <p><strong>Generate changes the Master chain indirectly</strong>: because Generate first loads a random base preset (then mutates the voice parameters on top), the base preset's effects chain comes along for the ride. Each Generate press therefore brings a different, complementary effects character — designed alongside the sound — rather than mangled random effects.</p>
+        <p><strong>Tweak can be applied to the Master tab</strong> in two ways: through the Tweak section of the Random Preset Generator dialog, or directly via the wand button on each section of the Master tab, which tweaks just that section (for example, the reverb without touching the delay or drive). Outside of these, your Master settings stay exactly as you left them.</p>
 
         <div class="callout tip">
           <strong>Workflow example.</strong> Like the master chain of your current preset but want a different rhythmic feel? Untick everything except <strong>Glide</strong> and <strong>Cutoff LFO</strong>, then tap Tweak a few times — fresh movement, same sonic base, untouched effects.
         </div>
 
         <h3 id="rpg-history">13.9 Random Preset History</h3>
-        <p>Randomisation is meant to be explored fearlessly — so Marco remembers where you've been. Every result from all three systems is pushed to a shared <strong>history</strong> of the last <strong>30</strong> randomised sounds, and you can step back and forward through them at any time.</p>
+        <p>Randomisation is meant to be explored fearlessly — so Marco remembers where you've been. Every result from all three systems is pushed to a shared <strong>history</strong> of the last <strong>100</strong> randomised and tweaked sounds, and you can step back and forward through them at any time.</p>
 
         <p>These actions add an entry to the history:</p>
         <ul>
-          <li>Generate (the panel's Generate button)</li>
-          <li>Tweak (the panel's wand button)</li>
+          <li>Generate (the dialog's Generate button)</li>
+          <li>Tweak (the dialog's wand button)</li>
           <li>Per-Osc Tweak (a column-header wand)</li>
           <li>The toolbar 🎲 dice button</li>
           <li>A MIDI-triggered random (AUv3 only)</li>
@@ -854,7 +838,7 @@
         <p>Two orange chevron buttons let you move through the history:</p>
         <ul>
           <li><strong>On the main toolbar</strong> — chevron-left (◀) and chevron-right (▶) flank the dice button.</li>
-          <li><strong>In the Random Preset panel</strong> — the same chevrons flank the Generate button.</li>
+          <li><strong>In the Random Preset dialog</strong> — the same chevrons flank the Generate button.</li>
         </ul>
         <p>Chevron-left steps back to the previous sound; chevron-right steps forward again. A chevron <strong>dims</strong> when you're at the start or end of the history and there's nowhere further to go.</p>
 
@@ -882,7 +866,7 @@
 
       <section id="xy-pad">
         <h2><span class="num">15</span>XY Pad</h2>
-        <p class="lead">An expressive 2D touch surface for sweeping the filter by feel. A single touch moves both filter parameters at once; a purple dot tracks your position.</p>
+        <p class="lead">An expressive 2D touch surface for sweeping the filter by feel. A single touch moves both filter parameters at once; a green dot tracks your position.</p>
 
         <figure class="manual-figure">
           <img src="images/xy-pad.png" alt="The Filter XY Pad — a large grid with Osc 1–4 selection buttons across the top, Cutoff mapped to the vertical axis and Resonance to the horizontal axis, with a glowing dot marking the current filter position.">
@@ -910,10 +894,18 @@
 
       <section id="app-preferences">
         <h2><span class="num">16</span>App Preferences</h2>
-        <p class="lead">App Preferences is where you control Marco's resource usage and check version information. It's organised into two sections: <strong>Performance Settings</strong> for managing CPU/DSP load, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
+        <p class="lead">App Preferences is where you control Marco's resource usage, set up MIDI performance controls, and check version information. It's organised into three sections: <strong>Performance Settings</strong> for managing CPU/DSP load, <strong>MIDI Controls</strong> for the mod wheel and pitch-bend behaviour, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
 
         <h3>Opening App Preferences</h3>
-        <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top-right corner of the header. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top-right corner of the header. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
+            <p>It's organised into three sections — <strong>Performance Settings</strong>, <strong>MIDI Controls</strong> and <strong>App Information</strong> — covered in turn below.</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="images/apppreferences.png" alt="The App Preferences dialog with its three sections: Performance Settings, MIDI Controls (Mod Wheel Destination and Pitch Bend Range pickers), and App Information.">
+          </figure>
+        </div>
 
         <h3 id="performance-settings">16.1 Performance Settings</h3>
         <p>Marco runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
@@ -945,14 +937,39 @@
           <strong>App Preferences persist between sessions, not per preset.</strong> Your choices apply to every preset you load. Sharing or saving a preset never overrides another user's preferences.
         </div>
 
-        <h3 id="app-information">16.2 App Information</h3>
-        <p>The App Information section of App Preferences shows you which build of Marco you're running and gives you quick access to documentation.</p>
+        <h3 id="midi-controls">16.2 MIDI Controls</h3>
+        <p>MIDI Controls is where you set how Marco responds to two performance controllers: the mod wheel and the pitch-bend wheel. Both settings persist across launches and apply identically to the standalone app and the AUv3 plugin.</p>
 
-        <h4>Version &amp; Build</h4>
-        <p>Displays the current <strong>app version</strong> and <strong>build number</strong>. When you're reporting a bug or asking for help, please include both — it lets us pinpoint exactly which release you're on.</p>
+        <h4>Mod Wheel Destination</h4>
+        <p>Chooses what the modulation wheel (CC&nbsp;1) controls. Each option shows a one-line description below the picker. The default is <strong>Cutoff</strong>.</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>Option</th><th>What the wheel does</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Off</td><td>The mod wheel is ignored, leaving CC&nbsp;1 free to assign elsewhere with MIDI Learn.</td></tr>
+            <tr><td>Cutoff <em>(default)</em></td><td>Sweeps the filter cutoff exponentially from 20&nbsp;Hz up to 8&nbsp;kHz.</td></tr>
+            <tr><td>Pitch LFO</td><td>Scales the pitch LFO depth from zero up to the full vibrato range.</td></tr>
+            <tr><td>Vol LFO</td><td>Scales the volume LFO depth from no tremolo up to full tremolo.</td></tr>
+          </tbody>
+        </table>
+        <p>The Pitch LFO and Vol LFO destinations temporarily override the active preset's LFO depth while the wheel is in use — the conventional performance-wheel behaviour. Bring the wheel back down and the preset's own settings take over again.</p>
 
-        <h4>User Guide</h4>
+        <h4>Pitch Bend Range</h4>
+        <p>Sets how far the pitch-bend wheel moves the pitch, in semitones either side of centre. The default is <strong>±2</strong>.</p>
+        <p>Available ranges: <strong>±1, ±2, ±3, ±4, ±5, ±7, ±12</strong> and <strong>±24</strong> semitones. Pitch bend is received at full 14-bit resolution and smoothed so it stays clean on dense bend streams (see <a href="#midi">18. MIDI</a>).</p>
+
+        <h3 id="app-information">16.3 App Information</h3>
+        <p>The App Information section of App Preferences tells you who made Marco, links you to this guide, and shows which build you're running. It contains three items, top to bottom:</p>
+
+        <h4>Created by</h4>
+        <p>Credits Marco's maker, with a link to the <a href="index.html">Amici Instruments homepage</a>.</p>
+
+        <h4>Manual</h4>
         <p>A link to this user guide. Tapping it opens the Marco User Guide in your browser so you can look up any feature without leaving the app.</p>
+
+        <h4>Version</h4>
+        <p>Displays the current <strong>app version</strong> and <strong>build number</strong>. When you're reporting a bug or asking for help, please include both — it lets us pinpoint exactly which release you're on.</p>
       </section>
 
       <section id="song-player">
@@ -1026,7 +1043,7 @@
           <strong>Got a song you'd love to see in here?</strong> Send us a request via the <a href="support.html">Support page</a>. We're happy to consider additions — the only requirement is that the song must be <strong>out of copyright</strong> and <strong>freely available to use</strong>.
         </div>
 
-        <p><strong>MIDI input is fully supported in standalone</strong> — connect any USB or Bluetooth MIDI controller and play Marco directly.</p>
+        <p><strong>MIDI input is supported in standalone</strong> — connect any USB or Bluetooth MIDI controller and play Marco directly.</p>
 
         <div class="callout note">
           <strong>AUv3 plugin?</strong> The Song Player is not available when running The Marco as an AUv3 plugin — use your host DAW's transport and tracks instead.
@@ -1038,26 +1055,30 @@
         <p class="lead">Marco supports MIDI input in both the standalone app and the AUv3 plugin.</p>
 
         <h3>MIDI Input</h3>
-        <p>The following MIDI messages are received:</p>
+        <p>The following MIDI messages are received identically in the standalone app and the AUv3 plugin:</p>
         <ul>
-          <li><strong>Note On / Note Off</strong> with full velocity sensitivity.</li>
-          <li><strong>Pitch bend.</strong></li>
-          <li><strong>Modulation wheel.</strong></li>
-          <li><strong>Sustain pedal</strong> (CC 64).</li>
+          <li><strong>Note On / Note Off</strong> with velocity sensitivity. Marco is monophonic with last-note priority — the most recently pressed note sounds, and releasing it falls back to any note still held. Velocity (0–127) scales the envelope trigger as a 0–1 multiplier, so harder playing hits harder. <em>(Standalone: velocity sensitivity can be switched off in MIDI Settings, after which every note fires at full velocity.)</em></li>
+          <li><strong>Pitch Bend</strong> (14-bit). The bend range is set in <a href="#midi-controls">App Preferences → MIDI Controls</a> — ±1, ±2, ±3, ±4, ±5, ±7, ±12 or ±24 semitones (default ±2). Incoming bend is lightly smoothed (a ~5&nbsp;ms one-pole filter applied each audio render block) to keep dense bend streams — Bluetooth MIDI, sequencer ramps — free of zipper noise.</li>
+          <li><strong>Mod Wheel</strong> (CC 1). The destination is chosen in <a href="#midi-controls">App Preferences → MIDI Controls</a>: Off, Cutoff (default), Pitch LFO or Vol LFO. See <a href="#midi-controls">16.2 MIDI Controls</a> for exactly what each option does.</li>
+          <li><strong>Sustain Pedal</strong> (CC 64). Standard deferred-release behaviour: while the pedal is held (CC&nbsp;64&nbsp;≥&nbsp;64) note-off events do not release the envelope; new notes still retrigger normally and legato applies as usual; releasing the pedal (CC&nbsp;64&nbsp;&lt;&nbsp;64) releases any note that was waiting. This matches the Minimoog, Prophet-5 mono mode and most modern mono-synth emulations.</li>
         </ul>
 
         <div class="callout note">
-          <strong>MIDI activity indicator.</strong> The MIDI toolbar button (the piano-keys icon) carries a small status dot: a black dot with a thin white border at rest, turning solid green the moment a MIDI note arrives. The indicator is always present, so the piano-keys glyph never shifts position whether or not MIDI is coming in — a quick glance confirms Marco is receiving.
+          <strong>MIDI activity indicator <em>(standalone)</em>.</strong> The MIDI toolbar button (the piano-keys icon) carries a small status dot: a black dot with a thin white border at rest, turning solid green the moment a MIDI note arrives. The indicator is always present — a quick glance confirms Marco is receiving.
         </div>
 
-        <h3>MIDI Learn</h3>
-        <p>Marco's UI controls can be mapped to MIDI CC messages from a hardware controller, so you can drive parameters with knobs, faders and pads. MIDI Learn lets you assign any incoming CC to any mappable control.</p>
+        <h3>Parameter Mapping &amp; MIDI Learn <em>(AUv3)</em></h3>
+        <p>When Marco runs as an AUv3 plugin, it publishes its parameters to the host. You map them to a hardware controller using your <strong>host's MIDI Learn / parameter-mapping</strong> capability — assign any incoming CC to any mapped parameter, then drive it with knobs, faders and pads. Because this works through the AUv3 host, it's available in the plugin only, not the standalone app.</p>
+        <p><strong>Every control is mappable.</strong> Every oscillator, envelope, filter, LFO, glide and Master parameter is exposed as an AU parameter your host can automate or MIDI-map.</p>
+        <p>Marco also publishes a set of <strong>dedicated action parameters</strong>, so you can trigger its workflow features from MIDI — not just turn knobs:</p>
+        <ul>
+          <li><strong>Generate</strong> — roll a fresh preset.</li>
+          <li><strong>Tweak</strong> — nudge the current sound.</li>
+          <li><strong>Dual Hard Sync</strong> — cycle through sync configurations.</li>
+          <li>Open the <strong>Scope</strong>, <strong>Preset Browser</strong>, <strong>XY Pad</strong> and <strong>Random Preset Generator</strong>.</li>
+        </ul>
+        <p>Map these to pads or buttons on your controller to perform Marco hands-free — fire off new ideas, tweak, and flip through sync arrangements without touching the screen.</p>
 
-        <h3>MIDI Program Change</h3>
-        <p>Switch presets remotely by sending MIDI Program Change messages. Useful in live performance for stepping through a set list from a foot controller, or for automating preset changes from a DAW.</p>
-
-        <h3>MIDI Channel</h3>
-        <p>Marco's MIDI input channel is configurable. Set it to <strong>Omni</strong> to listen on all channels, or restrict to a specific channel (1–16) when you need to keep multiple instruments separate.</p>
       </section>
 
       <section id="sharing">
@@ -1087,11 +1108,6 @@
         <h3>Pay attention to the white LFO indicators</h3>
         <p>When you can't tell what's making a parameter move, look for the moving white line inside the slider. It's showing you exactly what an LFO is doing in real time — invaluable when sounds get complex.</p>
 
-        <h3>Use linked mode when you're learning</h3>
-        <p>Per-oscillator everything gets overwhelming fast. When you're learning, start with most modules in <strong>linked</strong> mode (one envelope drives all four oscillators) and only break individual modules out to per-osc when you need that specific control.</p>
-
-        <h3>Keep the Scope open</h3>
-        <p>The Scope teaches you what each waveform actually sounds like by showing it visually. After a few sessions you'll start <em>predicting</em> what changes will do before you make them — that's when sound design starts to feel intuitive.</p>
       </section>
 
       <section id="troubleshooting">
