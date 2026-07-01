@@ -23,8 +23,8 @@
     '<svg class="ss-mark" width="22" height="22" viewBox="0 0 512 512" aria-hidden="true">' +
       '<defs><clipPath id="ss-mark-ftr"><rect width="512" height="512" rx="96" ry="96"/></clipPath></defs>' +
       '<g clip-path="url(#ss-mark-ftr)">' +
-        '<rect y="0" width="512" height="102.4" fill="#2E7BFF"/>' +
-        '<rect y="102.4" width="512" height="102.4" fill="#00D9F5"/>' +
+        '<rect y="0" width="512" height="102.4" fill="#00D9F5"/>' +
+        '<rect y="102.4" width="512" height="102.4" fill="#2E7BFF"/>' +
         '<rect y="204.8" width="512" height="102.4" fill="#7BD957"/>' +
         '<rect y="307.2" width="512" height="102.4" fill="#F5A044"/>' +
         '<rect y="409.6" width="512" height="102.4" fill="#B14BE0"/>' +
