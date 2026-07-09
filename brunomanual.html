@@ -145,7 +145,7 @@
         <ul>
           <li><strong>BRUNO logo</strong> — the multi-coloured wordmark; purely decorative.</li>
           <li><strong>Voice Selector</strong> — choose the drum voice: Kick, Snare, Hat, Clap, Tom or Pluck. On iPhone this shows 2-letter codes (<span class="ui">KK / SN / HH / CL / TM / PL</span>).</li>
-          <li><strong>Preset selector</strong> — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the name to open the full Preset Browser (see <a href="#presets">18. Presets</a>).</li>
+          <li><strong>Preset selector</strong> — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the name to open the full Preset Browser (see <a href="#presets">18. Presets</a>). A small violet <span class="ui">C</span> badge sits beside the name whenever the current sound has a chromatic (pitch-tracking) engine, so you can see at a glance that it will play melodically across the keyboard.</li>
           <li><strong>Random panel button</strong> — opens the Random Preset Generator, where you set the source category, styles and what gets randomised (see <a href="#random">19. Random Preset Generator</a>).</li>
           <li><strong>MIDI button</strong> <em>(standalone only)</em> — a piano-keys icon with an always-present activity dot: black with a white border at rest, green the moment a MIDI note arrives. Opens MIDI input settings (see <a href="#midi">21. MIDI</a>).</li>
           <li><strong>⚙️ Settings cog</strong> — app preferences.</li>
@@ -647,13 +647,18 @@
         <p class="lead">Bruno ships with a curated factory library and full support for saving, organising and sharing your own sounds. A preset captures the complete state of all four engines plus the voice type.</p>
         <h3>Preset categories</h3>
         <ul>
+          <li><strong>Signature</strong> — a hand-curated set of headline patches that show off Bruno's flagship features and best-sounding drums across every voice. Accented in gold in the browser.</li>
           <li><strong>All</strong> — every preset in the library.</li>
           <li><strong>Favourites</strong> — anything you've starred.</li>
+          <li><strong>Basic</strong> — clean, init-style starting points, one per voice, for building a sound from scratch.</li>
           <li><strong>User</strong> — presets you've saved yourself.</li>
-          <li>Plus the factory categories, organised by drum type and character.</li>
+          <li>Plus the per-voice factory categories — Kick, Snare, Hat, Clap, Tom and Pluck — organised by drum type and character.</li>
         </ul>
         <h3>The Preset Browser</h3>
         <p>Tap the preset name in the header to open the browser. Categories are on the left, names on the right; tap a star to favourite, tap a name to load. The current preset name shows an asterisk (<span class="ui">*</span>) when you've edited it. You can also step through presets with the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows in the header without opening the browser.</p>
+        <h3>The Chromatic <span class="ui">C</span> badge</h3>
+        <p>Any preset built with a <strong>chromatic</strong> (pitch-tracking) engine carries a small violet <span class="ui">C</span> badge — both on its row in the browser and next to the name in the header. It's a quick way to spot the sounds you can play <em>melodically</em> across the keyboard or from MIDI, as opposed to the drums that always sound at a fixed pitch. A preset counts as chromatic if any one of its four engines has the <strong>Chromatic</strong> toggle on (see <a href="#pitch-env">8. Pitch Env</a>), whether that engine is currently enabled or not.</p>
+        <p>The header badge is live: toggle Chromatic on the Pitch Env tab and the <span class="ui">C</span> appears or disappears immediately, exactly like the edited asterisk. The violet keeps it distinct from the cyan preset name and the gold Signature accent.</p>
         <h3>Import &amp; Export</h3>
         <p>Presets export and import as small JSON files, so you can move sounds between devices or share them with other users — see <a href="#sharing">23. Sharing Presets</a>.</p>
       </section>
@@ -716,7 +721,7 @@
         <h3>MIDI settings (standalone)</h3>
         <p>The MIDI button (the piano-keys icon, with its activity dot) opens settings for enabling MIDI, choosing the channel (0 = omni, or 1–16), toggling velocity sensitivity, and selecting which connected device to listen to. Your choices persist across launches; if a selected device isn't plugged in at launch, Bruno reconnects to it automatically once it reappears.</p>
         <h3>Pitch tracking</h3>
-        <p>Pitch tracking is per engine, set on the <a href="#pitch-env">Pitch Env</a> tab: the <strong>Chromatic</strong> toggle decides whether an engine follows the MIDI note, and <strong>Oct</strong> transposes on top. In the AUv3 plugin the host manages MIDI routing, so there are no in-app MIDI settings.</p>
+        <p>Pitch tracking is per engine, set on the <a href="#pitch-env">Pitch Env</a> tab: the <strong>Chromatic</strong> toggle decides whether an engine follows the MIDI note, and <strong>Oct</strong> transposes on top. Presets with a chromatic engine are flagged by a violet <span class="ui">C</span> badge in the browser and header (see <a href="#presets">18. Presets</a>), so you can find the tonal, playable sounds at a glance. In the AUv3 plugin the host manages MIDI routing, so there are no in-app MIDI settings.</p>
       </section>
 
       <section id="keyboard-song">
