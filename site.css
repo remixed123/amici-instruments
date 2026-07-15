@@ -865,11 +865,17 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
 .param-table td:first-child { color: var(--text); font-weight: 500; width: 30%; }
 .param-table td { color: var(--text-dim); }
 .ui { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; padding: 2px 7px; background: var(--bg-card-2); border: 1px solid var(--border); border-radius: 6px; color: var(--text); }
+.c-badge { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; font-weight: 700; padding: 2px 7px; background: rgba(208,96,229,0.12); border: 1px solid var(--osc-4); border-radius: 6px; color: var(--osc-4); }
 .osc-tag { display: inline-block; padding: 2px 9px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 6px; }
 .osc-tag.o1 { background: rgba(91,168,229,0.15); color: var(--osc-1); }
 .osc-tag.o2 { background: rgba(123,217,87,0.15); color: var(--osc-2); }
 .osc-tag.o3 { background: rgba(245,160,68,0.15); color: var(--osc-3); }
 .osc-tag.o4 { background: rgba(208,96,229,0.15); color: var(--osc-4); }
+.eng-tag { display: inline-block; padding: 2px 9px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-right: 6px; }
+.eng-tag.analog { background: rgba(91,168,229,0.15); color: var(--osc-1); }
+.eng-tag.fm { background: rgba(123,217,87,0.15); color: var(--osc-2); }
+.eng-tag.fold { background: rgba(245,160,68,0.15); color: var(--osc-3); }
+.eng-tag.reso { background: rgba(208,96,229,0.15); color: var(--osc-4); }
 
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; gap: 0; }
