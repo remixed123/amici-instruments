@@ -152,6 +152,11 @@
         <h2><span class="num">4</span>Interface Tour</h2>
         <p class="lead">A quick walkthrough of where everything lives. Bruno organises all its controls into tabs, and every tab shows the same four engine cards side by side.</p>
 
+        <figure class="manual-figure">
+          <img src="images/engines.png" alt="Bruno's Engines tab — the header and toolbar above four colour-coded engine cards: Analog (blue), FM (green), Fold (orange) and Reso (magenta), each with its Vol, Tune, Character and Decay sliders.">
+          <figcaption>Bruno's Engines tab: the header and toolbar sit above the four colour-coded engine cards. Each engine's colour follows it everywhere in the app.</figcaption>
+        </figure>
+
         <h3 id="header-bar">4.1 Header Bar</h3>
         <p>Across the top of the screen, from left to right:</p>
         <ul>
@@ -182,6 +187,10 @@
 
         <h3 id="master-strip">4.2 Master Strip</h3>
         <p>Just above the four engine cards, the Master Strip gathers global controls and quick-access buttons. From left to right:</p>
+        <figure class="manual-figure">
+          <img src="images/bruno-masterstrip.png" alt="The Bruno Master Strip — left to right: the ? Hints button, the L/R output meter, the Gain slider, the cyan Scope button, the orange dice with its All·MWR·R label and back/forward history chevrons, and the HIT button.">
+          <figcaption>The Master Strip: from left to right, the ? Hints button, L/R output meter, Gain slider, Scope button, the dice with its history chevrons, and HIT.</figcaption>
+        </figure>
         <ul>
           <li><strong>? Hints button</strong> (far left) — opens context-aware help for whatever tab you're on. Tinted to match the active tab. See <a href="#hints">Hints</a> below.</li>
           <li><strong>Stereo output meter</strong> — a dual-bar (L/R) LED meter. Green is healthy, yellow from 70%, red from 90%; the border turns red when you're clipping.</li>
@@ -604,6 +613,10 @@
       <section id="master">
         <h2><span class="num">17</span>Master Tab</h2>
         <p class="lead">The Master tab processes the summed output of all four engines through six sections, left to right. It's adapted from Marco's master chain, tuned for percussion.</p>
+        <figure class="manual-figure">
+          <img src="images/bruno-mastertab.png" alt="Bruno's Master tab — six global sections left to right: Saturation, Compressor, Transient Shaper, Reverb, Stereo and Limiter, each with a green wand tweak and ON toggle.">
+          <figcaption>The Master tab: the summed output of all four engines runs through Saturation, Compressor, Transient Shaper, Reverb, Stereo and Limiter.</figcaption>
+        </figure>
         <div class="callout">
           <strong>Master signal chain:</strong> Saturation → Compressor → Transient Shaper → Reverb → Stereo → Limiter.
         </div>
@@ -714,6 +727,10 @@
         </ul>
         <h3>The Preset Browser</h3>
         <p>Tap the preset name in the header to open the browser. Categories are on the left, names on the right; tap a star to favourite, tap a name to load. The current preset name shows an asterisk (<span class="ui">*</span>) when you've edited it. You can also step through presets with the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows in the header without opening the browser.</p>
+        <figure class="manual-figure">
+          <img src="images/bruno-presetbrowser.png" alt="Bruno's Preset Browser — category list on the left (Signature, All, Artists, Favourites, Basic and the per-voice categories with counts) and the scrollable preset list on the right with star favourites and a violet C badge on chromatic presets, plus Import, Save and Save New buttons across the top.">
+          <figcaption>The Preset Browser: categories on the left, presets on the right. Star a row to favourite it, tap a name to load, and use Import / Save / Save New across the top.</figcaption>
+        </figure>
         <h3>The Chromatic <span class="c-badge">C</span> badge</h3>
         <p>Any preset built with a <strong>chromatic</strong> (pitch-tracking) engine carries a small violet <span class="c-badge">C</span> badge — both on its row in the browser and next to the name in the header. It's a quick way to spot the sounds you can play <em>melodically</em> across the keyboard or from MIDI, as opposed to the drums that always sound at a fixed pitch. A preset counts as chromatic if any one of its four engines has the <strong>Chromatic</strong> toggle on (see <a href="#pitch-env">9. Pitch Env</a>), whether that engine is currently enabled or not.</p>
         <p>The header badge is live: toggle Chromatic on the Pitch Env tab and the <span class="c-badge">C</span> appears or disappears immediately, exactly like the edited asterisk.</p>
@@ -725,6 +742,10 @@
         <h2><span class="num">19</span>Random Preset Generator</h2>
         <p class="lead">Bruno's randomisation is musical, not chaotic. It's designed around <em>happy accident and discoverability</em> — every roll should produce a drum you can actually use while still surprising you. Bruno knows a Kick lives at 35–80 Hz, a Hat at 4–10 kHz, a Snare's body peak belongs near 200 Hz and a clean rumble tail is under a second, and it biases every roll toward those musical ranges.</p>
         <p>Every <strong>Generate</strong> combines two things: a <strong>Style</strong> (Mild / Wild / Recipe — pick any) and a <strong>Base Preset Source</strong> (which category to draw from). The same panel also houses the <strong>Tweak</strong> system, whose engine and parameter toggles vary the sound you're currently hearing rather than rolling a new one.</p>
+        <figure class="manual-figure">
+          <img src="images/bruno-randomgen.png" alt="Bruno's Random Preset Generator panel — Style pills (Mild, Wild, Recipe), a Chromatic override, the Base Preset Source category grid, the Generate button with history chevrons, and the Tweak system's Engine and Parameter toggles below.">
+          <figcaption>The Random Preset Generator: Style and Chromatic at the top, the Base Preset Source grid feeding Generate, and the Tweak system's engine and parameter toggles below.</figcaption>
+        </figure>
 
         <h3 id="rpg-styles">19.1 Styles — Mild, Wild &amp; Recipe</h3>
         <p>Three <strong>Style</strong> pills at the top of the panel decide <em>how</em> each roll is built. They're <strong>multi-select</strong> — enable any combination, and each press of Generate (or the dice) picks one of your enabled Styles at random for that roll.</p>
@@ -820,6 +841,10 @@
       <section id="scope">
         <h2><span class="num">20</span>Scope &amp; Spectrum</h2>
         <p class="lead">Tap the cyan Scope button in the Master Strip to open a visual overlay with two panels.</p>
+        <figure class="manual-figure">
+          <img src="images/bruno-scope.png" alt="Bruno's Scope overlay — a Master Output oscilloscope showing the left (cyan) and right (pink) channels above an Engine Spectrum panel with per-engine filled curves (Analog, FM, Fold, Resonant) and a Pause button.">
+          <figcaption>The Scope overlay: the Master Output oscilloscope (L cyan, R pink) above the per-engine spectrum, colour-coded so you can see which frequency range each layer occupies.</figcaption>
+        </figure>
         <ul>
           <li><strong>Master Output</strong> — a zero-crossing-locked oscilloscope of the final left (cyan) and right (pink) channels on a shared, auto-scaled axis.</li>
           <li><strong>Engine Spectrum</strong> — a real-time FFT of each enabled engine's pre-effects output, drawn as a translucent filled curve in the engine's colour (Analog blue, FM green, Fold orange, Resonant purple) on a log-frequency axis from 20 Hz to 20 kHz. Peak-hold smoothing keeps a transient drum hit visible long enough to read which frequency range each layer occupies.</li>
