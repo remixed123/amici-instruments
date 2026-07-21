@@ -622,6 +622,9 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
   margin-bottom: 20px;
   letter-spacing: -0.02em;
 }
+@media (min-width: 900px) {
+  .section-title.nowrap-wide { white-space: nowrap; }
+}
 .section-lead {
   font-size: 19px;
   color: var(--text-dim);
@@ -705,6 +708,8 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
 .include-item p { font-size: 14px; color: var(--text-dim); }
 /* At-a-glance spec list — dense, scannable feature rundown */
 .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px 40px; margin-top: 48px; }
+.spec-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.spec-stack { display: flex; flex-direction: column; gap: 28px; }
 .spec-group { border-top: 2px solid var(--border); padding-top: 16px; }
 .spec-group:nth-child(5n+1) { border-top-color: var(--osc-1); }
 .spec-group:nth-child(5n+2) { border-top-color: var(--osc-2); }
@@ -741,14 +746,17 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
   .row, .platform-row { grid-template-columns: 1fr; gap: 40px; }
   .row.reverse .row-text { order: 1; }
   .row.reverse .row-image { order: 2; }
+  .align-spacer { display: none; }
   .quad-grid { grid-template-columns: repeat(2, 1fr); }
   .includes-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .spec-grid-3 { grid-template-columns: repeat(2, 1fr); }
   .product section { padding: 70px 0; }
   .hero { padding: 24px 20px 36px; }
 }
 @media (max-width: 480px) {
   .quad-grid { grid-template-columns: 1fr; }
   .includes-grid-3 { grid-template-columns: 1fr; }
+  .spec-grid-3 { grid-template-columns: 1fr; }
 }
 
 /* Repeated content blocks that used to be inline styles on the product pages */
