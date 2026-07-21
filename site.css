@@ -455,11 +455,30 @@ a.hero-preview-card:hover .hero-preview-caption { color: var(--text); }
   color: transparent !important;
   -webkit-text-fill-color: transparent;
   font-style: italic;
+  display: inline-block;
+  padding-right: 0.12em;
 }
 .manifesto-quiet {
   font-size: 14px !important;
   color: var(--text-muted) !important;
   font-style: italic;
+}
+.manifesto-pivot {
+  font-size: clamp(17px, 2vw, 20px) !important;
+  font-weight: 600 !important;
+  color: var(--text) !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+.manifesto-break { margin-top: 36px !important; }
+.manifesto p strong.gradient { color: transparent; }
+.manifesto-emphasis {
+  font-size: clamp(22px, 3vw, 30px) !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  color: var(--text) !important;
+  margin-top: 10px !important;
+  margin-bottom: 28px !important;
 }
 .manifesto-closing {
   font-size: clamp(19px, 2.2vw, 24px) !important;
