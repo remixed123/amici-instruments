@@ -80,12 +80,13 @@
         <li class="subsection"><a href="#rpg-styles">19.1 Styles — Mild, Wild &amp; Recipe</a></li>
         <li class="subsection"><a href="#rpg-systems">19.2 Three ways to randomise</a></li>
         <li class="subsection"><a href="#rpg-opening">19.3 Opening the panel &amp; the toolbar dice</a></li>
-        <li class="subsection"><a href="#rpg-source">19.4 Base Preset Source</a></li>
-        <li class="subsection"><a href="#rpg-targeting">19.5 Engine &amp; Parameter Targeting</a></li>
-        <li class="subsection"><a href="#rpg-chromatic">19.6 Chromatic mode</a></li>
-        <li class="subsection"><a href="#rpg-category-modes">19.7 Category behaviours</a></li>
-        <li class="subsection"><a href="#rpg-master">19.8 Master Section and Randomisation</a></li>
-        <li class="subsection"><a href="#rpg-history">19.9 Random Preset History</a></li>
+        <li class="subsection"><a href="#rpg-chromatic">19.4 Chromatic mode</a></li>
+        <li class="subsection"><a href="#rpg-source">19.5 Base Preset Source</a></li>
+        <li class="subsection"><a href="#rpg-targeting">19.6 Engine &amp; Parameter Targeting</a></li>
+        <li class="subsection"><a href="#tweak-amount">19.7 Tweak Amount</a></li>
+        <li class="subsection"><a href="#rpg-category-modes">19.8 Category behaviours</a></li>
+        <li class="subsection"><a href="#rpg-master">19.9 Master Section and Randomisation</a></li>
+        <li class="subsection"><a href="#rpg-history">19.10 Random Preset History</a></li>
         <li><a href="#scope">20. Scope &amp; Spectrum</a></li>
         <li><a href="#app-preferences">21. App Preferences</a></li>
         <li class="subsection"><a href="#performance-settings">21.1 Performance Settings</a></li>
@@ -219,7 +220,7 @@
         <p>Seven tabs include a <strong>Copy to All</strong> button (the doc-on-doc icon) on each engine card: <strong>Body, Filter, Compressor, Drive, Delay, EQ</strong> and the three <strong>LFO</strong> tabs. One tap copies the current engine's settings for that tab to the other three engines. It's a one-shot operation — afterwards all four engines are still fully independent and can be tweaked freely. The button is tinted to match the engine (Analog blue, FM green, Fold orange, Resonant purple).</p>
         <p>The <strong>Engines, Vol Env, Pitch Env</strong> and <strong>Master</strong> tabs have no Copy to All, because their parameters are usually meant to differ between engines (different modes, tuning and character).</p>
         <h4>Per-tab Tweak (the wand)</h4>
-        <p>Every engine card on every tab has a small <strong>wand</strong> button. Tapping it rerolls <em>only that engine's parameters for that one tab</em>. Tweak never flips an engine on or off, and never toggles a section's enabled state (filter on/off, body on/off, etc.). On the Master tab, each FX section has its own green wand; the Limiter has none, however it is on by default to manage clipping.</p>
+        <p>Every engine card on every tab has a small <strong>wand</strong> button. Tapping it nudges <em>only that engine's parameters for that one tab</em>, moving them a step toward a fresh roll rather than re-rolling from scratch — repeated taps compound, so you can creep the sound in a direction one pass at a time. How big each step is comes from the <a href="#tweak-amount">Tweak Amount</a> slider in the Random Preset Generator. Tweak never flips an engine on or off, and never toggles a section's enabled state (filter on/off, body on/off, etc.). On the Master tab, each FX section has its own green wand; the Limiter has none, however it is on by default to manage clipping.</p>
 
         <h3 id="hints">4.5 Hints — the <span class="ui">?</span> button</h3>
         <p>Every tab has its own built-in help, so you never have to leave Bruno to look something up. Tap the <span class="ui">?</span> at the far left of the Master Strip to open the <strong>Hints</strong> dialog for the current tab.</p>
@@ -771,7 +772,7 @@
           <thead><tr><th>System</th><th>Where</th><th>What it does</th></tr></thead>
           <tbody>
             <tr><td>Generate</td><td>Generate button in the panel, or the 🎲 dice on the Master Strip</td><td>Rolls a completely new sound, using your active <strong>Style</strong> (see <a href="#rpg-styles">19.1 Styles</a>) and selected category. Produces a fresh drum that still belongs to the category you chose. The Master Strip dice does exactly the same thing as the panel's Generate button.</td></tr>
-            <tr><td>Tweak</td><td>Tweak button in the panel</td><td>Mutates the <strong>currently loaded sound</strong>, affecting only the engines and parameter groups you've ticked. Evolves a patch without losing it.</td></tr>
+            <tr><td>Tweak</td><td>Tweak button in the panel</td><td>Mutates the <strong>currently loaded sound</strong>, affecting only the engines and parameter groups you've ticked, at the strength set by the <a href="#tweak-amount">Tweak Amount</a> slider. Evolves a patch without losing it.</td></tr>
             <tr><td>Per-engine dice / wand</td><td>Each engine card</td><td>Rerolls a single engine — the card dice on the Engines tab, the per-tab wand elsewhere. Tight, surgical changes to just that engine's controls on that tab.</td></tr>
           </tbody>
         </table>
@@ -779,7 +780,7 @@
         <h3 id="rpg-opening">19.3 Opening the panel &amp; the toolbar dice</h3>
         <ul>
           <li><strong>Random panel button</strong> in the header — labelled with the current Base Preset Source. Tap it to open the Random Preset Generator, where the Generate button, Tweak button, the Style pills and all the targeting toggles live. The panel header also has a <span class="ui">?</span> hint button explaining how the generator works.</li>
-          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the panel. It's flanked by history chevrons (see <a href="#rpg-history">19.9 Random Preset History</a>).</li>
+          <li><strong>🎲 Dice button</strong> in the Master Strip — a one-tap shortcut that runs Generate directly using your current settings, without opening the panel. It's flanked by history chevrons (see <a href="#rpg-history">19.10 Random Preset History</a>).</li>
         </ul>
 
         <h4 id="dice-label">The dice label</h4>
@@ -791,11 +792,14 @@
         </ul>
         <p>So <span class="ui">Kick.MR-C</span> means "Kick category, alternating between Mild and Recipe rolls, all chromatic", and <span class="ui">Favs.MWR-NC</span> means "Favourites, any Style, fixed-pitch". The label updates instantly whenever you change the source category, the Style selection or the Chromatic override.</p>
 
-        <h3 id="rpg-source">19.4 Base Preset Source</h3>
-        <p>The Base Preset Source grid chooses which category Bruno draws inspiration from when Generate rolls a new sound: any of the per-voice categories (<strong>Kick, Snare, Hat, Clap, Tom, Pluck</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, the <strong>FX</strong> and <strong>Basic</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>. It silently falls back to <strong>All</strong> if the chosen category is empty.</p>
-        <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#rpg-category-modes">19.7 Category behaviours</a> below.</p>
+        <h3 id="rpg-chromatic">19.4 Chromatic mode</h3>
+        <p>A <strong>Chromatic</strong> override decides whether new sounds track MIDI pitch, affecting both Generate and Tweak. Turn it on and rolls come out playable melodically across the keyboard (carrying the violet <span class="c-badge">C</span> badge); leave it off and they stay fixed-pitch drums. It's the randomiser's counterpart to the per-engine Chromatic toggle on the <a href="#pitch-env">Pitch Env</a> tab (see <a href="#pitch-env">9. Pitch Env</a>).</p>
 
-        <h3 id="rpg-targeting">19.5 Engine &amp; Parameter Targeting</h3>
+        <h3 id="rpg-source">19.5 Base Preset Source</h3>
+        <p>The Base Preset Source grid chooses which category Bruno draws inspiration from when Generate rolls a new sound: any of the per-voice categories (<strong>Kick, Snare, Hat, Clap, Tom, Pluck</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, the <strong>FX</strong> and <strong>Basic</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>. It silently falls back to <strong>All</strong> if the chosen category is empty.</p>
+        <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#rpg-category-modes">19.8 Category behaviours</a> below.</p>
+
+        <h3 id="rpg-targeting">19.6 Engine &amp; Parameter Targeting</h3>
         <p>Only <strong>Tweak</strong> respects these two sets of toggles — Generate ignores them and always rolls a complete new preset:</p>
         <ul>
           <li><strong>Engines</strong> — choose which of the four engines (<span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>) Tweak is allowed to change. Untick an engine to leave it untouched — e.g. keep a solid Analog sub stable while tweaking the other three.</li>
@@ -803,10 +807,19 @@
         </ul>
         <p>Use the <strong>None</strong> link to clear everything, then enable just the engines and parameters you're curious about.</p>
 
-        <h3 id="rpg-chromatic">19.6 Chromatic mode</h3>
-        <p>A <strong>Chromatic</strong> override decides whether new sounds track MIDI pitch, affecting both Generate and Tweak. Turn it on and rolls come out playable melodically across the keyboard (carrying the violet <span class="c-badge">C</span> badge); leave it off and they stay fixed-pitch drums. It's the randomiser's counterpart to the per-engine Chromatic toggle on the <a href="#pitch-env">Pitch Env</a> tab (see <a href="#pitch-env">9. Pitch Env</a>).</p>
+        <h3 id="tweak-amount">19.7 Tweak Amount</h3>
+        <p>Below the targeting toggles sits the <strong>Tweak Amount</strong> slider. Tweak is a <em>nudge</em>, not a re-roll — each press moves the current values a fraction of the way toward a fresh roll, and this slider sets how big that fraction is. Slide left for tiny refinements, right for bold shifts. The word beside the title names the current strength as you drag:</p>
+        <table class="param-table">
+          <thead><tr><th>Strength</th><th>Feel</th></tr></thead>
+          <tbody>
+            <tr><td>Minimal / Subtle</td><td>Barely-there refinements — polish a sound you already like without risking its character.</td></tr>
+            <tr><td>Medium / Default</td><td>The standard feel (the slider snaps back to <span class="ui">Default · 0.45</span> so you can always return to it). Clearly audible movement that still respects the sound.</td></tr>
+            <tr><td>Large / Extra Large / Max</td><td>Bold shifts — each press takes the sound most of the way to a fresh roll while keeping its broad shape.</td></tr>
+          </tbody>
+        </table>
+        <p>This one setting governs <strong>every</strong> Tweak in Bruno: the panel's Tweak button, the per-tab wand on each engine card, and the green wands on the Master sections. Repeated presses compound at the chosen strength, so a low amount lets you creep a sound in a direction one careful pass at a time, while a high amount gets somewhere new in a press or two — and a press never does nothing, even at the lowest setting. The value is remembered across sessions, and in the AUv3 plugin it's also exposed as an AU parameter your host can automate or MIDI-map. Every step still lands in the <a href="#rpg-history">Random Preset History</a>, so you can walk back through your tweaks whatever the amount.</p>
 
-        <h3 id="rpg-category-modes">19.7 Category behaviours (Generate only)</h3>
+        <h3 id="rpg-category-modes">19.8 Category behaviours (Generate only)</h3>
         <p>On top of the Style you pick, the chosen category shapes the result. For the <strong>Mild</strong> and <strong>Wild</strong> Styles the generator tunes the sound to suit the category; the <strong>Recipe</strong> Style draws on archetypes built for that category. Each category is designed to give results that sound like it — the table shows what to expect, so you can choose deliberately.</p>
         <table class="param-table">
           <thead><tr><th>Category</th><th>What to expect</th></tr></thead>
@@ -824,14 +837,14 @@
           <strong>Variations on your own sounds.</strong> If you want versions of a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong> or <strong>Favourites</strong> and tap Generate a few times — you'll get siblings of an existing drum without losing its character. If the chosen category is empty (no saved User presets or starred Favourites yet), Bruno falls back to <strong>All</strong>.
         </div>
 
-        <h3 id="rpg-master">19.8 Master Section and Randomisation</h3>
+        <h3 id="rpg-master">19.9 Master Section and Randomisation</h3>
         <div class="callout note">
           <strong>Generate doesn't roll the Master chain from scratch, but the Tweak system can target it.</strong> A fresh Generate never randomises Saturation, Compressor, Transient Shaper, Reverb, Stereo and Limiter directly — but you can tweak them deliberately whenever you want.
         </div>
         <p><strong>Generate changes the Master chain indirectly</strong>: because it first loads a random base preset (then mutates the voice parameters on top), that preset's master chain comes along for the ride. Each Generate press therefore brings a different, complementary master character — designed alongside the sound — rather than mangled random effects.</p>
         <p><strong>Tweak can be applied to the Master tab</strong> two ways: through the Tweak section of the Random Preset Generator, or directly via the green wand on each Master section, which tweaks just that section (for example the Reverb without touching the Compressor or Saturation). Outside of these, your Master settings stay exactly as you left them.</p>
 
-        <h3 id="rpg-history">19.9 Random Preset History</h3>
+        <h3 id="rpg-history">19.10 Random Preset History</h3>
         <p>Randomisation is meant to be explored fearlessly, so Bruno remembers where you've been. Every result from all three systems is pushed to a shared <strong>history</strong> of the last <strong>100</strong> sounds. The orange chevrons either side of the dice (and either side of the Generate button) step back and forward through it; a chevron dims when there's nowhere further to go. Stepping back never erases anything — new rolls are simply appended.</p>
         <div class="callout tip">
           <strong>Roll freely, then walk it back.</strong> Hit the dice ten times chasing an idea, then use the back chevron to return to the one that caught your ear three rolls ago.
