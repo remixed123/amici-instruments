@@ -10,6 +10,7 @@
 
   Menu item types:
     { type: 'link', href: '...', label: '...' }      — a plain link
+      (add external: true to open in a new tab, e.g. social links)
     { type: 'menu', label: '...', items: [ ... ] }    — a dropdown / group
   Dropdown items:
     { href: '...', label: '...' }                     — a link
@@ -28,7 +29,8 @@
         { href: 'marcomanual.html', label: 'Marco' },
         { href: 'brunomanual.html', label: 'Bruno' }
     ]},
-    { type: 'link', href: 'support.html', label: 'Support' }
+    { type: 'link', href: 'support.html', label: 'Support' },
+    { type: 'link', href: 'https://www.youtube.com/@AmiciInstruments', label: 'YouTube', external: true }
   ];
 
   var page = location.pathname.split('/').pop() || 'index.html';
@@ -106,7 +108,8 @@
   var desktopHtml = NAV.map(function (entry) {
     if (entry.type === 'link') {
       var cls = (entry.href === page) ? ' class="active"' : '';
-      return '<a href="' + entry.href + '"' + cls + '>' + entry.label + '</a>';
+      var ext = entry.external ? ' target="_blank" rel="noopener"' : '';
+      return '<a href="' + entry.href + '"' + cls + ext + '>' + entry.label + '</a>';
     }
     var menuActive = entry.items.some(function (it) { return it.href === page; });
     var menuItems = entry.items.map(function (it) {
@@ -125,7 +128,8 @@
   var mobileHtml = NAV.map(function (entry) {
     if (entry.type === 'link') {
       var cls = (entry.href === page) ? ' class="active"' : '';
-      return '<a href="' + entry.href + '"' + cls + '>' + entry.label + '</a>';
+      var ext = entry.external ? ' target="_blank" rel="noopener"' : '';
+      return '<a href="' + entry.href + '"' + cls + ext + '>' + entry.label + '</a>';
     }
     var groupHtml = '<div class="nav-m-group">' + entry.label + '</div>';
     var sub = entry.items.map(function (it) {
