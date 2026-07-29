@@ -72,9 +72,10 @@
         <li><a href="#random">13. Random Preset Generator</a></li>
         <li class="subsection"><a href="#styles">13.1 Styles (Mild/Wild/Recipe)</a></li>
         <li class="subsection"><a href="#three-systems">13.2 Three ways to randomise</a></li>
-        <li class="subsection"><a href="#category-modes">13.7 Category behaviours</a></li>
-        <li class="subsection"><a href="#master-randomisation">13.8 Master &amp; Randomisation</a></li>
-        <li class="subsection"><a href="#rpg-history">13.9 Random Preset History</a></li>
+        <li class="subsection"><a href="#tweak-amount">13.7 Tweak Amount</a></li>
+        <li class="subsection"><a href="#category-modes">13.8 Category behaviours</a></li>
+        <li class="subsection"><a href="#master-randomisation">13.9 Master &amp; Randomisation</a></li>
+        <li class="subsection"><a href="#rpg-history">13.10 Random Preset History</a></li>
         <li><a href="#scope">14. Scope</a></li>
         <li><a href="#xy-pad">15. XY Pad</a></li>
         <li><a href="#app-preferences">16. App Preferences</a></li>
@@ -674,7 +675,7 @@
         </ul>
 
         <div class="callout note">
-          <strong>The Master tab can be tweaked.</strong> Generate changes the Master chain indirectly — it first loads a random base preset, so that preset's Master settings come with it. The Tweak system can also target the Master tab directly: use the Tweak section of the Random Preset Generator dialog, or tap the wand button on any section of the Master tab to tweak just that section. See <a href="#master-randomisation">13.8 Master and Randomisation</a> for full details.
+          <strong>The Master tab can be tweaked.</strong> Generate changes the Master chain indirectly — it first loads a random base preset, so that preset's Master settings come with it. The Tweak system can also target the Master tab directly: use the Tweak section of the Random Preset Generator dialog, or tap the wand button on any section of the Master tab to tweak just that section. See <a href="#master-randomisation">13.9 Master and Randomisation</a> for full details.
         </div>
       </section>
 
@@ -762,7 +763,7 @@
             <tr>
               <td>Tweak</td>
               <td>Wand button in the Random Preset dialog</td>
-              <td>Mutates the <strong>currently loaded sound</strong>. Only affects the oscillators and parameters you've toggled on in the dialog. Uses wide, default ranges (no category-specific tuning).</td>
+              <td>Mutates the <strong>currently loaded sound</strong>. Only affects the oscillators and parameters you've toggled on in the dialog, at the strength set by the <a href="#tweak-amount">Tweak Amount</a> slider. Uses wide, default ranges (no category-specific tuning).</td>
             </tr>
             <tr>
               <td>Per-Osc Tweak</td>
@@ -788,7 +789,7 @@
 
         <h3 id="base-source">13.4 Base Preset Source</h3>
         <p>The top of the dialog chooses which category Marco draws inspiration from when Generate rolls a new sound. Any of the factory categories (<strong>Basic, Bass, Lead, Pad, Keys, FX, Drone</strong>), the curated <strong>Signature</strong> and <strong>Artists</strong> sets, plus <strong>All</strong>, <strong>Favourites</strong> and <strong>User</strong>.</p>
-        <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#category-modes">13.7 Category behaviours</a> below.</p>
+        <p>Each category isn't just a filter for the base preset — it also shapes <em>how</em> Generate builds the sound. See <a href="#category-modes">13.8 Category behaviours</a> below.</p>
 
         <h3 id="targeting">13.5 Oscillator &amp; Parameter Targeting</h3>
         <p>Only <strong>Tweak</strong> respects these two sets of toggles — Generate ignores them and always rolls a complete new preset:</p>
@@ -801,7 +802,19 @@
         <h3 id="lfo-sync">13.6 LFO Sync</h3>
         <p>A separate <strong>LFO Sync</strong> toggle lets you choose whether LFO rates get tempo-synced when <strong>Tweak</strong> changes them. Turn it on for in-time modulation; leave it off for free-running LFOs.</p>
 
-        <h3 id="category-modes">13.7 Category behaviours (Generate only)</h3>
+        <h3 id="tweak-amount">13.7 Tweak Amount</h3>
+        <p>Below the targeting toggles sits the <strong>Tweak Amount</strong> slider. Tweak is a <em>nudge</em>, not a re-roll — each press moves the current values a fraction of the way toward a fresh roll, and this slider sets how big that fraction is. Slide left for tiny refinements, right for bold shifts. The word beside the title names the current strength as you drag:</p>
+        <table class="param-table">
+          <thead><tr><th>Strength</th><th>Feel</th></tr></thead>
+          <tbody>
+            <tr><td>Minimal / Subtle</td><td>Barely-there refinements — polish a sound you already like without risking its character.</td></tr>
+            <tr><td>Medium / Default</td><td>The standard feel (the slider snaps back to <span class="ui">Default · 0.45</span> so you can always return to it). Clearly audible movement that still respects the sound.</td></tr>
+            <tr><td>Large / Extra Large / Max</td><td>Bold shifts — each press takes the sound most of the way to a fresh roll while keeping its broad shape.</td></tr>
+          </tbody>
+        </table>
+        <p>This one setting governs <strong>every</strong> Tweak in Marco: the dialog's Tweak button, the per-oscillator wand in each column header, and the wands on the Master sections. Repeated presses compound at the chosen strength, so a low amount lets you creep a sound in a direction one careful pass at a time, while a high amount gets somewhere new in a press or two. The value is remembered across sessions, and in the AUv3 plugin it's also exposed as an AU parameter your host can automate or MIDI-map. Every step still lands in the <a href="#rpg-history">Random Preset History</a>, so you can walk back through your tweaks whatever the amount.</p>
+
+        <h3 id="category-modes">13.8 Category behaviours (Generate only)</h3>
         <p>On top of the Style you pick, the chosen category shapes the result. For the <strong>Mild</strong> and <strong>Wild</strong> Styles the generator tunes the sound to suit the category; the <strong>Recipe</strong> Style draws on archetypes built for that category. Each category is designed to give you results that sound like that category — the table below shows what to expect from each, so you can choose deliberately.</p>
 
         <table class="param-table">
@@ -823,7 +836,7 @@
           <strong>Variations on your own sounds.</strong> If you want variations on a sound rather than something brand-new, set the Base Preset Source to <strong>User</strong> or <strong>Favourites</strong> and tap Generate a few times. You'll get versions of an existing sound, not random new ones — perfect for finding sibling presets without losing the original character. Note: if the chosen category is empty (e.g. you haven't saved any User presets or starred any Favourites yet), Marco falls back to the <strong>All</strong> category.
         </div>
 
-        <h3 id="master-randomisation">13.8 Master Section and Randomisation</h3>
+        <h3 id="master-randomisation">13.9 Master Section and Randomisation</h3>
         <div class="callout note">
           <strong>Generate doesn't roll the Master chain from scratch, but the Tweak system can target it.</strong> A fresh Generate never randomises Drive, Compressor, Delay, Reverb, Stereo and Limiter directly — but you can tweak them deliberately whenever you want to.
         </div>
@@ -834,7 +847,7 @@
           <strong>Workflow example.</strong> Like the master chain of your current preset but want a different rhythmic feel? Untick everything except <strong>Glide</strong> and <strong>Cutoff LFO</strong>, then tap Tweak a few times — fresh movement, same sonic base, untouched effects.
         </div>
 
-        <h3 id="rpg-history">13.9 Random Preset History</h3>
+        <h3 id="rpg-history">13.10 Random Preset History</h3>
         <p>Randomisation is meant to be explored fearlessly — so Marco remembers where you've been. Every result from all three systems is pushed to a shared <strong>history</strong> of the last <strong>100</strong> randomised and tweaked sounds, and you can step back and forward through them at any time.</p>
 
         <p>These actions add an entry to the history:</p>
