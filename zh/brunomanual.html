@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bruno 使用手册 — Amici Instruments</title>
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+<meta name="description" content="Bruno 完整使用手册——一款为 iOS 打造的多层鼓合成器。">
+<link rel="canonical" href="https://amici-instruments.com/zh/brunomanual.html">
+<meta name="theme-color" content="#050507">
+
+<!-- 语言版本对应关系（英文页面上有指回本页的同名标签） -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/brunomanual.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/brunomanual.html">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/brunomanual.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://amici-instruments.com/zh/brunomanual.html">
+<meta property="og:title" content="Bruno 使用手册 — Amici Instruments">
+<meta property="og:description" content="Bruno 完整使用手册——一款为 iOS 打造的多层鼓合成器。">
+<meta property="og:site_name" content="Amici Instruments">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- 自托管字体：Google Fonts 在中国大陆无法访问 -->
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="zh.css">
+</head>
+<body class="manual">
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <span class="page-eyebrow">使用手册</span>
+  <h1 class="page-title">Bruno 使用手册</h1>
+  <p class="page-lead">这份完整参考涵盖这台多层鼓合成器——六种音色类型、四个引擎，以及每一个控件与面板。</p>
+</header>
+
+<main>
+  <div class="layout">
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <ul>
+        <li><a href="#welcome">1. 欢迎</a></li>
+        <li><a href="#requirements">2. 系统要求</a></li>
+        <li><a href="#getting-started">3. 快速上手</a></li>
+        <li><a href="#interface">4. 界面导览</a></li>
+        <li class="subsection"><a href="#header-bar">4.1 顶部标题栏</a></li>
+        <li class="subsection"><a href="#master-strip">4.2 Master Strip 主控条</a></li>
+        <li class="subsection"><a href="#engine-cards">4.3 引擎卡片</a></li>
+        <li class="subsection"><a href="#copy-tweak">4.4 Copy to All 与 Tweak</a></li>
+        <li class="subsection"><a href="#hints">4.5 Hints 提示（? 按钮）</a></li>
+        <li><a href="#engines">5. 四个引擎</a></li>
+        <li><a href="#voices">6. 音色类型</a></li>
+        <li class="subsection"><a href="#voice-kick">6.1 Kick 底鼓</a></li>
+        <li class="subsection"><a href="#voice-snare">6.2 Snare 军鼓</a></li>
+        <li class="subsection"><a href="#voice-hat">6.3 Hat 踩镲</a></li>
+        <li class="subsection"><a href="#voice-clap">6.4 Clap 拍手</a></li>
+        <li class="subsection"><a href="#voice-tom">6.5 Tom 嗵鼓</a></li>
+        <li class="subsection"><a href="#voice-pluck">6.6 Pluck 拨弦</a></li>
+        <li class="subsection"><a href="#voice-switching">6.7 切换音色类型</a></li>
+        <li><a href="#voices-tab">7. Engines 页面</a></li>
+        <li><a href="#vol-env">8. Vol Env 音量包络</a></li>
+        <li><a href="#pitch-env">9. Pitch Env 音高包络</a></li>
+        <li><a href="#body">10. Body 鼓身</a></li>
+        <li><a href="#filter">11. Filter 滤波器</a></li>
+        <li><a href="#lfos">12. LFO</a></li>
+        <li><a href="#compressor">13. Compressor 压缩器</a></li>
+        <li><a href="#drive">14. Drive 过载</a></li>
+        <li><a href="#delay">15. Delay 延迟</a></li>
+        <li><a href="#eq">16. EQ 均衡</a></li>
+        <li><a href="#master">17. Master 页面</a></li>
+        <li class="subsection"><a href="#master-sat">17.1 Saturation 饱和</a></li>
+        <li class="subsection"><a href="#master-comp">17.2 Compressor 压缩器</a></li>
+        <li class="subsection"><a href="#master-transient">17.3 Transient Shaper 瞬态塑形器</a></li>
+        <li class="subsection"><a href="#master-reverb">17.4 Reverb 混响</a></li>
+        <li class="subsection"><a href="#master-stereo">17.5 Stereo 立体声</a></li>
+        <li class="subsection"><a href="#master-limiter">17.6 Limiter 限制器</a></li>
+        <li><a href="#presets">18. 预设</a></li>
+        <li><a href="#random">19. 随机预设生成器</a></li>
+        <li class="subsection"><a href="#rpg-styles">19.1 风格 — Mild、Wild 与 Recipe</a></li>
+        <li class="subsection"><a href="#rpg-systems">19.2 三种随机方式</a></li>
+        <li class="subsection"><a href="#rpg-opening">19.3 打开面板与工具栏骰子</a></li>
+        <li class="subsection"><a href="#rpg-chromatic">19.4 Chromatic 半音模式</a></li>
+        <li class="subsection"><a href="#rpg-source">19.5 基础预设来源</a></li>
+        <li class="subsection"><a href="#rpg-targeting">19.6 引擎与参数定向</a></li>
+        <li class="subsection"><a href="#tweak-amount">19.7 Tweak Amount 微调幅度</a></li>
+        <li class="subsection"><a href="#rpg-category-modes">19.8 各类别的行为</a></li>
+        <li class="subsection"><a href="#rpg-master">19.9 Master 区块与随机化</a></li>
+        <li class="subsection"><a href="#rpg-history">19.10 随机预设历史</a></li>
+        <li><a href="#scope">20. Scope 示波器与频谱</a></li>
+        <li><a href="#app-preferences">21. 应用偏好设置</a></li>
+        <li class="subsection"><a href="#performance-settings">21.1 性能设置</a></li>
+        <li class="subsection"><a href="#app-information">21.2 应用信息</a></li>
+        <li><a href="#midi">22. MIDI</a></li>
+        <li><a href="#keyboard-song">23. 键盘</a></li>
+        <li><a href="#sharing">24. 分享预设</a></li>
+        <li><a href="#tips">25. 技巧与工作流程</a></li>
+        <li><a href="#troubleshooting">26. 疑难解答</a></li>
+        <li><a href="#support">27. 获取帮助</a></li>
+      </ul>
+    </aside>
+
+    <article class="content">
+
+      <section id="welcome">
+        <h2><span class="num">1</span>欢迎使用 Bruno</h2>
+        <p class="lead">Bruno 是一台面向 iPad 与 iPhone（以及任何可运行 iPad 应用的 Apple 芯片 Mac）的<strong>多层鼓合成器</strong>。每一个实例通过叠加最多四个独立的合成引擎，产生一个打击乐音色。</p>
+        <p>你为<strong>每条鼓音轨加载一个 Bruno</strong>——一条放底鼓，一条放军鼓，第三条放踩镲。在每个实例内部，四个引擎（<span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>）并行运行并叠加求和，所以一件鼓可以简单到只有一个干净的正弦，也可以丰富到四层堆叠。</p>
+        <p>你选择一个<strong>音色类型</strong>——Kick 底鼓、Snare 军鼓、Hat 踩镲、Clap 拍手、Tom 嗵鼓或 Pluck 拨弦——这会把四个引擎全部重新配置到该件鼓的频率范围与性格上。在此之后，每个引擎都有自己完整的信号链：音高、包络、滤波器、三个 LFO、压缩器、过载、延迟与 EQ。</p>
+        <p>本手册涵盖每一个面板与控件。如果你刚接触鼓合成，建议从头读下去；如果你只想查某一项功能，请使用左侧目录。</p>
+        <p>Bruno 有两种使用形式：</p>
+        <ul>
+          <li>iPad 与 iPhone 上的<strong>独立应用</strong>——支持 MIDI 输入，iPad 上还带有内置键盘。</li>
+          <li><strong>AUv3 插件</strong>——可载入 Logic Pro for iPad、GarageBand、AUM 及其他兼容的 AUv3 宿主，在其中为每条鼓音轨加载一个 Bruno。</li>
+        </ul>
+        <p>同一个版本也能通过 App Store 在 Apple 芯片 Mac（M1 及以上）上原生运行。本手册的大部分内容对独立应用与插件都适用；凡有差异之处——屏幕键盘仅存在于 iPad 独立版——都会在相应章节标注。</p>
+        <div class="callout note">
+          <strong>Bruno 与 Marco 是一家人。</strong>Bruno 与 Marco 共享同一套视觉语言、Master 效果链与随机预设理念。如果你已经熟悉 Marco，Bruno 的很多地方都会似曾相识——最大的区别在于，Bruno 是围绕<em>音色类型</em>与<em>引擎</em>构建的，而不是围绕振荡器与硬同步。
+        </div>
+      </section>
+
+      <section id="requirements">
+        <h2><span class="num">2</span>系统要求</h2>
+        <ul>
+          <li>运行当前版本 iPadOS 的 <strong>iPad</strong>。</li>
+          <li>运行当前版本 iOS 的 <strong>iPhone</strong>。</li>
+          <li><strong>Apple 芯片 Mac</strong>（M1 及以上）——这个 iPad 应用可在 Mac App Store 获取，并在自己的窗口中原生运行。</li>
+          <li>以插件方式使用 Bruno 时需要 <strong>AUv3 宿主</strong>（例如 Logic Pro for iPad、GarageBand、AUM 及其他兼容宿主）。</li>
+        </ul>
+        <div class="callout note">
+          <strong>每件鼓一个实例。</strong>Bruno 是单音的，被设计成一件单鼓乐器。要在宿主中搭出一整套鼓组，请加载多个实例——一个给底鼓，一个给军鼓，以此类推。实例之间没有任何联动或解联的机制；每一个都完全独立。
+        </div>
+      </section>
+
+      <section id="getting-started">
+        <h2><span class="num">3</span>快速上手</h2>
+        <p class="lead">做出好鼓声最快的方式，是让 Bruno 替你做一个。</p>
+        <ol>
+          <li>打开 Bruno（独立应用），或在宿主中将它作为 AUv3 插件载入。</li>
+          <li>在标题栏的音色选择器里选一个<strong>音色类型</strong>（Kick、Snare、Hat、Clap、Tom 或 Pluck）。</li>
+          <li>点击 Master Strip 里的<strong>骰子</strong>按钮（<span class="ui">🎲</span>），为该音色掷出一个全新的随机预设。</li>
+          <li>触发声音——点任意引擎卡片上的 <strong>HIT</strong> 按钮、弹屏幕键盘（独立应用），或从你的控制器 / DAW 发送一个 MIDI 音符。</li>
+          <li>喜欢这个方向但想要变化？打开随机面板，点 <strong>Tweak</strong> 来轻推当前的声音，而不是掷一个全新的。</li>
+          <li>只想改其中一层？点某一个引擎卡片上的小<strong>骰子</strong>，只重掷那一个引擎。</li>
+        </ol>
+        <p>找到中意的声音后，把它保存到你的 <strong>User</strong> 库——参见 <a href="#presets">18. 预设</a>。</p>
+        <div class="callout tip">
+          <strong>现在不必弄懂所有东西。</strong>骰子一下就能给你一件可用的鼓。选个音色、掷一次，然后开始弹——等你准备好了，随时再深入到逐引擎的控制里去。
+        </div>
+      </section>
+
+      <section id="interface">
+        <h2><span class="num">4</span>界面导览</h2>
+        <p class="lead">快速走一遍，看看东西都在哪儿。Bruno 把所有控件都组织进标签页里，而每一个标签页都并排显示同样的四张引擎卡片。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/engines.png" alt="Bruno 的 Engines 页面——标题栏与工具栏位于四张颜色区分的引擎卡片上方：Analog（蓝）、FM（绿）、Fold（橙）与 Reso（品红），每张卡片都有 Vol、Tune、Character 与 Decay 滑块。">
+          <figcaption>Bruno 的 Engines 页面：标题栏与工具栏位于四张颜色区分的引擎卡片上方。每个引擎的颜色会在应用的任何地方一路跟随它。</figcaption>
+        </figure>
+
+        <h3 id="header-bar">4.1 顶部标题栏</h3>
+        <p>横跨屏幕顶端，从左到右：</p>
+        <ul>
+          <li><strong>BRUNO 标志</strong>——多彩字标，纯装饰。</li>
+          <li><strong>音色选择器</strong>——选择鼓的音色类型：Kick、Snare、Hat、Clap、Tom 或 Pluck。在 iPhone 上显示为两个字母的代码（<span class="ui">KK / SN / HH / CL / TM / PL</span>）。</li>
+          <li><strong>预设选择器</strong>——当前预设名称，两侧各有 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头。点箭头可逐个切换预设，点名称则打开完整的预设浏览器（参见 <a href="#presets">18. 预设</a>）。当前声音只要含有半音（音高跟踪）引擎，名称旁边就会出现一个紫色的 <span class="c-badge">C</span> 徽标，让你一眼看出它可以在键盘上演奏旋律。</li>
+          <li><strong>随机面板按钮</strong>——打开随机预设生成器，在那里设定来源类别、风格，以及哪些内容参与随机（参见 <a href="#random">19. 随机预设生成器</a>）。</li>
+          <li><strong>MIDI 按钮</strong> <em>（仅独立应用）</em>——一个钢琴键图标，带有一个始终存在的活动指示点：静止时是黑色带白边，一旦有 MIDI 音符到达就变绿。点击可打开 MIDI 输入设置（参见 <a href="#midi">22. MIDI</a>）。</li>
+          <li><strong>⚙️ 设置齿轮</strong>——打开应用偏好设置（参见 <a href="#app-preferences">21. 应用偏好设置</a>）。</li>
+        </ul>
+
+        <h3>工具栏标签页</h3>
+        <p>标题栏下方，横向标签页在各面板之间切换。每个标签页都显示同样的四张引擎卡片；标签页决定这些卡片显示哪一组控件：</p>
+        <ul>
+          <li><span class="ui">Engines</span> — 每个引擎的核心音色（模式、Vol、Tune、Character、Decay）。</li>
+          <li><span class="ui">Vol Env</span> — 音量包络、点击 / 瞬态，以及各音色专属的额外控件。</li>
+          <li><span class="ui">Pitch Env</span> — 每一件鼓都不可或缺的音高扫动。</li>
+          <li><span class="ui">Body</span> — 每个引擎的鼓身峰值 EQ。</li>
+          <li><span class="ui">Filter</span> — 每个引擎的多模式滤波器（8 种类型）。</li>
+          <li><span class="ui">Cut LFO</span> / <span class="ui">Pitch LFO</span> / <span class="ui">Char LFO</span> — 每个引擎三个 LFO。</li>
+          <li><span class="ui">Comp</span> — 每个引擎的压缩器。</li>
+          <li><span class="ui">Drive</span> — 每个引擎的饱和 / 失真。</li>
+          <li><span class="ui">Delay</span> — 每个引擎的延迟。</li>
+          <li><span class="ui">EQ</span> — 每个引擎的三段参量 EQ。</li>
+          <li><span class="ui">Master</span> — 处理四个引擎求和后信号的全局效果链。</li>
+        </ul>
+        <p>标签页之间用细线分组，让布局更易扫读：<span class="ui">Engines Vol Env Pitch Env | Body | Filter | Cut LFO Pitch LFO Char LFO | Comp Drive Delay EQ | Master</span>。</p>
+
+        <h3 id="master-strip">4.2 Master Strip 主控条</h3>
+        <p>就在四张引擎卡片的正上方，Master Strip 汇集了全局控件与快捷按钮。从左到右：</p>
+        <figure class="manual-figure">
+          <img src="../images/bruno-masterstrip.png" alt="Bruno 的 Master Strip 主控条——从左到右：? Hints 按钮、L/R 输出电平表、Gain 滑块、青色 Scope 按钮、带 All·MWR·R 标签的橙色骰子及前后历史箭头，以及 HIT 按钮。">
+          <figcaption>Master Strip 主控条：从左到右依次是 ? Hints 按钮、L/R 输出电平表、Gain 滑块、Scope 按钮、带历史箭头的骰子，以及 HIT。</figcaption>
+        </figure>
+        <ul>
+          <li><strong>? Hints 按钮</strong>（最左）——为你当前所在的页面打开随上下文变化的帮助。颜色会与当前页面匹配。参见下方 <a href="#hints">Hints 提示</a>。</li>
+          <li><strong>立体声输出电平表</strong>——双条（L/R）LED 电平表。绿色健康，70% 起转黄，90% 起转红；削波时边框会变红。</li>
+          <li><strong>Gain 滑块</strong>——主输出电平（0–100%），并显示当前百分比。</li>
+          <li><strong>Scope 按钮</strong>（青色）——打开波形示波器与引擎频谱覆盖层（参见 <a href="#scope">20. Scope 示波器与频谱</a>）。</li>
+          <li><strong>◀ 🎲 ▶ 骰子与历史</strong>（橙色）——骰子用当前的来源类别掷出一个全新的随机预设；两侧的箭头可在最近 30 个随机声音之间前后穿梭。</li>
+          <li><strong>HIT</strong>——不需要 MIDI 或键盘，就能试听当前的声音。</li>
+        </ul>
+
+        <h3 id="engine-cards">4.3 引擎卡片</h3>
+        <p>主区域并排显示四张引擎卡片，各有自己的颜色：<span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>。这个颜色会在 Bruno 的任何地方跟随该引擎——包括示波器频谱、LFO 面板与标题栏按钮。</p>
+        <p>每张引擎卡片顶部都有一组一致的标题按钮（颜色随引擎）：</p>
+        <ul>
+          <li><strong>ON / OFF</strong>——启用或停用该引擎。关闭的引擎是静音的，不会对混音有任何贡献。</li>
+          <li><strong>HIT</strong>——单独触发这一个引擎，方便试听。</li>
+          <li><strong>魔棒</strong>——一次逐页面的 Tweak，只重掷这个引擎在当前页面上的参数（见下文）。</li>
+          <li><strong>Copy to All</strong>——在支持的页面上，把这个引擎在当前页面的设置复制给另外三个（见下文）。</li>
+        </ul>
+        <p>Engines 页面的卡片上还有自己的<strong>骰子</strong>按钮，只重掷该引擎的核心参数——非常适合在不打扰声音其余部分的前提下寻找新的一层。</p>
+        <div class="callout note">
+          <strong>引擎永远是独立的。</strong>与 Marco 的联动 / 解联系统不同，Bruno 的四个引擎从不共享控件。每一个都有自己完整的信号链，并以并行方式混合。这里没有「联动」模式需要学习。
+        </div>
+
+        <h3 id="copy-tweak">4.4 Copy to All 与逐页面 Tweak</h3>
+        <h4>Copy to All</h4>
+        <p>有七个页面在每张引擎卡片上带有 <strong>Copy to All</strong> 按钮（叠放文档图标）：<strong>Body、Filter、Compressor、Drive、Delay、EQ</strong> 以及三个 <strong>LFO</strong> 页面。点一下，就把当前引擎在该页面的设置复制给另外三个引擎。这是一次性操作——之后四个引擎仍然完全独立，可以自由微调。按钮的颜色与引擎匹配（Analog 蓝、FM 绿、Fold 橙、Resonant 紫）。</p>
+        <p><strong>Engines、Vol Env、Pitch Env</strong> 与 <strong>Master</strong> 页面没有 Copy to All，因为它们的参数通常本来就该在各引擎之间有所不同（不同的模式、音高与性格）。</p>
+        <h4>逐页面 Tweak（魔棒）</h4>
+        <p>每个页面上的每张引擎卡片都有一个小小的<strong>魔棒</strong>按钮。点击它只会轻推<em>那一个引擎在那一个页面上的参数</em>，让它们朝着全新掷出的结果迈一步，而不是从零重掷——反复点击会累积，所以你可以一次一小步地把声音推向某个方向。每一步有多大，取决于随机预设生成器里的 <a href="#tweak-amount">Tweak Amount</a> 滑块。Tweak 绝不会开关某个引擎，也绝不会切换某个区块的启用状态（滤波器开关、鼓身开关等）。在 Master 页面上，每个效果区块都有自己的绿色魔棒；Limiter 没有魔棒，但它默认开启，用于控制削波。</p>
+
+        <h3 id="hints">4.5 Hints 提示 — <span class="ui">?</span> 按钮</h3>
+        <p>每个页面都有自己内置的帮助，所以你永远不必离开 Bruno 去查资料。点击 Master Strip 最左侧的 <span class="ui">?</span>，就能为当前页面打开 <strong>Hints</strong> 对话框。</p>
+        <p>每个 Hints 对话框有三个部分：</p>
+        <ul>
+          <li>该页面用途及其在信号链中位置的<strong>概述</strong>。</li>
+          <li><strong>控件</strong>——用大白话逐一说明该页面上的每个滑块、按钮与开关。</li>
+          <li><strong>技巧与配方</strong>——几种把这些控件搭配使用的、不太显而易见的方法。</li>
+        </ul>
+        <p>对于 <strong>Engines、Vol Env</strong> 与 <strong>Pitch Env</strong> 页面，内容是<strong>随音色变化的</strong>——它描述的是这些控件在你当前所用音色上的作用，所以同一个滑块在 Snare 上读作「Slap」，在 Tom 上读作「Chirp」，在 FM Kick 上读作「Sub」。随机预设生成器也有自己的 <span class="ui">?</span> 按钮。点击对话框外部或 <span class="ui">×</span> 即可关闭。Hints 在独立应用与 AUv3 插件中完全一致。</p>
+      </section>
+
+      <section id="engines">
+        <h2><span class="num">5</span>四个引擎</h2>
+        <p class="lead">Bruno 的每一种音色都由同样这四个引擎构成。名字从不改变，但每个引擎内部的 DSP 会随音色而适配——所以「Analog」在 Kick 音色上意味着干净的正弦底鼓，在 Hat 音色上则是金属般的光泽。</p>
+
+        <p>四个引擎并行求和，每一个都带着自己完整的信号链：</p>
+        <div class="callout">
+          <strong>每个引擎的信号链：</strong>引擎 DSP → Body 鼓身峰值 → Filter 滤波器 → Compressor 压缩器 → Drive 过载 → Delay 延迟 → EQ → 输出，然后四个引擎的输出汇入 <a href="#master">Master</a> 区块。
+        </div>
+
+        <h3>每个引擎各自擅长什么</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>引擎</th><th>合成方式</th><th>特性</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>经典振荡器合成（正弦、三角、方波）</td><td>四者中最干净、最有「鼓机味」的一个。深沉的低频底鼓、复古军鼓鼓身、经典踩镲光泽。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>频率调制（载波 + 调制波）</td><td>紧实、金属、非谐波。紧致的 techno 底鼓、明亮的军鼓脆响、镲片般的踩镲。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>波形折叠</td><td>丰富、凶悍、不断演进的谐波。粗粝的底鼓、工业感军鼓、脆硬的踩镲。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>物理 / 模态合成（阻尼正弦模态与共振体）</td><td>听上去是<em>被敲出来的</em>，而不是合成出来的。有弹性的底鼓、有原声质感的军鼓、铃铛般的踩镲。</td></tr>
+          </tbody>
+        </table>
+        <p>这些是大致的性格——每一种<a href="#voices">音色</a>都会把四个引擎重新配置到自己的频率范围与 DSP 上，所以具体行为会随鼓的不同而变化。举例来说，<span class="eng-tag reso">Resonant</span> 在 Kick 上是一面被敲击的模态鼓，而在 Hat 上则变成闪烁的环形调制镲片。<a href="#voice-pluck">Pluck</a> 走得最远：它是一个有音高的旋律性音色，其中 Analog、FM 与 Fold 驱动 Karplus-Strong 弦模型，Resonant 则成为钟 / 甘美兰共振体——根本不是鼓。下面的各音色小节（<a href="#voice-kick">Kick</a>、<a href="#voice-snare">Snare</a>、<a href="#voice-hat">Hat</a>、<a href="#voice-clap">Clap</a>、<a href="#voice-tom">Tom</a>、<a href="#voice-pluck">Pluck</a>）会精确说明每个引擎在该音色中做什么。</p>
+
+        <p>你可以只用一个引擎做出纯粹、聚焦的声音，也可以叠加多个。一个典型的多层军鼓可能会用 Analog 做鼓身与力度，FM 做金属脆响，Fold 增添谐波温度，Resonant 提供鼓腔共振与鼓棒的边缘感。用每张卡片标题上的开关来启用或停用各个引擎。</p>
+        <div class="callout tip">
+          <strong>先从一个引擎开始，再叠层。</strong>用 ON/OFF 开关（或 HIT 按钮）逐个独奏每个引擎，听清它各自贡献了什么，然后再把其他的加回来。因为每个引擎都有自己的滤波器、过载与 EQ，你可以把每一层雕琢得与其余部分干净地共处。
+        </div>
+      </section>
+
+      <section id="voices">
+        <h2><span class="num">6</span>音色类型</h2>
+        <p class="lead">音色类型是整个实例被配置成的那种鼓。Bruno 有六种：Kick 底鼓、Snare 军鼓、Hat 踩镲、Clap 拍手、Tom 嗵鼓与 Pluck 拨弦。选择一种音色，会把四个引擎全部重新配置到那件鼓上——包括它们的频率范围、DSP，以及若干控件的含义。</p>
+        <p>因为引擎名称不变、行为却随音色改变，有几个滑块会<strong>按音色与引擎重新命名</strong>。例如 Engines 页面上的 Character 滑块，在 Analog Kick 上读作「Sweep」，在 FM Hat 上读作「Mod Idx」，在 Resonant Pluck 上读作「Spread」。下面的各音色小节描述每件鼓的性格；页面小节（<a href="#voices-tab">第 7 节</a>起）则给出完整的逐引擎控件参考。</p>
+
+        <h3 id="voice-kick">6.1 Kick 底鼓</h3>
+        <p>低频区的大鼓。Tune 被收窄到有音乐意义的底鼓范围（<strong>20–150 Hz</strong>），所以滑块落在哪里都是可用的。</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Kick 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>带音高包络的干净正弦或三角波——经典的深沉低频 808 风格与 909 风格底鼓。可选的 <strong>Sat</strong> 模式会加入 909 风格的电路暖意。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>紧实、金属的底鼓，从紧致的 techno 撞击到工业风的下坠。比率按钮（x1–x7）决定音色有多金属、多复杂。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>把正弦推过波形折叠器，得到谐波丰富、有攻击性的底鼓。折叠量随时间衰减，形成明亮的起音再落回干净的低频尾音。<strong>Sub</strong> 滑块可以把干净的基频重新混回来。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>被敲击的模态底鼓——四个按鼓腔比例排列的阻尼正弦模态。有机、有弹性，像一面真实被敲击的鼓。用 Tight、Body 或 Full 选择有多少鼓腔模态参与共鸣。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>音色专属的额外控件：</strong>Kick 的 Vol Env 页面内建了 <strong>techno 轰鸣</strong>（R-Tone、R-Sus、R-Mix）——一条经过滤波的混响尾音，在每次击打之后绽放，并被底鼓包络所压低。此外还有一个 <strong>Attack</strong> 绽放滑块，以及每个引擎的 <strong>Tick</strong> 开关，用于加入 808 风格的音高过冲脆响。在 Analog Kick 上，Pitch Env 的 <strong>Drop</strong> 控件决定音高扫动最终落在哪里，最低可到 Tune 以下两个八度——经典的低频下滑地带。</p>
+
+        <h3 id="voice-snare">6.2 Snare 军鼓</h3>
+        <p>中频区的鼓，具有有音高的鼓身与经过滤波的噪音「响弦」。鼓身基频大约在 100–400 Hz。四个引擎都能同时合成鼓身与响弦。</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Snare 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>909 风格的双振荡器鼓身（一层下鼓皮加一层固定比例的上鼓皮），配高通滤波的噪音响弦。Tight / Open 决定上鼓皮的衰减；可选的 <strong>Sat</strong> 让鼓身变暖，同时响弦保持清脆。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>来自双算子 FM 的明亮金属脆响。衰减中的 FM 包络起始金属、随后归于有调性——这是地道的非谐波军鼓性格。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>经波形折叠的鼓身加响弦；凶悍而工业。Asym 模式会加入低吼般的粗粝尾音。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>模态鼓腔鼓身，配一段短促的鼓棒激励，做出「鼓棒击打鼓腔」的起音。Tonal 模式会让响弦静音，得到边击与鼓刷的味道。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>音色专属的额外控件：</strong>每个引擎的 <strong>BP</strong> 开关可让响弦在宽频高通噪音（909 风格）与更紧的带通性格（精品机型风格）之间切换。Vol Env 的 <strong>Slap</strong> 滑块会加入一段短促的鼓身上行啾声，<strong>Tail</strong> 则独立于鼓身设定响弦的衰减。</p>
+
+        <h3 id="voice-hat">6.3 Hat 踩镲</h3>
+        <p>高频区的踩镲与镲片。所有引擎都强调金属的、非谐波的音色，并使用明亮的高通噪音。长度完全由 Decay 滑块决定，Vol Env 页面上的 <strong>Choke</strong> 控件负责处理重叠击打时的松键切断。</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Hat 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>两个失谐的方波，其拍频产生经典的 808 风格金属光泽，再加上高通噪音。Character 是一个带通的「Tone」。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>载波 / 调制波 FM，采用非整数比率以获得镲片般的非谐性。明亮而复杂。<strong>Wavetable</strong> 模式会加入混合式的 909 风格性格。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>六个非谐波正弦振荡器求和后再折叠——密实、脆硬、凶悍的金属内容。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>六个振荡器，两两之间做环形调制，再加上一层贯穿包络持续鸣响的光泽。铃铛般、闪烁。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout note">
+          <strong>为什么 Tune 在各个 Hat 引擎上表现不同。</strong>在 Hat 上，<span class="eng-tag analog">Analog</span> 与 <span class="eng-tag fold">Fold</span> 的 Tune 覆盖 <strong>20–500 Hz</strong>，而 <span class="eng-tag fm">FM</span> 与 <span class="eng-tag reso">Resonant</span> 则覆盖 <strong>3–8 kHz</strong>。同一个词，指向的是两件不同的事。Analog 与 Fold 是基于振荡器的——Tune 设定的是它们方波 / 正弦振荡器的<em>基频</em>，那确实是一个很低的音高，而明亮的金属性格全部来自基频<em>之上</em>产生的谐波内容（失谐拍频、波形折叠、高通噪音）。FM 与 Resonant 则把它们的非谐波分音<em>直接</em>放在可闻的镲片频段里，所以 Tune 直接映射到金属音色真正所在的 3–8 kHz 区域。
+        </div>
+        <p><strong>音色专属的额外控件：</strong>每一次 Hat 击打都会经过自动的<strong>频谱演化</strong>——一个低通滤波器在击打瞬间明亮地打开（约 18 kHz），并随声音衰减而收拢（约 4 kHz），模拟真实镲片在延续中逐渐失去高频的过程。Hat 还有一行独有的<strong>模式开关</strong>，每张卡片一个引擎专属的开关：Analog 的 <strong>Stick</strong>（加入鼓棒敲击的瞬态）、FM 的 <strong>Wavetable</strong>（混合式 909 风格性格）、Fold 的 <strong>Wide BP</strong>（让 Character 扫动带通），以及 Resonant 的 <strong>Ring</strong>（环形调制边带）。</p>
+
+        <h3 id="voice-clap">6.4 Clap 拍手</h3>
+        <p>拍手最具标志性的特征是多次快速触发——Bruno 会触发 1–7 次，间隔 3–30 毫秒，以模拟许多只手略微不同步地拍击。四个引擎共用这套多次触发的序列机制，区别只在于每一次触发是如何产生的。Tune 的中心靠近经典的 808 风格拍手地带（1.2 kHz）。</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Clap 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>噪音经过一个带共振的带通滤波器——最干净、最有「鼓机味」的拍手。有 808（更宽、更有房间感）或 909（更亮、更紧）两个子选项。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>明亮、干脆的 FM 触发，其中 <strong>Stack</strong> 模式会在噪音鼓身之上叠一层短促的、有音高的前置起音——也就是当代的「snap + clap」配方。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>经波形折叠的噪音；粗糙而 lo-fi。<strong>Crush</strong> 模式会加入采样率与位深的削减，得到货真价实的 8 位 / 老式采样机颗粒感。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>噪音激励四个共振体，在各次触发之间持续鸣响。Stick / Block / Tap 是叠层拍手中的层级角色；<strong>Spread</strong> 使用真实拍手的共振峰比例，可单独作为一个完整的拍手使用。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>音色专属的额外控件：</strong>Vol Env 页面把 Click Amount 映射为 <strong>Bursts</strong>（触发次数）、把 Click Tone 映射为 <strong>Spacing</strong>（间隔），并加入一个 <strong>Human</strong> 滑块，为每一次触发引入振幅与音高的抖动——这正是僵硬的鼓机拍手与自然的「采样感」拍手之间最大的差别。Pitch Env 页面上的 <strong>Droop</strong> 控件会让每一次后续触发的音高略微下降。</p>
+
+        <h3 id="voice-tom">6.5 Tom 嗵鼓</h3>
+        <p>有音高的打击乐，带持续的有调性余韵。每个引擎通往「嗵鼓感」的路径不同，但都共享一条与 Tune 成比例的音高扫动、一段快速的次级 <strong>Chirp</strong> 过冲、一个带通的鼓棒激励、一层常开的 <strong>Sub</strong>，以及一条独立可调的下鼓皮 <strong>Tail</strong>。</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Tom 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>正弦或三角波，加上一段短促的鼓腔梳状滤波与轻微的双鼓皮失谐——一面空心的鼓机嗵鼓。可选的 Sat 会加入 909 风格的低吼。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>通过双算子 FM 得到合成 / 旋律感的嗵鼓。可选 Wood / Skin / Bell / Metal / Clave 比率；Skin（1.5×）是最典型的嗵鼓比率。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>折叠的正弦，配一个稳定的低频锚点提供鼓身——温暖而带失真。可选 Sym 或 Asym 折叠。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>原声风格的模态嗵鼓，模态之间带失谐以模拟鼓皮拍频。Rack / Mid / Floor 选择上层模态组，从明亮紧致到宽大厚重。</td></tr>
+          </tbody>
+        </table>
+        <p>Tom 使用五滑块的 Vol Env（Click、Tone、Chirp、Sub、Tail）。在 Analog 引擎上，你可以在同一张卡片里调出 909 风格（Sat 开启、强 Chirp、短 Tail）或 808 风格（Sat 关闭、较柔和的 Chirp、更长的 Tail）的性格。</p>
+
+        <h3 id="voice-pluck">6.6 Pluck 拨弦</h3>
+        <p>一个有音高、自然衰减的旋律性音色——严格来说不是鼓。其中三个引擎使用 Karplus-Strong 延迟线合成；Resonant 引擎使用模态合成。一段短促的激励驱动核心，结果会富有音乐性地鸣响开来。Tune 覆盖 20–1000 Hz。</p>
+        <div class="callout note">
+          <strong>为什么 Pluck 听起来常常比它的 Tune 设置更高。</strong>Tune 只设定参考音上的基频。因为 Pluck 是旋律性音色，它的引擎默认开启 <a href="#pitch-env">Chromatic</a> 半音跟踪（也就是那个紫色的 <span class="c-badge">C</span> 徽标），所以你弹的每一个音都会在该基频的基础上向上或向下移调——往键盘高处弹，音高会远远越过 1000 Hz。<strong>Oct</strong> 控件会以整八度进一步移调，而明亮的 Karplus-Strong / 模态分音也都位于基频之上，所以听起来会比 Tune 的数字所暗示的更明亮。
+        </div>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Pluck 的性格</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>经典的 Karplus-Strong 弦 / 槌 / 木音色。String、Mallet 与 Block 子选项塑造激励器，从明亮宽频到柔和的毡感，再到清脆的木质敲击。</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>金属质感的 FM 激励击弦，随后在弦的循环中变得平滑。子选项设定载波比率（×1 到 ×7）——也就是听感上的击弦音高。</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>不断演进的音色——每一次经过循环都会增加折叠谐波，所以音色会先生长、再稳定下来，而不只是一味衰减。</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>钟 / 甘美兰模态合成，含四个非谐波共振体（Bell、Steel、Wood、Glass 比率），并经过采样，以获得干净的高频分音。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>音色专属的额外控件：</strong>Vol Env 的 <strong>Curve</strong> 滑块变成 <strong>Attack</strong>（0–250 毫秒），让拨弦可以从瞬间的打击式击弦，一直渐变到拉奏般、铺底般的起音。标题栏的开关会增添性格：Analog/FM/Fold 上有 <strong>Stiff</strong>（非谐波拉伸——电钢琴 / 击弦古钢琴的色彩），Resonant 上有 <strong>Soft</strong> 与 <strong>Hum</strong>（柔和的槌击激励器，以及一个次基频模态）。Pitch Env 页面上的 <strong>Pickup</strong> 控件会加入一个拾音点梳状滤波，得到空心、木质的音色。</p>
+
+        <h3 id="voice-switching">6.7 切换音色类型</h3>
+        <p>切换音色只改变 DSP 的路由——<strong>所有引擎参数都会保留</strong>。同样的数值会被新音色的算法重新解读。这是有意为之：把一个精心调过的 Kick 切成 Snare，可能产生意想不到的、富有创意的「美丽意外」。</p>
+        <div class="callout note">
+          <strong>想要符合该音色的默认值，请载入一个预设。</strong>因为切换音色会保留你当前的参数，它不会为新的鼓重置到合理的数值。如果你只是想为另一种音色找一个干净的起点，请为它载入一个 <strong>Basic</strong> 预设（参见 <a href="#presets">18. 预设</a>），而不是在当前声音上切换音色。
+        </div>
+      </section>
+
+      <section id="voices-tab">
+        <h2><span class="num">7</span>Engines 页面</h2>
+        <p class="lead">主屏幕。每张引擎卡片显示它的标题按钮，以及该引擎的核心音色控件。</p>
+        <h3>核心控件（每个引擎）</h3>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>启用或停用该引擎。</td></tr>
+            <tr><td>HIT</td><td>触发这个引擎以便试听。</td></tr>
+            <tr><td>Dice 骰子</td><td>只随机化这个引擎的参数。</td></tr>
+            <tr><td>Mode / 子选项</td><td>引擎与音色专属的设置（波形、FM 比率、折叠对称性、模态数量等）。</td></tr>
+            <tr><td>Vol</td><td>该引擎在混音中的音量（0–100%）。</td></tr>
+            <tr><td>Tune</td><td>基础音高。显示的范围取决于音色类型（见下文）。</td></tr>
+            <tr><td>Character</td><td>当前引擎最具决定性的音色控件。它的标签与含义会随引擎和音色变化（见下文）。</td></tr>
+            <tr><td>Decay</td><td>触发之后声音消退的快慢（2 毫秒–10 秒，采用三次方渐变曲线，因此大多数鼓的衰减都落在行程中段）。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>各音色的 Tune 范围</h3>
+        <p>Tune 会按音色重新映射，让滑块始终覆盖那件鼓真正有用的地带：</p>
+        <table class="param-table">
+          <thead><tr><th>音色类型</th><th>显示范围</th></tr></thead>
+          <tbody>
+            <tr><td>Kick</td><td>20–150 Hz</td></tr>
+            <tr><td>Snare</td><td>100–400 Hz</td></tr>
+            <tr><td>Hat</td><td>Analog / Fold 20–500 Hz（基频）；FM / Resonant 3–8 kHz（分音）</td></tr>
+            <tr><td>Clap</td><td>300–4000 Hz（中心靠近 1.2 kHz）</td></tr>
+            <tr><td>Tom</td><td>20–500 Hz</td></tr>
+            <tr><td>Pluck</td><td>20–1000 Hz（基频）</td></tr>
+          </tbody>
+        </table>
+
+        <h3>「Character」控制的是什么</h3>
+        <p>Character 只是一个滑块，但它在每个引擎里驱动的部分都不同——标签也会随之改变。举几个例子：</p>
+        <table class="param-table">
+          <thead><tr><th>引擎</th><th>Kick</th><th>Snare</th><th>Hat</th><th>Clap</th></tr></thead>
+          <tbody>
+            <tr><td><span class="eng-tag analog">Analog</span></td><td>Sweep</td><td>Snap</td><td>Tone (kHz)</td><td>Q</td></tr>
+            <tr><td><span class="eng-tag fm">FM</span></td><td>FM Dep</td><td>FM Dep</td><td>Mod Idx</td><td>Chaos</td></tr>
+            <tr><td><span class="eng-tag fold">Fold</span></td><td>Fold</td><td>Fold</td><td>Fold</td><td>Fold</td></tr>
+            <tr><td><span class="eng-tag reso">Resonant</span></td><td>Reso</td><td>Reso</td><td>Reso (ms)</td><td>Damp</td></tr>
+          </tbody>
+        </table>
+        <p>在 Tom 与 Pluck 上，Character 同样在塑造音色（Tom 是共振 / FM 深度 / 折叠；Pluck 是阻尼、FM 深度、折叠量或模态 Spread）。应用内的 <a href="#hints">Hints</a> 始终会显示你当前所处音色与引擎下的正确标签。</p>
+      </section>
+
+      <section id="vol-env">
+        <h2><span class="num">8</span>Vol Env 音量包络</h2>
+        <p class="lead">塑造音量包络与点击 / 瞬态层。这是最依赖音色类型的页面之一——它的滑块布局会随音色变化。</p>
+        <h3>通用布局（多数音色）</h3>
+        <table class="param-table">
+          <thead><tr><th>槽位</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Click Amount</td><td>起始瞬态爆发的电平（在 Clap 上则是触发的次数）。</td></tr>
+            <tr><td>Click Tone</td><td>瞬态的频率性格——低是闷响，高是脆点。含义随音色而定（在 Hat 上是高通截止频率，在 Clap 上是触发间隔，等等）。</td></tr>
+            <tr><td>Decay Curve</td><td>音量衰减的形状（指数 ↔ 线性）。在 Pluck 上变为 <strong>Attack</strong>（渐入）。</td></tr>
+            <tr><td>Tail / Choke</td><td>随音色而定：在 Snare 与 Clap 上是 <strong>Tail</strong>（环境 / 响弦的衰减）；在 Hat 与 Pluck 上是 <strong>Choke</strong>（松键阻尼）。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>各音色专属的布局</h3>
+        <ul>
+          <li><strong>Kick</strong>——Click、Attack（绽放），然后是 techno 轰鸣三件套 R-Tone（轰鸣的明亮度）、R-Sus（轰鸣的长度）与 R-Mix（轰鸣的电平）。每个引擎还有一个 <strong>Tick</strong> 开关，用于加入 808 风格的音高过冲脆响。</li>
+          <li><strong>Snare</strong>——Click、Tone、Slap（鼓身音高啾声）与 Tail（响弦衰减），另有每个引擎的 <strong>BP</strong> 开关控制响弦性格。</li>
+          <li><strong>Clap</strong>——Bursts、Spacing、Human（逐次触发的抖动）与 Tail。</li>
+          <li><strong>Tom</strong>——五滑块布局：Click、Tone、Chirp、Sub 与 Tail。</li>
+          <li><strong>Pluck</strong>——Click、Tone、Attack 与 Choke，标题栏另有 <strong>Stiff</strong>（Analog/FM/Fold）或 <strong>Soft</strong> + <strong>Hum</strong>（Resonant）开关。</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Kick 的轰鸣本身就是一种声音。</strong>把 R-Mix 留在 0 就是一个干爽的底鼓。把 R-Mix 提到 20–50%，R-Tone 设在 200–800 Hz 左右，R-Sus 设在 0.4–1.0 秒附近，就能得到那种在每次击打后绽放开来、被压低的深沉 techno 轰鸣。超过 50% 它就开始占据主导——很适合 breakdown 段落，其他地方则未必。
+        </div>
+      </section>
+
+      <section id="pitch-env">
+        <h2><span class="num">9</span>Pitch Env 音高包络</h2>
+        <p class="lead">击打开始时那一下急速的音高扫动，几乎是每一个鼓声的根本。Pitch Env 页面按引擎分别控制它。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Chromatic 半音</td><td>开／关</td><td>卡片顶部的通栏开关。关闭（默认）= 无论收到什么 MIDI 音符，该引擎都以固定音高发声（经典的鼓行为）。开启 = 该引擎按半音跟踪传入的 MIDI（每个音一个半音）。</td></tr>
+            <tr><td>Time</td><td>1–500 毫秒（Pluck 为 0–250 毫秒）</td><td>音高多快到达它的静止频率——也就是扫动时间。</td></tr>
+            <tr><td>Mode env / Drop</td><td>随引擎而定</td><td>依引擎而异的音色包络。按引擎重新命名：例如 Analog Kick 的「Drop」（扫动最终落点，最低到 Tune 以下两个八度）、FM 的「FM Dec」、Fold 的「Fold Dec」、Resonant 的「Ring」/「Shell Dec」。</td></tr>
+            <tr><td>Curve</td><td>0–100%</td><td>音高扫动的形状（指数 ↔ 对数）。在 Pluck 上重命名为 <strong>Depth</strong>（扫动幅度），在 Clap 上为 <strong>Droop</strong>（逐次触发的音高漂移），在 FM Kick 上为 <strong>Sub</strong>（低频正弦的混合量）。</td></tr>
+            <tr><td>Pickup <em>（仅 Pluck）</em></td><td>关 / 0–100%</td><td>作用于弦输出的拾音点梳状滤波。0 = 明亮（靠琴桥）；中间 = 空心 / 木质；满值 = 一个很深的基频陷波。</td></tr>
+            <tr><td>Oct</td><td>−3 到 +3</td><td>八度移调（整八度，滑块带卡点）。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="body">
+        <h2><span class="num">10</span>Body 鼓身</h2>
+        <p class="lead">一个逐引擎的峰值 EQ，位于每个引擎的振荡器与它的主滤波器之间。它补上了纯正弦鼓声通常欠缺的那股「鼓身冲击力」——在 Kick 与 Tom 上效果最显著。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>—</td><td>为这个引擎启用鼓身峰值。默认关闭。</td></tr>
+            <tr><td>Freq</td><td>40–3000 Hz</td><td>鼓身共振的中心频率。</td></tr>
+            <tr><td>Q</td><td>0.5–8</td><td>峰的宽度——从宽阔的温暖感到尖锐聚焦的凸起。</td></tr>
+            <tr><td>Amount</td><td>0–100%</td><td>提升量（最高约 12 dB）。</td></tr>
+            <tr><td>Mod</td><td>0–100%</td><td>包络调制——峰值在触发时起始更高，并在扫动时间内衰减回 Freq，形成专业底鼓合成器那种「鼓身啾声」。</td></tr>
+          </tbody>
+        </table>
+        <p>Kick 的典型设置：Freq 60–90 Hz，Q 2–4，Amount 40–70%。切换到 Snare 或 Tom 时，默认 Freq 会移到该音色合适的中心（Snare 约 200 Hz，Tom 约 150 Hz）——除非你已经自定义过它。</p>
+      </section>
+
+      <section id="filter">
+        <h2><span class="num">11</span>Filter 滤波器</h2>
+        <p class="lead">一个逐引擎的多模式滤波器，具备八种类型与自己的包络。每个引擎都有独立的滤波器和独立的 ON/OFF 开关。</p>
+        <h3>滤波器类型</h3>
+        <table class="param-table">
+          <thead><tr><th>类型</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td>LP 6</td><td>低通，温和的 6 dB/八度。细微的高频滚降。</td></tr>
+            <tr><td>LP 12</td><td>低通，12 dB/八度。标准的温暖、有音乐性的合成器低通。</td></tr>
+            <tr><td>LP 18</td><td>低通，18 dB/八度。更陡峭、更明显。</td></tr>
+            <tr><td>LP 24</td><td>低通，24 dB/八度。凶悍的 Moog 式梯形斜率。</td></tr>
+            <tr><td>BP</td><td>带通。只通过一段窄带；很适合分离出某个音调区域。</td></tr>
+            <tr><td>Notch</td><td>切掉一段窄带，其余全部通过。空心的、类似相位的性格。</td></tr>
+            <tr><td>HP</td><td>高通。把某一层削薄，让它坐在其他层之上。</td></tr>
+            <tr><td>Fmt</td><td>共振峰。类似元音的共振，带来人声般的质感。</td></tr>
+          </tbody>
+        </table>
+        <h3>滤波器参数</h3>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Cutoff</td><td>20–8000 Hz</td><td>滤波器的转折频率。</td></tr>
+            <tr><td>Reso</td><td>0–100%</td><td>截止频率处的共振 / 强调。</td></tr>
+            <tr><td>Env</td><td>−100% 到 +100%</td><td>双极性的滤波器包络量。正值在击打时打开截止频率再落回（经典的动态）；负值则反过来，击打时关闭、衰减时打开。0 处有中心卡点。</td></tr>
+            <tr><td>Decay</td><td>10–2000 毫秒</td><td>滤波器包络多快回到基础截止频率。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>负的 Env 在鼓上尤其有用。</strong>它能给你收拢式的滤波扫动、共振下滑的啾声、一个随衰减逐渐显露鼓身的高通，以及拨弦上的自动哇音。
+        </div>
+      </section>
+
+      <section id="lfos">
+        <h2><span class="num">12</span>LFO（Cut / Pitch / Char）</h2>
+        <p class="lead">Bruno 为每个引擎提供三个独立的 LFO——四个引擎合计十二个。它们共用同一套控件布局，所以学会一个就等于学会了三个。</p>
+        <table class="param-table">
+          <thead><tr><th>LFO 页面</th><th>目标</th><th>效果</th></tr></thead>
+          <tbody>
+            <tr><td>Cut LFO</td><td>滤波器截止频率</td><td>有节奏或不断演进的滤波扫动。</td></tr>
+            <tr><td>Pitch LFO</td><td>Tune 频率</td><td>揉音、音高摇摆、警笛效果。</td></tr>
+            <tr><td>Char LFO</td><td>Character 参数</td><td>音色的动态化（依引擎不同，作用于扫动 / FM 深度 / 折叠 / 共振）。</td></tr>
+          </tbody>
+        </table>
+        <h3>LFO 的通用控件</h3>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>为这个引擎启用该 LFO。</td></tr>
+            <tr><td>Waveform 波形</td><td>Sine、Triangle、Saw（瞬间上升、线性下降）、Ramp（线性上升、瞬间下落）或 Square。</td></tr>
+            <tr><td>SYNC</td><td>把速率锁定到宿主速度。此时 Rate 滑块选择的是音乐时值（1/64 一直到 4 小节，含三连音与附点）。</td></tr>
+            <tr><td>GATE</td><td>开启 = LFO 相位在每个音符上重置，因此每一次击打的调制形状都完全相同（对稳定的鼓声至关重要）。关闭 = LFO 自由运行，每次击打都会撞上它的不同位置。</td></tr>
+            <tr><td>Rate</td><td>未同步且未门限时为自由速率（0.1–20 Hz）；开启 SYNC 时为音乐时值；在 GATE 模式下最高可达 0.1–100 Hz，因为逐击打的 LFO 往往需要很快的速率，才能在短促的衰减内走完一个有用的形状。</td></tr>
+            <tr><td>Range</td><td>一个双手柄滑块，设定调制的上下界。两个手柄之间填充的区域就是实际的调制深度；两者相等则没有调制。</td></tr>
+            <tr><td>Phase</td><td>起始相位（0–360°），在 0/90/180/270° 处有卡点。在 GATE 模式下，它决定每个音符从周期的哪个位置开始；否则它就是一个恒定的偏移量，很适合让某个引擎的 LFO 与另一个引擎的错开。</td></tr>
+          </tbody>
+        </table>
+        <p>这些 LFO 以乘法方式进行调制——Cut LFO 乘以截止频率，Pitch LFO 乘以音高，Char LFO 乘以由 Character 推导出的数值。</p>
+      </section>
+
+      <section id="compressor">
+        <h2><span class="num">13</span>Compressor 压缩器</h2>
+        <p class="lead">一个逐引擎的压缩器，用于独立塑造每一个合成层——可以压住尖锐的 FM 瞬态而不压扁 Analog 的低频，或者为 Resonant 层增加延续感而不让整个混音抽吸。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>ON / OFF</td><td>—</td><td>为这个引擎启用压缩器。</td></tr>
+            <tr><td>Thresh</td><td>−60 到 0 dB</td><td>超过这个电平就开始压缩。</td></tr>
+            <tr><td>Ratio</td><td>1:1 到 20:1</td><td>阈值以上的信号被削减得有多坚决。</td></tr>
+            <tr><td>Attack</td><td>0.1–100 毫秒</td><td>反应有多快。快速能抓住瞬态；慢一些则让最初的击打先透出来。</td></tr>
+            <tr><td>Release</td><td>5–500 毫秒</td><td>信号回落之后恢复得有多快。</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>并联压缩的混合比例——在不扼杀自然动态的前提下增加冲击力，这是首选做法。</td></tr>
+          </tbody>
+        </table>
+        <p>一个实时的 <strong>GR 表</strong>以 dB 显示增益衰减。压缩器位于每个引擎链路中滤波器之后。</p>
+        <div class="callout tip">
+          <strong>经典的鼓压缩：</strong>快启动（1–5 毫秒）、中等释放（50–100 毫秒）、中等压缩比（4:1），Mix 在 50–70% 左右做并联的冲击力。
+        </div>
+      </section>
+
+      <section id="drive">
+        <h2><span class="num">14</span>Drive 过载</h2>
+        <p class="lead">逐引擎的饱和与失真，提供四种可切换的类型。每个引擎独立过载。非线性级经过过采样，因此较狠的类型也能保持干净，而不会混叠成数字的滋滋声。</p>
+        <h3>过载类型</h3>
+        <table class="param-table">
+          <thead><tr><th>类型</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td>Soft</td><td>温暖、平滑的饱和。适合给干净的正弦底鼓加温，或为 FM 增添鼓身。</td></tr>
+            <tr><td>Hard</td><td>砖墙式削波——带咬合感的高次谐波。响度与 Soft 做过匹配，所以切换改变的是性格，而不是音量。</td></tr>
+            <tr><td>Crush</td><td>位深削减，可选采样率降采样（通过 Bias 控制）。lo-fi / 老式采样机的美学。</td></tr>
+            <tr><td>Fold</td><td>对完整信号做合成后的波形折叠——可以在任何引擎上得到金属般、铃铛般的泛音。</td></tr>
+          </tbody>
+        </table>
+        <h3>参数</h3>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Drive</td><td>0–100%</td><td>强度。经过电平补偿，所以在整个行程中响度大致保持恒定。</td></tr>
+            <tr><td>Tone</td><td>0–100%</td><td>围绕约 1 kHz 的倾斜 EQ。50% 为平直；往下变暗，往上变亮（两端约 ±4 dB）。</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>干／湿比例，用于并联失真。</td></tr>
+            <tr><td>Bias</td><td>0–100%</td><td>随信号变化的不对称饱和——加入随击打力度增长的偶次谐波（击打时的低吼）。在 Crush 模式下，它被改作采样率降采样器。</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="delay">
+        <h2><span class="num">15</span>Delay 延迟</h2>
+        <p class="lead">逐引擎的延迟，提供四种各具性格的类型。为不同引擎设定不同的延迟时间，可以让各层之间产生节奏上的分离。</p>
+        <table class="param-table">
+          <thead><tr><th>类型</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td>Digital</td><td>干净、精确的重复，带轻微的音色倾斜。最适合紧凑的节奏效果与装饰音（flam）加厚。</td></tr>
+            <tr><td>BBD</td><td>斗链式器件模拟——温暖、涂抹、带轻微调制，像经典的模拟鼓机。</td></tr>
+            <tr><td>Tape</td><td>磁带回声，带抖晃与柔和饱和。有机而鲜活；每一次重复都略有不同。</td></tr>
+            <tr><td>Spring</td><td>金属感、带共振的弹簧性格，伴有飞溅般的「嘣」声。用在军鼓与踩镲上很适合 dub 风味。</td></tr>
+          </tbody>
+        </table>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>SYNC</td><td>开／关</td><td>把 Time 从毫秒切换为音乐时值（1/64 一直到 4 小节）。</td></tr>
+            <tr><td>Time</td><td>5–2000 毫秒或时值</td><td>延迟时间。</td></tr>
+            <tr><td>Feedback</td><td>0–95%</td><td>有多少延迟信号被送回——重复次数更多。</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>干／湿比例。</td></tr>
+            <tr><td>Tone</td><td>0–100%</td><td>反馈与输出的性格——数值越高越亮、越金属。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>试试短促、干爽的装饰音。</strong>只在 FM 引擎上用 5–30 毫秒、零反馈的延迟（让 Analog 保持干净），能把一次击打加厚成一个 flam，而不会把它洗糊。10–20 毫秒的 Spring 配高反馈，与 Resonant 引擎搭配起来非常漂亮。
+        </div>
+      </section>
+
+      <section id="eq">
+        <h2><span class="num">16</span>EQ 均衡</h2>
+        <p class="lead">一个逐引擎的三段参量 EQ——它是每个引擎链路的最后一级，位于 Delay 之后、四个引擎求和之前。放在最后意味着它能抓住一切，包括 Drive 增加的谐波与 Delay 增加的重复。</p>
+        <table class="param-table">
+          <thead><tr><th>频段</th><th>类型</th><th>范围</th></tr></thead>
+          <tbody>
+            <tr><td>Low 低频</td><td>搁架式，固定 150 Hz</td><td>±12 dB</td></tr>
+            <tr><td>Mid 中频</td><td>钟形，可变 200 Hz–5 kHz，Q 0.3–8.0</td><td>±12 dB</td></tr>
+            <tr><td>High 高频</td><td>搁架式，固定 6 kHz</td><td>±12 dB</td></tr>
+          </tbody>
+        </table>
+        <p>五个滑块分别是 Low、Mid Freq、Mid Q、Mid Gain 与 High。较宽的 Mid Q（1.0 左右）比较有音乐性；4.0 以上则是外科手术式的，用来清除 350 Hz 或 700 Hz 附近窄区的浑浊。每个引擎还有一行六个音色专属的一键预设（例如 Kick：Flat / Sub / Body / Punch / De-Mud / Cut Lows）。它们会把滑块吸附到一个起点，你可以在此基础上继续调整；没有任何东西会被锁死。</p>
+        <div class="callout tip">
+          <strong>叠层而不浑浊。</strong>在引擎 2–4 上以较窄的 Q 在 350 Hz 处削掉几个 dB，为 Kick 的鼓身腾出空间；并对点击 / 空气层做高通，别让它们也去堆低频。点「Flat」（或 ON/OFF 开关）就能与改动前做 A/B 对比。
+        </div>
+      </section>
+
+      <section id="master">
+        <h2><span class="num">17</span>Master 页面</h2>
+        <p class="lead">Master 页面把四个引擎求和后的输出，从左到右依次送过六个区块。它改编自 Marco 的主控链路，并为打击乐做了调校。</p>
+        <figure class="manual-figure">
+          <img src="../images/bruno-mastertab.png" alt="Bruno 的 Master 页面——从左到右六个全局区块：Saturation、Compressor、Transient Shaper、Reverb、Stereo 与 Limiter，每个都带有一个绿色魔棒微调与 ON 开关。">
+          <figcaption>Master 页面：四个引擎求和后的输出依次经过 Saturation、Compressor、Transient Shaper、Reverb、Stereo 与 Limiter。</figcaption>
+        </figure>
+        <div class="callout">
+          <strong>Master 信号链：</strong>Saturation → Compressor → Transient Shaper → Reverb → Stereo → Limiter。
+        </div>
+        <p>除了始终启用的 Stereo 之外，每个区块都有自己的 ON/OFF 开关和自己的绿色 Tweak 魔棒。</p>
+
+        <h3 id="master-sat">17.1 Saturation 饱和</h3>
+        <p>作用于求和输出的过采样饱和器——它增添谐波的分量，把四个引擎黏合成一套有凝聚力的鼓组。四种模拟建模类型，各有各的味道：</p>
+        <table class="param-table">
+          <thead><tr><th>类型</th><th>特性</th><th>什么时候用它……</th></tr></thead>
+          <tbody>
+            <tr><td>Tape</td><td>平滑、温暖、透明。</td><td>你只是想给整套鼓组一点温和的黏合与凝聚感——最稳妥的默认选择。</td></tr>
+            <tr><td>Tube</td><td>不对称，富含偶次谐波。</td><td>为底鼓与嗵鼓为主的素材增添分量与暖意，或让单薄的鼓身厚起来。</td></tr>
+            <tr><td>XFM</td><td>变压器风格，有动态、有「生命感」。</td><td>你想在繁忙的多层节奏型上得到流动感与复古性格。</td></tr>
+            <tr><td>Tran</td><td>晶体管——阈值以下干净，以上则有力而粗粝。</td><td>在 techno 或工业风鼓上追求凶悍、扑面而来的过载。</td></tr>
+          </tbody>
+        </table>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Drive</td><td>0–100%</td><td>饱和强度——信号被推入非线性区的力度。</td></tr>
+            <tr><td>Tone</td><td>±12 dB</td><td>1 kHz 处的倾斜 EQ。低于中点变暗，高于中点变亮——用它来抵消过载可能带来的沉闷。</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>饱和信号与干信号的并联混合。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>从哪里开始。</strong>先用 <strong>Tape</strong>，Drive 设在 15–30% 左右，Mix 接近 50%——足以听到鼓组变厚、变紧，又不会有明显的失真。想要更多低频分量？换成 <strong>Tube</strong>。为 techno 或工业风追求颗粒感？用 <strong>Tran</strong> 配更高的 Drive。重度饱和会让低频膨胀、混音变糊，所以多依靠 <strong>Mix</strong> 做并联饱和以保住瞬态；如果鼓组变浑浊，就把 <strong>Tone</strong> 往上推一点。
+        </div>
+
+        <h3 id="master-comp">17.2 Compressor 压缩器</h3>
+        <p>一个采用 RMS 检测、软拐点的压缩器，专为求和后的打击乐而造。RMS 检测响应的是多层鼓声的整体能量，而不是个别尖峰；双段释放会在重度增益衰减下自动延长，以避免抽吸。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Thresh</td><td>超过这个电平就开始压缩。把它往下调，直到 GR 表在最响的击打上显示出几格的动作。</td></tr>
+            <tr><td>Ratio</td><td>阈值以上的信号被削减得有多坚决——温和用于黏合，强硬则得到明显的抽吸感。</td></tr>
+            <tr><td>Atk</td><td>多快压下去。较慢的启动会让最初的瞬态在压缩器抓住之前先冲出来。</td></tr>
+            <tr><td>Rel</td><td>多快恢复。双段释放会在重度衰减下自动延长，以避免抽吸。</td></tr>
+            <tr><td>AUTO GAIN</td><td>自动补偿增益——把压缩后的输出重新匹配上去，让你判断的是音色而不只是音量。</td></tr>
+          </tbody>
+        </table>
+        <p>一个 <strong>GR 表</strong>显示增益衰减。</p>
+        <div class="callout tip">
+          <strong>要黏合，不要压垮。</strong>做总线凝聚时，请从温和开始：较低的压缩比（2:1–3:1 左右）、中到慢的启动以保住瞬态的干脆、中等的释放，然后把阈值往下调，直到 GR 表在最响的击打上只读到 2–3 格。打开 <strong>AUTO GAIN</strong>，这样你判断的是音色而不是响度。想要更有能量的、「抽吸感」更强的总线，就提高压缩比，推到 4–6 格的衰减——但如果它开始在击打之间明显呼吸，就把阈值收回来一些，让自动释放去做这件事。
+        </div>
+
+        <h3 id="master-transient">17.3 Transient Shaper 瞬态塑形器</h3>
+        <p>一个与电平无关的处理器，它把信号拆成起音与延音两部分，让你分别提升或削减。<strong>SPLIT</strong> 模式（默认开启）在 250 Hz 处分频，使低频原样通过，只有点击 / 脆响部分被塑形——想在不削波低频的前提下增强底鼓的起音，这一点至关重要。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Attack</td><td>−100% 到 +100%</td><td>提升（力度、脆响）或削减（更柔和的击打）瞬态。</td></tr>
+            <tr><td>Sustn</td><td>−100% 到 +100%</td><td>提升（鼓身、余韵）或削减（更紧的衰减）延音部分。</td></tr>
+            <tr><td>Sens</td><td>0–100%</td><td>它区分起音与延音的果断程度。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>加脆响，或者收紧尾音。</strong>想要更多力度，把 <strong>Attack</strong> 推到 +20–40%，<strong>Sustn</strong> 不动——开着 SPLIT，点击会变锐利而低频保持完整。想收紧过于轰隆或过长的鼓，把 <strong>Sustn</strong> 拉到 −20–50%，得到更干、更受控的击打。当你想要现代的、干脆的近距离拾音质感时，两者同时用——Attack 上、Sustn 下。如果塑形抓错了击打中的部位，就调高 <strong>Sens</strong> 让它更果断地跟踪瞬态；如果轻的击打听起来处理过度，就把它调低。这个效果一点点就很明显，所以请小步调整。
+        </div>
+
+        <h3 id="master-reverb">17.4 Reverb 混响</h3>
+        <p>一个 8 线反馈延迟网络混响，输入端带有打击乐专用的低切。四个阻尼预设——<strong>DARK</strong>、<strong>WARM</strong>（默认）、<strong>CLR</strong>、<strong>BRGT</strong>——决定尾音的明亮度。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Decay</td><td>0–100%</td><td>混响持续鸣响多久。</td></tr>
+            <tr><td>Size</td><td>0.2×–2.0×</td><td>房间大小。越大越开阔。</td></tr>
+            <tr><td>PrDly</td><td>0–100 毫秒</td><td>预延迟——把干的击打与混响的弥散分开，保住冲击力。</td></tr>
+            <tr><td>Mix</td><td>0–100%</td><td>叠加在始终存在的干信号之上的湿信号电平。</td></tr>
+            <tr><td>LoCut</td><td>20–500 Hz</td><td>对混响输入做高通。在底鼓上设到 150–300 Hz，可以让低频保持干爽，同时点击与鼓身获得空间感——这是打击乐最关键的一个控件。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>做鼓的混响时，预延迟是你的朋友。</strong>哪怕只有 10–25 毫秒把干的击打与混响的起始分开，对清晰度的改善也是巨大的。
+        </div>
+
+        <h3 id="master-stereo">17.5 Stereo 立体声</h3>
+        <p>一个全通去相关的展宽器，带低频单声道分频——这对打击乐至关重要，因为底鼓的低频必须保持居中以适应俱乐部 / 扩声播放，而点击、鼓身与踩镲则可以展开。</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>范围</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Width</td><td>0–100%</td><td>立体声展开。0% 是纯单声道。</td></tr>
+            <tr><td>Xover</td><td>20–500 Hz</td><td>低于这个频率的部分被合并为单声道；高于它的部分展开。</td></tr>
+            <tr><td>B.MON</td><td>按钮</td><td>一键低频单声道：把 Xover 吸附到 200 Hz（启用）或 20 Hz（关闭）。用来做 A/B 很方便。</td></tr>
+            <tr><td>SAFE</td><td>开／关</td><td>单声道兼容——把侧信号降低 40%，让混音在单声道播放时也能良好还原。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-limiter">17.6 Limiter 限制器</h3>
+        <p>一个零延迟的砖墙限制器——输出前的最后一级。它在峰值出现的同一个采样点上就把它拦下，所以不引入任何延迟。控件有：<strong>Ceil</strong>（−12 到 0 dB 的最大输出）与 <strong>Rel</strong>（1–500 毫秒释放）。一个 GR 表显示它工作得有多辛苦。</p>
+        <div class="callout note">
+          <strong>让 GR 表指引你。</strong>如果限制器的表一直亮着，说明输入太热了——请把 Gain 滑块或各个引擎的音量拉下来，而不是指望限制器包办一切。
+        </div>
+      </section>
+
+      <section id="presets">
+        <h2><span class="num">18</span>预设</h2>
+        <p class="lead">Bruno 内置一套精选的工厂预设库，并完整支持保存、整理与分享你自己的声音。一个预设会记录四个引擎的完整状态，外加音色类型。</p>
+        <h3>预设类别</h3>
+        <ul>
+          <li><strong>Signature</strong>——手工精选的一组代表性音色，展示 Bruno 的招牌功能，以及每种音色下最好听的鼓。在浏览器中以金色标示。</li>
+          <li><strong>All</strong>——预设库里的全部预设。</li>
+          <li><strong>Artists</strong>——由客座与特邀艺术家制作的预设。</li>
+          <li><strong>Favourites</strong>——所有你标了星的预设。</li>
+          <li><strong>Basic</strong>——干净的、初始化风格的预设，作为从零构建声音的起点。</li>
+          <li>按音色划分的工厂类别——<strong>Kick</strong>、<strong>Snare</strong>、<strong>Hat</strong>、<strong>Clap</strong>、<strong>Tom</strong> 与 <strong>Pluck</strong>——按鼓的类型与性格组织。</li>
+          <li><strong>FX</strong>——跳出六种核心鼓音色之外的声音设计与效果预设：上升音、扫动、撞击、噪音击打与织体。</li>
+          <li><strong>User</strong>——你自己保存的预设。</li>
+        </ul>
+        <h3>预设浏览器</h3>
+        <p>点击标题栏里的预设名称即可打开浏览器。类别在左，名称在右；点星号收藏，点名称载入。当你编辑过当前预设后，它的名称会显示一个星号（<span class="ui">*</span>）。你也可以不打开浏览器，直接用标题栏里的 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头逐个切换预设。</p>
+        <figure class="manual-figure">
+          <img src="../images/bruno-presetbrowser.png" alt="Bruno 的预设浏览器——左侧是类别列表（Signature、All、Artists、Favourites、Basic 以及带数量的各音色类别），右侧是可滚动的预设列表，含收藏星标与半音预设上的紫色 C 徽标，顶部横排 Import、Save 与 Save New 按钮。">
+          <figcaption>预设浏览器：类别在左，预设在右。点某一行的星号收藏，点名称载入，顶部有 Import / Save / Save New。</figcaption>
+        </figure>
+        <h3>Chromatic <span class="c-badge">C</span> 徽标</h3>
+        <p>任何用<strong>半音</strong>（音高跟踪）引擎构建的预设，都会带有一个小小的紫色 <span class="c-badge">C</span> 徽标——浏览器里它所在的那一行上有，标题栏名称旁边也有。这是快速识别哪些声音可以在键盘上或通过 MIDI <em>演奏旋律</em>的方法，以区别于那些永远以固定音高发声的鼓。只要四个引擎中任何一个开启了 <strong>Chromatic</strong> 开关（参见 <a href="#pitch-env">9. Pitch Env 音高包络</a>），该预设就算作半音预设——无论那个引擎当前是否启用。</p>
+        <p>标题栏的徽标是实时的：在 Pitch Env 页面切换 Chromatic，<span class="c-badge">C</span> 会立即出现或消失，就和表示已编辑的星号一样。</p>
+        <h3>导入与导出</h3>
+        <p>预设以很小的 JSON 文件形式导出与导入，因此你可以在设备之间搬运声音，或分享给其他用户——参见 <a href="#sharing">24. 分享预设</a>。</p>
+      </section>
+
+      <section id="random">
+        <h2><span class="num">19</span>随机预设生成器</h2>
+        <p class="lead">Bruno 的随机化是有音乐性的，不是混乱的。它围绕<em>美丽的意外与可发现性</em>设计——每一次掷出都应该给出一件你真正用得上的鼓，同时依然让你意外。Bruno 知道底鼓活在 35–80 Hz，踩镲在 4–10 kHz，军鼓的鼓身峰值该在 200 Hz 附近，而一条干净的轰鸣尾音不会超过一秒，它会让每一次掷出都偏向这些有音乐意义的范围。</p>
+        <p>每一次 <strong>Generate</strong> 都结合两样东西：一个 <strong>Style</strong> 风格（Mild / Wild / Recipe，任选）和一个 <strong>Base Preset Source</strong> 基础预设来源（从哪个类别取材）。同一个面板里还住着 <strong>Tweak</strong> 系统，它的引擎与参数开关让你在当前听到的声音上做变化，而不是掷一个新的。</p>
+        <figure class="manual-figure">
+          <img src="../images/bruno-randomgen.png" alt="Bruno 的随机预设生成器面板——Style 风格胶囊（Mild、Wild、Recipe）、Chromatic 覆盖开关、Base Preset Source 类别网格、带历史箭头的 Generate 按钮，以及下方 Tweak 系统的引擎与参数开关。">
+          <figcaption>随机预设生成器：顶部是 Style 与 Chromatic，中间是驱动 Generate 的 Base Preset Source 网格，下方是 Tweak 系统的引擎与参数开关。</figcaption>
+        </figure>
+
+        <h3 id="rpg-styles">19.1 风格 — Mild、Wild 与 Recipe</h3>
+        <p>面板顶部的三个 <strong>Style</strong> 风格胶囊决定每一次掷出<em>如何</em>构建。它们是<strong>多选</strong>的——启用任意组合，每按一次 Generate（或骰子），系统就会在你启用的风格中随机挑一个用于这次掷出。</p>
+        <table class="param-table">
+          <thead><tr><th>风格</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Mild 温和</td><td>从基础预设来源生成，数值保持在它附近——变化更小、更不极端。</td></tr>
+            <tr><td>Wild 狂野</td><td>同样从基础预设来源生成，但把数值推得远得多，得到更大、更宽的变化。</td></tr>
+            <tr><td>Recipe 配方</td><td>把一个精选的鼓音色原型（例如「Punchy Sub Kick」「Trap Snap」）盖印到一个基础预设上——这是最连贯、最能开箱即用的风格。</td></tr>
+          </tbody>
+        </table>
+        <p>启用一个以上风格时，Bruno 会为每次掷出随机挑一个——所以「Mild + Recipe」会在「策展结果」与「温和变异」之间交替。一个都不选，等同于三个全选。</p>
+        <div class="callout note">
+          <strong>Recipe 并非在所有地方都可用。</strong>配方是为各音色类别（<strong>Kick、Snare、Hat、Clap、Tom、Pluck</strong>）以及 <strong>All</strong>、<strong>Signature</strong> 与 <strong>FX</strong> 策划的。其他类别——<strong>User、Favourites、Artists</strong> 与 <strong>Basic</strong>——没有配方（它们的重点是在你自己的或精选的声音上做变化），因此 Recipe 胶囊在那里会<strong>变暗</strong>，掷出时会退回到 Mild 或 Wild。
+        </div>
+        <div class="callout tip">
+          <strong>不确定该用哪个？</strong>三个都开着就好。随时点击面板标题栏里的 <span class="ui">?</span> 按钮，就能在应用内看到关于风格、多选行为与来源类别的说明。
+        </div>
+
+        <h3 id="rpg-systems">19.2 三种随机方式</h3>
+        <p>风格管的是 <strong>Generate</strong>，但 Bruno 有三个不同的随机化入口，各自适合声音设计的不同阶段：</p>
+        <table class="param-table">
+          <thead><tr><th>系统</th><th>位置</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Generate</td><td>面板里的 Generate 按钮，或 Master Strip 上的 🎲 骰子</td><td>掷出一个全新的声音，使用你当前生效的 <strong>Style</strong>（见 <a href="#rpg-styles">19.1 风格</a>）与所选类别。产出的是一件全新的鼓，但仍属于你选定的那个类别。Master Strip 的骰子与面板的 Generate 按钮做的是完全相同的事。</td></tr>
+            <tr><td>Tweak</td><td>面板里的 Tweak 按钮</td><td>让<strong>当前载入的声音</strong>发生变异，只影响你勾选的引擎与参数组，强度由 <a href="#tweak-amount">Tweak Amount</a> 滑块设定。让一个音色演进，而不会失去它。</td></tr>
+            <tr><td>逐引擎骰子 / 魔棒</td><td>每张引擎卡片上</td><td>只重掷一个引擎——在 Engines 页面上是卡片骰子，在其他页面上是逐页面的魔棒。紧凑、外科手术式地只改动那个引擎在那个页面上的控件。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="rpg-opening">19.3 打开面板与工具栏骰子</h3>
+        <ul>
+          <li>标题栏里的<strong>随机面板按钮</strong>——按钮上标着当前的基础预设来源。点击它打开随机预设生成器，Generate 按钮、Tweak 按钮、风格胶囊和所有定向开关都在那里。面板标题栏里还有一个 <span class="ui">?</span> 提示按钮，说明生成器的工作方式。</li>
+          <li>Master Strip 里的 <strong>🎲 骰子按钮</strong>——一键快捷方式，直接用你当前的设置执行 Generate，不打开面板。它两侧是历史箭头（参见 <a href="#rpg-history">19.10 随机预设历史</a>）。</li>
+        </ul>
+
+        <h4 id="dice-label">骰子标签</h4>
+        <p>Master Strip 骰子下方有一行实时小字，以 <span class="ui">Category.Styles-Chromatic</span> 的形式告诉你<em>下一次</em>掷出会产生什么：</p>
+        <ul>
+          <li><strong>类别</strong>就是你当前生效的基础预设来源。较长的名称会缩写：Favourites → <span class="ui">Favs</span>，Signature → <span class="ui">Sig</span>，Artists → <span class="ui">Art</span>；其余照全称显示。</li>
+          <li><strong>点号后缀</strong>编码的是哪些风格被启用：<span class="ui">M</span> = Mild，<span class="ui">W</span> = Wild，<span class="ui">R</span> = Recipe。只有一个字母意味着只会触发那一种风格；多个字母的组合意味着任何一种都可能在某次掷出时触发。</li>
+          <li><strong>连字符后缀</strong>编码的是 <a href="#rpg-chromatic">Chromatic</a> 覆盖设置：<span class="ui">-NC</span> = 非半音（固定音高的鼓），<span class="ui">-C</span> = 半音（音高跟踪），<span class="ui">-R</span> = 随机的半音状态（每次掷出各自决定）。</li>
+        </ul>
+        <p>所以 <span class="ui">Kick.MR-C</span> 表示「Kick 类别，在 Mild 与 Recipe 之间交替掷出，全部为半音」，而 <span class="ui">Favs.MWR-NC</span> 表示「Favourites，任意风格，固定音高」。只要你更改来源类别、风格选择或 Chromatic 覆盖设置，这个标签就会立刻更新。</p>
+
+        <h3 id="rpg-chromatic">19.4 Chromatic 半音模式</h3>
+        <p>一个 <strong>Chromatic</strong> 覆盖开关决定新的声音是否跟踪 MIDI 音高，它对 Generate 与 Tweak 都起作用。打开它，掷出的声音就能在键盘上演奏旋律（并带有紫色的 <span class="c-badge">C</span> 徽标）；关着它，它们就保持为固定音高的鼓。它是 <a href="#pitch-env">Pitch Env</a> 页面上逐引擎 Chromatic 开关在随机器里的对应物（参见 <a href="#pitch-env">9. Pitch Env 音高包络</a>）。</p>
+
+        <h3 id="rpg-source">19.5 基础预设来源</h3>
+        <p>Base Preset Source 网格选择的是：当 Generate 掷出新声音时，Bruno 从哪个类别汲取灵感。可选任何按音色划分的类别（<strong>Kick、Snare、Hat、Clap、Tom、Pluck</strong>）、精选的 <strong>Signature</strong> 与 <strong>Artists</strong> 集合、<strong>FX</strong> 与 <strong>Basic</strong> 集合，以及 <strong>All</strong>、<strong>Favourites</strong> 和 <strong>User</strong>。如果所选类别是空的，它会安静地退回到 <strong>All</strong>。</p>
+        <p>每个类别不只是基础预设的筛选条件——它还会影响 Generate <em>如何</em>构建这个声音。参见下方 <a href="#rpg-category-modes">19.8 各类别的行为</a>。</p>
+
+        <h3 id="rpg-targeting">19.6 引擎与参数定向</h3>
+        <p>只有 <strong>Tweak</strong> 会遵循这两组开关——Generate 会忽略它们，永远掷出一个完整的新预设：</p>
+        <ul>
+          <li><strong>引擎</strong>——选择 Tweak 可以改动四个引擎（<span class="eng-tag analog">Analog</span> <span class="eng-tag fm">FM</span> <span class="eng-tag fold">Fold</span> <span class="eng-tag reso">Resonant</span>）中的哪几个。取消勾选某个引擎，它就保持不动——例如在微调其他三个时，让扎实的 Analog 低频保持稳定。</li>
+          <li><strong>参数</strong>——控制 Tweak 可以改动哪些参数组，与各页面一一对应：核心音色、Pitch Env、Vol Env、Body、Filter、Cut / Pitch / Char 三个 LFO、Compressor、Drive、Delay 与 EQ。取消勾选某一组即可保护它。</li>
+        </ul>
+        <p>用 <strong>None</strong> 链接可以全部清空，然后只启用你感兴趣的那些引擎与参数。</p>
+
+        <h3 id="tweak-amount">19.7 Tweak Amount 微调幅度</h3>
+        <p>定向开关下方是 <strong>Tweak Amount</strong> 滑块。Tweak 是一次<em>轻推</em>，不是重掷——每按一次，当前数值都朝着一次全新掷出的结果移动一小段，而这个滑块决定这一小段有多大。向左滑做极细微的打磨，向右滑做大胆的转变。拖动时，标题旁边的词会说明当前的强度：</p>
+        <table class="param-table">
+          <thead><tr><th>强度</th><th>感受</th></tr></thead>
+          <tbody>
+            <tr><td>Minimal / Subtle 极小 / 细微</td><td>几乎察觉不到的打磨——在不冒险改变性格的前提下，润色一个你已经喜欢的声音。</td></tr>
+            <tr><td>Medium / Default 中等 / 默认</td><td>标准的手感（滑块会吸附回 <span class="ui">Default · 0.45</span>，所以你随时能回到它）。变化清晰可闻，但依然尊重原有的声音。</td></tr>
+            <tr><td>Large / Extra Large / Max 大 / 很大 / 最大</td><td>大胆的转变——每按一次都把声音推到接近全新掷出的程度，但仍保留它的大致轮廓。</td></tr>
+          </tbody>
+        </table>
+        <p>这一个设置管着 Bruno 里的<strong>每一次</strong> Tweak：面板的 Tweak 按钮、每张引擎卡片上的逐页面魔棒，以及 Master 各区块上的绿色魔棒。反复按下会按所选强度累积，所以低幅度让你一次一小步、小心翼翼地把声音推向某个方向，而高幅度只需按一两下就能到达新地方——而且哪怕在最低档，按一下也绝不会毫无变化。这个数值会跨会话记住；在 AUv3 插件中，它还作为一个 AU 参数暴露给宿主，可以自动化或做 MIDI 映射。无论幅度多大，每一步都仍会进入<a href="#rpg-history">随机预设历史</a>，所以你随时可以往回走。</p>
+
+        <h3 id="rpg-category-modes">19.8 各类别的行为（仅 Generate）</h3>
+        <p>在你选定的风格之上，所选类别也会塑造结果。对于 <strong>Mild</strong> 与 <strong>Wild</strong> 风格，生成器会把声音调校得符合该类别；<strong>Recipe</strong> 风格则会取用为该类别构建的原型。每个类别的设计目标都是给出听起来像它的结果——下表说明可以期待什么，方便你有意识地选择。</p>
+        <table class="param-table">
+          <thead><tr><th>类别</th><th>可以期待什么</th></tr></thead>
+          <tbody>
+            <tr><td>Kick / Snare / Hat / Clap / Tom / Pluck</td><td>该音色的一件全新的鼓，并偏向适合它的频率范围、包络与性格。</td></tr>
+            <tr><td>Signature</td><td>每一次掷出都在展示 Bruno 的招牌功能与最好听的鼓。</td></tr>
+            <tr><td>Basic</td><td>干净、初始化风格的结果——一个没有重度处理的简单起点。</td></tr>
+            <tr><td>FX</td><td>在当前 FX 声音上做变化。</td></tr>
+            <tr><td>User / Favourites</td><td>在你自己保存或标星的声音上做变化，而不是给你全新的东西。</td></tr>
+            <tr><td>Artists</td><td>取自客座与特邀艺术家预设的变化。</td></tr>
+            <tr><td>All</td><td>从全部内容中取材，结果的范围最宽。</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>在你自己的声音上做变化。</strong>如果你想要的是某个声音的不同版本、而不是全新的东西，把基础预设来源设为 <strong>User</strong> 或 <strong>Favourites</strong>，然后连点几次 Generate——你会得到某件既有鼓的「兄弟」，而不会丢失它的性格。如果所选类别是空的（还没保存过 User 预设，也还没标过收藏），Bruno 会退回到 <strong>All</strong>。
+        </div>
+
+        <h3 id="rpg-master">19.9 Master 区块与随机化</h3>
+        <div class="callout note">
+          <strong>Generate 不会从零掷出 Master 链路，但 Tweak 系统可以把它作为目标。</strong>一次全新的 Generate 绝不会直接随机化 Saturation、Compressor、Transient Shaper、Reverb、Stereo 与 Limiter——但你随时可以有意识地去微调它们。
+        </div>
+        <p><strong>Generate 会间接改变 Master 链路</strong>：因为它会先载入一个随机的基础预设（再在其上变异音色参数），那个预设的主控链路也就一并带过来了。所以每按一次 Generate，都会带来一种不同的、与声音相配的主控性格——那是与声音一起设计出来的，而不是被随机搅乱的效果。</p>
+        <p><strong>Tweak 可以作用于 Master 页面</strong>，有两种方式：通过随机预设生成器里的 Tweak 区域，或直接点击每个 Master 区块上的绿色魔棒，只微调那一个区块（例如只动 Reverb，不碰 Compressor 或 Saturation）。除此之外，你的 Master 设置会保持你离开时的样子，分毫不动。</p>
+
+        <h3 id="rpg-history">19.10 随机预设历史</h3>
+        <p>随机化本就该被无所顾忌地探索，所以 Bruno 会记住你去过哪里。三个系统的每一个结果都会被推入一个共享的<strong>历史记录</strong>，保存最近 <strong>100</strong> 个声音。骰子两侧（以及 Generate 按钮两侧）的橙色箭头可以在其中前后穿梭；当没有更远的地方可去时，相应的箭头会变暗。往回走绝不会抹掉任何东西——新的掷出只会被追加到末尾。</p>
+        <div class="callout tip">
+          <strong>放心地掷，然后走回去。</strong>为了追一个想法连点十次骰子，然后用后退箭头回到三次之前那个打动你的版本。
+        </div>
+      </section>
+
+      <section id="scope">
+        <h2><span class="num">20</span>Scope 示波器与频谱</h2>
+        <p class="lead">点击 Master Strip 里青色的 Scope 按钮，打开一个包含两个面板的可视化覆盖层。</p>
+        <figure class="manual-figure">
+          <img src="../images/bruno-scope.png" alt="Bruno 的 Scope 覆盖层——上方是显示左（青色）右（粉色）声道的主输出示波器，下方是带有各引擎填充曲线（Analog、FM、Fold、Resonant）与暂停按钮的引擎频谱面板。">
+          <figcaption>Scope 覆盖层：上方是主输出示波器（左青、右粉），下方是逐引擎频谱，用颜色区分，让你看清每一层占据哪个频率范围。</figcaption>
+        </figure>
+        <ul>
+          <li><strong>主输出</strong>——最终左（青色）右（粉色）声道的示波器，采用零交越锁定，共用一条自动缩放的坐标轴。</li>
+          <li><strong>引擎频谱</strong>——对每个已启用引擎的效果前输出做实时 FFT，以该引擎的颜色绘制成一条半透明的填充曲线（Analog 蓝、FM 绿、Fold 橙、Resonant 紫），横跨 20 Hz 到 20 kHz 的对数频率轴。峰值保持平滑会把一瞬即逝的鼓击留在屏幕上足够久，让你读出每一层占据哪个频率范围。</li>
+        </ul>
+        <p>要发现两个引擎互相遮蔽，或者找出混音里没有任何引擎覆盖的空洞，频谱是最快的方法。已停用的引擎会被清空，并在图例中变灰。</p>
+      </section>
+
+      <section id="app-preferences">
+        <h2><span class="num">21</span>应用偏好设置</h2>
+        <p class="lead">应用偏好设置是你控制 Bruno 资源占用与查看版本信息的地方。它分为两个部分：管理 CPU/DSP 负载的<strong>性能设置</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
+
+        <h3>打开应用偏好设置</h3>
+        <p>点击 Master Strip 里的 <span class="ui">⚙️</span> 齿轮图标。应用偏好设置对话框会打开；和示波器、预设浏览器与随机预设生成器一样，它的尺寸可以调整，以适应你屏幕上可用的空间。</p>
+
+        <h3 id="performance-settings">21.1 性能设置</h3>
+        <p>在默认设置下，Bruno 在所有受支持的设备上都能轻松运行。性能设置主要是为 AUv3 宿主场景准备的——因为你要为每条鼓音轨加载一个 Bruno，一整套鼓组可能意味着同时运行多个实例，你可能需要统筹整个工程的 CPU/DSP 负载。</p>
+
+        <h4>混响质量</h4>
+        <p>Master 混响听感上的质量，取决于它的反馈延迟网络内部并行运行了多少条延迟线。线数越多 = 尾音越密实、越平滑。线数越少 = CPU 负担越轻。</p>
+        <table class="param-table">
+          <thead><tr><th>设置</th><th>内部延迟线</th><th>特性</th></tr></thead>
+          <tbody>
+            <tr><td>Off</td><td>0（旁通）</td><td>没有混响。最大限度节省 CPU。</td></tr>
+            <tr><td>Light</td><td>2</td><td>Lo-fi、有颗粒感的混响。CPU 占用极低。</td></tr>
+            <tr><td>Standard</td><td>4</td><td>均衡的混响质量。CPU 占用中等。</td></tr>
+            <tr><td>Full</td><td>8</td><td>最高质量的混响。<strong>默认值。</strong></td></tr>
+          </tbody>
+        </table>
+        <p>默认是 <strong>Full</strong>——也就是 <a href="#master-reverb">17.4 Reverb 混响</a>中描述的 8 线网络。只有当你想在繁忙的 AUv3 工程里抠回一些 CPU，或者你特意想要更稀疏混响的那种质感时，才去用更低的档位。</p>
+
+        <h3 id="app-information">21.2 应用信息</h3>
+        <p>应用偏好设置里的「应用信息」部分告诉你 Bruno 由谁制作、链接到本手册，并显示你正在运行哪个版本。它从上到下包含三项：</p>
+
+        <h4>Created by 制作者</h4>
+        <p>标注 Bruno 的制作者，并链接到 <a href="index.html">Amici Instruments 主页</a>。</p>
+
+        <h4>Manual 手册</h4>
+        <p>指向本使用手册的链接。点击它会在浏览器中打开 Bruno 使用手册，让你不必离开应用就能查阅任何功能。</p>
+
+        <h4>Version 版本</h4>
+        <p>显示当前的<strong>应用版本</strong>与<strong>构建号</strong>。报告问题或寻求帮助时，请把两者都附上——这能让我们准确定位你所使用的是哪一个发布版本。</p>
+      </section>
+
+      <section id="midi">
+        <h2><span class="num">22</span>MIDI</h2>
+        <p class="lead">Bruno 在独立应用与 AUv3 插件中都响应 MIDI。</p>
+        <h3>MIDI 行为</h3>
+        <ul>
+          <li><strong>Note-on</strong> 会同时触发所有已启用的引擎。</li>
+          <li><strong>Note-off</strong> 在大多数音色上被忽略——鼓通过 Decay 参数自然衰减。Hat 与 Pluck 音色会用 note-off 来执行它们的 <strong>Choke</strong> 阻尼。</li>
+          <li><strong>力度</strong>在启用力度感应时会缩放触发的强度。</li>
+          <li>来自宿主的<strong>速度</strong>变化会更新 BPM，用于同步锁定的 LFO 与延迟。</li>
+        </ul>
+        <h3>MIDI 设置（独立应用）</h3>
+        <p>MIDI 按钮（带活动指示点的钢琴键图标）会打开设置，可用于启用 MIDI、选择通道（0 = omni 全通道，或 1–16）、开关力度感应，以及选择要监听哪一台已连接的设备。你的选择会跨启动保留；如果启动时所选设备没有插上，Bruno 会在它重新出现后自动重连。</p>
+        <h3>音高跟踪</h3>
+        <p>音高跟踪是逐引擎的，在 <a href="#pitch-env">Pitch Env</a> 页面设定：<strong>Chromatic</strong> 开关决定某个引擎是否跟随 MIDI 音符，<strong>Oct</strong> 则在此基础上移调。含有半音引擎的预设会在浏览器与标题栏中以紫色 <span class="c-badge">C</span> 徽标标示（参见 <a href="#presets">18. 预设</a>），让你一眼找到那些有调性、可演奏的声音。在 AUv3 插件中，MIDI 路由由宿主管理，因此没有应用内的 MIDI 设置。</p>
+
+        <h3>参数映射与 MIDI Learn <em>（AUv3）</em></h3>
+        <p>当 Bruno 作为 AUv3 插件运行时，它会把自己的参数发布给宿主。你可以用<strong>宿主的 MIDI Learn / 参数映射</strong>功能把它们映射到硬件控制器上——把任何传入的 CC 分配给任何已映射的参数，然后用旋钮、推子和打击垫来驱动它。因为这是通过 AUv3 宿主实现的，所以只在插件中可用，独立应用中没有。</p>
+        <p><strong>每一个控件都可映射。</strong>每一个引擎、包络、鼓身、滤波器、LFO 与 Master 参数，都作为 AU 参数暴露给宿主，可被自动化或做 MIDI 映射。</p>
+        <p>Bruno 还发布了一组<strong>专门的动作参数</strong>，让你可以用 MIDI 触发它的工作流程功能——不只是拧旋钮：</p>
+        <ul>
+          <li><strong>Generate</strong>——掷出一个新预设。</li>
+          <li><strong>Tweak</strong>——轻推当前的声音。</li>
+          <li>打开 <strong>Scope</strong>、<strong>预设浏览器</strong>与<strong>随机预设生成器</strong>。</li>
+        </ul>
+        <p>把这些映射到控制器的打击垫或按钮上——不必碰屏幕，就能不断掷出新点子并做微调。</p>
+      </section>
+
+      <section id="keyboard-song">
+        <h2><span class="num">23</span>键盘 <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">（仅 iPad 独立版）</span></h2>
+        <h3>钢琴键盘</h3>
+        <p>iPad 独立应用在屏幕顶部有一个单八度的触控键盘。在琴键上拖动即可演奏不同的音，用两侧的八度按钮可以切换音域。每个键都会以满力度触发所有已启用的引擎。这是演奏半音声音旋律最快的方式——任何含有半音引擎的预设（带紫色 <span class="c-badge">C</span> 徽标）都会随琴键跟踪音高（参见 <a href="#pitch-env">9. Pitch Env 音高包络</a>）。</p>
+        <div class="callout note">
+          <strong>插件呢？</strong>键盘仅存在于 iPad 独立版。以 AUv3 插件方式运行 Bruno 时，请改用宿主的走带控制与音轨。
+        </div>
+      </section>
+
+      <section id="sharing">
+        <h2><span class="num">24</span>分享预设</h2>
+        <p class="lead">做出了很棒的鼓？把它分享回来，我们会考虑将其收入未来的工厂预设库——入选的投稿会出现在 <strong>Artists</strong> 预设类别中。</p>
+        <ol>
+          <li>在预设浏览器中导出或复制你的预设——它是一个包含名称与参数值的小 JSON 文件。</li>
+          <li>在浏览器中打开<a href="support.html">我们网站的提交表单</a>。</li>
+          <li>附上或粘贴该预设，然后提交。</li>
+        </ol>
+        <p>整个流程完全由你手动完成——Bruno 绝不会自动发送任何东西。关于提交的预设会被如何处理，完整说明见我们的<a href="privacy.html">隐私政策</a>。</p>
+      </section>
+
+      <section id="tips">
+        <h2><span class="num">25</span>技巧与工作流程</h2>
+
+        <h3>先选音色，再掷</h3>
+        <p>从零搭一件鼓很慢。先选好音色类型，点骰子，从一个已经成立的东西出发——然后再去塑造它。连经验丰富的音色设计师通常也是从一个已有的音色开始的。</p>
+
+        <h3>独奏各个引擎，理解每一层</h3>
+        <p>用每个引擎的 ON/OFF 开关（或它的 HIT 按钮）单独听它。搞清楚各自贡献了什么之后，再把它们合起来，用各引擎自己的滤波器、过载与 EQ 去雕琢，让它们干净地叠在一起。</p>
+
+        <h3>用逐引擎骰子寻找新的层</h3>
+        <p>当一个声音几乎对了、只有某一层显得平淡时，点那个引擎的骰子，而不是重掷整个预设。你会为那一层找到新点子，同时不打扰其余部分。</p>
+
+        <h3>让低频保持单声道</h3>
+        <p>在 Master 的 Stereo 区块里使用低频单声道分频，让底鼓的低端保持居中，而点击与更高的层可以展开。在最终确定任何可能以单声道播放的内容之前，打开 SAFE 检查一下。</p>
+
+        <h3>盯着频谱看</h3>
+        <p>叠层时打开 Scope 的引擎频谱。如果两个引擎堆在同一个频段里，就把其中一个 EQ 让开——可视化会让遮蔽变得一目了然。</p>
+
+        <h3>多 Tweak，少 Generate</h3>
+        <p>Generate 很适合找灵感，但也容易让你迷失方向。一旦有了一个有希望的声音，就切到 Tweak（把除了你想改动的组之外的一切都取消勾选），这样迭代时就不会丢掉你已经建立起来的东西。</p>
+      </section>
+
+      <section id="troubleshooting">
+        <h2><span class="num">26</span>疑难解答</h2>
+
+        <h3>我听不到任何声音</h3>
+        <ul>
+          <li>看一下 Master Strip 里的<strong>输出电平表</strong>——你触发击打时它有在动吗？</li>
+          <li>确认 <strong>Gain</strong> 滑块不在零位。</li>
+          <li>确认至少有一个引擎处于 <strong>ON</strong>，并且它的 <strong>Vol</strong> 高于零。</li>
+          <li>用 <strong>HIT</strong> 按钮触发声音，以排除 MIDI 路由的问题。</li>
+          <li>在 Master 页面上，检查 <strong>Limiter Ceiling</strong> 没有被一路拉到底，也没有哪个效果因为 Mix 太低而吞掉了信号。</li>
+          <li>如果用的是 AUv3，确认宿主的音轨没有被静音，并且路由正确。</li>
+        </ul>
+
+        <h3>我的鼓没有低频</h3>
+        <ul>
+          <li>在 <strong>Fold Kick</strong> 上，把 <strong>Sub</strong> 滑块推上去——Character 很高时，折叠器可能把基频吃掉。</li>
+          <li>在 <strong>FM Kick</strong> 上，当高比率让低端变薄时，Pitch Env 的 <strong>Sub</strong> 控件可以混入一个锁定的低频正弦。</li>
+          <li>试试 <strong>Body</strong> 页面——在 60–90 Hz 附近做一个峰值，能补上纯正弦底鼓欠缺的分量。</li>
+          <li>检查 Master 的 <strong>Transient Shaper</strong> 是否开启了 SPLIT，这样提升起音时才不会与低频打架。</li>
+        </ul>
+
+        <h3>我的拍手听起来很机械</h3>
+        <p>把 Clap 的 Vol Env 页面上的 <strong>Human</strong> 滑块调高。它会加入逐次触发的振幅与音高抖动，而这正是僵硬的鼓机拍手与自然的、采样般的拍手之间的分水岭。</p>
+
+        <h3>MIDI 触发不了</h3>
+        <ul>
+          <li>在独立应用中，确认 MIDI 已启用、<strong>通道</strong>与你的控制器一致（或设为 omni），并且选中了正确的设备。</li>
+          <li>在 AUv3 中，确认宿主已经把 MIDI 路由到了 Bruno 所在的音轨。</li>
+          <li>请记住，大多数音色会忽略 note-off——Bruno 在 note-on 时触发，然后自然衰减。</li>
+        </ul>
+      </section>
+
+      <section id="support">
+        <h2><span class="num">27</span>获取帮助</h2>
+        <p>疑问、问题报告、功能建议——请前往<a href="support.html">支持页面</a>。我们会在 1–2 个工作日内回复。</p>
+        <p>隐私相关的问题，请参见<a href="privacy.html">隐私政策</a>。</p>
+        <p>感谢你使用 Bruno。</p>
+      </section>
+
+    </article>
+
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+
+<script>
+  // 根据滚动位置高亮当前目录项
+  const sections = document.querySelectorAll('.content section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+  // 手册插图的点击放大灯箱
+  (function () {
+    const imgs = document.querySelectorAll('.content figure.feature-figure img, .content figure.manual-figure img');
+    if (!imgs.length) return;
+    const box = document.createElement('div');
+    box.className = 'img-lightbox';
+    box.innerHTML = '<img alt="">';
+    document.body.appendChild(box);
+    const big = box.querySelector('img');
+    const close = () => { box.classList.remove('open'); document.body.style.overflow = ''; big.removeAttribute('src'); };
+    imgs.forEach(img => img.addEventListener('click', () => {
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }));
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+</body>
+</html>

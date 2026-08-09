@@ -1,0 +1,157 @@
+/*
+  Chinese (Simplified) typography layer for Amici Instruments.
+  ============================================================
+  Loaded by every page in /zh/ AFTER ../site.css, so these rules win.
+  It changes nothing about the design — same colours, same layout, same
+  spacing. It only fixes the things that break when Latin type is swapped
+  for Chinese. site.css is never edited, so the English site is untouched.
+
+  WHAT IT FIXES, AND WHY
+  ----------------------
+  1. CJK FONTS. site.css asks for Jost, which has no Chinese glyphs, then
+     falls through to Helvetica/Arial — which have none either — so Chinese
+     lands on the browser's last-resort font and looks nothing like the rest
+     of the page. We insert the platform CJK faces into every font stack.
+     Jost still renders all Latin text (Marco, Bruno, AUv3, LFO, Hz…), so
+     English UI labels inside Chinese sentences keep the site's exact look.
+
+  2. NEGATIVE TRACKING. Headings use letter-spacing: -0.02em to tighten
+     Latin caps. Chinese glyphs are already full-width and evenly set;
+     pulling them together makes them collide. Reset to 0.
+
+  3. WIDE TRACKING ON LABELS. Eyebrows use 3–4px tracking, which reads as
+     deliberate style on uppercase Latin and as broken spacing on Chinese.
+     Reduced, not removed.
+
+  4. FONT WEIGHT. PingFang SC tops out at Semibold. Asking for 700/800 makes
+     the browser synthesise a fake bold — smeared, uneven strokes at large
+     sizes. Headings drop to 600, which is a real cut of the typeface.
+
+  5. LINE HEIGHT. Chinese has no ascenders/descenders and no word spaces, so
+     text set at a Latin line-height reads as a dense grey block. Opened up.
+
+  NOTE ON THE CJK STACK: we do NOT self-host a Chinese webfont. A usable
+  Simplified subset is several megabytes per weight. PingFang SC ships on
+  every iPhone, iPad and Mac — which is exactly the hardware our buyers own —
+  and Microsoft YaHei covers Windows. Zero download, native rendering.
+*/
+
+/* ---------------------------------------------------------- 1. font stack */
+/* Jost first (Latin), then CJK, then the original Latin fallbacks. */
+:root {
+  --zh-sans: "Jost", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+             "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC",
+             -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.nav-dd-toggle {
+  font-family: var(--zh-sans);
+}
+
+/* The display stacks (wordmarks, product names) keep Futura/Oswald for their
+   Latin lettering — MARCO and BRUNO stay Latin on the Chinese site — but need
+   a CJK tail in case any Chinese ever lands in one of these elements. */
+.product-name,
+.page-title,
+.section-title,
+.home-hero h1,
+.content h2,
+.content h3 {
+  font-family: var(--zh-sans);
+}
+
+/* -------------------------------------------- 2 & 4. tracking and weight */
+.home-hero h1,
+.page-title,
+.section-title,
+.content h2 {
+  letter-spacing: 0;      /* was -0.02em — closes up Chinese glyphs */
+  font-weight: 600;       /* was 700 — 700 is synthesised in PingFang SC */
+}
+
+.manifesto-question,
+.manifesto-emphasis,
+.manifesto-closing,
+.why-emphasis {
+  letter-spacing: 0;
+}
+
+/* About page: same reasoning as the headings above — no negative tracking on
+   Chinese, and 600 instead of 700 so PingFang SC uses a real bold cut. */
+.team-heading,
+.story-closing,
+.team-name,
+.story-body .story-quote {
+  letter-spacing: 0;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------- 3. label tracking */
+.hero-eyebrow,
+.page-eyebrow,
+.section-eyebrow,
+.quad-card .num,
+.spec-group h4,
+.requirements h3,
+.toc-title,
+.content h4,
+.param-table th,
+.team-role {
+  letter-spacing: 1px;
+}
+
+/* ------------------------------------------------------ 5. line height */
+body {
+  line-height: 1.8;
+}
+
+.manifesto p,
+.section-lead,
+.content p,
+.content li,
+.policy-body p,
+.policy-body li,
+.story-body p,
+.team-card p,
+.team-lead,
+.feature-list li,
+.spec-group li,
+.quad-card p,
+.include-item p {
+  line-height: 1.85;
+}
+
+.home-hero h1,
+.page-title,
+.section-title {
+  line-height: 1.3;       /* was 1.1–1.15 — too tight for stacked Chinese */
+}
+
+/* 11.5px is set for an all-caps Latin label; Chinese glyphs need a little
+   more room to stay legible at the same optical size. */
+.team-role { font-size: 12.5px; }
+
+/* Light weights read as spindly in Chinese at display sizes. */
+.hero-tagline {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------- details */
+/* `white-space: nowrap` on a wide heading was measured for English; a Chinese
+   heading of the same meaning is a different width and would overflow. */
+@media (min-width: 900px) {
+  .section-title.nowrap-wide { white-space: normal; }
+}
+
+/* English UI labels quoted inside Chinese prose (Fold, Master A, Dual Hard
+   Sync…). Latin-only, so force Jost and normal Latin line-height. */
+.en {
+  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+}
+
+/* Chinese punctuation carries its own built-in side bearing; a space before
+   or after a Latin run inside CJK is set optically rather than typed. */
+.zh-tight { letter-spacing: 0; }

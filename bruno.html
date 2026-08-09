@@ -13,6 +13,11 @@
 <link rel="canonical" href="https://amici-instruments.com/bruno.html">
 <meta name="theme-color" content="#050507">
 
+<!-- Language alternates — see the note in index.html. -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/bruno.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/bruno.html">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/bruno.html">
+
 <!-- Open Graph / social link previews -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amici-instruments.com/bruno.html">
@@ -28,11 +33,12 @@
 <meta name="twitter:description" content="Powerful layered drum and pluck synthesizer. Six voices, four engines per drum. From an instrument anyone can play.">
 <meta name="twitter:image" content="https://amici-instruments.com/images/bruno-hero.jpg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Jost = free Futura revival (geometric). Used site-wide; Apple devices
-     still use the real system Futura on the wordmarks. -->
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+     still use the real system Futura on the wordmarks.
+     Served locally from /fonts — fonts.googleapis.com is unreachable in
+     mainland China, and self-hosting drops a render-blocking third-party
+     request everywhere else. Both files are variable fonts, 39 KB total. -->
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="site.css">
 </head>
 <body class="product">
@@ -321,6 +327,52 @@
   </div>
 </section>
 
+<section id="export" style="background: linear-gradient(180deg, transparent, rgba(91,168,229,0.06), transparent);">
+  <div class="container">
+    <div style="text-align: center; max-width: 840px; margin: 0 auto 20px;">
+      <span class="section-eyebrow" style="color: var(--osc-1);">Sample Export</span>
+      <h2 class="section-title">Your Bruno sounds. Everywhere else.</h2>
+      <p class="gradient-lead">Turn any Bruno creation into reusable audio samples — one hit, or a full chromatic multisample set.</p>
+      <p class="section-lead" style="margin: 0 auto 20px;">
+        A sound you love shouldn't be locked inside one app. Export drums and percussion as <strong style="color: var(--text);">single samples</strong>, or let Bruno automatically render a pitched sound across the keyboard as a <strong style="color: var(--text);">complete multisample set</strong> — ready for your sampler, your groovebox or your DAW.
+      </p>
+    </div>
+
+    <div class="includes-grid includes-grid-3">
+      <div class="include-item">
+        <h4><span class="dot"></span>Export any sound</h4>
+        <p>Turn your Bruno creations into reusable audio samples — anything you can make, you can keep.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Single-sample export</h4>
+        <p>Quickly export drums, percussion and other non-chromatic sounds as individual samples.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Chromatic multisample export</h4>
+        <p>Automatically create complete multisample sets from pitched sounds — plucks, bells, mallets and toms.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Flexible multisample mapping</h4>
+        <p>Choose the root note, octave range and semitone spacing for every multisample export.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Flexible audio export</h4>
+        <p>Choose sample rate, bit depth, and mono or stereo format to suit your app or hardware.</p>
+      </div>
+      <div class="include-item">
+        <h4><span class="dot"></span>Instant app export</h4>
+        <p>Send Bruno sounds straight into Koala or Loopy Pro — no editing, no file wrangling.</p>
+      </div>
+    </div>
+
+    <div style="max-width: 840px; margin: 40px auto 0;">
+      <blockquote style="margin: 0; padding: 26px 30px; border-left: 3px solid var(--osc-1); background: var(--bg-card); border-radius: 0 12px 12px 0; color: var(--text); font-size: 19px; line-height: 1.5;">
+        <strong style="color: var(--text);">Build your own sample libraries.</strong> Export sounds for hardware samplers, drum machines, DAWs and grooveboxes — and turn Bruno into a factory for custom kits and multisample instruments that are yours alone.
+      </blockquote>
+    </div>
+  </div>
+</section>
+
 <section id="includes" style="background: linear-gradient(180deg, transparent, rgba(208,96,229,0.04), transparent);">
   <div class="container">
     <div style="text-align: center; max-width: 720px; margin: 0 auto 20px;">
@@ -385,6 +437,16 @@
           <li><strong>Tweak system</strong> — subtle, context-aware variations</li>
           <li><strong>100-entry history</strong> — step forward and back through every roll</li>
           <li><strong>One-tap dice</strong> — instant inspiration</li>
+        </ul>
+      </div>
+      <div class="spec-group">
+        <h4>Sample export</h4>
+        <ul>
+          <li><strong>Single-sample export</strong> — drums, percussion and other non-chromatic sounds</li>
+          <li><strong>Chromatic multisample export</strong> — complete sets rendered automatically from pitched sounds</li>
+          <li><strong>Mapping control</strong> — root note, octave range and semitone spacing</li>
+          <li><strong>Audio format</strong> — sample rate, bit depth, and mono or stereo</li>
+          <li><strong>Send straight to apps</strong> — Koala and Loopy Pro, with no editing required</li>
         </ul>
       </div>
       <div class="spec-group spec-green">

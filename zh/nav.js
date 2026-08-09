@@ -1,40 +1,46 @@
 /*
-  Shared site navigation for Amici Instruments.
-  -------------------------------------
-  Each page includes:  <div id="site-nav"></div><script src="nav.js"></script>
+  Shared site navigation — Chinese (Simplified) site.
+  --------------------------------------------------
+  This is the /zh/ counterpart of the root nav.js. Same behaviour, same
+  styling, same code; only the NAV array and the brand label differ. It is a
+  separate file rather than a shared one so the Chinese menu can be reworded
+  without any risk to the English site.
 
-  To change the menu site-wide, edit the NAV array below — every page updates.
-  Desktop dropdowns, the mobile hamburger menu, all styling and behaviour are
-  self-contained in this file. Pages need no nav-specific CSS beyond the base
-  .topnav rules already in their <style>.
+  Pages in /zh/ include:  <div id="site-nav"></div><script src="nav.js"></script>
 
-  Menu item types:
-    { type: 'link', href: '...', label: '...' }      — a plain link
-      (add external: true to open in a new tab, e.g. social links)
-    { type: 'menu', label: '...', items: [ ... ] }    — a dropdown / group
-  Dropdown items:
-    { href: '...', label: '...' }                     — a link
-    { label: '...', soon: true }                      — a "coming soon" entry
+  LINK PATHS
+    'marco.html'         → the Chinese page, alongside this file in /zh/
+    '../marcomanual.html' → back up to the English root
 
-  When a Bruno page is ready, give its item an `href` and remove `soon: true`.
+  TWO DELIBERATE DIFFERENCES FROM THE ENGLISH NAV:
+
+  1. NO YOUTUBE LINK. youtube.com is blocked in mainland China. A dead menu
+     item is worse than no menu item. Bilibili (bilibili.com) is where this
+     audience actually watches synth demos — when there's a channel, add:
+        { type: 'link', href: 'https://space.bilibili.com/YOUR_ID',
+          label: '哔哩哔哩', external: true }
+
+  2. A LANGUAGE SWITCH ("EN") back to the English site, so a visitor who
+     lands here by mistake — or who prefers the English manual — is one tap
+     away. The English nav.js has the matching 中文 entry.
+
+  Every entry now resolves inside /zh/ — both manuals are translated, so the
+  only link that leaves this folder is the EN language switch.
 */
 (function () {
   var NAV = [
-    { type: 'link', href: 'index.html', label: 'Home' },
-    { type: 'menu', label: 'Apps', items: [
+    { type: 'link', href: 'index.html', label: '首页' },
+    { type: 'menu', label: '产品', items: [
         { href: 'marco.html', label: 'Marco' },
         { href: 'bruno.html', label: 'Bruno' }
     ]},
-    { type: 'menu', label: 'Manuals', items: [
+    { type: 'menu', label: '使用手册', items: [
         { href: 'marcomanual.html', label: 'Marco' },
         { href: 'brunomanual.html', label: 'Bruno' }
     ]},
-    { type: 'link', href: 'support.html', label: 'Support' },
-    { type: 'link', href: 'about.html', label: 'About' },
-    { type: 'link', href: 'https://www.youtube.com/@AmiciInstruments', label: 'YouTube', external: true },
-    /* Language switch to the Simplified Chinese site in /zh/. The Chinese
-       nav (zh/nav.js) carries the matching 'EN' entry back to here. */
-    { type: 'link', href: 'zh/index.html', label: '中文' }
+    { type: 'link', href: 'support.html', label: '支持' },
+    { type: 'link', href: 'about.html', label: '关于我们' },
+    { type: 'link', href: '../index.html', label: 'EN' }
   ];
 
   var page = location.pathname.split('/').pop() || 'index.html';
@@ -63,7 +69,7 @@
     '.nav-dd-menu a:hover{background:#14141a;color:#f2f2f5;}' +
     '.nav-dd-menu a.active{color:#5BA8E5;}' +
     '.nav-dd-menu .nav-dd-soon{color:#6b6b78;cursor:default;}' +
-    '.nav-dd-menu .nav-dd-soon::after{content:" \\2014 soon";font-size:11px;opacity:.7;}' +
+    '.nav-dd-menu .nav-dd-soon::after{content:" \\2014 即将推出";font-size:11px;opacity:.7;}' +
     /* hamburger button */
     '.nav-burger{display:none;flex-direction:column;justify-content:center;' +
       'gap:5px;width:40px;height:40px;padding:0;margin:0;background:none;' +
@@ -80,10 +86,10 @@
     '.nav-mobile a:active{background:#14141a;}' +
     '.nav-mobile a.active{color:#5BA8E5;}' +
     '.nav-mobile .nav-m-group{padding:16px 24px 4px;font-size:11px;font-weight:700;' +
-      'letter-spacing:2px;text-transform:uppercase;color:#6b6b78;}' +
+      'letter-spacing:1px;color:#6b6b78;}' +
     '.nav-mobile .nav-m-sub{padding-left:40px;font-size:15px;}' +
     '.nav-mobile .nav-m-soon{padding:11px 24px 11px 40px;font-size:15px;color:#6b6b78;}' +
-    '.nav-mobile .nav-m-soon::after{content:" \\2014 soon";font-size:11px;opacity:.7;}' +
+    '.nav-mobile .nav-m-soon::after{content:" \\2014 即将推出";font-size:11px;opacity:.7;}' +
     /* breakpoint: swap desktop nav for hamburger */
     '@media(max-width:640px){' +
       '.topnav-links{display:none;}' +
@@ -150,7 +156,7 @@
       '<div class="topnav-inner">' +
         '<a href="index.html" class="topnav-brand">' + brandMark + ' Amici Instruments</a>' +
         '<div class="topnav-links">' + desktopHtml + '</div>' +
-        '<button class="nav-burger" type="button" aria-label="Menu">' +
+        '<button class="nav-burger" type="button" aria-label="菜单">' +
           '<span></span><span></span><span></span>' +
         '</button>' +
       '</div>' +

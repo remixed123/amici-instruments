@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>支持 — Amici Instruments</title>
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+<meta name="description" content="就 Marco、Bruno 及我们的其他应用寻求支持、提出反馈或咨询问题，欢迎联系 Amici Instruments。">
+<link rel="canonical" href="https://amici-instruments.com/zh/support.html">
+<meta name="theme-color" content="#050507">
+
+<!-- 语言版本对应关系（英文页面上有指回本页的同名标签） -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/support.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/support.html">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/support.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amici-instruments.com/zh/support.html">
+<meta property="og:title" content="支持 — Amici Instruments">
+<meta property="og:description" content="就 Marco、Bruno 及我们的其他应用寻求支持、提出反馈或咨询问题，欢迎联系 Amici Instruments。">
+<meta property="og:site_name" content="Amici Instruments">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- 自托管字体：Google Fonts 在中国大陆无法访问 -->
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="zh.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <span class="page-eyebrow">联系我们</span>
+  <h1 class="page-title">支持与联系</h1>
+  <p class="page-lead">
+    关于我们应用的疑问、使用反馈、问题报告，或任何其他事情——给我们留个言，我们会回复你。
+  </p>
+</header>
+
+<main>
+  <div class="container narrow">
+    <div class="form-card">
+      <form id="form" action="https://api.web3forms.com/submit" method="POST">
+        <div class="form-row">
+          <label>
+            姓名
+            <input type="text" name="name" required autocomplete="name">
+          </label>
+          <label>
+            邮箱
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+        </div>
+
+        <label>
+          主题
+          <!-- 注意：显示给用户的文字是中文，但提交的 value 保持英文，
+               这样收件箱里的分类标签与英文站完全一致，便于统一处理。 -->
+          <select name="topic" required>
+            <option value="">请选择一个主题…</option>
+            <option value="Support / Bug">支持 / 问题反馈</option>
+            <option value="Feature Request">功能建议</option>
+            <option value="Presets">预设相关</option>
+            <option value="General Question">一般咨询</option>
+            <option value="Other">其他</option>
+          </select>
+        </label>
+
+        <label>
+          留言
+          <textarea name="message" required placeholder="告诉我们发生了什么。如果是问题反馈，请说明你的设备型号、系统版本，以及复现问题的步骤。"></textarea>
+        </label>
+
+        <!-- 蜜罐字段 —— 机器人会填，真人看不见。（Web3Forms 的惯例做法） -->
+        <div class="honeypot" aria-hidden="true">
+          <label>请勿填写此项：<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <!-- 收件箱中显示的邮件主题。保持英文，与英文站一致。 -->
+        <input type="hidden" name="subject" value="Amici Instruments contact form (ZH)">
+
+        <button type="submit" class="submit-btn">发送留言</button>
+      </form>
+
+      <div class="form-note">
+        我们会在 1–2 个工作日内回复。如果是问题反馈，附上设备型号、系统版本，以及清楚的复现步骤，能帮助我们更快解决。
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+
+<script>
+  const form = document.getElementById('form');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    formData.append("access_key", "f26eb0f5-ee86-4e91-b2bc-9553f6c0d671");
+
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = "发送中…";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("发送成功！我们已经收到你的留言。");
+        form.reset();
+      } else {
+        alert("出错了：" + data.message);
+      }
+    } catch (error) {
+      alert("发送失败，请稍后再试。");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

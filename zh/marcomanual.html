@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marco 使用手册 — Amici Instruments</title>
+<link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+<meta name="description" content="Marco 完整使用手册——一款具备独立塑形与双硬同步的四振荡器合成器，适用于 iPad。">
+<link rel="canonical" href="https://amici-instruments.com/zh/marcomanual.html">
+<meta name="theme-color" content="#050507">
+
+<!-- 语言版本对应关系（英文页面上有指回本页的同名标签） -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/marcomanual.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/marcomanual.html">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/marcomanual.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://amici-instruments.com/zh/marcomanual.html">
+<meta property="og:title" content="Marco 使用手册 — Amici Instruments">
+<meta property="og:description" content="Marco 完整使用手册——一款具备独立塑形与双硬同步的四振荡器合成器，适用于 iPad。">
+<meta property="og:site_name" content="Amici Instruments">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- 自托管字体：Google Fonts 在中国大陆无法访问 -->
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="zh.css">
+</head>
+<body class="manual">
+
+<div id="site-nav"></div>
+<script src="nav.js"></script>
+
+<header class="page-header">
+  <span class="page-eyebrow">使用手册</span>
+  <h1 class="page-title">Marco 使用手册</h1>
+  <p class="page-lead">这份完整参考涵盖这台四振荡器合成器的独立塑形与双硬同步——每一个控件、每一个页面、每一项功能。</p>
+</header>
+
+<main>
+  <div class="layout">
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <ul>
+        <li><a href="#welcome">1. 欢迎</a></li>
+        <li><a href="#requirements">2. 系统要求</a></li>
+        <li><a href="#getting-started">3. 快速上手</a></li>
+        <li><a href="#interface">4. 界面导览</a></li>
+        <li class="subsection"><a href="#hints">4.1 Hints 提示（? 按钮）</a></li>
+        <li><a href="#oscillators">5. 振荡器</a></li>
+        <li class="subsection"><a href="#waveforms">5.1 波形</a></li>
+        <li class="subsection"><a href="#osc-controls">5.2 各振荡器控件</a></li>
+        <li class="subsection"><a href="#octave">5.3 八度与音高</a></li>
+        <li><a href="#dualphonic">6. Dual Hard Sync 双硬同步</a></li>
+        <li><a href="#envelopes">7. 包络</a></li>
+        <li class="subsection"><a href="#vol-env">7.1 音量包络</a></li>
+        <li class="subsection"><a href="#filt-env">7.2 滤波器包络</a></li>
+        <li><a href="#filters">8. 滤波器</a></li>
+        <li><a href="#lfos">9. LFO</a></li>
+        <li class="subsection"><a href="#cut-lfo">9.1 截止频率 LFO</a></li>
+        <li class="subsection"><a href="#vol-lfo">9.2 音量 LFO</a></li>
+        <li class="subsection"><a href="#fold-lfo">9.3 波形折叠 LFO</a></li>
+        <li class="subsection"><a href="#pitch-lfo">9.4 音高 LFO</a></li>
+        <li><a href="#glide">10. Glide 滑音</a></li>
+        <li><a href="#effects">11. Master 页面</a></li>
+        <li class="subsection"><a href="#master-drive">11.1 Drive 过载</a></li>
+        <li class="subsection"><a href="#master-compressor">11.2 Compressor 压缩器</a></li>
+        <li class="subsection"><a href="#master-delay">11.3 Delay 延迟</a></li>
+        <li class="subsection"><a href="#master-reverb">11.4 Reverb 混响</a></li>
+        <li class="subsection"><a href="#master-stereo">11.5 Stereo 立体声</a></li>
+        <li class="subsection"><a href="#master-limiter">11.6 Limiter 限制器</a></li>
+        <li class="subsection"><a href="#master-presets">11.7 Master 预设</a></li>
+        <li><a href="#presets">12. 预设</a></li>
+        <li><a href="#random">13. 随机预设生成器</a></li>
+        <li class="subsection"><a href="#styles">13.1 风格（Mild/Wild/Recipe）</a></li>
+        <li class="subsection"><a href="#three-systems">13.2 三种随机方式</a></li>
+        <li class="subsection"><a href="#tweak-amount">13.7 Tweak Amount 微调幅度</a></li>
+        <li class="subsection"><a href="#category-modes">13.8 各类别的行为</a></li>
+        <li class="subsection"><a href="#master-randomisation">13.9 Master 与随机化</a></li>
+        <li class="subsection"><a href="#rpg-history">13.10 随机预设历史</a></li>
+        <li><a href="#scope">14. Scope 示波器</a></li>
+        <li><a href="#xy-pad">15. XY 触控板</a></li>
+        <li><a href="#app-preferences">16. 应用偏好设置</a></li>
+        <li class="subsection"><a href="#performance-settings">16.1 性能设置</a></li>
+        <li class="subsection"><a href="#midi-controls">16.2 MIDI 控制</a></li>
+        <li class="subsection"><a href="#app-information">16.3 应用信息</a></li>
+        <li><a href="#song-player">17. 乐曲播放器</a></li>
+        <li><a href="#midi">18. MIDI</a></li>
+        <li><a href="#sharing">19. 分享预设</a></li>
+        <li><a href="#tips">20. 技巧与工作流程</a></li>
+        <li><a href="#troubleshooting">21. 疑难解答</a></li>
+        <li><a href="#support">22. 获取帮助</a></li>
+      </ul>
+    </aside>
+
+    <article class="content">
+
+      <section id="welcome">
+        <h2><span class="num">1</span>欢迎使用 Marco</h2>
+        <p class="lead">Marco 是一台<strong>具备独立塑形与双硬同步的四振荡器合成器</strong>——一台面向 iPad 与 iPhone（以及任何可运行 iPad 应用的 Apple 芯片 Mac）的单音合成器，内含两组并行运行的独立硬同步组。</p>
+        <p>本手册涵盖每一个页面与控件。如果你刚接触合成，建议从头读下去；如果你只想查某一项功能，用左侧目录直接跳过去。</p>
+        <p>Marco 有两种使用形式：</p>
+        <ul>
+          <li>iPad 与 iPhone 上的<strong>独立应用</strong>——支持 MIDI 输入，并内置一个公有领域旋律的乐曲播放器。iPad 独立版还带有内置键盘。</li>
+          <li><strong>The Marco</strong> AUv3 插件——可载入 Logic Pro for iPad、Loopy Pro、AUM 及其他兼容的 AUv3 宿主。</li>
+        </ul>
+        <p>同一个版本也能在 Apple 芯片 Mac（M1 及以上）上运行——在 Mac App Store 的「iPhone 与 iPad App」分类下即可找到，像安装任何 iPad 应用一样安装。你可以独立运行它，也可以在 Logic Pro、Ableton Live 或 AUM 等 macOS 宿主中载入 The Marco AUv3 插件。</p>
+        <p>本手册的大部分内容对两种形式都适用。凡有差异之处——例如乐曲播放器仅存在于独立应用中——都会在相应章节明确标注。</p>
+        <div class="callout note">
+          <strong>Marco 与 Bruno 是一家人。</strong>Marco 与 Bruno 共享同一套视觉语言、Master 效果链与随机预设理念。如果你已经熟悉 Bruno，Marco 的很多地方都会似曾相识——最大的区别在于，Marco 是围绕<em>振荡器</em>与<em>硬同步</em>构建的，而不是围绕音色类型与引擎。
+        </div>
+      </section>
+
+      <section id="requirements">
+        <h2><span class="num">2</span>系统要求</h2>
+        <ul>
+          <li>运行当前版本 iPadOS 的 <strong>iPad</strong>。</li>
+          <li>运行当前版本 iOS 的 <strong>iPhone</strong>。</li>
+          <li><strong>Apple 芯片 Mac</strong>（M1 及以上）——可在 Mac App Store 的「iPhone 与 iPad App」分类下找到 Marco。</li>
+          <li>使用 The Marco 插件时需要 <strong>AUv3 宿主</strong>（例如 Logic Pro for iPad、Loopy Pro、AUM 及其他兼容宿主）。</li>
+        </ul>
+      </section>
+
+      <section id="getting-started">
+        <h2><span class="num">3</span>快速上手</h2>
+        <p class="lead">做出好声音最快的方式，是让 Marco 替你做一个。</p>
+        <ol>
+          <li>打开 Marco（独立应用），或在宿主中将它作为 AUv3 插件载入。</li>
+          <li>点击顶部标题栏的骰子按钮（<span class="ui">🎲</span>），打开<strong>随机预设生成器</strong>。</li>
+          <li>让三个 <strong>Style</strong> 风格胶囊——<strong>Mild</strong>、<strong>Wild</strong> 与 <strong>Recipe</strong>——保持全部选中。它们是多选的，因此每次掷出都会随机挑一个，你能听到最宽的声音范围。</li>
+          <li>选一个类别（Bass、Lead、Pad 等），或者保持在 <strong>All</strong>。</li>
+          <li>点击 <strong>Generate</strong>。一个全新的预设就位了。</li>
+          <li>弹几个音——用内置键盘（iPad 独立版），或用你的 MIDI 控制器 / DAW。</li>
+          <li>如果你喜欢这个方向但想要一些变化，点击 <strong>Tweak</strong> 来微调当前预设，而不是重新掷一个全新的。</li>
+        </ol>
+        <p>找到中意的声音后，把它保存到你的 <strong>User</strong> 库——参见 <a href="#presets">12. 预设</a>。</p>
+        <div class="callout tip">
+          <strong>现在不必弄懂所有东西。</strong>骰子按钮一下就能给你一个可用的声音。等你准备好了，随时再深入到逐振荡器的控制里去。
+        </div>
+      </section>
+
+      <section id="interface">
+        <h2><span class="num">4</span>界面导览</h2>
+        <p class="lead">快速走一遍，看看东西都在哪儿。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/oscillators.jpg" alt="Marco 主界面——顶部标题栏与工具栏位于四个颜色区分的振荡器列上方（Osc 1 蓝、Osc 2 绿、Osc 3 橙、Osc 4 品红）。">
+          <figcaption>Marco 主界面：标题栏与工具栏位于四个颜色区分的振荡器列上方。每个振荡器的颜色会在应用的任何地方一路跟随它。</figcaption>
+        </figure>
+
+        <h3>顶部标题栏</h3>
+        <p>从左到右横跨屏幕顶端：</p>
+        <ul>
+          <li><strong>MARCO 标志</strong>（左上）——多彩字标，纯装饰。</li>
+          <li><strong>预设选择器</strong>（居中）——当前预设名称，两侧各有 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头。点箭头可逐个切换预设，点预设名本身则打开完整的预设浏览器（参见 <a href="#presets">12. 预设</a>）。</li>
+          <li><strong>随机器按钮</strong>（橙色）——按钮上显示当前的 <strong>Base Preset Source</strong> 基础预设来源（例如 <em>All</em>、<em>Bass</em>）。点击可打开随机预设生成器，在那里你可以更改基础预设来源，也可以选择哪些振荡器与参数参与随机（参见 <a href="#random">13. 随机预设生成器</a>）。</li>
+          <li><strong>MIDI 设置</strong> <em>（独立应用）</em>——打开 MIDI 设置对话框。</li>
+          <li><strong>⚙️ 设置齿轮</strong>（右上）——打开应用偏好设置对话框（参见 <a href="#app-preferences">16. 应用偏好设置</a>）。</li>
+        </ul>
+
+        <h3>工具栏</h3>
+        <p>标题栏下方就是在 Marco 各个模块之间切换的横向标签页：</p>
+        <ul>
+          <li><span class="ui">Oscillators</span> — 四个振荡器（波形、音量、折叠、失谐、同步模式）。</li>
+          <li><span class="ui">Vol Env</span> — 每个振荡器的音量（VCA）包络。</li>
+          <li><span class="ui">Filt Env</span> — 每个振荡器的滤波器包络。</li>
+          <li><span class="ui">Filter</span> — 每个振荡器的滤波器类型与设置。</li>
+          <li><span class="ui">Cut LFO</span> — 滤波器截止频率 LFO。</li>
+          <li><span class="ui">Vol LFO</span> — 音量 LFO。</li>
+          <li><span class="ui">Fold LFO</span> — 波形折叠 LFO。</li>
+          <li><span class="ui">Pitch LFO</span> — 音高 LFO。</li>
+          <li><span class="ui">Glide</span> — 音符之间的滑音（portamento）。</li>
+          <li><span class="ui">Master</span> — 完整输出链路：过载、压缩器、延迟、混响、立体声、限制器。</li>
+        </ul>
+
+        <h3>Master Strip 主控条</h3>
+        <p>就在四个振荡器列的正上方，Master Strip 汇集了全局控件与常用对话框的快捷按钮。从左到右：</p>
+
+        <figure class="manual-figure">
+          <img src="../images/masterstrip.png" alt="Master Strip 主控条——从左到右：? Hints 按钮、Linked/Per-Osc 切换、输出电平表、Gain、示波器图标、XY 触控板图标、后退/骰子/前进随机控件及骰子标签，以及 Dual Hard Sync 按钮。">
+          <figcaption>Master Strip 主控条，从左到右：? Hints、Per-Osc/Linked 切换、输出电平表、Gain、Scope、XY Pad、带实时标签的 ◀ 🎲 ▶ 随机器，以及 Dual Hard Sync。</figcaption>
+        </figure>
+        <ul>
+          <li><strong>? Hints 按钮</strong>（最左）——为你当前所在的页面打开一个随上下文变化的 Hints 提示对话框。按钮颜色会跟随当前页面变化。参见下方 <a href="#hints">Hints 提示 — ? 按钮</a>。</li>
+          <li><strong>Per-Osc / Linked 切换</strong>——决定当前页面的模块是以四个独立的逐振荡器副本运行，还是作为一个共享实例运行（参见 <a href="#linked-perosc">Per-Osc 与 Linked 模式</a>）。它出现在每一个调制页面上，但<strong>不会</strong>出现在 <strong>Oscillator</strong> 页面（始终逐振荡器）或 <strong>Master</strong> 页面（始终联动）。</li>
+          <li><strong>输出电平表</strong>——显示主输出的横向电平表。绿色健康，黄色接近削波，红色表示已经削波了；看到红色就把 Gain 拉下来。</li>
+          <li><strong>Gain</strong>——主输出总电平。</li>
+          <li><strong>Scope 图标</strong>——打开波形示波器（参见 <a href="#scope">14. Scope 示波器</a>）。</li>
+          <li><strong>XY Pad 图标</strong>——打开富有表现力的 XY 控制面（参见 <a href="#xy-pad">15. XY 触控板</a>）。</li>
+          <li><strong>◀ 🎲 ▶ 骰子与历史箭头</strong>——骰子是快速生成的触发器（点一下就用随机器里设定的基础预设来源与风格掷出一个新预设，无需打开对话框）。骰子下方有一个实时小标签，显示 <span class="ui">Category.Styles</span>——在你点下去之前就告诉你下一次掷出会产生什么（参见 <a href="#dice-label">骰子标签</a>）。两侧的橙色箭头可在你最近 100 个随机与微调过的声音之间前后穿梭（参见 <a href="#rpg-history">随机预设历史</a>）。</li>
+          <li><strong>DUAL HARD SYNC</strong>——循环切换各种有效的双硬同步组合（参见 <a href="#dualphonic">6. Dual Hard Sync 双硬同步</a>）。</li>
+        </ul>
+        <div class="callout tip">
+          <strong>随机器按钮 vs. 骰子图标。</strong>顶部标题栏里橙色的<strong>随机器</strong>按钮会打开完整的随机预设生成器对话框，你在那里设定风格、基础预设来源，并使用完整的 Tweak 系统来选择目标振荡器与参数。Master Strip 里的小<strong>骰子图标</strong>则是一个一键快捷方式，直接用你上次在随机器里配置好的设置重新掷出一个新预设。
+        </div>
+
+        <h3>四个振荡器列</h3>
+        <p>主区域显示四个振荡器列，各有自己的颜色：<span class="osc-tag o1">Osc 1</span> <span class="osc-tag o2">Osc 2</span> <span class="osc-tag o3">Osc 3</span> <span class="osc-tag o4">Osc 4</span>。这个颜色会在 Marco 的任何地方跟随该振荡器——包括示波器、LFO 页面与预设浏览器。</p>
+
+        <div class="callout note">
+          <strong>关于参数滑块上的白线。</strong>当某个 LFO 正在调制一个参数时，你会看到滑块内部有一条白色横线上下移动，实时显示这个参数被推动了多少。不需要任何猜测。
+        </div>
+
+        <h3>各振荡器的魔棒按钮</h3>
+        <p>每个页面都有一个小小的<strong>魔棒图标</strong>。在基于振荡器的页面上，它位于每个振荡器的列标题里，点击它会执行一次<strong>逐振荡器 Tweak</strong>——一次外科手术般的微调，只改动当前页面上属于那一个振荡器的可见参数。<strong>Master</strong> 页面的每个区块也各有一个魔棒图标，因此你可以只微调那一个区块（例如只推一下混响，而不碰延迟或过载）。</p>
+        <ul>
+          <li>点 Osc 2 的 Filter 页面上的魔棒 → 微调 Osc 2 的滤波器类型、截止频率、共振、包络量与键位跟踪。其他一概不动。</li>
+          <li>点 Osc 1 的 Vol Env 页面上的魔棒 → 只微调 Osc 1 的 ADSR。</li>
+          <li>当该区块的 ON/OFF 开关处于关闭状态时，魔棒会被禁用（没有可微调的东西）。</li>
+        </ul>
+        <p>这是在不触碰其他一切的前提下，为一个声音加入新点子的最快方式。完整细节见 <a href="#random">13. 随机预设生成器</a>。</p>
+
+        <h3 id="linked-perosc">Per-Osc 与 Linked 模式</h3>
+        <p>有一个概念在 Marco 里无处不在，值得一开始就搞清楚：大多数调制页面都可以在 <strong>Per-Osc</strong>（逐振荡器）或 <strong>Linked</strong>（联动）两种模式下运行。你可以用每个页面标题旁边的按钮在两者之间切换——按钮上显示的就是当前模式（<span class="ui">PER-OSC</span> 或 <span class="ui">LINKED</span>）。</p>
+
+        <div class="figure-compare">
+          <figure class="manual-figure">
+            <img src="../images/linked.png" alt="Linked 模式下的模块——一个共享的「All Osc」面板同时控制四个振荡器。">
+            <figcaption><strong>Linked</strong>——一个共享面板（&ldquo;All Osc&rdquo;）驱动全部四个振荡器。</figcaption>
+          </figure>
+          <figure class="manual-figure">
+            <img src="../images/per-osc.png" alt="同一模块在 Per-Osc 模式下——四个独立的、颜色区分的面板，每个振荡器一个。">
+            <figcaption><strong>Per-Osc</strong>——四个独立的、颜色区分的副本，每个振荡器一个。</figcaption>
+          </figure>
+        </div>
+
+        <h4>Per-Osc 模式</h4>
+        <p>四个振荡器各自拥有该模块的一份独立副本。所以在 Per-Osc 滤波器模式下，你可以让 <span class="osc-tag o1">Osc 1</span> 跑一个全开的 24dB 低通，让 <span class="osc-tag o2">Osc 2</span> 跑一个扫动的陷波，让 <span class="osc-tag o3">Osc 3</span> 跑带通，再让 <span class="osc-tag o4">Osc 4</span> 跑共振峰滤波器——四者同时进行。每个振荡器的控件都有颜色区分，所以你永远知道自己在编辑哪一个。</p>
+
+        <h4>Linked 模式</h4>
+        <p>四个振荡器共享该模块的单一实例。一组控件同时驱动每一个振荡器。它更省 CPU、调起来更快，也是一个很好的起点——调一个控件，四个声部一起动。任何时候想要单独塑造每个振荡器，切到 Per-Osc 就好。</p>
+
+        <p>以下页面存在 Per-Osc 与 Linked 之分：<strong>Vol Env</strong>、<strong>Filt Env</strong>、<strong>Filter</strong>、<strong>Cut LFO</strong>、<strong>Vol LFO</strong>、<strong>Fold LFO</strong>、<strong>Pitch LFO</strong> 与 <strong>Glide</strong>。Oscillators 页面本身在性质上就永远是逐振荡器的——每个振荡器都有自己的波形、音量、折叠、失谐与同步模式。<strong>Master 页面</strong>（过载、压缩器、延迟、混响、立体声、限制器）则永远是联动的——它处理的是四个振荡器混合后的输出。</p>
+        <p>当你把一个模块从 Per-Osc 切到 Linked 时，Marco 会用 <strong>Osc 1 的设置</strong>作为共享来源——其他振荡器的设置会被替换掉。</p>
+
+        <h4>一个特例：Filter、Filt Env 与 Cut LFO</h4>
+        <p><strong>滤波器包络</strong>与<strong>截止频率 LFO</strong> 都在调制滤波器的截止频率——它们共用一个目标。因此，它们的 Per-Osc / Linked 模式会通过一条简单规则与滤波器的模式绑定：</p>
+        <div class="callout note" style="font-size: 15.5px;">
+          一个调制源的实例数可以<em>少于或等于</em>它的目标，但绝不能更多。
+        </div>
+        <p>具体来说：</p>
+        <ul>
+          <li>如果 <strong>Filter</strong> 处于 <strong>Linked</strong> 模式（一个共享滤波器），那么 <strong>Filt Env</strong> 与 <strong>Cut LFO</strong> 也必须处于 Linked 模式。一条包络和一个 LFO 驱动那一个共享滤波器。</li>
+          <li>如果 <strong>Filter</strong> 处于 <strong>Per-Osc</strong> 模式（四个独立滤波器），那么 <strong>Filt Env</strong> 与 <strong>Cut LFO</strong> 两种模式都可以。设为 <strong>Linked</strong>，一条包络／一个 LFO 广播给全部四个滤波器；设为 <strong>Per-Osc</strong>，则每个滤波器都有自己专属的包络与 LFO。</li>
+        </ul>
+        <p>同样的原则也直接适用于 <strong>Filter</strong> 与 <strong>Cut LFO</strong> 之间——只要一个模块在调制另一个模块，调制源的实例数就可以少于目标，但绝不能更多。</p>
+        <p>这些你都不需要自己去管。Marco 会在你操作的过程中动态调整相关模块——没有对话框、没有警告、没有被拦下的操作。如果你在 Filt Env 或 Cut LFO 处于 Per-Osc 时把 Filter 切到 Linked，它们会安静地收拢来匹配。反过来，在目标处于 Linked 时把调制源切到 Per-Osc，则会按需扩展目标。界面始终在后台替你保持配置有效。</p>
+
+        <div class="callout tip">
+          <strong>什么时候用哪个。</strong>在摸索一个新声音时，或者当四个振荡器扮演同一个角色时（例如叠加的齐奏），先用 <strong>Linked</strong>。一旦你希望某些振荡器表现得与其他不同，就把那个特定模块切到 <strong>Per-Osc</strong>——例如给某一个振荡器一条自己的滤波器包络，让它从混音里冒出来。
+        </div>
+
+        <h3 id="consistent-ui">一致的界面</h3>
+        <p>Marco 的界面在设计上做到：学会任何一个页面，你就基本会用其他页面了。探索时可以留意这几点：</p>
+        <ul>
+          <li><strong>振荡器颜色一路跟随。</strong>Osc 1 永远是蓝色，Osc 2 绿色，Osc 3 橙色，Osc 4 品红——在每一个页面、示波器、预设浏览器里都是如此。瞥一眼任何控件，你立刻就知道它属于哪个振荡器。</li>
+          <li><strong>同一套布局，反复出现。</strong>四个 LFO 页面共享同一套控件结构（Rate / Range / Fade / 相位重置 / 时钟同步）。两条包络共享同一套 ADSR 布局。学会一个，其他的不用重读就会用。</li>
+          <li><strong>模式的运作方式一致。</strong>PER-OSC / LINKED 切换在每个有它的页面上都位于同一位置。On/Off 按钮在每个振荡器列上也都在同一位置。</li>
+          <li><strong>调制是看得见的。</strong>参数滑块上的白色指示线精确显示哪些参数正被 LFO 推动、推了多少——所以当声音发生变化时，你总能看见原因。</li>
+        </ul>
+        <p>好处是：即便是 Marco 最深的功能也依然好找，因为颜色标识与一致的布局随时都在告诉你，你正在看的是什么。</p>
+
+        <h3 id="hints">Hints 提示 — <span class="ui">?</span> 按钮</h3>
+        <p>每个合成页面都有自己内置的帮助，所以你永远不必离开 Marco 去查资料。点击 Master Strip 最左侧的 <span class="ui">?</span> 按钮，就能为你当前所在的页面打开 <strong>Hints</strong> 对话框。按钮会呈现当前页面的颜色，所以它始终像是你所处位置的一部分。</p>
+        <p>每个 Hints 对话框有三个部分：</p>
+        <ul>
+          <li>当前页面用途的<strong>概述</strong>。</li>
+          <li><strong>控件</strong>——用大白话逐一说明该页面上的每个滑块与开关。</li>
+          <li><strong>技巧与配方</strong>——可以立刻照着调出来的实例（例如「Acid 酸性贝斯」「Living pad 会呼吸的铺底」「Trance gate 迷幻门限」）。</li>
+        </ul>
+        <p>每个页面都有 Hints——Oscillators、Vol Env、Filt Env、Filter、Cut LFO、Vol LFO、Fold LFO、Pitch LFO、Glide 与 Master——此外随机预设生成器也有专门的一条，通过该页面自己标题栏里的 <span class="ui">?</span> 按钮进入。点击对话框外部，或点它标题栏里的 <span class="ui">×</span> 即可关闭。Hints 系统在独立应用与 AUv3 插件中完全一致。</p>
+      </section>
+
+      <section id="oscillators">
+        <div class="feature-row">
+          <div class="feature-text">
+            <h2><span class="num">5</span>振荡器</h2>
+            <p class="lead">Marco 的四个振荡器每一个都完全独立——各有自己的波形、音量、折叠、失谐与脉冲宽度。</p>
+            <p>每一列从上到下依次是：六个波形按钮、八度选择器（−3 到 +3）、两个同步模式按钮，以及 Vol / Fold / Det / PWM 滑块。魔棒图标只微调这一个振荡器的设置，滑块内部的白线则显示任何实时的 LFO 运动。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/oscillator.png" alt="单个振荡器列（Osc 1）——六个波形按钮、八度选择器、Master A / Sync B 按钮，以及 Vol、Fold、Det 和 PWM 滑块。">
+          </figure>
+        </div>
+
+        <h3 id="waveforms">5.1 波形</h3>
+        <p>每个振荡器提供六种波形：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>波形</th><th>特性</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Sine 正弦</td><td>纯净、平滑的音色。很适合做低频贝斯，或用于加法式叠加。</td></tr>
+            <tr><td>Triangle 三角</td><td>空心、柔和。比正弦稍软一些，但泛音更多。</td></tr>
+            <tr><td>Saw 锯齿</td><td>明亮、嗡响。经典的合成器主音与贝斯波形。</td></tr>
+            <tr><td>Ramp 斜坡</td><td>反向锯齿。谐波内容与 Saw 相同，但同步与相位行为不同。</td></tr>
+            <tr><td>Pulse 脉冲</td><td>方波 / 脉冲波。脉冲宽度由 PWM 参数控制。</td></tr>
+            <tr><td>Noise 噪音</td><td>白噪音。适合做打击性元素、踩镲、风声 / 气声层。音高、八度、失谐与脉冲宽度对 Noise 不起作用。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="osc-controls">5.2 各振荡器控件</h3>
+        <p>波形行下方，每个振荡器有四个参数滑块：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>滑块</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vol</td><td>0–100%</td><td>这个振荡器在总混音中的音量。</td></tr>
+            <tr><td>Fold</td><td>0–100%</td><td>波形折叠量。数值越高，波形被折回自身的程度越深，从而增加谐波。</td></tr>
+            <tr><td>Det</td><td>−24 到 +24 个半音</td><td>相对其他振荡器的音高偏移——从细微的失谐一直到 ±2 个八度。</td></tr>
+            <tr><td>PWM</td><td>10–90%</td><td>脉冲宽度占空比。仅在波形为 Pulse 时有效。</td></tr>
+          </tbody>
+        </table>
+        <p>每个振荡器的列右上角还有一个 <span class="ui">ON / OFF</span> 按钮。关闭一个振荡器会把它从混音中完全移除——关闭时不消耗任何 CPU。</p>
+
+        <h3 id="octave">5.3 八度与音高</h3>
+        <p>在波形选择器与参数滑块之间，每个振荡器都有一个八度选择器：<span class="ui">−3 −2 −1 0 +1 +2 +3</span>。点击即可让这个振荡器的演奏音域相对于所弹音符整体升高或降低若干个八度。</p>
+        <p>把八度与 <strong>Det</strong> 滑块结合起来，从细微失谐一直到振荡器之间宽阔的音程叠置（最多 ±2 个八度）都能做到——这是厚实、有层次声音的基础。</p>
+      </section>
+
+      <section id="dualphonic">
+        <h2><span class="num">6</span>Dual Hard Sync 双硬同步</h2>
+        <p class="lead">双硬同步是 Marco 区别于其他每一台 iOS 合成器的地方。它值得好好理解一下。</p>
+
+        <h3>什么是硬同步？</h3>
+        <p>在经典合成中，「硬同步」指的是：每当一个振荡器（<strong>主振荡器</strong>）完成一个周期，它就强制另一个振荡器（<strong>被同步振荡器</strong>）重新开始自己的波形周期。被同步振荡器的音高被锁定在主振荡器上，但它的谐波内容会剧烈变化——产生标志性的通透、凌厉、大幅扫动的音色。</p>
+
+        <h3>Marco 的同步有什么不同？</h3>
+        <p>大多数合成器只提供一对主／被同步组合。Marco 则<strong>并行运行两组独立的硬同步组</strong>——A 组与 B 组。任何振荡器都可以被分配到其中一组，或者保持独立。</p>
+
+        <h3>同步模式按钮</h3>
+        <p>在每个振荡器的参数行下方，你会看到两个同步模式按钮。可选项为：</p>
+
+        <figure class="manual-figure">
+          <img src="../images/dualhardsync.png" alt="四个振荡器列，两组同步都已启用：Osc 2 设为 Master A 驱动 Osc 1（Synced A），Osc 4 设为 Master B 驱动 Osc 3（Synced B）。">
+          <figcaption>两组同步同时运行：Osc 2 是 <strong>Master A</strong>，驱动 Osc 1（<strong>Synced A</strong>）；同时 Osc 4 是 <strong>Master B</strong>，驱动 Osc 3（<strong>Synced B</strong>）——这就是 Marco 的两组并行硬同步。</figcaption>
+        </figure>
+        <table class="param-table">
+          <thead>
+            <tr><th>模式</th><th>含义</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Off</td><td>这个振荡器独立运行，忽略同步。</td></tr>
+            <tr><td>Master A</td><td>这个振荡器驱动同步组 A。</td></tr>
+            <tr><td>Sync A</td><td>这个振荡器被同步到 Master A。</td></tr>
+            <tr><td>Master B</td><td>这个振荡器驱动同步组 B。</td></tr>
+            <tr><td>Sync B</td><td>这个振荡器被同步到 Master B。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>DUAL HARD SYNC 按钮</h3>
+        <p>在 Master Strip 最右端，你会找到 <strong>DUAL HARD SYNC</strong> 按钮（在 AUv3 插件的紧凑手机布局中简写为 <strong>Dual Sync</strong>）。它是一种一键循环切换 <strong>6 种预先接好的硬同步配置</strong>的方式，涵盖全部四个振荡器。每一种配置都会在两组独立的同步对（A 与 B）之间分配不同的 Master／Sync 角色——包括对调的配对顺序——让你无需自己手动设置振荡器角色，就能立刻试听六种不同的同步「拓扑」。</p>
+
+        <p>用法如下：</p>
+        <ol>
+          <li><strong>点击循环。</strong>每按一次就前进到六种配置中的下一种。按第七次会关闭双硬同步，让振荡器回到无同步状态。</li>
+          <li><strong>按住一个音，然后不停地点。</strong>在有音持续发声时反复点击，才是探索同步音色的正确方式——按住一个音，一直点下去，在你的指下听着每一种配置切换过去。</li>
+          <li><strong>看那个数字。</strong>按钮会在标签旁边显示数字，告诉你当前处于哪一种配置——例如 <strong>Dual Hard Sync 3</strong>。当双硬同步关闭时，按钮只显示纯标签、不带数字。这让人一眼就明白：这个控件是一个六段循环，而不是简单的开关，也能随时看出自己听到的是六种模式中的哪一种。</li>
+          <li><strong>它会随预设加载而更新。</strong>当你载入一个用这六种双硬同步配置之一构建的预设时，按钮会自动亮起并显示该配置的编号，让界面如实反映所载入的声音。使用其他非标准同步布局的预设，会正确地让按钮保持「关闭」状态，因为那些并不属于这六种循环配置之一。你什么都不用做——预设载入的那一刻它就完成了。</li>
+        </ol>
+
+        <div class="callout tip">
+          <strong>把它和骰子按钮搭配起来。</strong>点 Generate 掷出一个新预设，然后开始点 DUAL HARD SYNC，把这个声音的每一种同步排列都走一遍。你会发现一些自己原本不知道存在的质感。
+        </div>
+      </section>
+
+      <section id="envelopes">
+        <h2><span class="num">7</span>包络</h2>
+        <p class="lead">包络塑造的是某个参数在一个音符持续期间如何变化。Marco 的每个振荡器有两条包络：音量包络与滤波器包络。</p>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3 id="vol-env">7.1 音量包络（Vol Env）</h3>
+            <p>音量包络控制振荡器从按下音符那一刻起、直到松开之后的响度。每个振荡器的 <strong>Hold</strong>（保持）与 <strong>Drone</strong>（持续音）按钮横排在顶部，旁边是曲线选择器（Lin / Exp / Soft / Med / Hard），下方是标准的 ADSR 滑块。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/volenv.png" alt="音量包络页面——Hold、Env 与 Drone 按钮，Lin/Exp/Soft/Med/Hard 曲线选择器，以及 Attack、Decay、Sustain 和 Release 滑块。">
+          </figure>
+        </div>
+        <p>标准 ADSR 布局：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>阶段</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Attack 起音</td><td>0–2 秒</td><td>按下音符后到达满音量所需的时间。快 = 有打击感；慢 = 铺底感。</td></tr>
+            <tr><td>Decay 衰减</td><td>0–2 秒</td><td>从起音峰值下落到延音电平所需的时间。</td></tr>
+            <tr><td>Sustain 延音</td><td>0–100%</td><td>音符被按住期间保持的音量电平。</td></tr>
+            <tr><td>Release 释音</td><td>0–3 秒</td><td>松开音符后归于无声所需的时间。</td></tr>
+            <tr><td>Exponential 指数</td><td>开／关</td><td>使用指数而非线性的包络曲线。</td></tr>
+            <tr><td>Drone Mode 持续音模式</td><td>开／关</td><td>开启后，振荡器无需按住音符即可无限延续——适合做持续音、长铺底与连绵的织体。它会绕过正常的 ADSR 门限行为。</td></tr>
+          </tbody>
+        </table>
+        <p>Vol Env 可以设为<strong>逐振荡器</strong>（每个振荡器有自己的包络）或<strong>联动</strong>（一条包络驱动全部四个）。在 Vol Env 页面顶部切换。</p>
+
+        <h4 id="hold-latch">Hold（保持）</h4>
+        <p>Vol Env 页面还带有一个逐振荡器的 <strong>Hold</strong>（保持）控件。启用保持后，即使 MIDI 音符已经松开，该振荡器仍会继续发声。可以用它做延续的铺底，或让一个持续音与新弹的音符叠在一起。因为 Hold 是逐振荡器的，你可以保持住一个低频层，同时让主音振荡器仍然正常响应你的演奏。</p>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3 id="filt-env">7.2 滤波器包络（Filt Env）</h3>
+            <p>滤波器包络随时间塑造滤波器截止频率，与音量包络彼此独立。它的 ADSR 布局与曲线选项和音量包络相同，但没有 Hold 与 Drone 按钮。</p>
+            <p>滤波器包络对截止频率的作用深度，由 Filter 页面里的 <strong>Env</strong> 滑块设定——参见 <a href="#filters">8. 滤波器</a>。</p>
+            <p>和 Vol Env 一样，Filt Env 也可以是逐振荡器或联动的。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/filtenv.png" alt="滤波器包络页面——Lin/Exp/Soft/Med/Hard 曲线选择器位于 Attack、Decay、Sustain 和 Release 滑块上方。">
+          </figure>
+        </div>
+        <div class="callout note">
+          <strong>模式约束。</strong>Filt Env 的 Per-Osc / Linked 模式与 <strong>Filter</strong> 的模式绑定。包络数量可以<em>少于或等于</em>滤波器数量，绝不能更多——完整规则见 <a href="#linked-perosc">Per-Osc 与 Linked 模式</a>。
+        </div>
+      </section>
+
+      <section id="filters">
+        <div class="feature-row">
+          <div class="feature-text">
+            <h2><span class="num">8</span>滤波器</h2>
+            <p class="lead">一个具备八种模式的状态变量滤波器，可逐振荡器使用，也可在四个振荡器之间联动。</p>
+            <p>滤波器类型按钮（LP 6 / LP 12 / LP 18 / LP 24 / BP / Notch / HP / Formant）位于页面顶部；它们下方是 Cut、Res、Env 与 Key 滑块，详见下方表格。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/filter.png" alt="Filter 页面——八个滤波器类型按钮（LP 6 到 Formant）位于 Cut、Res、Env 和 Key 滑块上方。">
+          </figure>
+        </div>
+
+        <h3>滤波器类型</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>类型</th><th>特性</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>LP 6</td><td>低通，6dB/八度斜率。温和、透明地压暗。</td></tr>
+            <tr><td>LP 12</td><td>低通，12dB/八度。经典的合成器低通，中等程度的挤压感。</td></tr>
+            <tr><td>LP 18</td><td>低通，18dB/八度。切得更深，共振也更明显。</td></tr>
+            <tr><td>LP 24</td><td>低通，24dB/八度。锐利、凶悍——Moog 式梯形滤波器的斜率。</td></tr>
+            <tr><td>BP</td><td>带通。去掉低频与高频，留下一段可调的中频带。</td></tr>
+            <tr><td>Notch</td><td>陷波滤波器。切掉一段很窄的频带，适合做相位／扫频效果。</td></tr>
+            <tr><td>HP</td><td>高通。去掉截止频率以下的低频。可收紧低频过重的声音。</td></tr>
+            <tr><td>Formant</td><td>共振峰滤波器。产生类似元音的共振（「啊」「噢」等）。</td></tr>
+          </tbody>
+        </table>
+
+        <h3>滤波器参数</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cutoff 截止频率</td><td>20 Hz – 8 kHz</td><td>截止频率，对数刻度。</td></tr>
+            <tr><td>Resonance 共振</td><td>0–100%</td><td>滤波器 Q 值。数值很高时可能自激振荡。</td></tr>
+            <tr><td>Env Amount 包络量</td><td>−100% 到 +100%</td><td>滤波器包络从静止位置把滤波器打开（正值）或关闭（负值）的幅度。</td></tr>
+            <tr><td>Key Tracking 键位跟踪</td><td>0–100%</td><td>截止频率跟随所弹音符音高的程度。0% = 固定不动；100% = 1:1 跟随。</td></tr>
+            <tr><td>Enabled 启用</td><td>开／关</td><td>为这个振荡器完全旁通滤波器。</td></tr>
+          </tbody>
+        </table>
+
+        <p>滤波器可以设为<strong>逐振荡器</strong>，也可以在四个振荡器之间<strong>联动</strong>。</p>
+        <div class="callout note">
+          <strong>滤波器是目标。</strong>Filt Env 与 Cut LFO 都在调制滤波器截止频率，所以它们的 Per-Osc / Linked 模式与 Filter 的模式绑定。如果 Filter 是 Linked，这些调制源也必须是 Linked——完整规则见 <a href="#linked-perosc">Per-Osc 与 Linked 模式</a>。
+        </div>
+      </section>
+
+      <section id="lfos">
+        <h2><span class="num">9</span>LFO（低频振荡器）</h2>
+        <p class="lead">LFO 是缓慢的调制源，让一个参数随时间上下起伏——可以把它想成自动化的拧旋钮。Marco 有四个 LFO，各自针对不同的参数。</p>
+
+        <h3>LFO 的通用控件</h3>
+        <p>每个 LFO 都有同一组基础控件：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Enabled 启用</td><td>开／关</td><td>开启或关闭这个 LFO。关闭时，LFO 停止调制且不消耗 CPU。</td></tr>
+            <tr><td>Shape 波形</td><td>Sine、Triangle、Saw、Ramp、Square</td><td>LFO 的波形。</td></tr>
+            <tr><td>Rate 速率</td><td>0.1–20 Hz</td><td>LFO 的速度——开启 Sync 时则为音乐时值。</td></tr>
+            <tr><td>Range（最小值）</td><td>0–100%</td><td>调制范围的下界。</td></tr>
+            <tr><td>Range（最大值）</td><td>0–100%</td><td>调制范围的上界。与最小值一起，决定 LFO 在什么区间内摆动。</td></tr>
+            <tr><td>Gate 门限</td><td>开／关</td><td>开启时，LFO 在每个音符上重新开始。关闭时，LFO 自由运行。</td></tr>
+            <tr><td>Phase Offset 相位偏移</td><td>0–360°</td><td>Gate 开启时的起始相位。可以是任意角度，不限于四个正点位置。</td></tr>
+            <tr><td>Fade In 渐入</td><td>0–5 秒</td><td>渐进式开始——按下音符后，LFO 在这段时间内逐渐升到满深度。</td></tr>
+            <tr><td>Sync 同步</td><td>开／关</td><td>把 LFO 速率锁定到宿主速度（独立应用中则为其 BPM）。</td></tr>
+            <tr><td>Sync Division 同步时值</td><td>音乐时值</td><td>同步状态下的速率（例如 1/4、1/8、1/16T、1/8D 等）。</td></tr>
+          </tbody>
+        </table>
+
+        <p>所有 LFO 都可以是<strong>逐振荡器</strong>的（每个振荡器有自己独立的 LFO），也可以是<strong>联动</strong>的（一个 LFO 驱动全部四个）。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/lfo-indicators.png" alt="并排的两个振荡器列，每个参数滑块上都有一条白色横线，实时显示某个 LFO 把这个参数推动了多远。">
+          <figcaption>每个滑块内部的白线都在实时移动，精确显示哪些参数正被 LFO 驱动、幅度多大——没有隐藏的调制。</figcaption>
+        </figure>
+
+        <h3 id="cut-lfo">9.1 截止频率 LFO（Cut LFO）</h3>
+        <p>随时间调制滤波器截止频率。经典的「哇哇」扫动效果。</p>
+        <div class="callout note">
+          <strong>模式约束。</strong>Cut LFO 调制的是滤波器，所以它的 Per-Osc / Linked 模式与 Filter 的模式绑定。LFO 数量可以<em>少于或等于</em>滤波器数量，绝不能更多——完整规则见 <a href="#linked-perosc">Per-Osc 与 Linked 模式</a>。
+        </div>
+
+        <h3 id="vol-lfo">9.2 音量 LFO（Vol LFO）</h3>
+        <p>调制振荡器音量——产生颤音（振幅调制）。</p>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3 id="fold-lfo">9.3 波形折叠 LFO（Fold LFO）</h3>
+            <p>调制波形折叠量。会产生不断演进的谐波复杂度——fold 参数是 Marco 最有性格的控件之一。</p>
+            <p>它的布局是四个 LFO 共用的：顶部一排波形按钮与 Sync / Gate 开关，下面是 Div（速率）、Range、Fade 与 Phase 滑块——所以学会这一个页面，你也就同时学会了截止频率、音量与音高 LFO。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/foldlfo.png" alt="波形折叠 LFO 页面——LFO 波形按钮、Sync 与 Gate 开关，以及 Div、Range、Fade 和 Phase 滑块。">
+          </figure>
+        </div>
+
+        <div class="feature-row">
+          <div class="feature-text">
+            <h3 id="pitch-lfo">9.4 音高 LFO</h3>
+            <p>调制振荡器音高——产生揉音（频率调制）。内含专门的揉音模式，让音高的起伏听起来更自然。</p>
+            <p>它使用与其他 LFO 相同的控件布局（波形、Sync / Gate、Div、Range、Fade 与 Phase），所以慢速三角波给出温和的揉音，而更快的速率与更宽的范围则会推向警笛与颤抖的地带。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/pitchlfo.png" alt="音高 LFO 页面——LFO 波形按钮、Sync 与 Gate 开关，以及 Div、Range、Fade 和 Phase 滑块。">
+          </figure>
+        </div>
+
+        <div class="callout tip">
+          <strong>Gate 加 Phase Offset 比你想的更重要。</strong>开启 <strong>Gate</strong> 后，LFO 会在每个音符上以你在 <strong>Phase Offset</strong> 设定的角度重新开始——适合做紧凑、可预期的调制。关闭 Gate，则无论你何时演奏，LFO 都持续自由运行。
+        </div>
+      </section>
+
+      <section id="glide">
+        <div class="feature-row">
+          <div class="feature-text">
+            <h2><span class="num">10</span>Glide 滑音</h2>
+            <p class="lead">Glide（滑音，portamento）让音高从一个音平滑地滑向下一个音，而不是直接跳过去。做有表现力的主音与 303 风格贝斯线时必不可少。</p>
+            <p>这个页面设定滑行的时间（Time）、曲线（Curve）、是否仅在连奏时生效（Legato Only），以及一个最大范围上限（Max Range）——和多数模块一样，它也可以逐振荡器或联动运行。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/glide.png" alt="Glide 页面——Enabled 开关，以及 Time、Curve、Legato Only 和 Max Range 控件。">
+          </figure>
+        </div>
+
+        <h3>Glide 控件</h3>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Enabled 启用</td><td>开／关</td><td>开启或关闭滑音。</td></tr>
+            <tr><td>Time 时间</td><td>0.01–2.0 秒</td><td>两个音之间音高滑行的时长。</td></tr>
+            <tr><td>Curve 曲线</td><td>Exp / Linear / Log / S 曲线</td><td>音高过渡的形状。</td></tr>
+            <tr><td>Legato Only 仅连奏</td><td>开／关</td><td>启用后，只有音符重叠时（真正的连奏演奏）才会发生滑音。断奏的音符照常直接跳。</td></tr>
+            <tr><td>Max Range 最大范围</td><td>0–48 个半音</td><td>限制滑音能覆盖的最大音程。0 = 不限制（任意距离都滑）；适合让大跳保持干脆，同时让小音程平滑滑行。</td></tr>
+          </tbody>
+        </table>
+
+        <p>Glide 可以设为<strong>逐振荡器</strong>或<strong>联动</strong>。逐振荡器滑音是 Marco 最有表现力的功能之一——例如只让 Osc 1 滑音而让 Osc 2 直接跳，就会产生一种「橡皮筋」般的失谐效果。</p>
+      </section>
+
+      <section id="effects">
+        <h2><span class="num">11</span>Master 页面</h2>
+        <p class="lead">Master 页面是 Marco 完整的输出处理链——过载、动态、时间类效果、立体声成像与限制。每一个区块处理的都是四个振荡器混合后的信号。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/master.png" alt="Marco 的 Master 页面，显示内置的总线效果链——过载、压缩器、延迟、混响、立体声宽度与限制器。">
+          <figcaption>Master 页面：完整的输出链路——过载、压缩器、延迟、混响、立体声与限制器——全部处理四个振荡器混合后的输出。</figcaption>
+        </figure>
+
+        <p>除 Stereo 之外，每个区块都有自己的 <span class="ui">ON / OFF</span> 开关。区块关闭时，它的控件会变灰，信号原样通过、不受影响。</p>
+
+        <div class="callout note">
+          <strong>效果永远是联动的。</strong>Drive、Compressor、Delay、Reverb、Stereo 与 Limiter 全部作用于混合后的输出——不存在逐振荡器的效果模式。
+        </div>
+
+        <h3 id="master-drive">11.1 Drive 过载</h3>
+        <p>饱和 / 失真。依类型与用量不同，可以增添温暖、颗粒感，或彻底的破坏。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Type 类型</td><td>饱和曲线——Soft、Hard、Tube 或 Fold。</td></tr>
+            <tr><td>Drive 驱动量</td><td>饱和的强度（0–100%）。</td></tr>
+            <tr><td>Tone 音色</td><td>失真信号的明亮／暗淡程度（0–100%）。</td></tr>
+            <tr><td>Mix 混合</td><td>干／湿比例（0–100%）。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-compressor">11.2 Compressor 压缩器</h3>
+        <p>动态处理，用于压平峰值并增加密度。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Threshold 阈值</td><td>−60 到 0 dB</td><td>超过这个电平就开始压缩。</td></tr>
+            <tr><td>Ratio 压缩比</td><td>1:1 到 20:1</td><td>阈值以上的信号被压缩得有多狠。</td></tr>
+            <tr><td>Attack 启动</td><td>1–300 毫秒</td><td>信号超过阈值后，压缩器多快开始介入。</td></tr>
+            <tr><td>Release 释放</td><td>10–1000 毫秒</td><td>信号回落后，压缩器多快松开。</td></tr>
+            <tr><td>Auto Gain 自动增益</td><td>开／关</td><td>自动补偿增益，弥补被压下去的音量。</td></tr>
+            <tr><td>GR Meter 增益衰减表</td><td>—</td><td>可视化的增益衰减指示。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-delay">11.3 Delay 延迟</h3>
+        <p>数字延迟，可选速度同步。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Time / Div</td><td>0.05–1.0 秒</td><td>以秒计的延迟时间，开启 Sync 时则为音乐时值。</td></tr>
+            <tr><td>Feedback 反馈</td><td>0–95%</td><td>有多少延迟信号被送回输入端。</td></tr>
+            <tr><td>Mix 混合</td><td>0–100%</td><td>干／湿比例。</td></tr>
+            <tr><td>BPM</td><td>40–240</td><td>同步模式下的速度。<em>仅限独立应用——AUv3 插件使用宿主速度。</em></td></tr>
+            <tr><td>Sync 同步</td><td>开／关</td><td>切换按速度同步的延迟时值。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>同步时值</strong>（由快到慢）：1/32、1/16T、1/16、1/8T、1/16D、1/8、1/4T、1/8D、1/4、1/4D、1/2、1/1、2 小节、4 小节。</p>
+
+        <h3 id="master-reverb">11.4 Reverb 混响</h3>
+        <p>FDN（反馈延迟网络）混响，质量可配置。混响内部使用的延迟线数量在 <a href="#performance-settings">应用偏好设置 → 性能设置</a>中全局设定。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Damping 阻尼</td><td>DARK / WARM / CLEAR / BRIGHT</td><td>高频吸收的预设方案。</td></tr>
+            <tr><td>Mix 混合</td><td>0–100%</td><td>干／湿比例。</td></tr>
+            <tr><td>Decay 衰减</td><td>0–100%</td><td>混响尾音的长度。</td></tr>
+            <tr><td>Size 空间大小</td><td>0.2× 到 2.0×</td><td>房间尺寸的缩放。</td></tr>
+            <tr><td>Pre-Delay 预延迟</td><td>0–100 毫秒</td><td>干信号与第一次混响反射之间的时间间隔。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-stereo">11.5 Stereo 立体声</h3>
+        <p>立体声成像与空间处理。<strong>始终启用</strong>——没有开关。它在链路中紧跟在混响之后。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Width 宽度</td><td>0–100%</td><td>通过全通去相关实现的立体声展开。始终可用。</td></tr>
+            <tr><td>Drift 漂移</td><td>0–100%</td><td>缓慢的立体声移动——一个 0.3 Hz 的 LFO 让声像轻柔地左右摇摆。</td></tr>
+            <tr><td>B.MONO</td><td>开／关</td><td>低频单声道——把约 200 Hz 以下的频率合并为单声道，让低端在制作中保持凝聚。</td></tr>
+            <tr><td>SAFE</td><td>开／关</td><td>单声道兼容——把立体声侧信号降低 40%，让混音在单声道播放时也能良好还原。</td></tr>
+          </tbody>
+        </table>
+        <p><strong>信号流：</strong>Width 去相关器 → Drift → 低频单声道 → Safe。</p>
+
+        <h3 id="master-limiter">11.6 Limiter 限制器</h3>
+        <p>链路末端的砖墙限制器。在信号离开 Marco 之前拦下任何峰值。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>控件</th><th>范围</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ceiling 天花板</td><td>−12 到 0 dB</td><td>限制器允许通过的最大输出电平。</td></tr>
+            <tr><td>Release 释放</td><td>1–500 毫秒</td><td>峰值过后限制器多快松开。</td></tr>
+            <tr><td>GR Meter 增益衰减表</td><td>—</td><td>可视化的增益衰减指示。</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="master-presets">11.7 Master 预设</h3>
+        <p>Marco 的 Master 链路有自己独立的预设系统，与音色预设分开。你可以独立于正在演奏的声音，整体更换效果链（Drive、Compressor、Delay、Reverb、Stereo、Limiter 的设置）——当你想保留自己设计好的音色、却想换一个完全不同的声音空间时，这很有用。</p>
+
+        <h4>Master 导航按钮</h4>
+        <p>Master 预设由 <strong>Master 导航按钮</strong>驱动——那是主预设选择器旁边的一个绿色胶囊。它显示当前生效的 Master 预设名称，并且和音色预设选择器一样带有 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头，可逐个切换 Master 预设，同时支持点击浏览、保存与覆盖。</p>
+
+        <h4>编辑状态追踪</h4>
+        <p>Master 导航按钮会如实告诉你：你现在听到的，是否仍与那个具名的 Master 预设一致：</p>
+        <ul>
+          <li><strong><span class="ui">名称*</span>（星号）</strong>——只要你改动了任何 Master 页面的滑块或按钮，星号就会出现在当前 Master 预设名称之后。当你用箭头切换、在浏览器里选择一个预设、保存或覆盖时，星号会清除。</li>
+          <li><strong>「Custom」</strong>——每当你载入一个普通（音色）预设时，它会取代 Master 预设的名称。音色预设自带各自烘焙好的效果，所以载入其中之一就意味着先前显示的 Master 预设已经不能描述正在播放的内容了。载入或保存一个 Master 预设，会让「Custom」重新变回该预设的名称。</li>
+          <li><strong>「Custom*」</strong>——两种状态叠加：载入音色预设之后又改动了某个 Master 控件，按钮就会显示 <span class="ui">Custom*</span>。</li>
+        </ul>
+
+        <div class="callout note">
+          <strong>Master 页面是可以被 Tweak 的。</strong>Generate 会间接改变 Master 链路——因为它会先载入一个随机的基础预设，那个预设的 Master 设置也就跟着来了。Tweak 系统也可以直接把 Master 页面作为目标：使用随机预设生成器对话框里的 Tweak 区域，或点击 Master 页面上任一区块的魔棒按钮，只微调那一个区块。完整细节见 <a href="#master-randomisation">13.9 Master 与随机化</a>。
+        </div>
+      </section>
+
+      <section id="presets">
+        <h2><span class="num">12</span>预设</h2>
+        <p class="lead">Marco 内置 100 多个工厂预设，并完整支持保存、整理与分享你自己的预设。</p>
+
+        <h3>预设类别</h3>
+        <ul>
+          <li><strong>All</strong>——预设库里的全部预设。</li>
+          <li><strong>Favourites</strong>——所有你标了星的预设。</li>
+          <li><strong>Signature</strong>——集中展示双硬同步的精选预设。</li>
+          <li><strong>Artists</strong>——由特邀艺术家贡献的预设。</li>
+          <li><strong>Basic</strong>——简单、干净的起点。</li>
+          <li><strong>Bass</strong>——低频、中频、酸性、低八度贝斯线。</li>
+          <li><strong>Lead</strong>——独奏与旋律性音色。</li>
+          <li><strong>Pad</strong>——缓慢演进的持续音。</li>
+          <li><strong>Keys</strong>——键盘 / 钢琴 / 槌击类音色。</li>
+          <li><strong>FX</strong>——音效、撞击声、噪音织体、气氛声。</li>
+          <li><strong>Drone</strong>——持续、演进、不依赖松键的声音。</li>
+          <li><strong>User</strong>——你自己保存的预设。</li>
+        </ul>
+
+        <h3>预设浏览器</h3>
+        <p>点击屏幕顶部中央的预设名称即可打开预设浏览器。类别在左，预设名称在右。点星号加入收藏；点预设名称载入它。你也可以不打开浏览器，直接用预设名称两侧的 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头逐个切换。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/presetbrowser.png" alt="预设浏览器——左侧是类别列表，右侧是预设名称，各有颜色标识，并带有收藏用的星标。">
+          <figcaption>预设浏览器：类别在左，预设在右。点星号收藏，点名称载入。</figcaption>
+        </figure>
+
+        <h3>Save 与 Save New</h3>
+        <p>Marco 区分「更新一个已有的用户预设」与「新建一个」：</p>
+        <ul>
+          <li><strong>Save</strong>——就地覆盖当前生效的用户预设。如果当前预设是工厂预设或「Random」，Save 会自动退回为 Save New 的行为（也就是说，它绝不会覆盖工厂内容）。</li>
+          <li><strong>Save New</strong>——总是提示你输入名称，并创建一个全新的用户预设，当前生效的那个不受影响。</li>
+        </ul>
+
+        <h3>导入与导出</h3>
+        <p>预设浏览器支持导入其他用户分享的预设（或通过网站发给你的预设），也支持把你自己的导出去分享。文件是很小的 JSON 片段，包含预设名称与参数值——参见 <a href="#sharing">19. 分享预设</a>。</p>
+      </section>
+
+      <section id="random">
+        <h2><span class="num">13</span>随机预设生成器</h2>
+        <p class="lead">Marco 的随机化系统是有音乐性的，不是混乱的。它围绕<em>美丽的意外与可发现性</em>这一原则设计——我们的目标是：每一次掷出都应该给出你真正用得上的东西，同时依然让你意外。</p>
+        <p>每一次 <strong>Generate</strong> 都结合两样东西：一个 <strong>Style</strong> 风格（Mild / Wild / Recipe，任选）和一个 <strong>Base Preset Source</strong> 基础预设来源（从哪个类别取材）。同一个对话框里还住着 <strong>Tweak</strong> 系统，它的振荡器与参数开关让你在当前听到的声音上做变化，而不是掷一个新的。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/random-generator.png" alt="随机预设生成器对话框，含 Style 风格胶囊、Base Preset Source 类别选择器，以及针对各振荡器与各参数的定向开关。">
+          <figcaption>随机预设生成器：Style 风格胶囊与 Base Preset Source 类别在掷新预设时驱动 <strong>Generate</strong>，而振荡器与参数开关则让你 <strong>Tweak</strong> 当前听到的声音。</figcaption>
+        </figure>
+
+        <h3 id="styles">13.1 风格 — Mild、Wild 与 Recipe</h3>
+        <p>随机预设对话框顶部的三个 <strong>Style</strong> 风格胶囊决定每一次掷出<em>如何</em>构建。风格是<strong>多选</strong>的——启用任意组合，每按一次 Generate（或骰子），系统就会在你启用的风格中随机挑一个用于这次掷出。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>风格</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Mild 温和</td><td>围绕来源预设的性格做小幅、有音乐性的变异。最适合打磨一个你已经喜欢的音色——保住气质，只变细节。</td></tr>
+            <tr><td>Wild 狂野</td><td>激进、覆盖面广的随机化，采用幂律分布。范围更宽、意外更多——最适合探索性的创作时段。</td></tr>
+            <tr><td>Recipe 配方</td><td>从 35 个成文的<strong>声音原型</strong>中挑选（例如「Moog 风格主音」「Acid 303 风格」「玻璃质感铺底」「Riser 上升音效」），并在该原型的设计约束内构建一个连贯的音色。这是最经过策展的风格——开箱即用的可用音色。</td></tr>
+          </tbody>
+        </table>
+        <p>启用一个以上风格时，Marco 会为每次掷出随机挑一个——所以「Mild + Recipe」会在每次掷出时随机选择「策展结果」或「温和变异」。一个都不选，等同于三个全选。</p>
+        <div class="callout note">
+          <strong>Recipe 并非在所有地方都可用。</strong>配方是为 <strong>All、Bass、Lead、Pad、Keys、Drone、FX</strong> 与 <strong>Signature</strong> 这些类别策划的。其他类别——<strong>User、Favourites、Artists</strong> 与 <strong>Basic</strong>——没有配方（它们的重点是在你自己的或精选的声音上做变化），因此 Recipe 胶囊在那里会<strong>变暗</strong>；它仍可点击，但掷出时会退回到 Mild 或 Wild。
+        </div>
+        <div class="callout tip">
+          <strong>不确定该用哪个？</strong>三个都开着就好。随时点击随机预设对话框标题栏里的 <span class="ui">?</span> 按钮，就能在应用内看到关于风格、多选行为、来源类别与骰子标签的说明。
+        </div>
+
+        <h3 id="three-systems">13.2 三种随机方式</h3>
+        <p>风格管的是 <strong>Generate</strong>，但 Marco 其实有三个不同的随机化入口，各自适合声音设计的不同阶段：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>系统</th><th>位置</th><th>作用</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Generate</td>
+              <td>随机预设对话框里的「Generate」按钮，或主工具栏上的 🎲 骰子按钮</td>
+              <td>掷出一个全新的声音，使用你当前生效的 <strong>Style</strong>（见 <a href="#styles">13.1 风格</a>）与所选类别。产出的是全新音色，但仍属于你选定的那个类别。工具栏的骰子与对话框的 Generate 按钮做的是完全相同的事。</td>
+            </tr>
+            <tr>
+              <td>Tweak</td>
+              <td>随机预设对话框里的魔棒按钮</td>
+              <td>让<strong>当前载入的声音</strong>发生变异。只影响你在对话框里勾选的振荡器与参数，强度由 <a href="#tweak-amount">Tweak Amount</a> 滑块设定。使用宽泛的默认范围（没有针对类别的专门调校）。</td>
+            </tr>
+            <tr>
+              <td>逐振荡器 Tweak</td>
+              <td>每个振荡器列标题里的小魔棒图标（或 Master 页面每个区块上的魔棒）</td>
+              <td>只让那个<strong>特定页面</strong>上属于那个<strong>特定振荡器</strong>的可见参数发生变异。紧凑、外科手术式的改动——例如在 Osc 2 的 Filter 页面点一下魔棒，就只微调 Osc 2 的滤波器设置。每个页面都有；在 Master 页面上，每个区块各有自己的魔棒，只微调那个区块。该区块处于 OFF 时按钮会被禁用。</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 id="opening-rpg">13.3 打开对话框与工具栏骰子</h3>
+        <ul>
+          <li>顶部标题栏里的<strong>随机器按钮</strong>——按钮上标着当前的基础预设来源（例如 <em>All</em>）。点击它打开随机预设对话框，Generate 按钮、Tweak 按钮、风格胶囊和所有定向开关都在那里。对话框标题栏里还有一个 <span class="ui">?</span> 提示按钮，说明生成器的工作方式。</li>
+          <li>Master Strip 里的 <strong>🎲 骰子按钮</strong>——一键快捷方式，直接用你当前的设置执行 Generate，不打开对话框。它两侧是历史箭头（参见 <a href="#rpg-history">随机预设历史</a>）。</li>
+        </ul>
+
+        <h4 id="dice-label">骰子标签</h4>
+        <p>Master Strip 骰子下方有一行实时小字，以 <span class="ui">Category.Styles</span> 的形式告诉你<em>下一次</em>掷出会产生什么：</p>
+        <ul>
+          <li><strong>类别</strong>就是你当前生效的基础预设来源。较长的名称会缩写：Favourites → <span class="ui">Favs</span>，Signature → <span class="ui">Sig</span>，Artists → <span class="ui">Art</span>；其余照全称显示。</li>
+          <li><strong>点号后缀</strong>编码的是哪些风格被启用：<span class="ui">M</span> = Mild，<span class="ui">W</span> = Wild，<span class="ui">R</span> = Recipe。只有一个字母意味着只会触发那一种风格；多个字母的组合意味着任何一种都可能在某次掷出时触发。</li>
+        </ul>
+        <p>所以 <span class="ui">Bass.MR</span> 表示「Bass 类别，在 Mild 与 Recipe 之间交替掷出」，而 <span class="ui">Favs.MWR</span> 表示「Favourites，任意风格」。只要你更改来源类别或风格选择，这个标签就会立刻更新。</p>
+
+        <h3 id="base-source">13.4 Base Preset Source 基础预设来源</h3>
+        <p>对话框顶部选择的是：当 Generate 掷出新声音时，Marco 从哪个类别汲取灵感。可选任何工厂类别（<strong>Basic、Bass、Lead、Pad、Keys、FX、Drone</strong>）、精选的 <strong>Signature</strong> 与 <strong>Artists</strong> 集合，以及 <strong>All</strong>、<strong>Favourites</strong> 和 <strong>User</strong>。</p>
+        <p>每个类别不只是基础预设的筛选条件——它还会影响 Generate <em>如何</em>构建这个声音。参见下方 <a href="#category-modes">13.8 各类别的行为</a>。</p>
+
+        <h3 id="targeting">13.5 振荡器与参数定向</h3>
+        <p>只有 <strong>Tweak</strong> 会遵循这两组开关——Generate 会忽略它们，永远掷出一个完整的新预设：</p>
+        <ul>
+          <li><strong>振荡器</strong>——选择 Tweak 可以改动四个振荡器中的哪几个。取消勾选某个振荡器，它就保持不动（例如在微调其他三个时，让贝斯层保持稳定）。</li>
+          <li><strong>参数</strong>——精确控制允许哪些类型的改动。可用开关有：波形、音量、八度、失谐、脉冲宽度、折叠量、振荡器开关、硬同步、音量包络、滤波器包络、滤波器、音量 LFO、折叠 LFO、截止频率 LFO、音高 LFO、滑音。</li>
+        </ul>
+        <p>用 <strong>None</strong> 链接可以全部清空，然后只启用你感兴趣的那几个参数。</p>
+
+        <h3 id="lfo-sync">13.6 LFO Sync</h3>
+        <p>一个独立的 <strong>LFO Sync</strong> 开关让你决定：当 <strong>Tweak</strong> 改动 LFO 速率时，是否要让它们与速度同步。想要合拍的调制就打开它；想要自由运行的 LFO 就关着。</p>
+
+        <h3 id="tweak-amount">13.7 Tweak Amount 微调幅度</h3>
+        <p>定向开关下方是 <strong>Tweak Amount</strong> 滑块。Tweak 是一次<em>轻推</em>，不是重掷——每按一次，当前数值都朝着一次全新掷出的结果移动一小段，而这个滑块决定这一小段有多大。向左滑做极细微的打磨，向右滑做大胆的转变。拖动时，标题旁边的词会说明当前的强度：</p>
+        <table class="param-table">
+          <thead><tr><th>强度</th><th>感受</th></tr></thead>
+          <tbody>
+            <tr><td>Minimal / Subtle 极小 / 细微</td><td>几乎察觉不到的打磨——在不冒险改变性格的前提下，润色一个你已经喜欢的声音。</td></tr>
+            <tr><td>Medium / Default 中等 / 默认</td><td>标准的手感（滑块会吸附回 <span class="ui">Default · 0.45</span>，所以你随时能回到它）。变化清晰可闻，但依然尊重原有的声音。</td></tr>
+            <tr><td>Large / Extra Large / Max 大 / 很大 / 最大</td><td>大胆的转变——每按一次都把声音推到接近全新掷出的程度，但仍保留它的大致轮廓。</td></tr>
+          </tbody>
+        </table>
+        <p>这一个设置管着 Marco 里的<strong>每一次</strong> Tweak：对话框的 Tweak 按钮、各列标题里的逐振荡器魔棒，以及 Master 各区块上的魔棒。反复按下会按所选强度累积，所以低幅度让你一次一小步、小心翼翼地把声音推向某个方向，而高幅度只需按一两下就能到达新地方。这个数值会跨会话记住；在 AUv3 插件中，它还作为一个 AU 参数暴露给宿主，可以自动化或做 MIDI 映射。无论幅度多大，每一步都仍会进入<a href="#rpg-history">随机预设历史</a>，所以你随时可以往回走。</p>
+
+        <h3 id="category-modes">13.8 各类别的行为（仅 Generate）</h3>
+        <p>在你选定的风格之上，所选类别也会塑造结果。对于 <strong>Mild</strong> 与 <strong>Wild</strong> 风格，生成器会把声音调校得符合该类别；<strong>Recipe</strong> 风格则会取用为该类别构建的原型。每个类别的设计目标都是给你听起来像那个类别的结果——下表说明各类别可以期待什么，方便你有意识地选择。</p>
+
+        <table class="param-table">
+          <thead>
+            <tr><th>类别</th><th>可以期待什么</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bass / Lead / Pad / Keys</td><td>为该角色量身调校的声音——包络、滤波器与八度范围都配合它。</td></tr>
+            <tr><td>Drone</td><td>可以无限延续的持续音。Drone 与其他类别保持分离，所以只有选 Drone 时才会得到它。</td></tr>
+            <tr><td>Signature</td><td>每一次掷出都在展示双硬同步。</td></tr>
+            <tr><td>Basic</td><td>干净的「振荡器 + 包络 + 滤波器」音色，没有 LFO 或滑音的起伏。</td></tr>
+            <tr><td>FX（配合 Wild）</td><td>充满动态与性格——大量 LFO、滑音与硬同步。</td></tr>
+            <tr><td>User / Favourites</td><td>在你自己保存的声音上做变化，而不是给你全新的东西。</td></tr>
+            <tr><td>All</td><td>从全部内容中取材，结果的范围最宽。</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <strong>在你自己的声音上做变化。</strong>如果你想要的是某个声音的变体、而不是全新的东西，把基础预设来源设为 <strong>User</strong> 或 <strong>Favourites</strong>，然后连点几次 Generate。你会得到某个既有声音的多个版本，而不是随机的新声音——非常适合在不丢失原有性格的前提下寻找「兄弟预设」。注意：如果所选类别是空的（例如你还没保存过任何 User 预设，或还没标过任何收藏），Marco 会退回到 <strong>All</strong> 类别。
+        </div>
+
+        <h3 id="master-randomisation">13.9 Master 区块与随机化</h3>
+        <div class="callout note">
+          <strong>Generate 不会从零掷出 Master 链路，但 Tweak 系统可以把它作为目标。</strong>一次全新的 Generate 绝不会直接随机化 Drive、Compressor、Delay、Reverb、Stereo 与 Limiter——但你随时可以有意识地去微调它们。
+        </div>
+        <p><strong>Generate 会间接改变 Master 链路</strong>：因为 Generate 会先载入一个随机的基础预设（再在其上变异音色参数），那个基础预设的效果链也就一并带过来了。所以每按一次 Generate，都会带来一种不同的、与声音相配的效果性格——那是与声音一起设计出来的，而不是被随机搅乱的效果。</p>
+        <p><strong>Tweak 可以作用于 Master 页面</strong>，有两种方式：通过随机预设生成器对话框里的 Tweak 区域，或直接点击 Master 页面各区块上的魔棒按钮，只微调那一个区块（例如只动混响，不碰延迟或过载）。除此之外，你的 Master 设置会保持你离开时的样子，分毫不动。</p>
+
+        <div class="callout tip">
+          <strong>工作流程示例。</strong>喜欢当前预设的主控链路，但想换一种律动感？把除 <strong>Glide</strong> 与 <strong>Cutoff LFO</strong> 之外的一切都取消勾选，然后点几次 Tweak——新的动态，同样的声音底子，效果原封不动。
+        </div>
+
+        <h3 id="rpg-history">13.10 随机预设历史</h3>
+        <p>随机化本就该被无所顾忌地探索——所以 Marco 会记住你去过哪里。三个系统的每一个结果都会被推入一个共享的<strong>历史记录</strong>，保存最近 <strong>100</strong> 个随机与微调过的声音，你随时可以在其中前后穿梭。</p>
+
+        <p>以下操作会向历史中添加一条记录：</p>
+        <ul>
+          <li>Generate（对话框的 Generate 按钮）</li>
+          <li>Tweak（对话框的魔棒按钮）</li>
+          <li>逐振荡器 Tweak（列标题里的魔棒）</li>
+          <li>工具栏的 🎲 骰子按钮</li>
+          <li>由 MIDI 触发的随机（仅 AUv3）</li>
+        </ul>
+
+        <h4>在历史中导航</h4>
+        <p>两个橙色箭头按钮让你在历史中移动：</p>
+        <ul>
+          <li><strong>在主工具栏上</strong>——左箭头（◀）与右箭头（▶）分列骰子按钮两侧。</li>
+          <li><strong>在随机预设对话框里</strong>——同样的箭头分列 Generate 按钮两侧。</li>
+        </ul>
+        <p>左箭头退回到上一个声音；右箭头再往前走。当你已经处在历史的开头或末尾、没有更远的地方可去时，相应的箭头会<strong>变暗</strong>。</p>
+
+        <div class="callout tip">
+          <strong>放心地掷，然后走回去。</strong>为了追一个想法连点十次骰子，然后用后退箭头回到三次之前那个打动你的版本。往回走绝不会抹掉任何东西——前面的声音仍留在前进箭头上，而任何新的掷出只会被添加到历史的末尾。
+        </div>
+      </section>
+
+      <section id="scope">
+        <h2><span class="num">14</span>Scope 示波器</h2>
+        <p class="lead">波形示波器让你实时看清每个振荡器——以及主输出——正在产生什么。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/scope.png" alt="波形示波器显示主输出波形，以及四个独立振荡器的波形，各自与所属列的颜色一致。">
+          <figcaption>示波器：合成后的主输出，加上每个振荡器自己的波形，颜色与所属列一致。</figcaption>
+        </figure>
+
+        <p>点击 Master Strip 里的 <strong>SCOPE</strong> 打开示波器视图。你会看到：</p>
+        <ul>
+          <li><strong>主输出</strong>——四个振荡器经过滤波与效果之后的合成波形。</li>
+          <li><strong>Osc 1 / Osc 2 / Osc 3 / Osc 4</strong>——每个振荡器当前的波形，颜色与所属列一致。波形标签会显示当前类型（锯齿、脉冲、正弦、三角等）。</li>
+        </ul>
+        <p>当你把振荡器与硬同步、波形折叠或音高 LFO 结合起来时，示波器尤其有用——你可以直接看见谐波之间的相互作用。</p>
+      </section>
+
+      <section id="xy-pad">
+        <h2><span class="num">15</span>XY 触控板</h2>
+        <p class="lead">一个富有表现力的二维触控面，让你凭手感扫动滤波器。一次触摸同时移动两个滤波器参数；一个绿色小点跟随你的位置。</p>
+
+        <figure class="manual-figure">
+          <img src="../images/xy-pad.png" alt="滤波器 XY 触控板——一个大网格，顶部横排 Osc 1–4 选择按钮，截止频率映射到纵轴、共振映射到横轴，一个发光的点标示当前滤波器位置。">
+          <figcaption>滤波器 XY 触控板：在任意位置拖动，同时扫动 Cutoff（纵向）与 Resonance（横向）。Osc 1–4 按钮决定你的触摸驱动哪些振荡器的滤波器。</figcaption>
+        </figure>
+        <ul>
+          <li><strong>X 轴（左 → 右）</strong>——滤波器<strong>共振</strong>，0–100%。低端的响应更精细，所以在共振变得凶悍之前，你对细微处有更多控制。</li>
+          <li><strong>Y 轴（下 → 上）</strong>——滤波器<strong>截止频率</strong>，20 Hz – 8 kHz。采用对数映射，因此等距的手指移动会带来听感上均匀的频率扫动。</li>
+        </ul>
+        <p>打开触控板时，小点的位置会反映当前的滤波器设置，所以你可以从声音现在所在的位置接着来。在任意位置拖动（或点击）都可以跳转或扫动——两种操作它都响应。</p>
+
+        <h3>选择它控制哪些振荡器</h3>
+        <p>因为 Marco 的滤波器可以是逐振荡器的，触控板带有 <span class="ui">Osc 1</span>–<span class="ui">Osc 4</span> 选择按钮，决定你的触摸驱动哪些振荡器。你可以同时选择<strong>任意组合</strong>：</p>
+        <ul>
+          <li><strong>单个振荡器</strong>——只选一个，触控板就只扫动那一个振荡器的滤波器，其余不受影响。很适合在其余部分保持稳定时，把某一层从混音里雕出来。</li>
+          <li><strong>一组</strong>——选中多个，一次触摸就同时移动它们全部的滤波器。</li>
+          <li><strong>全部四个</strong>——全选，做一次完整的全声部滤波扫动。</li>
+        </ul>
+        <p>点一下按钮把某个振荡器加入选择；再点一下移除。默认选中的是 <strong>Osc 1</strong>。</p>
+
+        <div class="callout note">
+          <strong>当滤波器处于 Linked 时。</strong>如果 Filter 处于 Linked 模式（所有振荡器共用一个滤波器），Osc 1–4 按钮会<strong>被禁用并变灰</strong>——因为只有一个滤波器可控。触控板驱动的就是那个共享滤波器，改动会应用到每一个振荡器。把 Filter 切回 Per-Osc 模式（参见 <a href="#filters">8. 滤波器</a>），触控板上的逐振荡器选择就会重新启用。
+        </div>
+      </section>
+
+      <section id="app-preferences">
+        <h2><span class="num">16</span>应用偏好设置</h2>
+        <p class="lead">应用偏好设置是你控制 Marco 资源占用、设置 MIDI 演奏控件、以及查看版本信息的地方。它分为三个部分：管理 CPU/DSP 负载的<strong>性能设置</strong>、调制轮与弯音行为的 <strong>MIDI 控制</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
+
+        <h3>打开应用偏好设置</h3>
+        <div class="feature-row">
+          <div class="feature-text">
+            <p>点击标题栏右上角的齿轮图标（<span class="ui">⚙️</span>）。应用偏好设置对话框会打开；和示波器、预设浏览器与随机生成器一样，它的尺寸可以调整，以适应你屏幕上可用的空间。</p>
+            <p>它分为三个部分——<strong>性能设置</strong>、<strong>MIDI 控制</strong>与<strong>应用信息</strong>——下面依次介绍。</p>
+          </div>
+          <figure class="feature-figure">
+            <img src="../images/apppreferences.png" alt="应用偏好设置对话框及其三个部分：性能设置、MIDI 控制（调制轮目标与弯音范围选择器），以及应用信息。">
+          </figure>
+        </div>
+
+        <h3 id="performance-settings">16.1 性能设置</h3>
+        <p>在默认设置下，Marco 在所有受支持的设备上都能轻松运行。性能设置主要是为 AUv3 宿主场景准备的——当你的宿主里载入了很多插件，需要统筹整个工程的 CPU/DSP 负载时。</p>
+
+        <h4>混响质量</h4>
+        <p>混响听感上的质量取决于它内部并行运行了多少条延迟线。线数越多 = 混响尾音越密实、越平滑。线数越少 = CPU 负担越轻。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>设置</th><th>内部延迟线</th><th>特性</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Off</td><td>0（旁通）</td><td>没有混响。最大限度节省 CPU。</td></tr>
+            <tr><td>Light</td><td>2</td><td>Lo-fi、有颗粒感的混响。CPU 占用极低。</td></tr>
+            <tr><td>Standard</td><td>4</td><td>均衡的混响质量。CPU 占用中等。</td></tr>
+            <tr><td>Full</td><td>8</td><td>最高质量的混响。<strong>默认值。</strong></td></tr>
+          </tbody>
+        </table>
+        <p>默认是 <strong>Full</strong>。只有当你想在繁忙的 AUv3 工程里抠回一些 CPU，或者你特意想要更稀疏混响的那种质感时，才去用更低的档位。</p>
+
+        <h3 id="midi-controls">16.2 MIDI 控制</h3>
+        <p>MIDI 控制是你设定 Marco 如何响应两个演奏控制器的地方：调制轮与弯音轮。两项设置都会跨启动保留，并且在独立应用与 AUv3 插件中表现完全一致。</p>
+
+        <h4>调制轮目标</h4>
+        <p>选择调制轮（CC&nbsp;1）控制什么。每个选项下方都有一行说明。默认是 <strong>Cutoff</strong>。</p>
+        <table class="param-table">
+          <thead>
+            <tr><th>选项</th><th>调制轮的作用</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Off</td><td>忽略调制轮，让 CC&nbsp;1 空出来，可用 MIDI Learn 分配到别处。</td></tr>
+            <tr><td>Cutoff <em>（默认）</em></td><td>以指数方式把滤波器截止频率从 20&nbsp;Hz 一路扫到 8&nbsp;kHz。</td></tr>
+            <tr><td>Pitch LFO</td><td>把音高 LFO 的深度从零缩放到完整的揉音范围。</td></tr>
+            <tr><td>Vol LFO</td><td>把音量 LFO 的深度从无颤音缩放到满颤音。</td></tr>
+          </tbody>
+        </table>
+        <p>在使用调制轮期间，Pitch LFO 与 Vol LFO 这两个目标会临时覆盖当前预设的 LFO 深度——这是演奏轮惯常的行为。把轮子推回去，预设自己的设置就重新接管。</p>
+
+        <h4>弯音范围</h4>
+        <p>设定弯音轮能把音高移动多远，以中心两侧的半音数计。默认是 <strong>±2</strong>。</p>
+        <p>可选范围：<strong>±1、±2、±3、±4、±5、±7、±12</strong> 与 <strong>±24</strong> 个半音。弯音以完整的 14 位精度接收，并经过平滑处理，因此在密集的弯音数据流下也能保持干净（参见 <a href="#midi">18. MIDI</a>）。</p>
+
+        <h3 id="app-information">16.3 应用信息</h3>
+        <p>应用偏好设置里的「应用信息」部分告诉你 Marco 由谁制作、链接到本手册，并显示你正在运行哪个版本。它从上到下包含三项：</p>
+
+        <h4>Created by 制作者</h4>
+        <p>标注 Marco 的制作者，并链接到 <a href="index.html">Amici Instruments 主页</a>。</p>
+
+        <h4>Manual 手册</h4>
+        <p>指向本使用手册的链接。点击它会在浏览器中打开 Marco 使用手册，让你不必离开应用就能查阅任何功能。</p>
+
+        <h4>Version 版本</h4>
+        <p>显示当前的<strong>应用版本</strong>与<strong>构建号</strong>。报告问题或寻求帮助时，请把两者都附上——这能让我们准确定位你所使用的是哪一个发布版本。</p>
+      </section>
+
+      <section id="song-player">
+        <h2><span class="num">17</span>乐曲播放器 <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">（仅独立应用）</span></h2>
+        <p class="lead">独立应用内置一个乐曲播放器，收录 <strong>39 首公有领域旋律</strong>——不用搭建宿主环境，就能快速又有趣地听到你当前的预设放进真实音乐里是什么样子。</p>
+        <p>选一首曲子，按播放，Marco 就会用你当前载入的预设演奏这段旋律。播放中途切换预设，可以即时 A/B 对比你的声音。</p>
+
+        <h3>怎么用</h3>
+        <ol>
+          <li>打开屏幕底部的<strong>乐曲播放器</strong>抽屉。</li>
+          <li>点一首曲子选中它。</li>
+          <li>用<strong>播放 / 停止</strong>控件开始或停止播放。</li>
+          <li>调整<strong>音量</strong>控件，让曲子与你正在做的其他事情保持平衡。</li>
+          <li>在曲子播放期间切换预设，可以快速对比音色。</li>
+        </ol>
+
+        <div class="callout note">
+          <strong>给孩子玩、聚会上玩都很合适。</strong>哪怕是完全的新手，也能选个预设、按下播放，立刻听到 <em>Happy Birthday</em> 或 <em>Für Elise</em> 被不断变化的合成音色重新演绎。把设备递给别人，让他们自己去探索。
+        </div>
+
+        <h3>收录曲目</h3>
+        <p>全部 39 首旋律均属公有领域。曲名沿用应用内显示的英文原名：</p>
+        <table class="param-table">
+          <thead>
+            <tr><th style="width: 60px;">#</th><th>曲目</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Waltzing Matilda</td><td>澳大利亚民谣代表作</td></tr>
+            <tr><td>2</td><td>Twinkle Twinkle</td><td>经典童谣（小星星）</td></tr>
+            <tr><td>3</td><td>Happy Birthday</td><td>生日祝贺歌</td></tr>
+            <tr><td>4</td><td>Brahms' Lullaby</td><td>勃拉姆斯的温柔摇篮曲</td></tr>
+            <tr><td>5</td><td>Ode to Joy</td><td>贝多芬第九交响曲主题（欢乐颂）</td></tr>
+            <tr><td>6</td><td>Mary Had a Little Lamb</td><td>简单的童谣旋律（玛丽有只小羊羔）</td></tr>
+            <tr><td>7</td><td>London Bridge</td><td>英国童谣（伦敦桥）</td></tr>
+            <tr><td>8</td><td>Jingle Bells</td><td>圣诞经典（铃儿响叮当）</td></tr>
+            <tr><td>9</td><td>Frère Jacques</td><td>法国轮唱曲（《你睡了吗？》，中文常称《两只老虎》）</td></tr>
+            <tr><td>10</td><td>When the Saints</td><td>新奥尔良爵士标准曲</td></tr>
+            <tr><td>11</td><td>Silent Night</td><td>圣诞颂歌（平安夜）</td></tr>
+            <tr><td>12</td><td>Row Your Boat</td><td>简单的轮唱旋律（划船歌）</td></tr>
+            <tr><td>13</td><td>Für Elise</td><td>贝多芬著名钢琴曲（致爱丽丝）</td></tr>
+            <tr><td>14</td><td>Scarborough Fair</td><td>英国传统叙事歌（斯卡布罗集市）</td></tr>
+            <tr><td>15</td><td>Greensleeves</td><td>英国民歌（绿袖子），含主歌与副歌</td></tr>
+            <tr><td>16</td><td>Amazing Grace</td><td>经典圣咏（奇异恩典）</td></tr>
+            <tr><td>17</td><td>Auld Lang Syne</td><td>新年传统曲目（友谊地久天长），带变奏</td></tr>
+            <tr><td>18</td><td>Pachelbel's Canon</td><td>巴洛克卡农（帕赫贝尔卡农），含较快的变奏</td></tr>
+            <tr><td>19</td><td>Beethoven's Fifth</td><td>著名的「当当当当——」动机（命运交响曲），含展开</td></tr>
+            <tr><td>20</td><td>Morning (Grieg)</td><td>《培尔·金特》中上行的 E 大调主题（晨景）</td></tr>
+            <tr><td>21</td><td>Danny Boy</td><td>爱尔兰传统叙事歌</td></tr>
+            <tr><td>22</td><td>Minuet in G</td><td>巴赫的 G 大调小步舞曲，A 段与 B 段</td></tr>
+            <tr><td>23</td><td>Swan Lake Theme</td><td>柴可夫斯基芭蕾主题（天鹅湖）</td></tr>
+            <tr><td>24</td><td>Blue Danube</td><td>施特劳斯圆舞曲主题（蓝色多瑙河）</td></tr>
+            <tr><td>25</td><td>Moonlight Sonata</td><td>贝多芬 C 小调开篇主题（月光奏鸣曲）</td></tr>
+            <tr><td>26</td><td>Hall of Mountain King</td><td>格里格半音阶悄然上行的段落（山魔王的大厅）</td></tr>
+            <tr><td>27</td><td>Turkish March</td><td>莫扎特的土耳其回旋曲（土耳其进行曲）</td></tr>
+            <tr><td>28</td><td>Toccata &amp; Fugue</td><td>巴赫 D 小调管风琴开篇（托卡塔与赋格）</td></tr>
+            <tr><td>29</td><td>Ride of Valkyries</td><td>瓦格纳上行的 B 小调琶音（女武神的骑行）</td></tr>
+            <tr><td>30</td><td>Habanera (Carmen)</td><td>比才半音下行的歌剧咏叹调（《卡门》哈巴涅拉）</td></tr>
+            <tr><td>31</td><td>Spring (Vivaldi)</td><td>《四季》之《春》的开篇</td></tr>
+            <tr><td>32</td><td>Flight of Bumblebee</td><td>里姆斯基-科萨科夫的半音急速走句（野蜂飞舞）</td></tr>
+            <tr><td>33</td><td>Eine Kleine Nachtmusik</td><td>莫扎特小夜曲的开篇（弦乐小夜曲）</td></tr>
+            <tr><td>34</td><td>Hungarian Dance 5</td><td>勃拉姆斯充满活力的舞曲（匈牙利舞曲第五号）</td></tr>
+            <tr><td>35</td><td>Clair de Lune</td><td>德彪西梦幻般的钢琴旋律（月光）</td></tr>
+            <tr><td>36</td><td>Sakura Sakura</td><td>日本传统五声音阶曲（樱花）</td></tr>
+            <tr><td>37</td><td>La Cucaracha</td><td>墨西哥民歌（蟑螂歌）</td></tr>
+            <tr><td>38</td><td>Kalinka</td><td>俄罗斯民歌（卡林卡），含较快的段落</td></tr>
+            <tr><td>39</td><td>William Tell Overture</td><td>罗西尼终曲的疾驰段（威廉·退尔序曲）</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout note">
+          <strong>有想看到的曲子吗？</strong>通过<a href="support.html">支持页面</a>把你的建议发给我们。我们很乐意考虑增补——唯一的要求是该乐曲必须已经<strong>不受版权保护</strong>且<strong>可自由使用</strong>。
+        </div>
+
+        <p><strong>独立应用支持 MIDI 输入</strong>——连接任何 USB 或蓝牙 MIDI 控制器，就能直接演奏 Marco。</p>
+
+        <div class="callout note">
+          <strong>AUv3 插件呢？</strong>以 AUv3 插件方式运行 The Marco 时没有乐曲播放器——请改用你宿主 DAW 的走带控制与音轨。
+        </div>
+      </section>
+
+      <section id="midi">
+        <h2><span class="num">18</span>MIDI</h2>
+        <p class="lead">Marco 在独立应用与 AUv3 插件中都支持 MIDI 输入。</p>
+
+        <h3>MIDI 输入</h3>
+        <p>以下 MIDI 消息在独立应用与 AUv3 插件中的接收方式完全相同：</p>
+        <ul>
+          <li><strong>Note On / Note Off</strong>，带力度感应。Marco 是单音的，采用后音优先——最近按下的音发声，松开它则回落到任何仍被按住的音。力度（0–127）以 0–1 的乘数缩放包络触发，所以弹得越用力、力度越强。<em>（独立应用：可在 MIDI 设置中关闭力度感应，此后每个音都以满力度触发。）</em></li>
+          <li><strong>Pitch Bend 弯音</strong>（14 位）。弯音范围在<a href="#midi-controls">应用偏好设置 → MIDI 控制</a>中设定——±1、±2、±3、±4、±5、±7、±12 或 ±24 个半音（默认 ±2）。传入的弯音会经过轻微平滑（每个音频渲染块施加一个约 5&nbsp;ms 的一阶滤波器），让密集的弯音数据流——蓝牙 MIDI、音序器的斜坡——不产生阶梯噪声。</li>
+          <li><strong>Mod Wheel 调制轮</strong>（CC 1）。目标在<a href="#midi-controls">应用偏好设置 → MIDI 控制</a>中选择：Off、Cutoff（默认）、Pitch LFO 或 Vol LFO。各选项的具体作用见 <a href="#midi-controls">16.2 MIDI 控制</a>。</li>
+          <li><strong>Sustain Pedal 延音踏板</strong>（CC 64）。标准的延后释放行为：踏板踩住期间（CC&nbsp;64&nbsp;≥&nbsp;64），note-off 事件不会释放包络；新音符仍正常重新触发，连奏照常生效；松开踏板（CC&nbsp;64&nbsp;&lt;&nbsp;64）时，所有等待中的音符才被释放。这与 Minimoog、Prophet-5 单音模式以及大多数现代单音合成器模拟的行为一致。</li>
+        </ul>
+
+        <div class="callout note">
+          <strong>MIDI 活动指示 <em>（独立应用）</em>。</strong>MIDI 工具栏按钮（钢琴键图标）上带有一个小状态点：静止时是一个带细白边的黑点，一旦有 MIDI 音符到达就变为实心绿色。这个指示始终存在——瞥一眼就能确认 Marco 正在接收。
+        </div>
+
+        <h3>参数映射与 MIDI Learn <em>（AUv3）</em></h3>
+        <p>当 Marco 作为 AUv3 插件运行时，它会把自己的参数发布给宿主。你可以用<strong>宿主的 MIDI Learn / 参数映射</strong>功能把它们映射到硬件控制器上——把任何传入的 CC 分配给任何已映射的参数，然后用旋钮、推子和打击垫来驱动它。因为这是通过 AUv3 宿主实现的，所以只在插件中可用，独立应用中没有。</p>
+        <p><strong>每一个控件都可映射。</strong>每一个振荡器、包络、滤波器、LFO、滑音与 Master 参数，都作为 AU 参数暴露给宿主，可被自动化或做 MIDI 映射。</p>
+        <p>Marco 还发布了一组<strong>专门的动作参数</strong>，让你可以用 MIDI 触发它的工作流程功能——不只是拧旋钮：</p>
+        <ul>
+          <li><strong>Generate</strong>——掷出一个新预设。</li>
+          <li><strong>Tweak</strong>——轻推当前的声音。</li>
+          <li><strong>Dual Hard Sync</strong>——循环切换各种同步配置。</li>
+          <li>打开 <strong>Scope</strong>、<strong>预设浏览器</strong>、<strong>XY 触控板</strong>与<strong>随机预设生成器</strong>。</li>
+        </ul>
+        <p>把这些映射到控制器的打击垫或按钮上——不必碰屏幕，就能不断掷出新点子、做微调、翻看各种同步排列。</p>
+
+      </section>
+
+      <section id="sharing">
+        <h2><span class="num">19</span>分享预设</h2>
+        <p class="lead">做出了很棒的声音？你可以把它分享回来给我们，我们会考虑将其收入未来的工厂预设库——入选的投稿会出现在 <strong>Artists</strong> 预设类别中。</p>
+        <ol>
+          <li>在 Marco 内切换到你的预设，点击 <strong>Copy Preset</strong> 按钮。这会把预设（一小段 JSON 片段）放到你设备的剪贴板上。</li>
+          <li>在浏览器中打开<a href="support.html">我们网站的提交表单</a>。</li>
+          <li>把预设粘贴到表单的预设字段里。</li>
+          <li>提交。</li>
+        </ol>
+        <p>整个流程都需要你主动去复制、访问、粘贴并提交——Marco 绝不会自动发送任何东西。关于提交的预设会被如何处理，完整说明见我们的<a href="privacy.html">隐私政策</a>。</p>
+      </section>
+
+      <section id="tips">
+        <h2><span class="num">20</span>技巧与工作流程</h2>
+
+        <h3>从预设出发，不要从空白出发</h3>
+        <p>从零搭一个声音很慢。掷骰子，找到你喜欢的，然后再改。连专业人士通常也是从一个已有的音色开始的。</p>
+
+        <h3>多用 Tweak，少用 Generate</h3>
+        <p>Generate 给你一个全新的声音——对找灵感有用，但也容易迷失方向。一旦你有了一个有希望的起点，就切到 Tweak。你会迭代得更快，最终得到的声音也会更像是有意为之。</p>
+
+        <h3>循环 DUAL HARD SYNC 去找独特质感</h3>
+        <p>大多数人都不去碰同步。别这样。找到一个声音之后，点 5–10 次 DUAL HARD SYNC 按钮——你常常会发现某个变体比原来的更有意思。</p>
+
+        <h3>留意白色的 LFO 指示线</h3>
+        <p>当你说不清是什么让某个参数在动时，找一找滑块内部那条移动的白线。它正在实时告诉你某个 LFO 在做什么——在声音变复杂时，这一点非常宝贵。</p>
+
+      </section>
+
+      <section id="troubleshooting">
+        <h2><span class="num">21</span>疑难解答</h2>
+
+        <h3>我听不到任何声音</h3>
+        <ul>
+          <li>看一下 Master 页面顶部的主<strong>输出电平表</strong>——你弹的时候它有在动吗？</li>
+          <li>检查<strong>输出 Gain</strong> 是不是被拉到零了。</li>
+          <li>确认至少有一个振荡器处于 <strong>ON</strong>，并且它的 <strong>Vol</strong> 滑块高于零。</li>
+          <li>检查 Master 页面——确认 <strong>Limiter Ceiling</strong> 没有被一路拉到底，也没有哪个效果因为 Mix 太低而把你的信号旁通掉了。</li>
+          <li>如果用的是 AUv3，检查宿主的音轨没有被静音，并且路由正确。</li>
+        </ul>
+
+        <h3>DSP 占用率很高</h3>
+        <p>在默认设置下 Marco 在 iPad 上运行得很轻松，所以 DSP 偏高通常意味着你的 AUv3 宿主里装了很多东西。按影响从大到小：</p>
+        <ul>
+          <li>打开<a href="#app-preferences">应用偏好设置</a>（齿轮图标），把<strong>混响质量</strong>降一档——Full → Standard，或 Standard → Light。差别在长混响尾音上最明显。</li>
+          <li>把你没在用的振荡器<strong>关掉</strong>。关闭的振荡器不消耗任何 CPU。</li>
+          <li>在 Master 页面上，关掉你实际没用到的区块（Drive、Compressor、Delay、Reverb、Limiter）。被旁通的区块几乎不占资源。</li>
+          <li>重度调制（多个 LFO 高速运行，且全部逐振荡器）会累加起来。在不影响声音的地方，让 LFO 以<strong>联动</strong>模式运行。</li>
+          <li>如果你的宿主允许，调大音频缓冲区也能带来更多余量（代价是延迟略微增加）。</li>
+        </ul>
+
+        <h3>收不到 MIDI</h3>
+        <ul>
+          <li>确认你的控制器已连接（USB 或蓝牙）并且正在发送 MIDI——大多数控制器都有一个活动指示灯。</li>
+          <li>在独立应用中，确认 Marco 的 <strong>MIDI 通道</strong>与控制器发送的通道一致（或把它设为 <strong>Omni</strong>）。</li>
+          <li>在 AUv3 中，确认宿主已经把 MIDI 路由到了 Marco 所在的音轨。</li>
+        </ul>
+      </section>
+
+      <section id="support">
+        <h2><span class="num">22</span>获取帮助</h2>
+        <p>疑问、问题报告、功能建议——请前往<a href="support.html">支持页面</a>。我们会在 1–2 个工作日内回复。</p>
+        <p>隐私相关的问题，请参见<a href="privacy.html">隐私政策</a>。</p>
+        <p>感谢你使用 Marco。</p>
+      </section>
+
+    </article>
+
+  </div>
+</main>
+
+<div id="site-footer"></div>
+<script src="footer.js"></script>
+
+<script>
+  // 根据滚动位置高亮当前目录项
+  const sections = document.querySelectorAll('.content section');
+  const tocLinks = document.querySelectorAll('.toc a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => link.classList.remove('active'));
+        const active = document.querySelector('.toc a[href="#' + id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+<script>
+  // 手册插图的点击放大灯箱
+  (function () {
+    const imgs = document.querySelectorAll('.content figure.feature-figure img, .content figure.manual-figure img');
+    if (!imgs.length) return;
+    const box = document.createElement('div');
+    box.className = 'img-lightbox';
+    box.innerHTML = '<img alt="">';
+    document.body.appendChild(box);
+    const big = box.querySelector('img');
+    const close = () => { box.classList.remove('open'); document.body.style.overflow = ''; big.removeAttribute('src'); };
+    imgs.forEach(img => img.addEventListener('click', () => {
+      big.src = img.currentSrc || img.src;
+      big.alt = img.alt;
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }));
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+
+</body>
+</html>

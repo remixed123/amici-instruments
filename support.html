@@ -12,15 +12,21 @@
 <link rel="canonical" href="https://amici-instruments.com/support.html">
 <meta name="theme-color" content="#050507">
 
+<!-- Language alternates — see the note in index.html. -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/support.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/support.html">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/support.html">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amici-instruments.com/support.html">
 <meta property="og:title" content="Support — Amici Instruments">
 <meta property="og:description" content="Get in touch with Amici Instruments for support, feedback or questions about Marco and our other apps.">
 <meta property="og:site_name" content="Amici Instruments">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<!-- Served locally from /fonts — fonts.googleapis.com is unreachable in
+     mainland China, and self-hosting drops a render-blocking third-party
+     request everywhere else. Both files are variable fonts, 39 KB total. -->
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
@@ -32,7 +38,7 @@
   <span class="page-eyebrow">Get in touch</span>
   <h1 class="page-title">Support &amp; Contact</h1>
   <p class="page-lead">
-    Questions about Marco, feedback, bug reports, or anything else — drop us a message and we'll get back to you.
+    Questions about our apps, feedback, bug reports, or anything else — drop us a message and we'll get back to you.
   </p>
 </header>
 
@@ -55,9 +61,9 @@
           Topic
           <select name="topic" required>
             <option value="">Choose a topic…</option>
-            <option value="Marco — Support">Marco — Support / Bug</option>
-            <option value="Marco — Feature Request">Marco — Feature Request</option>
-            <option value="Marco — Preset / Sound Design Help">Marco — Presets</option>
+            <option value="Support / Bug">Support / Bug</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Presets">Presets</option>
             <option value="General Question">General Question</option>
             <option value="Other">Other</option>
           </select>

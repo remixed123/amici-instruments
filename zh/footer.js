@@ -1,24 +1,26 @@
 /*
-  Shared site footer for Amici Instruments.
-  ---------------------------------
-  Each page includes:  <div id="site-footer"></div><script src="footer.js"></script>
-  To change footer links site-wide, edit the FOOTER_LINKS array below.
+  Shared site footer — Chinese (Simplified) site.
+  ----------------------------------------------
+  The /zh/ counterpart of the root footer.js. Same markup and styling; only
+  the labels and hrefs differ.
 
-  The <footer> element styling lives in each page's <style> block and is
-  consistent across pages; everything else here is self-contained inline style
-  so the footer renders identically regardless of page-specific CSS.
+  Pages in /zh/ include:
+      <div id="site-footer"></div><script src="footer.js"></script>
+
+  Every link resolves inside /zh/ except the trailing English language switch.
 */
 (function () {
-  // Edit this list to change the footer links everywhere.
+  // Edit this list to change the footer links across the Chinese site.
   var FOOTER_LINKS = [
-    { href: 'index.html',       label: 'Home' },
-    { href: 'marco.html',       label: 'Marco' },
-    { href: 'marcomanual.html', label: 'Marco Manual' },
-    { href: 'brunomanual.html', label: 'Bruno Manual' },
-    { href: 'support.html',     label: 'Support' },
-    { href: 'about.html',       label: 'About' },
-    { href: 'privacy.html',     label: 'Privacy' },
-    { href: 'zh/index.html',    label: '中文' }
+    { href: 'index.html',           label: '首页' },
+    { href: 'marco.html',           label: 'Marco' },
+    { href: 'bruno.html',           label: 'Bruno' },
+    { href: 'marcomanual.html',     label: 'Marco 手册' },
+    { href: 'brunomanual.html',     label: 'Bruno 手册' },
+    { href: 'support.html',         label: '支持' },
+    { href: 'about.html',           label: '关于我们' },
+    { href: 'privacy.html',         label: '隐私政策' },
+    { href: '../index.html',        label: 'English' }
   ];
 
   var brandMark =
@@ -44,7 +46,7 @@
       '<a href="index.html" class="topnav-brand" style="justify-content:center;color:#6b6b78;font-size:14px;">' +
         brandMark + ' Amici Instruments' +
       '</a>' +
-      '<p style="margin-top:8px;">&copy; ' + year + ' Amici Instruments. All rights reserved.</p>' +
+      '<p style="margin-top:8px;">&copy; ' + year + ' Amici Instruments. 保留所有权利。</p>' +
       '<div style="margin-top:12px;display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:13px;">' +
         linksHtml +
       '</div>' +

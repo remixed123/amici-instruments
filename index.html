@@ -12,17 +12,25 @@
 <link rel="canonical" href="https://amici-instruments.com/">
 <meta name="theme-color" content="#050507">
 
+<!-- Language alternates. The matching tags on /zh/ point back here; both
+     sides must exist or search engines treat the two as duplicate content
+     rather than translations of each other. -->
+<link rel="alternate" hreflang="en" href="https://amici-instruments.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://amici-instruments.com/zh/">
+<link rel="alternate" hreflang="x-default" href="https://amici-instruments.com/">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amici-instruments.com/">
 <meta property="og:title" content="Amici Instruments — Workflow is the instrument.">
 <meta property="og:description" content="Workflow is the instrument. A different future for music on iOS. Meet Marco and Bruno.">
 <meta property="og:site_name" content="Amici Instruments">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Jost = free Futura revival (geometric). Used site-wide on the homepage;
-     Apple devices still use the real system Futura on the wordmarks. -->
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&family=Oswald:wght@700&display=swap" rel="stylesheet">
+     Apple devices still use the real system Futura on the wordmarks.
+     Served locally from /fonts — fonts.googleapis.com is unreachable in
+     mainland China, and self-hosting drops a render-blocking third-party
+     request everywhere else. Both files are variable fonts, 39 KB total. -->
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="site.css">
 </head>
 <body>

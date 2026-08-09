@@ -912,6 +912,128 @@ footer .wordmark-svg { height: 22px; margin: 0 auto 12px; }
   .toc .subsection a { padding-left: 16px; }
 }
 
+/* 8f. -------------------------------------------------------- ABOUT page */
+/* Long-form storytelling. Same card shell as .policy-body, but set a little
+   larger and looser — this is read for pleasure, not for reference. */
+.story-body {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 44px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.story-body p {
+  color: var(--text-dim);
+  font-size: 16.5px;
+  margin-bottom: 18px;
+}
+.story-body p:last-child { margin-bottom: 0; }
+.story-body strong { color: var(--text); font-weight: 600; }
+.story-body a { color: var(--osc-1); text-decoration: none; }
+.story-body a:hover { text-decoration: underline; }
+
+/* Short single-line beats between paragraphs ("That gave Dad an idea.") —
+   they carry the timing of the story, so they get their own weight. */
+.story-body .story-beat {
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 26px 0;
+}
+
+/* The line the whole page exists to deliver. */
+.story-body .story-quote {
+  margin: 36px 0;
+  padding: 26px 30px;
+  background: var(--bg-card-2);
+  border-radius: 12px;
+  border-left: 3px solid var(--osc-2);
+  font-size: clamp(19px, 2.6vw, 24px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* Team ------------------------------------------------------------------ */
+.team-heading {
+  text-align: center;
+  margin: 64px 0 8px;
+  font-size: clamp(26px, 3.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.team-lead {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 16.5px;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+/* Each card takes its accent from --accent; the modifier just sets the value,
+   so adding a fourth department is one line here and one class in the HTML. */
+.team-card {
+  --accent: var(--osc-1);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: 14px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+}
+.team-card.a2 { --accent: var(--osc-2); }
+.team-card.a3 { --accent: var(--osc-4); }
+.team-name {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.team-role {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.team-card p {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin: 0;
+}
+
+/* Closing beat — three short lines, centred, with the last one carrying the
+   brand gradient. */
+.story-closing {
+  text-align: center;
+  margin: 60px 0 0;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.story-closing .story-closing-final {
+  display: block;
+  margin-top: 10px;
+}
+
+@media (max-width: 760px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .story-body { padding: 28px 22px; }
+  .story-body .story-quote { padding: 22px 20px; margin: 28px 0; }
+}
+
 /* 9. --------------------------------------------------- responsive + utils */
 @media (max-width: 760px) {
   .products-grid { grid-template-columns: 1fr; }
