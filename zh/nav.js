@@ -39,7 +39,6 @@
         { href: 'brunomanual.html', label: 'Bruno' }
     ]},
     { type: 'link', href: 'support.html', label: '支持' },
-    { type: 'link', href: 'about.html', label: '关于我们' },
     { type: 'link', href: '../index.html', label: 'EN' }
   ];
 

@@ -30,7 +30,6 @@
         { href: 'brunomanual.html', label: 'Bruno' }
     ]},
     { type: 'link', href: 'support.html', label: 'Support' },
-    { type: 'link', href: 'about.html', label: 'About' },
     { type: 'link', href: 'https://www.youtube.com/@AmiciInstruments', label: 'YouTube', external: true },
     /* Language switch to the Simplified Chinese site in /zh/. The Chinese
        nav (zh/nav.js) carries the matching 'EN' entry back to here. */
