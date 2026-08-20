@@ -85,9 +85,10 @@
         <li><a href="#scope">14. Scope</a></li>
         <li><a href="#xy-pad">15. XY Pad</a></li>
         <li><a href="#app-preferences">16. App Preferences</a></li>
-        <li class="subsection"><a href="#performance-settings">16.1 Performance Settings</a></li>
-        <li class="subsection"><a href="#midi-controls">16.2 MIDI Controls</a></li>
-        <li class="subsection"><a href="#app-information">16.3 App Information</a></li>
+        <li class="subsection"><a href="#text-size">16.1 Text Size</a></li>
+        <li class="subsection"><a href="#performance-settings">16.2 Performance Settings</a></li>
+        <li class="subsection"><a href="#midi-controls">16.3 MIDI Controls</a></li>
+        <li class="subsection"><a href="#app-information">16.4 App Information</a></li>
         <li><a href="#song-player">17. Song Player</a></li>
         <li><a href="#midi">18. MIDI</a></li>
         <li><a href="#sharing">19. Sharing Presets</a></li>
@@ -713,11 +714,11 @@
           <figcaption>The Preset Browser: categories on the left, presets on the right. Tap a star to favourite, or a name to load.</figcaption>
         </figure>
 
-        <h3>Save vs Save New</h3>
+        <h3>Save vs Save As</h3>
         <p>Marco distinguishes between updating an existing user preset and creating a fresh one:</p>
         <ul>
-          <li><strong>Save</strong> — overwrites the currently active user preset in place. If the active preset is a factory preset or "Random", Save automatically falls back to Save New behaviour (i.e. it never overwrites factory content).</li>
-          <li><strong>Save New</strong> — always prompts for a name and creates a brand new user preset, leaving the active one untouched.</li>
+          <li><strong>Save</strong> — overwrites the currently active user preset in place. If the active preset is a factory preset or "Random", Save automatically falls back to Save As behaviour (i.e. it never overwrites factory content).</li>
+          <li><strong>Save As</strong> — always prompts for a name and creates a brand new user preset, leaving the active one untouched.</li>
         </ul>
 
         <h3>Import &amp; Export</h3>
@@ -925,20 +926,28 @@
 
       <section id="app-preferences">
         <h2><span class="num">16</span>App Preferences</h2>
-        <p class="lead">App Preferences is where you control Marco's resource usage, set up MIDI performance controls, and check version information. It's organised into three sections: <strong>Performance Settings</strong> for managing CPU/DSP load, <strong>MIDI Controls</strong> for the mod wheel and pitch-bend behaviour, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
+        <p class="lead">App Preferences is where you set how large Marco's on-screen text is, control its resource usage, set up MIDI performance controls, and check version information. It's organised into four sections, top to bottom: <strong>Text Size</strong>, <strong>Performance Settings</strong> for managing CPU/DSP load, <strong>MIDI Controls</strong> for the mod wheel and pitch-bend behaviour, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
 
         <h3>Opening App Preferences</h3>
         <div class="feature-row">
           <div class="feature-text">
             <p>Tap the cog icon (<span class="ui">⚙️</span>) in the top-right corner of the header. The App Preferences dialog opens; like the Scope, Preset Browser and Random Generator, it can be resized to fit the space available on your screen.</p>
-            <p>It's organised into three sections — <strong>Performance Settings</strong>, <strong>MIDI Controls</strong> and <strong>App Information</strong> — covered in turn below.</p>
+            <p>It's organised into four sections — <strong>Text Size</strong>, <strong>Performance Settings</strong>, <strong>MIDI Controls</strong> and <strong>App Information</strong> — covered in turn below.</p>
           </div>
           <figure class="feature-figure">
-            <img src="images/apppreferences.png" alt="The App Preferences dialog with its three sections: Performance Settings, MIDI Controls (Mod Wheel Destination and Pitch Bend Range pickers), and App Information.">
+            <img src="images/apppreferences.png" alt="The App Preferences dialog with its four sections: Text Size (the 1× to 2× scale options), Performance Settings, MIDI Controls (Mod Wheel Destination and Pitch Bend Range pickers), and App Information.">
           </figure>
         </div>
 
-        <h3 id="performance-settings">16.1 Performance Settings</h3>
+        <h3 id="text-size">16.1 Text Size</h3>
+        <p>The first section of the dialog, and the one worth setting before anything else. Marco puts a lot of controls on one screen, so its labels are necessarily small — Text Size scales them up without changing the layout.</p>
+        <p>Pick one of five sizes: <strong>1×</strong>, <strong>1.25×</strong>, <strong>1.5×</strong>, <strong>1.75×</strong> or <strong>2×</strong>. The selected size is highlighted in cyan. <strong>1×</strong> is the default.</p>
+        <p>The setting scales <strong>slider labels, their values, and hint text across every tab</strong>, so it follows you through the whole instrument as well as the Hints dialogs. Knobs, sliders and the panels themselves keep their size and position, so nothing shifts around: only the text gets bigger. Your choice is remembered between launches and applies to both the standalone app and the AUv3 plugin.</p>
+        <div class="callout tip">
+          <strong>Worth a look on iPhone.</strong> Marco's densest tabs were designed with an iPad in mind. On a phone — or any time you're playing at arm's length, on stage or in a dim room — 1.5× or 1.75× makes the values readable at a glance without giving up any controls.
+        </div>
+
+        <h3 id="performance-settings">16.2 Performance Settings</h3>
         <p>Marco runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — when you have many plugins loaded in your host and need to manage the total CPU/DSP load across the session.</p>
 
         <h4>Reverb Quality</h4>
@@ -956,7 +965,7 @@
         </table>
         <p>The default is <strong>Full</strong>. Reach for the lower tiers only when you're trying to claw back CPU in a busy AUv3 session, or if you specifically want the character of a sparser reverb.</p>
 
-        <h3 id="midi-controls">16.2 MIDI Controls</h3>
+        <h3 id="midi-controls">16.3 MIDI Controls</h3>
         <p>MIDI Controls is where you set how Marco responds to two performance controllers: the mod wheel and the pitch-bend wheel. Both settings persist across launches and apply identically to the standalone app and the AUv3 plugin.</p>
 
         <h4>Mod Wheel Destination</h4>
@@ -978,7 +987,7 @@
         <p>Sets how far the pitch-bend wheel moves the pitch, in semitones either side of centre. The default is <strong>±2</strong>.</p>
         <p>Available ranges: <strong>±1, ±2, ±3, ±4, ±5, ±7, ±12</strong> and <strong>±24</strong> semitones. Pitch bend is received at full 14-bit resolution and smoothed so it stays clean on dense bend streams (see <a href="#midi">18. MIDI</a>).</p>
 
-        <h3 id="app-information">16.3 App Information</h3>
+        <h3 id="app-information">16.4 App Information</h3>
         <p>The App Information section of App Preferences tells you who made Marco, links you to this guide, and shows which build you're running. It contains three items, top to bottom:</p>
 
         <h4>Created by</h4>
@@ -1078,7 +1087,7 @@
         <ul>
           <li><strong>Note On / Note Off</strong> with velocity sensitivity. Marco is monophonic with last-note priority — the most recently pressed note sounds, and releasing it falls back to any note still held. Velocity (0–127) scales the envelope trigger as a 0–1 multiplier, so harder playing hits harder. <em>(Standalone: velocity sensitivity can be switched off in MIDI Settings, after which every note fires at full velocity.)</em></li>
           <li><strong>Pitch Bend</strong> (14-bit). The bend range is set in <a href="#midi-controls">App Preferences → MIDI Controls</a> — ±1, ±2, ±3, ±4, ±5, ±7, ±12 or ±24 semitones (default ±2). Incoming bend is lightly smoothed (a ~5&nbsp;ms one-pole filter applied each audio render block) to keep dense bend streams — Bluetooth MIDI, sequencer ramps — free of zipper noise.</li>
-          <li><strong>Mod Wheel</strong> (CC 1). The destination is chosen in <a href="#midi-controls">App Preferences → MIDI Controls</a>: Off, Cutoff (default), Pitch LFO or Vol LFO. See <a href="#midi-controls">16.2 MIDI Controls</a> for exactly what each option does.</li>
+          <li><strong>Mod Wheel</strong> (CC 1). The destination is chosen in <a href="#midi-controls">App Preferences → MIDI Controls</a>: Off, Cutoff (default), Pitch LFO or Vol LFO. See <a href="#midi-controls">16.3 MIDI Controls</a> for exactly what each option does.</li>
           <li><strong>Sustain Pedal</strong> (CC 64). Standard deferred-release behaviour: while the pedal is held (CC&nbsp;64&nbsp;≥&nbsp;64) note-off events do not release the envelope; new notes still retrigger normally and legato applies as usual; releasing the pedal (CC&nbsp;64&nbsp;&lt;&nbsp;64) releases any note that was waiting. This matches the Minimoog, Prophet-5 mono mode and most modern mono-synth emulations.</li>
         </ul>
 

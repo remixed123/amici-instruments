@@ -65,6 +65,10 @@
         <li class="subsection"><a href="#voice-pluck">6.6 Pluck</a></li>
         <li class="subsection"><a href="#voice-switching">6.7 Voice Switching</a></li>
         <li><a href="#voices-tab">7. Engines Tab</a></li>
+        <li class="subsection"><a href="#engines-core">7.1 Core controls</a></li>
+        <li class="subsection"><a href="#tune-range">7.2 Tune range per voice</a></li>
+        <li class="subsection"><a href="#character">7.3 What "Character" controls</a></li>
+        <li class="subsection"><a href="#noise-layer">7.4 Noise Layer</a></li>
         <li><a href="#vol-env">8. Vol Env</a></li>
         <li><a href="#pitch-env">9. Pitch Env</a></li>
         <li><a href="#body">10. Body</a></li>
@@ -94,15 +98,24 @@
         <li class="subsection"><a href="#rpg-master">19.9 Master Section and Randomisation</a></li>
         <li class="subsection"><a href="#rpg-history">19.10 Random Preset History</a></li>
         <li><a href="#scope">20. Scope &amp; Spectrum</a></li>
-        <li><a href="#app-preferences">21. App Preferences</a></li>
-        <li class="subsection"><a href="#performance-settings">21.1 Performance Settings</a></li>
-        <li class="subsection"><a href="#app-information">21.2 App Information</a></li>
-        <li><a href="#midi">22. MIDI</a></li>
-        <li><a href="#keyboard-song">23. Keyboard</a></li>
-        <li><a href="#sharing">24. Sharing Presets</a></li>
-        <li><a href="#tips">25. Tips &amp; Workflow</a></li>
-        <li><a href="#troubleshooting">26. Troubleshooting</a></li>
-        <li><a href="#support">27. Getting Help</a></li>
+        <li><a href="#sample-export">21. Sample Export</a></li>
+        <li class="subsection"><a href="#rhit">21.1 The RHIT button</a></li>
+        <li class="subsection"><a href="#single-sample">21.2 Single-sample export</a></li>
+        <li class="subsection"><a href="#multisample">21.3 Chromatic multisample</a></li>
+        <li class="subsection"><a href="#export-format">21.4 Audio format</a></li>
+        <li class="subsection"><a href="#export-naming">21.5 File names &amp; importing</a></li>
+        <li class="subsection"><a href="#export-quick">21.6 Quick reference</a></li>
+        <li><a href="#app-preferences">22. App Preferences</a></li>
+        <li class="subsection"><a href="#text-size">22.1 Text Size</a></li>
+        <li class="subsection"><a href="#performance-settings">22.2 Performance Settings</a></li>
+        <li class="subsection"><a href="#export-settings">22.3 Sample Export</a></li>
+        <li class="subsection"><a href="#app-information">22.4 App Information</a></li>
+        <li><a href="#midi">23. MIDI</a></li>
+        <li><a href="#keyboard-song">24. Keyboard</a></li>
+        <li><a href="#sharing">25. Sharing Presets</a></li>
+        <li><a href="#tips">26. Tips &amp; Workflow</a></li>
+        <li><a href="#troubleshooting">27. Troubleshooting</a></li>
+        <li><a href="#support">28. Getting Help</a></li>
       </ul>
     </aside>
 
@@ -160,7 +173,7 @@
         <p class="lead">A quick walkthrough of where everything lives. Bruno organises all its controls into tabs, and every tab shows the same four engine cards side by side.</p>
 
         <figure class="manual-figure">
-          <img src="images/engines.png" alt="Bruno's Engines tab — the header and toolbar above four colour-coded engine cards: Analog (blue), FM (green), Fold (orange) and Reso (magenta), each with its Vol, Tune, Character and Decay sliders.">
+          <img src="images/engines.png" alt="Bruno's Engines tab — the header and toolbar above four colour-coded engine cards: Analog (blue), FM (green), Fold (orange) and Reso (magenta), each with its mode buttons, a Noise row (Noise, White, Pink, Crack) and its Vol, Tune, Character, Decay and Ndec sliders.">
           <figcaption>Bruno's Engines tab: the header and toolbar sit above the four colour-coded engine cards. Each engine's colour follows it everywhere in the app.</figcaption>
         </figure>
 
@@ -171,8 +184,8 @@
           <li><strong>Voice Selector</strong> — choose the drum voice: Kick, Snare, Hat, Clap, Tom or Pluck. On iPhone this shows 2-letter codes (<span class="ui">KK / SN / HH / CL / TM / PL</span>).</li>
           <li><strong>Preset selector</strong> — the current preset name with <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows on either side. Tap the arrows to step through presets one at a time, or tap the name to open the full Preset Browser (see <a href="#presets">18. Presets</a>). A small violet <span class="c-badge">C</span> badge sits beside the name whenever the current sound has a chromatic (pitch-tracking) engine, so you can see at a glance that it will play melodically across the keyboard.</li>
           <li><strong>Random panel button</strong> — opens the Random Preset Generator, where you set the source category, styles and what gets randomised (see <a href="#random">19. Random Preset Generator</a>).</li>
-          <li><strong>MIDI button</strong> <em>(standalone only)</em> — a piano-keys icon with an always-present activity dot: black with a white border at rest, green the moment a MIDI note arrives. Opens MIDI input settings (see <a href="#midi">22. MIDI</a>).</li>
-          <li><strong>⚙️ Settings cog</strong> — opens App Preferences (see <a href="#app-preferences">21. App Preferences</a>).</li>
+          <li><strong>MIDI button</strong> <em>(standalone only)</em> — a piano-keys icon with an always-present activity dot: black with a white border at rest, green the moment a MIDI note arrives. Opens MIDI input settings (see <a href="#midi">23. MIDI</a>).</li>
+          <li><strong>⚙️ Settings cog</strong> — opens App Preferences (see <a href="#app-preferences">22. App Preferences</a>).</li>
         </ul>
 
         <h3>Toolbar tabs</h3>
@@ -195,8 +208,8 @@
         <h3 id="master-strip">4.2 Master Strip</h3>
         <p>Just above the four engine cards, the Master Strip gathers global controls and quick-access buttons. From left to right:</p>
         <figure class="manual-figure">
-          <img src="images/bruno-masterstrip.png" alt="The Bruno Master Strip — left to right: the ? Hints button, the L/R output meter, the Gain slider, the cyan Scope button, the orange dice with its All·MWR·R label and back/forward history chevrons, and the HIT button.">
-          <figcaption>The Master Strip: from left to right, the ? Hints button, L/R output meter, Gain slider, Scope button, the dice with its history chevrons, and HIT.</figcaption>
+          <img src="images/bruno-masterstrip.png" alt="The Bruno Master Strip — left to right: the ? Hints button, the L/R output meter, the Gain slider, the cyan Scope button, the orange dice with its All·MWR·R label and back/forward history chevrons, the cyan HIT button, and the indigo RHIT / RHOLD sample-export button.">
+          <figcaption>The Master Strip: from left to right, the ? Hints button, L/R output meter, Gain slider, Scope button, the dice with its history chevrons, HIT, and RHIT / RHOLD.</figcaption>
         </figure>
         <ul>
           <li><strong>? Hints button</strong> (far left) — opens context-aware help for whatever tab you're on. Tinted to match the active tab. See <a href="#hints">Hints</a> below.</li>
@@ -204,7 +217,8 @@
           <li><strong>Gain slider</strong> — master output level (0–100%), with the current percentage shown.</li>
           <li><strong>Scope button</strong> (cyan) — opens the Waveform Scope and Engine Spectrum overlay (see <a href="#scope">20. Scope &amp; Spectrum</a>).</li>
           <li><strong>◀ 🎲 ▶ Dice &amp; history</strong> (orange) — the dice rolls a fresh random preset using the current source category; the chevrons step back and forward through the last 30 randomised sounds.</li>
-          <li><strong>HIT</strong> — auditions the current sound without needing MIDI or the keyboard.</li>
+          <li><strong>HIT</strong> (cyan) — auditions the current sound without needing MIDI or the keyboard.</li>
+          <li><strong>RHIT / RHOLD</strong> (indigo) — records the current sound to a WAV file. Tap for a single hit; hold for the Export Multisample dialog (see <a href="#sample-export">21. Sample Export</a>).</li>
         </ul>
 
         <h3 id="engine-cards">4.3 Engine Cards</h3>
@@ -367,7 +381,7 @@
       <section id="voices-tab">
         <h2><span class="num">7</span>Engines Tab</h2>
         <p class="lead">The main screen. Each engine card shows its header buttons plus the core sound controls for that engine.</p>
-        <h3>Core controls (per engine)</h3>
+        <h3 id="engines-core">7.1 Core controls (per engine)</h3>
         <table class="param-table">
           <thead><tr><th>Control</th><th>What it does</th></tr></thead>
           <tbody>
@@ -379,10 +393,11 @@
             <tr><td>Tune</td><td>Base pitch. The displayed range depends on the voice (see below).</td></tr>
             <tr><td>Character</td><td>The defining timbre control of the current engine. Its label and meaning change per engine and voice (see below).</td></tr>
             <tr><td>Decay</td><td>How quickly the sound fades after the trigger (2 ms–10 s, cubic taper so most drum decays sit in the middle of the travel).</td></tr>
+            <tr><td>Noise / White / Pink / Crack / Ndec</td><td>The per-engine noise layer — a burst of grit mixed on top of the engine's normal sound. See <a href="#noise-layer">7.4 Noise Layer</a>.</td></tr>
           </tbody>
         </table>
 
-        <h3>Tune range per voice</h3>
+        <h3 id="tune-range">7.2 Tune range per voice</h3>
         <p>Tune is remapped per voice so the slider always covers that drum's useful territory:</p>
         <table class="param-table">
           <thead><tr><th>Voice</th><th>Displayed range</th></tr></thead>
@@ -396,7 +411,7 @@
           </tbody>
         </table>
 
-        <h3>What "Character" controls</h3>
+        <h3 id="character">7.3 What "Character" controls</h3>
         <p>Character is a single slider, but it drives a different part of each engine — and is relabelled to match. A few examples:</p>
         <table class="param-table">
           <thead><tr><th>Engine</th><th>Kick</th><th>Snare</th><th>Hat</th><th>Clap</th></tr></thead>
@@ -408,6 +423,30 @@
           </tbody>
         </table>
         <p>On Tom and Pluck, Character keeps shaping timbre too (Tom resonance / FM depth / fold; Pluck damping, FM depth, fold amount, or modal Spread). The in-app <a href="#hints">Hints</a> always show the correct label for the voice and engine you're on.</p>
+        <h3 id="noise-layer">7.4 Noise Layer</h3>
+        <p>Every engine can mix in a decaying burst of noise on top of its normal sound. It's designed as a grit-and-dirt layer — sand on a snare, air on a kick, crackle under a clap — rather than a primary sound source. It's available on <strong>all four engines</strong> and <strong>every voice</strong>, and each engine has its own independent noise settings.</p>
+        <p>The controls sit in a button row directly above that engine's sliders:</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Noise</td><td>Turns the noise layer on or off for this engine. While it's off, the type buttons and the Ndec slider are greyed out.</td></tr>
+            <tr><td>White</td><td>Bright, full-spectrum fizz.</td></tr>
+            <tr><td>Pink</td><td>Balanced, warmer body noise.</td></tr>
+            <tr><td>Crack</td><td>Sparse, vinyl-style crackle — random impulses plus a little low hiss.</td></tr>
+            <tr><td>Ndec</td><td>Noise decay, set independently of the tonal Decay: 2 ms–10 s (Clap 10 ms–4 s). Short gives a dirty attack tick; long gives a noise tail that rings on past the body.</td></tr>
+          </tbody>
+        </table>
+        <p>The three types are gain-matched, so switching between them changes the character without a jump in level. <strong>Ndec</strong> is the control that does the most work: it's what separates a barely-there attack tick from a wash that outlasts the drum.</p>
+
+        <h4>How it sits on each voice</h4>
+        <table class="param-table">
+          <thead><tr><th>Voice</th><th>What the noise layer adds</th></tr></thead>
+          <tbody>
+            <tr><td>Snare / Hat / Clap</td><td>The most natural fit — extra crack, sizzle and wires-style buzz. Snare and Hat already synthesise noise of their own, so this layers on top of it.</td></tr>
+            <tr><td>Kick</td><td>A short Ndec adds attack grit; a long one gives a lo-fi crunch tail. Use it sparingly.</td></tr>
+            <tr><td>Tom / Pluck</td><td>Mostly tonal voices, so noise adds attack grit or air — but pushed too far it can muddy the pitch.</td></tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="vol-env">
@@ -735,14 +774,17 @@
         <h3>The Preset Browser</h3>
         <p>Tap the preset name in the header to open the browser. Categories are on the left, names on the right; tap a star to favourite, tap a name to load. The current preset name shows an asterisk (<span class="ui">*</span>) when you've edited it. You can also step through presets with the <span class="ui">&lt;</span> and <span class="ui">&gt;</span> arrows in the header without opening the browser.</p>
         <figure class="manual-figure">
-          <img src="images/bruno-presetbrowser.png" alt="Bruno's Preset Browser — category list on the left (Signature, All, Artists, Favourites, Basic and the per-voice categories with counts) and the scrollable preset list on the right with star favourites and a violet C badge on chromatic presets, plus Import, Save and Save New buttons across the top.">
-          <figcaption>The Preset Browser: categories on the left, presets on the right. Star a row to favourite it, tap a name to load, and use Import / Save / Save New across the top.</figcaption>
+          <img src="images/bruno-presetbrowser.png" alt="Bruno's Preset Browser — category list on the left (Signature, All, Artists, Favourites, Basic and the per-voice categories with counts) and the scrollable preset list on the right with star favourites and a violet C badge on chromatic presets, plus Import, Save and Save As buttons across the top.">
+          <figcaption>The Preset Browser: categories on the left, presets on the right. Star a row to favourite it, tap a name to load, and use Import / Save / Save As across the top.</figcaption>
         </figure>
         <h3>The Chromatic <span class="c-badge">C</span> badge</h3>
         <p>Any preset built with a <strong>chromatic</strong> (pitch-tracking) engine carries a small violet <span class="c-badge">C</span> badge — both on its row in the browser and next to the name in the header. It's a quick way to spot the sounds you can play <em>melodically</em> across the keyboard or from MIDI, as opposed to the drums that always sound at a fixed pitch. A preset counts as chromatic if any one of its four engines has the <strong>Chromatic</strong> toggle on (see <a href="#pitch-env">9. Pitch Env</a>), whether that engine is currently enabled or not.</p>
         <p>The header badge is live: toggle Chromatic on the Pitch Env tab and the <span class="c-badge">C</span> appears or disappears immediately, exactly like the edited asterisk.</p>
         <h3>Import &amp; Export</h3>
-        <p>Presets export and import as small JSON files, so you can move sounds between devices or share them with other users — see <a href="#sharing">24. Sharing Presets</a>.</p>
+        <p>Presets export and import as small JSON files, so you can move sounds between devices or share them with other users — see <a href="#sharing">25. Sharing Presets</a>.</p>
+        <div class="callout note">
+          <strong>Presets aren't audio.</strong> A preset file is a recipe Bruno rebuilds the sound from, so it only opens in Bruno. To get a <em>WAV</em> you can load into a sampler, groovebox or DAW, use <a href="#sample-export">21. Sample Export</a> instead.
+        </div>
       </section>
 
       <section id="random">
@@ -871,14 +913,118 @@
         <p>The spectrum is the quickest way to spot two engines masking each other, or a hole in the mix where no engine is contributing. Disabled engines are cleared and greyed out in the legend.</p>
       </section>
 
+      <section id="sample-export">
+        <h2><span class="num">21</span>Sample Export</h2>
+        <p class="lead">Bruno bounces the sound you've designed to <strong>WAV files</strong>, ready to drop into a hardware sampler, a groovebox or your DAW. Export a single hit, or let Bruno render a complete chromatic multisample set automatically. It works the same way in the standalone app and the AUv3 plugin.</p>
+        <p>What gets recorded is exactly what you hear: all four engines summed through the full master chain — saturation, compressor, transient shaper, reverb, stereo and limiter. Recording starts at the attack and runs until the tail has fully decayed, so nothing is clipped off the end.</p>
+
+        <h3 id="rhit">21.1 The RHIT button — tap or hold</h3>
+        <p>Everything starts from <span class="ui">RHIT</span>, the indigo button at the right-hand end of the Master Strip, just past the cyan <span class="ui">HIT</span> audition button. It carries a two-line label because it does two different jobs:</p>
+        <ul>
+          <li><strong>Tap RHIT</strong> — records a single hit as one WAV file. See <a href="#single-sample">21.2 Single-sample export</a>.</li>
+          <li><strong>Hold RHIT</strong> (the second line reads <strong>RHOLD</strong>) — hold for about half a second to open the <strong>Export Multisample</strong> dialog and record a whole range of pitches at once. See <a href="#multisample">21.3 Chromatic multisample export</a>.</li>
+        </ul>
+
+        <h3 id="single-sample">21.2 Single-sample export</h3>
+        <p>This is the one for drums, percussion and any other non-chromatic sound — a kick, a snare, a hat, a clap. One tap of <span class="ui">RHIT</span> and Bruno renders the hit, shows a brief progress indicator, then opens the share sheet.</p>
+        <ul>
+          <li>In the <strong>standalone app</strong>, the hit uses the note currently selected on the keyboard.</li>
+          <li>In the <strong>AUv3 plugin</strong>, the hit uses <strong>C4</strong> (MIDI 60).</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Send it straight to another app.</strong> From the share sheet you can save the file to Files, AirDrop it to another device, or hand it directly to a sampler app such as <strong>Koala</strong> or <strong>Loopy Pro</strong> — no trimming, no editing, no file wrangling in between.
+        </div>
+
+        <h3 id="multisample">21.3 Chromatic multisample export</h3>
+        <p>A pitched sound — a Pluck, or any patch with an engine that tracks pitch — needs more than one sample to play convincingly across a keyboard. Hold <span class="ui">RHIT</span> for about half a second to open the <strong>Export Multisample</strong> dialog, and Bruno renders the whole set for you in a single pass.</p>
+        <p>The dialog gives you three controls:</p>
+        <table class="param-table">
+          <thead><tr><th>Control</th><th>What it does</th><th>Range</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Root / Centre</td><td>The note the range is built around.</td><td>Any MIDI note, 0–127</td><td>Current keyboard note</td></tr>
+            <tr><td>Span</td><td>How wide the range reaches around the root.</td><td>1, 2 or 3 octaves</td><td>2 octaves</td></tr>
+            <tr><td>Step</td><td>How many semitones between one sample and the next.</td><td>1–12 semitones</td><td>1 semitone</td></tr>
+          </tbody>
+        </table>
+        <p>A live summary line underneath shows exactly how many files you'll get and the notes they cover — for example <em>"25 files · C3 to C5"</em>. Press <span class="ui">Export</span> and Bruno renders each note in turn, counting up through the set (<em>"Rendering 7/25…"</em>), then hands the whole batch to the share sheet together.</p>
+        <div class="callout note">
+          <strong>Why every semitone by default?</strong> Bruno is a synth, so it can render every note perfectly — nothing has to be stretched to fit. With <strong>Step</strong> at 1 semitone your sampler never pitch-shifts a sample to reach a neighbouring key, so every note is exact. If you want fewer files, narrow the <strong>Span</strong> rather than widening the <strong>Step</strong> — a wider step forces the sampler to stretch the notes in between, which drifts the tone.
+        </div>
+        <div class="callout note">
+          <strong>Non-chromatic patches.</strong> If the current patch doesn't track pitch — a plain Kick, for example — every note in the range would render an identical file. The dialog says so in red and disables <span class="ui">Export</span>. Use a single <span class="ui">RHIT</span> tap instead.
+        </div>
+
+        <h3 id="export-format">21.4 Audio format</h3>
+        <p>The export format is chosen once, in <strong>App Preferences</strong> → <strong>Sample Export</strong> (the <span class="ui">⚙️</span> cog in the Header Bar — see <a href="#app-preferences">22. App Preferences</a>). Your choices are remembered, and apply to both single hits and multisamples.</p>
+
+        <h4>Sample Rate</h4>
+        <p><strong>22.05</strong>, <strong>44.1</strong>, <strong>48</strong>, <strong>88.2</strong> or <strong>96 kHz</strong>. Bruno builds its render engine at the rate you pick, so every note is rendered natively — there is no resampling anywhere in the chain. <strong>44.1</strong> or <strong>48 kHz</strong> are the safest choices for hardware samplers, and the ones we'd recommend.</p>
+
+        <h4>Bit Depth</h4>
+        <table class="param-table">
+          <thead><tr><th>Depth</th><th>When to use it</th></tr></thead>
+          <tbody>
+            <tr><td>8</td><td>A deliberate lo-fi option, for gritty vintage character. See the tips below.</td></tr>
+            <tr><td>16</td><td>The classic sampler format — accepted everywhere. Dithered.</td></tr>
+            <tr><td>24</td><td><strong>Recommended.</strong> High quality and widely compatible.</td></tr>
+            <tr><td>32f</td><td>32-bit float — bit-for-bit identical to Bruno's own output, but some older samplers can't read it.</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Channels</h4>
+        <p><strong>Mono</strong> or <strong>Stereo</strong>. Stereo is the default. Mono folds the two channels together and halves the file size, which many hardware samplers prefer.</p>
+        <div class="callout note">
+          <strong>The default format is 24-bit, 48 kHz, Stereo</strong> — a good all-round starting point that most samplers and DAWs will take without complaint.
+        </div>
+
+        <h4>Getting the best from 8-bit</h4>
+        <p>8-bit has a limited dynamic range, so it needs a little care to sound like intentional grit rather than hiss. Bruno does the heavy lifting for you: it records at full internal resolution, lifts the level so the hit uses the entire 8-bit range, and only then converts — shaping the remaining quantisation noise up into the high frequencies where it's far less audible.</p>
+        <p>For the cleanest 8-bit results, use <strong>44.1 or 48 kHz</strong>. At 22.05 kHz there's less high-frequency room to hide the noise, so it's hissier by nature — and if the grittiest, most vintage tone is what you're after, that lower rate is there for exactly that reason.</p>
+        <div class="callout note">
+          8-bit files are level-maximised one file at a time, so across a multisample the natural loudness differences between notes are evened out. That's normal for lo-fi 8-bit sampling.
+        </div>
+
+        <h3 id="export-naming">21.5 File names, root keys &amp; importing</h3>
+        <p>Every exported file is named to the same pattern:</p>
+        <p><span class="ui">&lt;Preset&gt; &lt;Voice&gt; &lt;MIDI&gt; &lt;Note&gt;.wav</span> — for example <span class="ui">Deep Pluck Pluck 060 C4.wav</span>.</p>
+        <p>The zero-padded MIDI number and the note name let many samplers map each file to the correct key automatically. On top of that, every file carries the standard sampler <strong>root key marker embedded inside the WAV</strong>, so samplers that read the marker rather than the file name also place each sample on the right note. You don't have to enable anything — it's always there.</p>
+        <h4>Importing a multisample</h4>
+        <ol>
+          <li>Export a set with <strong>RHOLD</strong>.</li>
+          <li>Save all the files into one folder — from the share sheet, choose Save to Files, or AirDrop them across.</li>
+          <li>In your sampler, import the folder and, if it asks, map by note name or by root key. With Step set to 1 semitone, every sample lands on its own key with no stretching.</li>
+        </ol>
+
+        <h3 id="export-quick">21.6 Quick reference</h3>
+        <table class="param-table">
+          <thead><tr><th>I want…</th><th>Do this</th></tr></thead>
+          <tbody>
+            <tr><td>One drum hit as a WAV</td><td>Tap <strong>RHIT</strong></td></tr>
+            <tr><td>A playable pitched instrument</td><td>Hold <strong>RHIT</strong>, set the range, press <strong>Export</strong></td></tr>
+            <tr><td>Maximum hardware compatibility</td><td>16-bit, 44.1 kHz, Mono</td></tr>
+            <tr><td>Best all-round quality</td><td>24-bit, 48 kHz, Stereo <em>(the default)</em></td></tr>
+            <tr><td>Vintage lo-fi character</td><td>8-bit, 44.1 kHz</td></tr>
+            <tr><td>An exact, bit-for-bit capture</td><td>32f</td></tr>
+          </tbody>
+        </table>
+      </section>
+
       <section id="app-preferences">
-        <h2><span class="num">21</span>App Preferences</h2>
-        <p class="lead">App Preferences is where you control Bruno's resource usage and check version information. It's organised into two sections: <strong>Performance Settings</strong> for managing CPU/DSP load, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
+        <h2><span class="num">22</span>App Preferences</h2>
+        <p class="lead">App Preferences is where you set how large Bruno's on-screen text is, control its resource usage, choose the format for exported samples, and check version information. It's organised into four sections, top to bottom: <strong>Text Size</strong>, <strong>Performance Settings</strong> for managing CPU/DSP load, <strong>Sample Export</strong> for the WAV format used by RHIT and RHOLD, and <strong>App Information</strong> for version details and quick access to this user guide.</p>
 
         <h3>Opening App Preferences</h3>
-        <p>Tap the <span class="ui">⚙️</span> cog icon in the Master Strip. The App Preferences dialog opens; like the Scope, Preset Browser and Random Preset Generator, it can be resized to fit the space available on your screen.</p>
+        <p>Tap the <span class="ui">⚙️</span> cog icon at the right-hand end of the <a href="#header-bar">Header Bar</a>. The App Preferences dialog opens; like the Scope, Preset Browser and Random Preset Generator, it can be resized to fit the space available on your screen.</p>
 
-        <h3 id="performance-settings">21.1 Performance Settings</h3>
+        <h3 id="text-size">22.1 Text Size</h3>
+        <p>The first section of App Preferences, and the one worth setting before anything else. Bruno packs four complete engines onto one screen, so its labels are necessarily small — Text Size scales them up without changing the layout.</p>
+        <p>Pick one of five sizes: <strong>1×</strong>, <strong>1.25×</strong>, <strong>1.5×</strong>, <strong>1.75×</strong> or <strong>2×</strong>. The selected size is highlighted in cyan. <strong>1×</strong> is the default.</p>
+        <p>The setting scales <strong>slider labels, their values, and hint text across every tab</strong> — so it follows you through the Engines, Vol Env, Filter, LFO, Master and every other tab, as well as the Hints dialogs. Knobs, sliders and the engine cards themselves keep their size and position, so nothing moves around: only the text gets bigger.</p>
+        <div class="callout tip">
+          <strong>Worth a look on iPhone.</strong> Bruno's densest tabs were designed to fit an iPad. On a phone — or any time you're working at arm's length, on stage or in a dim room — 1.5× or 1.75× makes the values readable at a glance without giving up any controls. Your choice is remembered between sessions.
+        </div>
+
+        <h3 id="performance-settings">22.2 Performance Settings</h3>
         <p>Bruno runs comfortably on every supported device with the default settings. Performance Settings exist mainly for AUv3 host situations — because you load one Bruno per drum track, a full kit can mean several instances running at once, and you may need to manage the total CPU/DSP load across the session.</p>
 
         <h4>Reverb Quality</h4>
@@ -894,7 +1040,11 @@
         </table>
         <p>The default is <strong>Full</strong> — the 8-line network described in <a href="#master-reverb">17.4 Reverb</a>. Reach for the lower tiers only when you're trying to claw back CPU in a busy AUv3 session, or if you specifically want the character of a sparser reverb.</p>
 
-        <h3 id="app-information">21.2 App Information</h3>
+        <h3 id="export-settings">22.3 Sample Export</h3>
+        <p>Sets the format Bruno writes when you export a sample — <strong>Sample Rate</strong>, <strong>Bit Depth</strong> and <strong>Channels</strong>. The settings are remembered between sessions and apply to both single hits and multisamples. Each option is described in full in <a href="#export-format">21.4 Audio format</a>.</p>
+        <p>The default is <strong>24-bit, 48 kHz, Stereo</strong>.</p>
+
+        <h3 id="app-information">22.4 App Information</h3>
         <p>The App Information section of App Preferences tells you who made Bruno, links you to this guide, and shows which build you're running. It contains three items, top to bottom:</p>
 
         <h4>Created by</h4>
@@ -908,7 +1058,7 @@
       </section>
 
       <section id="midi">
-        <h2><span class="num">22</span>MIDI</h2>
+        <h2><span class="num">23</span>MIDI</h2>
         <p class="lead">Bruno responds to MIDI in both the standalone app and the AUv3 plugin.</p>
         <h3>MIDI behaviour</h3>
         <ul>
@@ -935,7 +1085,7 @@
       </section>
 
       <section id="keyboard-song">
-        <h2><span class="num">23</span>Keyboard <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(iPad Standalone only)</span></h2>
+        <h2><span class="num">24</span>Keyboard <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">(iPad Standalone only)</span></h2>
         <h3>Piano keyboard</h3>
         <p>The iPad standalone app has a one-octave touch keyboard at the top of the screen. Drag across the keys to play different notes and use the octave buttons on either side to shift range. Every key triggers all enabled engines at full velocity. It's the quickest way to play chromatic sounds melodically — any preset with a Chromatic engine (the violet <span class="c-badge">C</span> badge) tracks pitch across the keys (see <a href="#pitch-env">9. Pitch Env</a>).</p>
         <div class="callout note">
@@ -944,7 +1094,7 @@
       </section>
 
       <section id="sharing">
-        <h2><span class="num">24</span>Sharing Presets</h2>
+        <h2><span class="num">25</span>Sharing Presets</h2>
         <p class="lead">Made a great drum? Share it back so we can consider it for a future factory library — selected submissions feature in the <strong>Artists</strong> preset category.</p>
         <ol>
           <li>Export or copy your preset from the Preset Browser — it's a small JSON file containing the name and parameter values.</li>
@@ -955,7 +1105,7 @@
       </section>
 
       <section id="tips">
-        <h2><span class="num">25</span>Tips &amp; Workflow</h2>
+        <h2><span class="num">26</span>Tips &amp; Workflow</h2>
 
         <h3>Pick a voice, then roll</h3>
         <p>Building a drum from scratch is slow. Choose the voice, hit the dice, and start from something that already works — then shape it. Even experienced sound designers usually start from an existing patch.</p>
@@ -977,7 +1127,7 @@
       </section>
 
       <section id="troubleshooting">
-        <h2><span class="num">26</span>Troubleshooting</h2>
+        <h2><span class="num">27</span>Troubleshooting</h2>
 
         <h3>I can't hear anything</h3>
         <ul>
@@ -1009,7 +1159,7 @@
       </section>
 
       <section id="support">
-        <h2><span class="num">27</span>Getting Help</h2>
+        <h2><span class="num">28</span>Getting Help</h2>
         <p>Questions, bug reports, feature requests — head to the <a href="support.html">Support page</a>. We aim to reply within 1–2 business days.</p>
         <p>For privacy questions, see the <a href="privacy.html">Privacy Policy</a>.</p>
         <p>Thanks for using Bruno.</p>

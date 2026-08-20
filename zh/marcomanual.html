@@ -86,9 +86,10 @@
         <li><a href="#scope">14. Scope 示波器</a></li>
         <li><a href="#xy-pad">15. XY 触控板</a></li>
         <li><a href="#app-preferences">16. 应用偏好设置</a></li>
-        <li class="subsection"><a href="#performance-settings">16.1 性能设置</a></li>
-        <li class="subsection"><a href="#midi-controls">16.2 MIDI 控制</a></li>
-        <li class="subsection"><a href="#app-information">16.3 应用信息</a></li>
+        <li class="subsection"><a href="#text-size">16.1 Text Size 文字大小</a></li>
+        <li class="subsection"><a href="#performance-settings">16.2 性能设置</a></li>
+        <li class="subsection"><a href="#midi-controls">16.3 MIDI 控制</a></li>
+        <li class="subsection"><a href="#app-information">16.4 应用信息</a></li>
         <li><a href="#song-player">17. 乐曲播放器</a></li>
         <li><a href="#midi">18. MIDI</a></li>
         <li><a href="#sharing">19. 分享预设</a></li>
@@ -714,11 +715,11 @@
           <figcaption>预设浏览器：类别在左，预设在右。点星号收藏，点名称载入。</figcaption>
         </figure>
 
-        <h3>Save 与 Save New</h3>
+        <h3>Save 与 Save As</h3>
         <p>Marco 区分「更新一个已有的用户预设」与「新建一个」：</p>
         <ul>
-          <li><strong>Save</strong>——就地覆盖当前生效的用户预设。如果当前预设是工厂预设或「Random」，Save 会自动退回为 Save New 的行为（也就是说，它绝不会覆盖工厂内容）。</li>
-          <li><strong>Save New</strong>——总是提示你输入名称，并创建一个全新的用户预设，当前生效的那个不受影响。</li>
+          <li><strong>Save</strong>——就地覆盖当前生效的用户预设。如果当前预设是工厂预设或「Random」，Save 会自动退回为 Save As 的行为（也就是说，它绝不会覆盖工厂内容）。</li>
+          <li><strong>Save As</strong>——总是提示你输入名称，并创建一个全新的用户预设，当前生效的那个不受影响。</li>
         </ul>
 
         <h3>导入与导出</h3>
@@ -926,20 +927,28 @@
 
       <section id="app-preferences">
         <h2><span class="num">16</span>应用偏好设置</h2>
-        <p class="lead">应用偏好设置是你控制 Marco 资源占用、设置 MIDI 演奏控件、以及查看版本信息的地方。它分为三个部分：管理 CPU/DSP 负载的<strong>性能设置</strong>、调制轮与弯音行为的 <strong>MIDI 控制</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
+        <p class="lead">应用偏好设置是你调整 Marco 屏幕文字大小、控制资源占用、设置 MIDI 演奏控件、以及查看版本信息的地方。它自上而下分为四个部分：<strong>Text Size 文字大小</strong>、管理 CPU/DSP 负载的<strong>性能设置</strong>、调制轮与弯音行为的 <strong>MIDI 控制</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
 
         <h3>打开应用偏好设置</h3>
         <div class="feature-row">
           <div class="feature-text">
             <p>点击标题栏右上角的齿轮图标（<span class="ui">⚙️</span>）。应用偏好设置对话框会打开；和示波器、预设浏览器与随机生成器一样，它的尺寸可以调整，以适应你屏幕上可用的空间。</p>
-            <p>它分为三个部分——<strong>性能设置</strong>、<strong>MIDI 控制</strong>与<strong>应用信息</strong>——下面依次介绍。</p>
+            <p>它分为四个部分——<strong>Text Size 文字大小</strong>、<strong>性能设置</strong>、<strong>MIDI 控制</strong>与<strong>应用信息</strong>——下面依次介绍。</p>
           </div>
           <figure class="feature-figure">
-            <img src="../images/apppreferences.png" alt="应用偏好设置对话框及其三个部分：性能设置、MIDI 控制（调制轮目标与弯音范围选择器），以及应用信息。">
+            <img src="../images/apppreferences.png" alt="应用偏好设置对话框及其四个部分：Text Size 文字大小（1× 到 2× 的缩放档位）、性能设置、MIDI 控制（调制轮目标与弯音范围选择器），以及应用信息。">
           </figure>
         </div>
 
-        <h3 id="performance-settings">16.1 性能设置</h3>
+        <h3 id="text-size">16.1 Text Size 文字大小</h3>
+        <p>这是对话框里的第一个部分，也是值得你最先设好的一项。Marco 要把大量控件放进同一块屏幕，标签必然偏小——文字大小可以把它们放大，而不改变布局。</p>
+        <p>共有五档可选：<strong>1×</strong>、<strong>1.25×</strong>、<strong>1.5×</strong>、<strong>1.75×</strong> 或 <strong>2×</strong>。当前选中的一档会以青色高亮显示。默认是 <strong>1×</strong>。</p>
+        <p>这项设置会缩放<strong>所有页面上的滑杆标签、数值与提示文字</strong>，因此它会一路跟着你走遍整件乐器，也包括 Hints 提示对话框。旋钮、滑杆与面板本身的尺寸和位置保持不变，所以界面不会错位：变大的只有文字。你的选择会在多次启动之间保留，并且对独立应用与 AUv3 插件同样生效。</p>
+        <div class="callout tip">
+          <strong>在 iPhone 上尤其值得一试。</strong>Marco 最密集的那几个页面是按 iPad 的尺寸构想的。在手机上——或者任何时候你需要离屏幕远一点演奏，比如在台上或光线昏暗的房间里——1.5× 或 1.75× 能让你一眼看清数值，而且不会牺牲任何控件。
+        </div>
+
+        <h3 id="performance-settings">16.2 性能设置</h3>
         <p>在默认设置下，Marco 在所有受支持的设备上都能轻松运行。性能设置主要是为 AUv3 宿主场景准备的——当你的宿主里载入了很多插件，需要统筹整个工程的 CPU/DSP 负载时。</p>
 
         <h4>混响质量</h4>
@@ -957,7 +966,7 @@
         </table>
         <p>默认是 <strong>Full</strong>。只有当你想在繁忙的 AUv3 工程里抠回一些 CPU，或者你特意想要更稀疏混响的那种质感时，才去用更低的档位。</p>
 
-        <h3 id="midi-controls">16.2 MIDI 控制</h3>
+        <h3 id="midi-controls">16.3 MIDI 控制</h3>
         <p>MIDI 控制是你设定 Marco 如何响应两个演奏控制器的地方：调制轮与弯音轮。两项设置都会跨启动保留，并且在独立应用与 AUv3 插件中表现完全一致。</p>
 
         <h4>调制轮目标</h4>
@@ -979,7 +988,7 @@
         <p>设定弯音轮能把音高移动多远，以中心两侧的半音数计。默认是 <strong>±2</strong>。</p>
         <p>可选范围：<strong>±1、±2、±3、±4、±5、±7、±12</strong> 与 <strong>±24</strong> 个半音。弯音以完整的 14 位精度接收，并经过平滑处理，因此在密集的弯音数据流下也能保持干净（参见 <a href="#midi">18. MIDI</a>）。</p>
 
-        <h3 id="app-information">16.3 应用信息</h3>
+        <h3 id="app-information">16.4 应用信息</h3>
         <p>应用偏好设置里的「应用信息」部分告诉你 Marco 由谁制作、链接到本手册，并显示你正在运行哪个版本。它从上到下包含三项：</p>
 
         <h4>Created by 制作者</h4>
@@ -1079,7 +1088,7 @@
         <ul>
           <li><strong>Note On / Note Off</strong>，带力度感应。Marco 是单音的，采用后音优先——最近按下的音发声，松开它则回落到任何仍被按住的音。力度（0–127）以 0–1 的乘数缩放包络触发，所以弹得越用力、力度越强。<em>（独立应用：可在 MIDI 设置中关闭力度感应，此后每个音都以满力度触发。）</em></li>
           <li><strong>Pitch Bend 弯音</strong>（14 位）。弯音范围在<a href="#midi-controls">应用偏好设置 → MIDI 控制</a>中设定——±1、±2、±3、±4、±5、±7、±12 或 ±24 个半音（默认 ±2）。传入的弯音会经过轻微平滑（每个音频渲染块施加一个约 5&nbsp;ms 的一阶滤波器），让密集的弯音数据流——蓝牙 MIDI、音序器的斜坡——不产生阶梯噪声。</li>
-          <li><strong>Mod Wheel 调制轮</strong>（CC 1）。目标在<a href="#midi-controls">应用偏好设置 → MIDI 控制</a>中选择：Off、Cutoff（默认）、Pitch LFO 或 Vol LFO。各选项的具体作用见 <a href="#midi-controls">16.2 MIDI 控制</a>。</li>
+          <li><strong>Mod Wheel 调制轮</strong>（CC 1）。目标在<a href="#midi-controls">应用偏好设置 → MIDI 控制</a>中选择：Off、Cutoff（默认）、Pitch LFO 或 Vol LFO。各选项的具体作用见 <a href="#midi-controls">16.3 MIDI 控制</a>。</li>
           <li><strong>Sustain Pedal 延音踏板</strong>（CC 64）。标准的延后释放行为：踏板踩住期间（CC&nbsp;64&nbsp;≥&nbsp;64），note-off 事件不会释放包络；新音符仍正常重新触发，连奏照常生效；松开踏板（CC&nbsp;64&nbsp;&lt;&nbsp;64）时，所有等待中的音符才被释放。这与 Minimoog、Prophet-5 单音模式以及大多数现代单音合成器模拟的行为一致。</li>
         </ul>
 

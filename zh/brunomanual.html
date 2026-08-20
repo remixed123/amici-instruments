@@ -66,6 +66,10 @@
         <li class="subsection"><a href="#voice-pluck">6.6 Pluck 拨弦</a></li>
         <li class="subsection"><a href="#voice-switching">6.7 切换音色类型</a></li>
         <li><a href="#voices-tab">7. Engines 页面</a></li>
+        <li class="subsection"><a href="#engines-core">7.1 核心控件</a></li>
+        <li class="subsection"><a href="#tune-range">7.2 各音色的 Tune 范围</a></li>
+        <li class="subsection"><a href="#character">7.3 「Character」控制的是什么</a></li>
+        <li class="subsection"><a href="#noise-layer">7.4 噪声层</a></li>
         <li><a href="#vol-env">8. Vol Env 音量包络</a></li>
         <li><a href="#pitch-env">9. Pitch Env 音高包络</a></li>
         <li><a href="#body">10. Body 鼓身</a></li>
@@ -95,15 +99,24 @@
         <li class="subsection"><a href="#rpg-master">19.9 Master 区块与随机化</a></li>
         <li class="subsection"><a href="#rpg-history">19.10 随机预设历史</a></li>
         <li><a href="#scope">20. Scope 示波器与频谱</a></li>
-        <li><a href="#app-preferences">21. 应用偏好设置</a></li>
-        <li class="subsection"><a href="#performance-settings">21.1 性能设置</a></li>
-        <li class="subsection"><a href="#app-information">21.2 应用信息</a></li>
-        <li><a href="#midi">22. MIDI</a></li>
-        <li><a href="#keyboard-song">23. 键盘</a></li>
-        <li><a href="#sharing">24. 分享预设</a></li>
-        <li><a href="#tips">25. 技巧与工作流程</a></li>
-        <li><a href="#troubleshooting">26. 疑难解答</a></li>
-        <li><a href="#support">27. 获取帮助</a></li>
+        <li><a href="#sample-export">21. 采样导出</a></li>
+        <li class="subsection"><a href="#rhit">21.1 RHIT 按钮</a></li>
+        <li class="subsection"><a href="#single-sample">21.2 单样本导出</a></li>
+        <li class="subsection"><a href="#multisample">21.3 半音多重采样导出</a></li>
+        <li class="subsection"><a href="#export-format">21.4 音频格式</a></li>
+        <li class="subsection"><a href="#export-naming">21.5 文件命名与导入</a></li>
+        <li class="subsection"><a href="#export-quick">21.6 速查</a></li>
+        <li><a href="#app-preferences">22. 应用偏好设置</a></li>
+        <li class="subsection"><a href="#text-size">22.1 Text Size 文字大小</a></li>
+        <li class="subsection"><a href="#performance-settings">22.2 性能设置</a></li>
+        <li class="subsection"><a href="#export-settings">22.3 Sample Export 采样导出</a></li>
+        <li class="subsection"><a href="#app-information">22.4 应用信息</a></li>
+        <li><a href="#midi">23. MIDI</a></li>
+        <li><a href="#keyboard-song">24. 键盘</a></li>
+        <li><a href="#sharing">25. 分享预设</a></li>
+        <li><a href="#tips">26. 技巧与工作流程</a></li>
+        <li><a href="#troubleshooting">27. 疑难解答</a></li>
+        <li><a href="#support">28. 获取帮助</a></li>
       </ul>
     </aside>
 
@@ -161,7 +174,7 @@
         <p class="lead">快速走一遍，看看东西都在哪儿。Bruno 把所有控件都组织进标签页里，而每一个标签页都并排显示同样的四张引擎卡片。</p>
 
         <figure class="manual-figure">
-          <img src="../images/engines.png" alt="Bruno 的 Engines 页面——标题栏与工具栏位于四张颜色区分的引擎卡片上方：Analog（蓝）、FM（绿）、Fold（橙）与 Reso（品红），每张卡片都有 Vol、Tune、Character 与 Decay 滑块。">
+          <img src="../images/engines.png" alt="Bruno 的 Engines 页面——标题栏与工具栏位于四张颜色区分的引擎卡片上方：Analog（蓝）、FM（绿）、Fold（橙）与 Reso（品红），每张卡片都有模式按钮、一排噪声按钮（Noise、White、Pink、Crack），以及 Vol、Tune、Character、Decay 与 Ndec 滑块。">
           <figcaption>Bruno 的 Engines 页面：标题栏与工具栏位于四张颜色区分的引擎卡片上方。每个引擎的颜色会在应用的任何地方一路跟随它。</figcaption>
         </figure>
 
@@ -172,8 +185,8 @@
           <li><strong>音色选择器</strong>——选择鼓的音色类型：Kick、Snare、Hat、Clap、Tom 或 Pluck。在 iPhone 上显示为两个字母的代码（<span class="ui">KK / SN / HH / CL / TM / PL</span>）。</li>
           <li><strong>预设选择器</strong>——当前预设名称，两侧各有 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头。点箭头可逐个切换预设，点名称则打开完整的预设浏览器（参见 <a href="#presets">18. 预设</a>）。当前声音只要含有半音（音高跟踪）引擎，名称旁边就会出现一个紫色的 <span class="c-badge">C</span> 徽标，让你一眼看出它可以在键盘上演奏旋律。</li>
           <li><strong>随机面板按钮</strong>——打开随机预设生成器，在那里设定来源类别、风格，以及哪些内容参与随机（参见 <a href="#random">19. 随机预设生成器</a>）。</li>
-          <li><strong>MIDI 按钮</strong> <em>（仅独立应用）</em>——一个钢琴键图标，带有一个始终存在的活动指示点：静止时是黑色带白边，一旦有 MIDI 音符到达就变绿。点击可打开 MIDI 输入设置（参见 <a href="#midi">22. MIDI</a>）。</li>
-          <li><strong>⚙️ 设置齿轮</strong>——打开应用偏好设置（参见 <a href="#app-preferences">21. 应用偏好设置</a>）。</li>
+          <li><strong>MIDI 按钮</strong> <em>（仅独立应用）</em>——一个钢琴键图标，带有一个始终存在的活动指示点：静止时是黑色带白边，一旦有 MIDI 音符到达就变绿。点击可打开 MIDI 输入设置（参见 <a href="#midi">23. MIDI</a>）。</li>
+          <li><strong>⚙️ 设置齿轮</strong>——打开应用偏好设置（参见 <a href="#app-preferences">22. 应用偏好设置</a>）。</li>
         </ul>
 
         <h3>工具栏标签页</h3>
@@ -196,8 +209,8 @@
         <h3 id="master-strip">4.2 Master Strip 主控条</h3>
         <p>就在四张引擎卡片的正上方，Master Strip 汇集了全局控件与快捷按钮。从左到右：</p>
         <figure class="manual-figure">
-          <img src="../images/bruno-masterstrip.png" alt="Bruno 的 Master Strip 主控条——从左到右：? Hints 按钮、L/R 输出电平表、Gain 滑块、青色 Scope 按钮、带 All·MWR·R 标签的橙色骰子及前后历史箭头，以及 HIT 按钮。">
-          <figcaption>Master Strip 主控条：从左到右依次是 ? Hints 按钮、L/R 输出电平表、Gain 滑块、Scope 按钮、带历史箭头的骰子，以及 HIT。</figcaption>
+          <img src="../images/bruno-masterstrip.png" alt="Bruno 的 Master Strip 主控条——从左到右：? Hints 按钮、L/R 输出电平表、Gain 滑块、青色 Scope 按钮、带 All·MWR·R 标签的橙色骰子及前后历史箭头、青色 HIT 按钮，以及靛蓝色的 RHIT / RHOLD 采样导出按钮。">
+          <figcaption>Master Strip 主控条：从左到右依次是 ? Hints 按钮、L/R 输出电平表、Gain 滑块、Scope 按钮、带历史箭头的骰子、HIT，以及 RHIT / RHOLD。</figcaption>
         </figure>
         <ul>
           <li><strong>? Hints 按钮</strong>（最左）——为你当前所在的页面打开随上下文变化的帮助。颜色会与当前页面匹配。参见下方 <a href="#hints">Hints 提示</a>。</li>
@@ -205,7 +218,8 @@
           <li><strong>Gain 滑块</strong>——主输出电平（0–100%），并显示当前百分比。</li>
           <li><strong>Scope 按钮</strong>（青色）——打开波形示波器与引擎频谱覆盖层（参见 <a href="#scope">20. Scope 示波器与频谱</a>）。</li>
           <li><strong>◀ 🎲 ▶ 骰子与历史</strong>（橙色）——骰子用当前的来源类别掷出一个全新的随机预设；两侧的箭头可在最近 30 个随机声音之间前后穿梭。</li>
-          <li><strong>HIT</strong>——不需要 MIDI 或键盘，就能试听当前的声音。</li>
+          <li><strong>HIT</strong>（青色）——不需要 MIDI 或键盘，就能试听当前的声音。</li>
+          <li><strong>RHIT / RHOLD</strong>（靛蓝色）——把当前的声音录成 WAV 文件。轻点录制单次击打；长按打开「导出多重采样」对话框（参见 <a href="#sample-export">21. 采样导出</a>）。</li>
         </ul>
 
         <h3 id="engine-cards">4.3 引擎卡片</h3>
@@ -368,7 +382,7 @@
       <section id="voices-tab">
         <h2><span class="num">7</span>Engines 页面</h2>
         <p class="lead">主屏幕。每张引擎卡片显示它的标题按钮，以及该引擎的核心音色控件。</p>
-        <h3>核心控件（每个引擎）</h3>
+        <h3 id="engines-core">7.1 核心控件（每个引擎）</h3>
         <table class="param-table">
           <thead><tr><th>控件</th><th>作用</th></tr></thead>
           <tbody>
@@ -380,10 +394,11 @@
             <tr><td>Tune</td><td>基础音高。显示的范围取决于音色类型（见下文）。</td></tr>
             <tr><td>Character</td><td>当前引擎最具决定性的音色控件。它的标签与含义会随引擎和音色变化（见下文）。</td></tr>
             <tr><td>Decay</td><td>触发之后声音消退的快慢（2 毫秒–10 秒，采用三次方渐变曲线，因此大多数鼓的衰减都落在行程中段）。</td></tr>
+            <tr><td>Noise / White / Pink / Crack / Ndec</td><td>逐引擎的噪声层——在引擎本来的声音之上叠进一段颗粒。参见 <a href="#noise-layer">7.4 噪声层</a>。</td></tr>
           </tbody>
         </table>
 
-        <h3>各音色的 Tune 范围</h3>
+        <h3 id="tune-range">7.2 各音色的 Tune 范围</h3>
         <p>Tune 会按音色重新映射，让滑块始终覆盖那件鼓真正有用的地带：</p>
         <table class="param-table">
           <thead><tr><th>音色类型</th><th>显示范围</th></tr></thead>
@@ -397,7 +412,7 @@
           </tbody>
         </table>
 
-        <h3>「Character」控制的是什么</h3>
+        <h3 id="character">7.3 「Character」控制的是什么</h3>
         <p>Character 只是一个滑块，但它在每个引擎里驱动的部分都不同——标签也会随之改变。举几个例子：</p>
         <table class="param-table">
           <thead><tr><th>引擎</th><th>Kick</th><th>Snare</th><th>Hat</th><th>Clap</th></tr></thead>
@@ -409,6 +424,30 @@
           </tbody>
         </table>
         <p>在 Tom 与 Pluck 上，Character 同样在塑造音色（Tom 是共振 / FM 深度 / 折叠；Pluck 是阻尼、FM 深度、折叠量或模态 Spread）。应用内的 <a href="#hints">Hints</a> 始终会显示你当前所处音色与引擎下的正确标签。</p>
+        <h3 id="noise-layer">7.4 噪声层</h3>
+        <p>每个引擎都可以在它本来的声音之上，叠进一段会衰减的噪声。它的定位是「颗粒与脏感」层——军鼓上的沙沙声、底鼓里的空气感、拍手底下的噼啪声——而不是主要的发声来源。<strong>四个引擎</strong>和<strong>每一种音色</strong>都能用，而且每个引擎都有各自独立的噪声设置。</p>
+        <p>控件位于该引擎滑杆正上方的一排按钮里：</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>作用</th></tr></thead>
+          <tbody>
+            <tr><td>Noise</td><td>为这个引擎开启或关闭噪声层。关闭时，类型按钮与 Ndec 滑杆会变灰。</td></tr>
+            <tr><td>White</td><td>明亮、全频段的嘶嘶声。</td></tr>
+            <tr><td>Pink</td><td>均衡、更温暖的中低频噪声。</td></tr>
+            <tr><td>Crack</td><td>稀疏的黑胶式噼啪声——随机脉冲，外加一点低频嘶声。</td></tr>
+            <tr><td>Ndec</td><td>噪声衰减时间，与音调部分的 Decay 相互独立：2 毫秒–10 秒（Clap 为 10 毫秒–4 秒）。时间短会得到一记脏脏的起音；时间长则会留下一条比鼓身还要长的噪声尾巴。</td></tr>
+          </tbody>
+        </table>
+        <p>三种类型都做过增益配平，所以在它们之间切换只会改变质感，不会出现音量跳变。真正干活最多的控件是 <strong>Ndec</strong>：一记若有若无的起音颗粒，还是一片比鼓声还长的噪声，全看它。</p>
+
+        <h4>在各音色上的表现</h4>
+        <table class="param-table">
+          <thead><tr><th>音色</th><th>噪声层带来什么</th></tr></thead>
+          <tbody>
+            <tr><td>Snare / Hat / Clap</td><td>最自然的搭配——额外的脆响、沙沙声与响弦式的嗡鸣。军鼓与踩镲本身就会合成自己的噪声，这一层是叠加在那之上的。</td></tr>
+            <tr><td>Kick</td><td>Ndec 短可以增加起音的颗粒感；Ndec 长则会给出 lo-fi 的碎裂尾巴。请少量使用。</td></tr>
+            <tr><td>Tom / Pluck</td><td>这两种音色以音调为主，所以噪声能添加起音颗粒或空气感——但推得太狠会让音高变浑浊。</td></tr>
+          </tbody>
+        </table>
       </section>
 
       <section id="vol-env">
@@ -736,14 +775,17 @@
         <h3>预设浏览器</h3>
         <p>点击标题栏里的预设名称即可打开浏览器。类别在左，名称在右；点星号收藏，点名称载入。当你编辑过当前预设后，它的名称会显示一个星号（<span class="ui">*</span>）。你也可以不打开浏览器，直接用标题栏里的 <span class="ui">&lt;</span> 与 <span class="ui">&gt;</span> 箭头逐个切换预设。</p>
         <figure class="manual-figure">
-          <img src="../images/bruno-presetbrowser.png" alt="Bruno 的预设浏览器——左侧是类别列表（Signature、All、Artists、Favourites、Basic 以及带数量的各音色类别），右侧是可滚动的预设列表，含收藏星标与半音预设上的紫色 C 徽标，顶部横排 Import、Save 与 Save New 按钮。">
-          <figcaption>预设浏览器：类别在左，预设在右。点某一行的星号收藏，点名称载入，顶部有 Import / Save / Save New。</figcaption>
+          <img src="../images/bruno-presetbrowser.png" alt="Bruno 的预设浏览器——左侧是类别列表（Signature、All、Artists、Favourites、Basic 以及带数量的各音色类别），右侧是可滚动的预设列表，含收藏星标与半音预设上的紫色 C 徽标，顶部横排 Import、Save 与 Save As 按钮。">
+          <figcaption>预设浏览器：类别在左，预设在右。点某一行的星号收藏，点名称载入，顶部有 Import / Save / Save As。</figcaption>
         </figure>
         <h3>Chromatic <span class="c-badge">C</span> 徽标</h3>
         <p>任何用<strong>半音</strong>（音高跟踪）引擎构建的预设，都会带有一个小小的紫色 <span class="c-badge">C</span> 徽标——浏览器里它所在的那一行上有，标题栏名称旁边也有。这是快速识别哪些声音可以在键盘上或通过 MIDI <em>演奏旋律</em>的方法，以区别于那些永远以固定音高发声的鼓。只要四个引擎中任何一个开启了 <strong>Chromatic</strong> 开关（参见 <a href="#pitch-env">9. Pitch Env 音高包络</a>），该预设就算作半音预设——无论那个引擎当前是否启用。</p>
         <p>标题栏的徽标是实时的：在 Pitch Env 页面切换 Chromatic，<span class="c-badge">C</span> 会立即出现或消失，就和表示已编辑的星号一样。</p>
         <h3>导入与导出</h3>
-        <p>预设以很小的 JSON 文件形式导出与导入，因此你可以在设备之间搬运声音，或分享给其他用户——参见 <a href="#sharing">24. 分享预设</a>。</p>
+        <p>预设以很小的 JSON 文件形式导出与导入，因此你可以在设备之间搬运声音，或分享给其他用户——参见 <a href="#sharing">25. 分享预设</a>。</p>
+        <div class="callout note">
+          <strong>预设不是音频。</strong>预设文件只是一份配方，Bruno 依据它重建声音，所以它只能在 Bruno 里打开。如果你要的是可以载入采样器、groovebox 或 DAW 的 <em>WAV</em> 文件，请改用 <a href="#sample-export">21. 采样导出</a>。
+        </div>
       </section>
 
       <section id="random">
@@ -872,14 +914,118 @@
         <p>要发现两个引擎互相遮蔽，或者找出混音里没有任何引擎覆盖的空洞，频谱是最快的方法。已停用的引擎会被清空，并在图例中变灰。</p>
       </section>
 
+      <section id="sample-export">
+        <h2><span class="num">21</span>采样导出</h2>
+        <p class="lead">Bruno 可以把你设计好的声音转录成 <strong>WAV 文件</strong>，直接拿去用在硬件采样器、groovebox 或你的 DAW 里。你可以导出单个鼓点，也可以让 Bruno 自动渲染出一整套半音多重采样。独立应用与 AUv3 插件里的操作方式完全一样。</p>
+        <p>录下来的就是你听到的：四个引擎求和之后，经过完整的 Master 链路——饱和、压缩器、瞬态塑形、混响、立体声与限制器。录制从起音开始，一直持续到尾音完全衰减，所以结尾不会被切掉。</p>
+
+        <h3 id="rhit">21.1 RHIT 按钮——轻点或长按</h3>
+        <p>一切都从 <span class="ui">RHIT</span> 开始，它是 Master Strip 最右端的靛蓝色按钮，就在青色的 <span class="ui">HIT</span> 试听按钮右边。它的标签有两行，因为它要做两件不同的事：</p>
+        <ul>
+          <li><strong>轻点 RHIT</strong>——把单次击打录成一个 WAV 文件。参见 <a href="#single-sample">21.2 单样本导出</a>。</li>
+          <li><strong>长按 RHIT</strong>（第二行写着 <strong>RHOLD</strong>）——按住约半秒，打开<strong>导出多重采样</strong>对话框，一次录下整段音高范围。参见 <a href="#multisample">21.3 半音多重采样导出</a>。</li>
+        </ul>
+
+        <h3 id="single-sample">21.2 单样本导出</h3>
+        <p>这是给鼓、打击乐以及其他非半音音色准备的——底鼓、军鼓、踩镲、拍手。轻点一下 <span class="ui">RHIT</span>，Bruno 就会渲染这一击，短暂显示进度指示，然后打开分享面板。</p>
+        <ul>
+          <li>在<strong>独立应用</strong>中，这一击使用键盘上当前选中的音符。</li>
+          <li>在 <strong>AUv3 插件</strong>中，这一击使用 <strong>C4</strong>（MIDI 60）。</li>
+        </ul>
+        <div class="callout tip">
+          <strong>直接送进别的 app。</strong>在分享面板里，你可以把文件存到「文件」、用 AirDrop 传到另一台设备，或者直接交给 <strong>Koala</strong>、<strong>Loopy Pro</strong> 这类采样器 app——中间不用裁剪、不用编辑，也不用折腾文件。
+        </div>
+
+        <h3 id="multisample">21.3 半音多重采样导出</h3>
+        <p>有音高的声音——比如 Pluck，或任何带有音高跟踪引擎的音色——只用一个采样是没法在整个键盘上演奏得自然的。按住 <span class="ui">RHIT</span> 约半秒打开<strong>导出多重采样</strong>对话框，Bruno 会一次性把整套采样渲染出来。</p>
+        <p>对话框里有三个控件：</p>
+        <table class="param-table">
+          <thead><tr><th>控件</th><th>作用</th><th>范围</th><th>默认值</th></tr></thead>
+          <tbody>
+            <tr><td>Root / Centre（根音 / 中心）</td><td>整个范围围绕哪个音符展开。</td><td>任意 MIDI 音符，0–127</td><td>当前键盘音符</td></tr>
+            <tr><td>Span（跨度）</td><td>范围从根音向两侧延伸多宽。</td><td>1、2 或 3 个八度</td><td>2 个八度</td></tr>
+            <tr><td>Step（间隔）</td><td>相邻两个采样之间相隔几个半音。</td><td>1–12 个半音</td><td>1 个半音</td></tr>
+          </tbody>
+        </table>
+        <p>下方有一行实时摘要，明确告诉你会得到多少个文件、覆盖哪些音符——例如 <em>「25 files · C3 to C5」</em>。按下 <span class="ui">Export</span>，Bruno 会逐个音符渲染，并显示进度（<em>「Rendering 7/25…」</em>），完成后把整批文件一起交给分享面板。</p>
+        <div class="callout note">
+          <strong>为什么默认每个半音都录？</strong>因为 Bruno 是合成器，它可以把每一个音都完美渲染出来——不需要靠拉伸去凑。把 <strong>Step</strong> 设为 1 个半音，你的采样器就永远不必为了够到相邻的琴键而对采样做变调，每一个音都是准确的。如果你想要更少的文件，请缩小 <strong>Span</strong>，而不是加大 <strong>Step</strong>——间隔一旦拉大，采样器就得去拉伸中间那些音，音色会随之走样。
+        </div>
+        <div class="callout note">
+          <strong>非半音音色。</strong>如果当前音色不跟踪音高——比如一个普通的底鼓——那么范围内的每一个音都会渲染出一模一样的文件。对话框会用红字提示，并禁用 <span class="ui">Export</span>。这种情况请改用轻点一下 <span class="ui">RHIT</span>。
+        </div>
+
+        <h3 id="export-format">21.4 音频格式</h3>
+        <p>导出格式只需设置一次，位置在<strong>应用偏好设置</strong> → <strong>Sample Export</strong>（<a href="#header-bar">顶部标题栏</a>里的 <span class="ui">⚙️</span> 齿轮——参见 <a href="#app-preferences">22. 应用偏好设置</a>）。你的选择会被记住，并且对单次击打与多重采样都生效。</p>
+
+        <h4>采样率（Sample Rate）</h4>
+        <p><strong>22.05</strong>、<strong>44.1</strong>、<strong>48</strong>、<strong>88.2</strong> 或 <strong>96 kHz</strong>。Bruno 会按你选定的采样率来构建渲染引擎，因此每个音都是原生渲染的——整条链路上没有任何重采样。对硬件采样器来说，<strong>44.1</strong> 或 <strong>48 kHz</strong> 最稳妥，也是我们推荐的选择。</p>
+
+        <h4>位深（Bit Depth）</h4>
+        <table class="param-table">
+          <thead><tr><th>位深</th><th>什么时候用</th></tr></thead>
+          <tbody>
+            <tr><td>8</td><td>刻意为之的 lo-fi 选项，用来做粗粝的复古质感。参见下面的技巧。</td></tr>
+            <tr><td>16</td><td>经典的采样器格式——到哪儿都能用。带抖动处理。</td></tr>
+            <tr><td>24</td><td><strong>推荐。</strong>音质高，兼容性广。</td></tr>
+            <tr><td>32f</td><td>32 位浮点——与 Bruno 自身的输出逐比特一致，但有些老采样器读不了。</td></tr>
+          </tbody>
+        </table>
+
+        <h4>声道（Channels）</h4>
+        <p><strong>Mono</strong>（单声道）或 <strong>Stereo</strong>（立体声）。默认是立体声。单声道会把两个声道折叠在一起，文件体积减半——很多硬件采样器更喜欢这样。</p>
+        <div class="callout note">
+          <strong>默认格式是 24 位、48 kHz、立体声</strong>——一个各方面都稳妥的起点，绝大多数采样器与 DAW 都能顺利读取。
+        </div>
+
+        <h4>把 8 位用好</h4>
+        <p>8 位的动态范围有限，所以需要一点讲究，才能听起来像有意为之的颗粒感，而不是嘶声。Bruno 已经替你做好了最重的活：它先以完整的内部精度录制，把电平抬到让这一击用满整个 8 位范围，然后才做转换——并把残留的量化噪声整形到高频，那里远没有那么容易被听见。</p>
+        <p>想要最干净的 8 位效果，请用 <strong>44.1 或 48 kHz</strong>。在 22.05 kHz 下，可供藏噪声的高频空间更少，所以天生会更嘶一些——而如果你追求的正是最粗粝、最复古的音色，那个更低的采样率就是为此准备的。</p>
+        <div class="callout note">
+          8 位文件是逐个文件做电平最大化的，所以在一整套多重采样里，音符之间天然的响度差异会被抹平。对 lo-fi 的 8 位采样来说，这是正常的。
+        </div>
+
+        <h3 id="export-naming">21.5 文件命名、根音标记与导入</h3>
+        <p>每一个导出的文件都遵循同样的命名规则：</p>
+        <p><span class="ui">&lt;预设&gt; &lt;音色&gt; &lt;MIDI&gt; &lt;音名&gt;.wav</span>——例如 <span class="ui">Deep Pluck Pluck 060 C4.wav</span>。</p>
+        <p>补零的 MIDI 编号加上音名，让许多采样器可以自动把每个文件映射到正确的琴键上。除此之外，每个文件内部还嵌入了标准的采样器<strong>根音标记</strong>，因此那些读取标记而不是文件名的采样器，同样能把每个采样放到正确的音上。你什么都不用开启——它一直都在。</p>
+        <h4>导入一套多重采样</h4>
+        <ol>
+          <li>用 <strong>RHOLD</strong> 导出一整套。</li>
+          <li>把所有文件保存到同一个文件夹——在分享面板里选择「存储到文件」，或者用 AirDrop 传过去。</li>
+          <li>在你的采样器里导入这个文件夹；如果它询问映射方式，按音名或按根音映射即可。当 Step 设为 1 个半音时，每个采样都会落在自己的琴键上，不需要任何拉伸。</li>
+        </ol>
+
+        <h3 id="export-quick">21.6 速查</h3>
+        <table class="param-table">
+          <thead><tr><th>我想要……</th><th>这样做</th></tr></thead>
+          <tbody>
+            <tr><td>把一次鼓击导出成 WAV</td><td>轻点 <strong>RHIT</strong></td></tr>
+            <tr><td>一件可演奏的、有音高的乐器</td><td>长按 <strong>RHIT</strong>，设好范围，按 <strong>Export</strong></td></tr>
+            <tr><td>最大的硬件兼容性</td><td>16 位、44.1 kHz、单声道</td></tr>
+            <tr><td>各方面最好的音质</td><td>24 位、48 kHz、立体声<em>（默认）</em></td></tr>
+            <tr><td>复古 lo-fi 质感</td><td>8 位、44.1 kHz</td></tr>
+            <tr><td>逐比特精确的捕捉</td><td>32f</td></tr>
+          </tbody>
+        </table>
+      </section>
+
       <section id="app-preferences">
-        <h2><span class="num">21</span>应用偏好设置</h2>
-        <p class="lead">应用偏好设置是你控制 Bruno 资源占用与查看版本信息的地方。它分为两个部分：管理 CPU/DSP 负载的<strong>性能设置</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
+        <h2><span class="num">22</span>应用偏好设置</h2>
+        <p class="lead">应用偏好设置是你调整 Bruno 屏幕文字大小、控制资源占用、选择采样导出格式与查看版本信息的地方。它自上而下分为四个部分：<strong>Text Size 文字大小</strong>，管理 CPU/DSP 负载的<strong>性能设置</strong>，决定 RHIT 与 RHOLD 所写 WAV 格式的 <strong>Sample Export 采样导出</strong>，以及提供版本详情与本手册快捷入口的<strong>应用信息</strong>。</p>
 
         <h3>打开应用偏好设置</h3>
-        <p>点击 Master Strip 里的 <span class="ui">⚙️</span> 齿轮图标。应用偏好设置对话框会打开；和示波器、预设浏览器与随机预设生成器一样，它的尺寸可以调整，以适应你屏幕上可用的空间。</p>
+        <p>点击<a href="#header-bar">顶部标题栏</a>最右端的 <span class="ui">⚙️</span> 齿轮图标。应用偏好设置对话框会打开；和示波器、预设浏览器与随机预设生成器一样，它的尺寸可以调整，以适应你屏幕上可用的空间。</p>
 
-        <h3 id="performance-settings">21.1 性能设置</h3>
+        <h3 id="text-size">22.1 Text Size 文字大小</h3>
+        <p>这是应用偏好设置的第一个部分，也是值得你最先设好的一项。Bruno 要把四个完整的引擎放进同一块屏幕，标签必然偏小——文字大小可以把它们放大，而不改变布局。</p>
+        <p>共有五档可选：<strong>1×</strong>、<strong>1.25×</strong>、<strong>1.5×</strong>、<strong>1.75×</strong> 或 <strong>2×</strong>。当前选中的一档会以青色高亮显示。默认是 <strong>1×</strong>。</p>
+        <p>这项设置会缩放<strong>所有页面上的滑杆标签、数值与提示文字</strong>——因此它会一路跟着你，覆盖 Engines、Vol Env、Filter、LFO、Master 以及其他每一个页面，也包括 Hints 提示对话框。旋钮、滑杆与引擎卡片本身的尺寸和位置保持不变，所以界面不会错位：变大的只有文字。</p>
+        <div class="callout tip">
+          <strong>在 iPhone 上尤其值得一试。</strong>Bruno 最密集的那几个页面是按 iPad 的尺寸设计的。在手机上——或者任何时候你需要离屏幕远一点操作，比如在台上或光线昏暗的房间里——1.5× 或 1.75× 能让你一眼看清数值，而且不会牺牲任何控件。你的选择会被保留下来。
+        </div>
+
+        <h3 id="performance-settings">22.2 性能设置</h3>
         <p>在默认设置下，Bruno 在所有受支持的设备上都能轻松运行。性能设置主要是为 AUv3 宿主场景准备的——因为你要为每条鼓音轨加载一个 Bruno，一整套鼓组可能意味着同时运行多个实例，你可能需要统筹整个工程的 CPU/DSP 负载。</p>
 
         <h4>混响质量</h4>
@@ -895,7 +1041,11 @@
         </table>
         <p>默认是 <strong>Full</strong>——也就是 <a href="#master-reverb">17.4 Reverb 混响</a>中描述的 8 线网络。只有当你想在繁忙的 AUv3 工程里抠回一些 CPU，或者你特意想要更稀疏混响的那种质感时，才去用更低的档位。</p>
 
-        <h3 id="app-information">21.2 应用信息</h3>
+        <h3 id="export-settings">22.3 Sample Export 采样导出</h3>
+        <p>这里设置 Bruno 导出采样时所写的格式——<strong>采样率</strong>、<strong>位深</strong>与<strong>声道</strong>。设置会在多次使用之间保留，并且对单次击打与多重采样都生效。每个选项的完整说明见 <a href="#export-format">21.4 音频格式</a>。</p>
+        <p>默认是 <strong>24 位、48 kHz、立体声</strong>。</p>
+
+        <h3 id="app-information">22.4 应用信息</h3>
         <p>应用偏好设置里的「应用信息」部分告诉你 Bruno 由谁制作、链接到本手册，并显示你正在运行哪个版本。它从上到下包含三项：</p>
 
         <h4>Created by 制作者</h4>
@@ -909,7 +1059,7 @@
       </section>
 
       <section id="midi">
-        <h2><span class="num">22</span>MIDI</h2>
+        <h2><span class="num">23</span>MIDI</h2>
         <p class="lead">Bruno 在独立应用与 AUv3 插件中都响应 MIDI。</p>
         <h3>MIDI 行为</h3>
         <ul>
@@ -936,7 +1086,7 @@
       </section>
 
       <section id="keyboard-song">
-        <h2><span class="num">23</span>键盘 <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">（仅 iPad 独立版）</span></h2>
+        <h2><span class="num">24</span>键盘 <span style="color: var(--text-muted); font-size: 0.55em; font-weight: 400; letter-spacing: 0;">（仅 iPad 独立版）</span></h2>
         <h3>钢琴键盘</h3>
         <p>iPad 独立应用在屏幕顶部有一个单八度的触控键盘。在琴键上拖动即可演奏不同的音，用两侧的八度按钮可以切换音域。每个键都会以满力度触发所有已启用的引擎。这是演奏半音声音旋律最快的方式——任何含有半音引擎的预设（带紫色 <span class="c-badge">C</span> 徽标）都会随琴键跟踪音高（参见 <a href="#pitch-env">9. Pitch Env 音高包络</a>）。</p>
         <div class="callout note">
@@ -945,7 +1095,7 @@
       </section>
 
       <section id="sharing">
-        <h2><span class="num">24</span>分享预设</h2>
+        <h2><span class="num">25</span>分享预设</h2>
         <p class="lead">做出了很棒的鼓？把它分享回来，我们会考虑将其收入未来的工厂预设库——入选的投稿会出现在 <strong>Artists</strong> 预设类别中。</p>
         <ol>
           <li>在预设浏览器中导出或复制你的预设——它是一个包含名称与参数值的小 JSON 文件。</li>
@@ -956,7 +1106,7 @@
       </section>
 
       <section id="tips">
-        <h2><span class="num">25</span>技巧与工作流程</h2>
+        <h2><span class="num">26</span>技巧与工作流程</h2>
 
         <h3>先选音色，再掷</h3>
         <p>从零搭一件鼓很慢。先选好音色类型，点骰子，从一个已经成立的东西出发——然后再去塑造它。连经验丰富的音色设计师通常也是从一个已有的音色开始的。</p>
@@ -978,7 +1128,7 @@
       </section>
 
       <section id="troubleshooting">
-        <h2><span class="num">26</span>疑难解答</h2>
+        <h2><span class="num">27</span>疑难解答</h2>
 
         <h3>我听不到任何声音</h3>
         <ul>
@@ -1010,7 +1160,7 @@
       </section>
 
       <section id="support">
-        <h2><span class="num">27</span>获取帮助</h2>
+        <h2><span class="num">28</span>获取帮助</h2>
         <p>疑问、问题报告、功能建议——请前往<a href="support.html">支持页面</a>。我们会在 1–2 个工作日内回复。</p>
         <p>隐私相关的问题，请参见<a href="privacy.html">隐私政策</a>。</p>
         <p>感谢你使用 Bruno。</p>
