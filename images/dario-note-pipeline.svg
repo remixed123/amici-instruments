@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1322" width="780" height="1322" role="img" aria-label="Dario note pipeline">
+<defs><marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" fill="#33333f"/></marker><marker id="arwo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" fill="#F5A044"/></marker></defs>
+<rect width="780" height="1322" fill="#0b0b0f"/>
+<text x="22.0" y="38.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#f2f2f5">The music theory behind Dario's sequencer</text>
+<text x="22.0" y="60.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#9a9aa6">How one firing step becomes a note — and why four independent lanes always agree.</text>
+<line x1="22" y1="78" x2="758" y2="78" stroke="#23232e" stroke-width="1"/>
+<text x="22.0" y="104.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#6b6b78" letter-spacing="1.6">THE THREE LAYERS</text>
+<rect x="22.0" y="114.0" width="232.0" height="104.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<rect x="22.0" y="128.0" width="3" height="76.0" rx="1.5" fill="#5BA8E5" opacity="0.85"/>
+<text x="38.0" y="140.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14.5" font-weight="700" fill="#5BA8E5">WHEN</text>
+<text x="38.0" y="156.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#6b6b78" letter-spacing="1.1">STEPS PAGE</text>
+<text x="38.0" y="176.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">Which steps fire, how dense they</text>
+<text x="38.0" y="189.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">are, and how long the lane's loop</text>
+<text x="38.0" y="203.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">is (LENGTH, DIV/MULT).</text>
+<rect x="274.0" y="114.0" width="232.0" height="104.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<rect x="274.0" y="128.0" width="3" height="76.0" rx="1.5" fill="#7BD957" opacity="0.85"/>
+<text x="290.0" y="140.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14.5" font-weight="700" fill="#7BD957">WHAT PITCH</text>
+<text x="290.0" y="156.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#6b6b78" letter-spacing="1.1">NOTES PAGE</text>
+<text x="290.0" y="176.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">Which note each firing step plays</text>
+<text x="290.0" y="189.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">— and how that pitch moves over</text>
+<text x="290.0" y="203.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">time (PROG).</text>
+<rect x="526.0" y="114.0" width="232.0" height="104.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<rect x="526.0" y="128.0" width="3" height="76.0" rx="1.5" fill="#F5A044" opacity="0.85"/>
+<text x="542.0" y="140.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14.5" font-weight="700" fill="#F5A044">HOW IT'S VOICED</text>
+<text x="542.0" y="156.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#6b6b78" letter-spacing="1.1">MONO / POLY</text>
+<text x="542.0" y="176.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">One note, or a chord built on it</text>
+<text x="542.0" y="189.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">(CHORD, INV).</text>
+<text x="390.0" y="242.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="400" fill="#6b6b78" text-anchor="middle">Rhythm, melody and harmony are decided independently — the classic orthogonal split. Everything below resolves</text>
+<text x="390.0" y="257.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="400" fill="#6b6b78" text-anchor="middle">one firing step of the pitch and voicing layers.</text>
+<path d="M138.0 264.0 V280.0 H390.0" stroke="#33333f" stroke-width="1.4" fill="none" opacity="0.8"/>
+<path d="M390.0 264.0 V280.0 H390.0" stroke="#33333f" stroke-width="1.4" fill="none" opacity="0.8"/>
+<path d="M642.0 264.0 V280.0 H390.0" stroke="#33333f" stroke-width="1.4" fill="none" opacity="0.8"/>
+<path d="M390.0 280.0 L390.0 300.0" stroke="#33333f" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<text x="22.0" y="314.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#7BD957" letter-spacing="1.6">1–4 · THE PITCH STACK</text>
+<text x="758.0" y="314.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#6b6b78" text-anchor="end" letter-spacing="0.5">RUNNING PITCH (MIDI NOTE · NAME) — WORKED EXAMPLE IN KEY A, NATURAL MINOR</text>
+<rect x="22.0" y="326.0" width="736.0" height="54.0" rx="10" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<path d="M23.5 338.0 v30.0" stroke="#7BD957" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<circle cx="52.0" cy="353.0" r="13" fill="#7BD957" fill-opacity="0.14" stroke="#7BD957" stroke-width="1.2"/>
+<text x="52.0" y="357.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#7BD957" text-anchor="middle">1</text>
+<text x="78.0" y="349.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">BASE NOTE + OCTAVE</text>
+<text x="78.0" y="366.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">The lane's starting pitch — OCTAVE moves it in whole 12-semitone steps.</text>
+<rect x="622.0" y="339.0" width="136.0" height="28.0" rx="8" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="690.0" y="357.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">72 · C5</text>
+<rect x="22.0" y="386.0" width="736.0" height="54.0" rx="10" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<path d="M23.5 398.0 v30.0" stroke="#7BD957" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<circle cx="52.0" cy="413.0" r="13" fill="#7BD957" fill-opacity="0.14" stroke="#7BD957" stroke-width="1.2"/>
+<text x="52.0" y="417.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#7BD957" text-anchor="middle">2</text>
+<text x="78.0" y="409.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">+ NOTE ALGO OFFSET</text>
+<text x="78.0" y="426.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">MANUAL, WALK, TURING, EUCLID or TECHNO sets a per-step offset in semitones.</text>
+<rect x="566.0" y="401.0" width="44.0" height="24.0" rx="7" fill="rgba(123,217,87,0.10)" stroke="#7BD957" stroke-width="1"/>
+<text x="588.0" y="417.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="700" fill="#7BD957" text-anchor="middle">+3</text>
+<rect x="622.0" y="399.0" width="136.0" height="28.0" rx="8" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="690.0" y="417.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">75 · D#5</text>
+<rect x="22.0" y="446.0" width="736.0" height="54.0" rx="10" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<path d="M23.5 458.0 v30.0" stroke="#7BD957" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<circle cx="52.0" cy="473.0" r="13" fill="#7BD957" fill-opacity="0.14" stroke="#7BD957" stroke-width="1.2"/>
+<text x="52.0" y="477.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#7BD957" text-anchor="middle">3</text>
+<text x="78.0" y="469.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">+ PROG ROOT OFFSET</text>
+<text x="78.0" y="486.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">This bar's chord degree in semitones, read off the scale's 7-note parent.</text>
+<rect x="566.0" y="461.0" width="44.0" height="24.0" rx="7" fill="rgba(123,217,87,0.10)" stroke="#7BD957" stroke-width="1"/>
+<text x="588.0" y="477.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="700" fill="#7BD957" text-anchor="middle">+7</text>
+<rect x="622.0" y="459.0" width="136.0" height="28.0" rx="8" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="690.0" y="477.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">82 · A#5</text>
+<rect x="22.0" y="506.0" width="736.0" height="54.0" rx="10" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<path d="M23.5 518.0 v30.0" stroke="#7BD957" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<circle cx="52.0" cy="533.0" r="13" fill="#7BD957" fill-opacity="0.14" stroke="#7BD957" stroke-width="1.2"/>
+<text x="52.0" y="537.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#7BD957" text-anchor="middle">4</text>
+<text x="78.0" y="529.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">+ ARP CHORD TONE</text>
+<text x="78.0" y="546.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">With ARP on, the step takes the next tone of that chord instead of the root.</text>
+<rect x="566.0" y="521.0" width="44.0" height="24.0" rx="7" fill="rgba(123,217,87,0.10)" stroke="#7BD957" stroke-width="1"/>
+<text x="588.0" y="537.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12" font-weight="700" fill="#7BD957" text-anchor="middle">+0</text>
+<rect x="622.0" y="519.0" width="136.0" height="28.0" rx="8" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="690.0" y="537.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">82 · A#5</text>
+<path d="M390.0 570.0 L390.0 590.0" stroke="#33333f" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="22.0" y="600.0" width="736.0" height="158.0" rx="12" fill="#101016" stroke="#D060E5" stroke-width="1.1"/>
+<rect x="22.0" y="600.0" width="736.0" height="158.0" rx="12" fill="#D060E5" fill-opacity="0.05"/>
+<circle cx="52.0" cy="630.0" r="13" fill="#D060E5" fill-opacity="0.14" stroke="#D060E5" stroke-width="1.2"/>
+<text x="52.0" y="634.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#D060E5" text-anchor="middle">5</text>
+<text x="78.0" y="626.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">SNAP TO THE GLOBAL SCALE + KEY</text>
+<text x="78.0" y="643.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">The nearest note of the one global scale wins, and a tie rounds down. Nothing can leave the key.</text>
+<rect x="62.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(245,160,68,0.18)" stroke="#F5A044" stroke-width="1.6"/>
+<text x="87.5" y="677.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#f2f2f5" text-anchor="middle">A</text>
+<text x="87.5" y="690.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" fill="#F5A044" text-anchor="middle">81</text>
+<rect x="117.0" y="660.0" width="51.0" height="38.0" rx="8" fill="#101015" stroke="#F5A044" stroke-width="1.4" stroke-dasharray="3 3" opacity="0.95"/>
+<text x="142.5" y="677.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#F5A044" text-anchor="middle">A#</text>
+<text x="142.5" y="690.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" font-weight="700" fill="#F5A044" text-anchor="middle">82</text>
+<rect x="172.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="197.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">B</text>
+<rect x="227.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="252.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">C</text>
+<rect x="282.0" y="660.0" width="51.0" height="38.0" rx="8" fill="#0e0e13" stroke="#23232e" stroke-width="1"/>
+<text x="307.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#55555f" text-anchor="middle">C#</text>
+<rect x="337.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="362.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">D</text>
+<rect x="392.0" y="660.0" width="51.0" height="38.0" rx="8" fill="#0e0e13" stroke="#23232e" stroke-width="1"/>
+<text x="417.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#55555f" text-anchor="middle">D#</text>
+<rect x="447.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="472.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">E</text>
+<rect x="502.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="527.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">F</text>
+<rect x="557.0" y="660.0" width="51.0" height="38.0" rx="8" fill="#0e0e13" stroke="#23232e" stroke-width="1"/>
+<text x="582.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#55555f" text-anchor="middle">F#</text>
+<rect x="612.0" y="660.0" width="51.0" height="38.0" rx="8" fill="rgba(208,96,229,0.15)" stroke="#D060E5" stroke-width="1"/>
+<text x="637.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="600" fill="#f2f2f5" text-anchor="middle">G</text>
+<rect x="667.0" y="660.0" width="51.0" height="38.0" rx="8" fill="#0e0e13" stroke="#23232e" stroke-width="1"/>
+<text x="692.5" y="683.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="500" fill="#55555f" text-anchor="middle">G#</text>
+<path d="M142.5 704.0 C 142.5 718.0, 87.5 718.0, 87.5 707.0" stroke="#F5A044" stroke-width="1.6" fill="none" marker-end="url(#arwo)"/>
+<text x="168.5" y="721.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#F5A044">tie → rounds down</text>
+<text x="390.0" y="744.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6" text-anchor="middle">82 (A#) sits exactly between A and B, so it resolves down to 81 (A5). In-scale degrees are lit; the rest are never played.</text>
+<path d="M390.0 758.0 V772.0 H201.0" stroke="#33333f" stroke-width="1.4" fill="none"/>
+<path d="M390.0 758.0 V772.0 H579.0" stroke="#33333f" stroke-width="1.4" fill="none"/>
+<path d="M201.0 772.0 L201.0 790.0" stroke="#33333f" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<path d="M579.0 772.0 L579.0 790.0" stroke="#33333f" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="22.0" y="798.0" width="358.0" height="186.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<rect x="22.0" y="812.0" width="3" height="158.0" rx="1.5" fill="#F5A044" opacity="0.85"/>
+<text x="40.0" y="824.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#F5A044" letter-spacing="1.4">6 · MONO</text>
+<text x="40.0" y="846.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#f2f2f5">One note</text>
+<text x="40.0" y="868.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">The snapped note plays as it is. With a progression</text>
+<text x="40.0" y="882.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">running, the same melodic shape is re-rooted onto each</text>
+<text x="40.0" y="896.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">new chord — a bassline or lead that follows the</text>
+<text x="40.0" y="910.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">changes.</text>
+<rect x="40.0" y="938.0" width="104.0" height="30.0" rx="8" fill="rgba(245,160,68,0.12)" stroke="#F5A044" stroke-width="1.2"/>
+<text x="92.0" y="958.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="13" font-weight="700" fill="#f2f2f5" text-anchor="middle">81 · A5</text>
+<rect x="400.0" y="798.0" width="358.0" height="186.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<rect x="400.0" y="812.0" width="3" height="158.0" rx="1.5" fill="#F5A044" opacity="0.85"/>
+<text x="418.0" y="824.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#F5A044" letter-spacing="1.4">6 · POLY</text>
+<text x="418.0" y="846.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15.5" font-weight="700" fill="#f2f2f5">A chord on that root</text>
+<text x="418.0" y="868.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">CHORD stacks the other tones on the root; INV then</text>
+<text x="418.0" y="882.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">lifts the lowest of them an octave for smoother</text>
+<text x="418.0" y="896.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">voice-leading.</text>
+<text x="418.0" y="931.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="700" fill="#6b6b78">DIA</text>
+<rect x="464.0" y="914.0" width="62.0" height="24.0" rx="7" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="495.0" y="930.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#9a9aa6" text-anchor="middle">81 · A</text>
+<rect x="534.0" y="914.0" width="62.0" height="24.0" rx="7" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="565.0" y="930.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#9a9aa6" text-anchor="middle">84 · C</text>
+<rect x="604.0" y="914.0" width="62.0" height="24.0" rx="7" fill="#17171f" stroke="#23232e" stroke-width="1"/>
+<text x="635.0" y="930.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#9a9aa6" text-anchor="middle">88 · E</text>
+<text x="418.0" y="963.0" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="10" font-weight="700" fill="#6b6b78">INV 1</text>
+<rect x="464.0" y="946.0" width="62.0" height="24.0" rx="7" fill="rgba(245,160,68,0.12)" stroke="#F5A044" stroke-width="1.1"/>
+<text x="495.0" y="962.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#f2f2f5" text-anchor="middle">84 · C</text>
+<rect x="534.0" y="946.0" width="62.0" height="24.0" rx="7" fill="rgba(245,160,68,0.12)" stroke="#F5A044" stroke-width="1.1"/>
+<text x="565.0" y="962.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#f2f2f5" text-anchor="middle">88 · E</text>
+<rect x="604.0" y="946.0" width="62.0" height="24.0" rx="7" fill="rgba(245,160,68,0.12)" stroke="#F5A044" stroke-width="1.1"/>
+<text x="635.0" y="962.5" font-family="ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace" font-size="11" font-weight="600" fill="#f2f2f5" text-anchor="middle">93 · A</text>
+<text x="22.0" y="1010.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">Diatonic shapes (DIA / DIA7 / DIA9) stack by scale degree, so each chord's quality — minor here — is taken from the key rather</text>
+<text x="22.0" y="1025.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">than chosen by hand. The fixed shapes (MAJ, MIN, SUS4, 5TH…) plane one interval set onto every root, and are allowed to step</text>
+<text x="22.0" y="1040.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">outside the key as a deliberate colour.</text>
+<path d="M201.0 1054.0 V1068.0 H390.0" stroke="#33333f" stroke-width="1.4" fill="none"/>
+<path d="M579.0 1054.0 V1068.0 H390.0" stroke="#33333f" stroke-width="1.4" fill="none"/>
+<path d="M390.0 1068.0 L390.0 1088.0" stroke="#33333f" stroke-width="1.6" fill="none" marker-end="url(#arw)"/>
+<rect x="22.0" y="1098.0" width="736.0" height="76.0" rx="12" fill="#121218" stroke="#23232e" stroke-width="1"/>
+<path d="M23.5 1112.0 v48.0" stroke="#5BA8E5" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+<circle cx="52.0" cy="1128.0" r="13" fill="#5BA8E5" fill-opacity="0.14" stroke="#5BA8E5" stroke-width="1.2"/>
+<text x="52.0" y="1132.5" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="700" fill="#5BA8E5" text-anchor="middle">7</text>
+<text x="78.0" y="1124.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#f2f2f5">GATE · VELOCITY · GROOVE · RATCHET · TIE</text>
+<text x="78.0" y="1143.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">The pitch is settled. The STEPS page now shapes how long the note lasts, how hard it hits, how it sits against</text>
+<text x="78.0" y="1157.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">the grid, and whether it ties into the step that follows.</text>
+<rect x="22.0" y="1196.0" width="358.0" height="104.0" rx="12" fill="#0f0f14" stroke="#23232e" stroke-width="1"/>
+<text x="40.0" y="1222.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#5BA8E5" letter-spacing="1.3">ONE PALETTE, FOUR VOICES</text>
+<text x="40.0" y="1242.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">Because every lane snaps into the same Scale + Key,</text>
+<text x="40.0" y="1256.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">four independent rhythms can never clash. The interest</text>
+<text x="40.0" y="1270.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">comes from rhythm, register and loop length, not from</text>
+<text x="40.0" y="1284.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">chromatic pitch choice.</text>
+<rect x="400.0" y="1196.0" width="358.0" height="104.0" rx="12" fill="#0f0f14" stroke="#23232e" stroke-width="1"/>
+<text x="418.0" y="1222.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="700" fill="#5BA8E5" letter-spacing="1.3">HARMONIC RHYTHM</text>
+<text x="418.0" y="1242.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">PROG advances one chord per lane loop, so LENGTH and</text>
+<text x="418.0" y="1256.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">DIV/MULT decide how fast the harmony moves. Same</text>
+<text x="418.0" y="1270.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">progression with different STEPS gives related but</text>
+<text x="418.0" y="1284.0" font-family="system-ui,-apple-system,'Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#9a9aa6">interlocking parts.</text>
+</svg>

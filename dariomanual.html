@@ -784,7 +784,12 @@
         <p>Three parts, one palette, different rhythms and loop lengths — related, evolving, and never out of tune.</p>
 
         <h3>Quick reference — the processing order</h3>
-        <p>For the theory-minded, the exact order Dario applies for each firing step:</p>
+        <p>The whole model on one page — the three independent layers at the top, then the exact order Dario applies to each firing step, followed through with a worked example in <strong>Key A, Natural Minor</strong>:</p>
+        <figure class="manual-figure">
+          <img src="images/dario-note-pipeline.svg" alt="A layered diagram of Dario's note pipeline. At the top, three independent layers: WHEN (the STEPS page — which steps fire and how long the loop is), WHAT PITCH (the NOTES page — which note each firing step plays and how it moves via PROG), and HOW IT'S VOICED (MONO or POLY). Below, a four-stage pitch stack accumulating semitone offsets with a running MIDI value: stage 1 base note plus OCTAVE gives 72 (C5); stage 2 adds the note-ALGO per-step offset of +3 giving 75 (D#5); stage 3 adds the PROG root offset of +7 giving 82 (A#5); stage 4 adds the ARP chord tone, here +0. Stage 5 snaps to the global Scale and Key, shown as a twelve-semitone ruler with the seven notes of A natural minor lit — 82 (A#) sits exactly between A and B, so the tie rounds down to 81 (A5). Stage 6 branches: MONO plays that single note 81 (A5), while POLY stacks a diatonic chord on it — 81 A, 84 C, 88 E — which INV 1 then rotates to 84 C, 88 E, 93 A. Stage 7 applies GATE, velocity, GROOVE, RATCHET and TIE to shape playback.">
+          <figcaption>One firing step, end to end: rhythm, pitch and voicing are decided independently, offsets accumulate in semitones, and everything is forced into the global Scale and Key before it sounds.</figcaption>
+        </figure>
+        <p>The same order in words:</p>
         <table class="param-table">
           <thead>
             <tr><th>Stage</th><th>What happens</th></tr>
