@@ -22,6 +22,38 @@
      request everywhere else. Both files are variable fonts, 39 KB total. -->
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="site.css">
+
+<!-- ===========================================================================
+     IMAGE PLACEHOLDERS — production notes, not shipping content.
+     Each .img-slot block below marks a spot where a figure should go. They are
+     numbered (IMAGE 01 … IMAGE 42) and anchored, so dariomanual.html#img-17
+     jumps straight to one.
+
+     To swap a placeholder for the real image, replace the whole
+     <div class="img-slot" id="img-NN"> … </div> block with:
+
+       <figure class="manual-figure">
+         <img src="images/FILENAME.png" alt="DESCRIBE THE SCREENSHOT">
+         <figcaption>THE CAPTION FROM THE PLACEHOLDER</figcaption>
+       </figure>
+
+     Use class="feature-figure" instead for a tall/portrait crop, and wrap two
+     or three figures in a div of class="figure-compare" to sit them side by side.
+
+     Delete this style block once every .img-slot has gone.
+     =========================================================================== -->
+<style>
+  .content .img-slot { border: 1.5px dashed #3a3a48; border-radius: 12px; background: #0e0e12; padding: 14px 16px; margin: 22px 0; }
+  .content .img-slot .img-slot-top { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 9px; }
+  .content .img-slot .img-slot-num { font: 700 11px/1 ui-monospace, Menlo, Consolas, monospace; letter-spacing: 1.2px; color: #050507; background: var(--osc-3); padding: 5px 8px; border-radius: 6px; }
+  .content .img-slot .img-slot-pri { font-size: 10px; font-weight: 700; line-height: 1; letter-spacing: 1px; text-transform: uppercase; padding: 4px 8px; border-radius: 999px; border: 1px solid; }
+  .content .img-slot .p-ess { color: var(--osc-2); border-color: rgba(123,217,87,0.45); background: rgba(123,217,87,0.08); }
+  .content .img-slot .p-rec { color: var(--osc-1); border-color: rgba(91,168,229,0.45); background: rgba(91,168,229,0.08); }
+  .content .img-slot .p-opt { color: var(--text-muted); border-color: var(--border); }
+  .content .img-slot code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; color: var(--text-dim); background: var(--bg-card-2); border: 1px solid var(--border); padding: 3px 7px; border-radius: 6px; }
+  .content .img-slot p { font-size: 13.5px; line-height: 1.55; margin: 0 0 6px; }
+  .content .img-slot p:last-child { margin-bottom: 0; }
+</style>
 </head>
 <body class="manual">
 
@@ -224,6 +256,11 @@
 
         <h3>Window scaling</h3>
         <p>Dario's interface is a <strong>fixed landscape control surface</strong> designed at a floor size of 1000 × 720 pt. At that size or larger — any supported iPad full-screen — the layout fills the window normally. Make the window <strong>smaller</strong>, in Split View or Stage Manager, and the whole surface <strong>shrinks uniformly to fit</strong> rather than reflowing: text, sliders, buttons and spacing all scale down together. It is always on; there is no setting.</p>
+        <div class="img-slot" id="img-01">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 01</span><span class="img-slot-pri p-opt">Optional</span><code>images/dario-window-scaling.png</code></div>
+          <p><strong>Shoot:</strong> The same PERFORM screen twice, side by side: full-screen on the left, and Split View (roughly half width) on the right. Same Groovebox, same theme, so the only difference is the scale. The point is that nothing reflows or drops out — it just gets smaller.</p>
+          <p><strong>Caption:</strong> The whole control surface scales uniformly: the Split View layout is the full one, shrunk.</p>
+        </div>
         <div class="callout note">
           <strong>Scaling costs nothing musically.</strong> The shrink is a display transform only — it never touches the audio render thread, the sequencer clock, MIDI, or the hosted plug-ins' DSP. Touch mapping and plug-in window placement stay accurate at any scale.
         </div>
@@ -259,15 +296,19 @@
         <h2><span class="num">4</span>Interface Tour</h2>
         <p class="lead">Dario's screen has four fixed parts: the master strip across the top, a tab bar, the tab's own surface in the middle, and the bottom strip. The top and bottom strips are always visible, whichever tab you're on.</p>
 
-        <!-- Screenshot placeholder. Add images/dario-overview.png, then uncomment.
-        <figure class="manual-figure">
-          <img src="images/dario-overview.png" alt="Dario's PERFORM tab — the master strip across the top, four coloured voice columns each with three plug-in slots and two rows of sliders, the FX 1 / FX 2 / MASTER effects column on the right, and the bottom strip with per-voice buttons and the transport.">
-          <figcaption>Dario's PERFORM tab: four voices, the effects column, and the always-visible top and bottom strips.</figcaption>
-        </figure>
-        -->
+        <div class="img-slot" id="img-02">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 02</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-overview.png</code></div>
+          <p><strong>Shoot:</strong> Full-screen PERFORM tab on a loaded Factory Groovebox — all four voices populated, plug-ins in the FX and MASTER slots, transport stopped. Classic theme. This is the establishing shot for the whole guide, so it wants a rig that looks busy and deliberate rather than empty. Consider adding callout labels for the four fixed parts: master strip, tab bar, tab surface, bottom strip.</p>
+          <p><strong>Caption:</strong> Dario's PERFORM tab: four voices, the effects column, and the always-visible top and bottom strips.</p>
+        </div>
 
         <h3 id="master-strip">4.1 Master Strip</h3>
         <p>The strip across the top of the app, left to right:</p>
+        <div class="img-slot" id="img-03">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 03</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-master-strip.png</code></div>
+          <p><strong>Shoot:</strong> A tight, full-width crop of just the master strip — logo through to the hamburger. A Groovebox should be loaded so the pill shows a name, the Scale pill shows something other than the default, and the CPU/battery read-outs have real values. Crop tight: a wide, short image.</p>
+          <p><strong>Caption:</strong> The master strip, left to right: logo, Performance Lock, MIDI Learn, level meter, Groovebox, Scale, BPM, CPU and battery, and the menu.</p>
+        </div>
         <ul>
           <li><strong>DARIO logo</strong> — the multi-coloured wordmark. It keeps its signature colours on every theme.</li>
           <li><strong>Performance Lock</strong> (padlock) — a live-use safety lock. Tap to arm or disarm; it shows a bold <span class="ui">🔒 LOCKED</span> chip when armed. Long-press to choose what it blocks. See <a href="#perf-lock">18. Performance Lock</a>.</li>
@@ -294,6 +335,11 @@
 
         <h3 id="bottom-strip">4.3 The Bottom Strip</h3>
         <p>Always visible beneath every tab:</p>
+        <div class="img-slot" id="img-04">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 04</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-bottom-strip.png</code></div>
+          <p><strong>Shoot:</strong> Full-width crop of the bottom strip: the four voices' MUTE / FADE / SOLO / ROLL rows, the transport block (Play, Record, SS, MB) and the right-edge master column (PAN, GAIN, SC, CLR). Catch it mid-performance — one voice muted, another soloed — so the lit states are visible.</p>
+          <p><strong>Caption:</strong> The bottom strip stays visible on every tab: per-voice buttons, the transport, and the master column.</p>
+        </div>
         <ul>
           <li><strong>Under each voice</strong> — four equal buttons: <strong>MUTE</strong>, <strong>FADE</strong>, <strong>SOLO</strong> and <strong>ROLL</strong>. FADE and ROLL are covered in <a href="#live-tools">13. Live Performance Tools</a>.</li>
           <li><strong>Under the effects column</strong> — the transport: a wide <strong>Play</strong>, then <strong>Record</strong> (arms automation while playing), <strong>SS</strong> (Snapshot) and <strong>MB</strong> (Master Button).</li>
@@ -306,6 +352,11 @@
 
         <h3 id="shared-controls">4.4 Shared Controls</h3>
         <p>The same building blocks appear throughout the app:</p>
+        <div class="img-slot" id="img-05">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 05</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-shared-controls.png</code></div>
+          <p><strong>Shoot:</strong> A legend montage rather than a screen: one crop of each control in the table below, laid out in a row or grid and labelled — an empty dashed plug-in slot, a loaded slot, a plain vertical slider, a bipolar (Pan) slider, an assigned slider showing its link badge and slot number, a tile button in Momentary mode, a control carrying the red automation dot, a pill button, and the level meter. Assembled from crops, not one screenshot.</p>
+          <p><strong>Caption:</strong> The shared building blocks: slots, sliders, assignable controls and their badges.</p>
+        </div>
         <table class="param-table">
           <thead>
             <tr><th>Control</th><th>What it is</th></tr>
@@ -336,6 +387,11 @@
           <li><strong>Slide down</strong> to <strong>remove</strong> it.</li>
         </ul>
         <p>Dario's own plug-ins are pinned at the top of each picker, above the third-party list.</p>
+        <div class="img-slot" id="img-06">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 06</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-instrument-picker.png</code></div>
+          <p><strong>Shoot:</strong> The ADD INSTRUMENT picker open on a voice's source slot, scrolled to the top so all of Dario's built-ins are visible and pinned above the third-party list — Dario Drum Kit, Dario Poly Synth, MIDI Out, Audio Input and External Instrument, each with its "Built-in ·" subtitle. A few recognisable third-party AUv3s should show below the divider.</p>
+          <p><strong>Caption:</strong> Dario's own instruments are pinned to the top of the picker, above every AUv3 on your iPad.</p>
+        </div>
 
         <h3>Plug-in windows</h3>
         <p>Hosted plug-ins open in floating windows you can drag and resize. Three settings under <strong>Menu → AUv3 Window Settings</strong> control them:</p>
@@ -348,6 +404,11 @@
           <strong>Open Windows is a resource dial.</strong> Every open window is live and drawing, so the cap is what keeps a rig with many plug-ins responsive. There's no dormant-placeholder state — a window is either open and running or closed.
         </div>
         <p>Hosted plug-in windows keep a neutral dark frame on every <a href="#themes">theme</a>, and the plug-in's own interface always draws in its own colours — Dario can't restyle a third-party plug-in.</p>
+        <div class="img-slot" id="img-07">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 07</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-plugin-window.png</code></div>
+          <p><strong>Shoot:</strong> A third-party AUv3 open in a floating window over the PERFORM tab, so the neutral dark frame and the plug-in's own colours are both visible, and you can see Dario's surface still running behind it. Pick a plug-in whose UI is visually distinct from Dario's, and leave part of the voice column showing.</p>
+          <p><strong>Caption:</strong> Hosted plug-ins open in floating windows over the app, in a neutral frame that doesn't fight the plug-in's own look.</p>
+        </div>
 
         <h3>Out-of-process hosting</h3>
         <p>Dario hosts AUv3s <strong>out of process</strong>, the same way AUM and Drambo do. Practically, that means a badly-behaved plug-in can crash without taking Dario down with it: the slot goes quiet, the rest of your rig keeps playing, and you can reload it.</p>
@@ -363,15 +424,19 @@
         <h2><span class="num">6</span>PERFORM Tab</h2>
         <p class="lead">PERFORM is the mixer and performance surface: four voice columns and an effects column, with every assignable control on one screen.</p>
 
-        <!-- Screenshot placeholder. Add images/dario-perform.png, then uncomment.
-        <figure class="manual-figure">
-          <img src="images/dario-perform.png" alt="Dario's PERFORM tab in detail — four coloured voice columns, each with three plug-in slots, two rows of four assignable sliders, a mixer row and six buttons, beside the FX 1, FX 2 and MASTER cards.">
-          <figcaption>The PERFORM tab: four voices and the effects column.</figcaption>
-        </figure>
-        -->
+        <div class="img-slot" id="img-08">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 08</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-perform.png</code></div>
+          <p><strong>Shoot:</strong> The PERFORM tab again, but framed on the surface itself rather than the whole app — four voice columns and the FX 1 / FX 2 / MASTER column. Different Groovebox from IMAGE 02 if possible, with renamed voices (DRUMS, BASS, PAD, LEAD) and several sliders showing assigned parameter names rather than P1–P8, so it reads as a real rig.</p>
+          <p><strong>Caption:</strong> The PERFORM tab: four voices and the effects column.</p>
+        </div>
 
         <h3 id="voices">6.1 Voices</h3>
         <p>Four voices — <span class="osc-tag o1">VOICE 1</span> <span class="osc-tag o2">VOICE 2</span> <span class="osc-tag o3">VOICE 3</span> <span class="osc-tag o4">VOICE 4</span> — each a coloured column with the same layout. (The colours shown here are the Classic theme's; they follow whichever <a href="#themes">theme</a> you choose.)</p>
+        <div class="img-slot" id="img-09">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 09</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-voice-column.png</code></div>
+          <p><strong>Shoot:</strong> A single voice column, full height, cropped out of PERFORM and annotated with pointers to each part: the header with its cog, the three plug-in slots (instrument + two inserts), the two rows of P1–P8 sliders, the mixer row (FX 1, FX 2, Pan, Vol) and the six B1–B6 buttons. This is the anatomy diagram for the whole tab — worth annotating properly.</p>
+          <p><strong>Caption:</strong> One voice, top to bottom: three plug-in slots, eight assignable sliders, the mixer row and six buttons.</p>
+        </div>
         <ul>
           <li><strong>Three plug-in slots</strong> — the first hosts an <strong>Instrument</strong> AUv3 (or one of Dario's built-in instruments, or a hardware input); the other two host <strong>Effect</strong> AUv3s as inserts.</li>
           <li><strong>Two rows of four sliders (P1–P8)</strong> — general-purpose sliders you can assign to any parameter of any plug-in in this voice. Long-press to map. See <a href="#assign">11. Assigning Controls</a>.</li>
@@ -403,6 +468,11 @@
         <h3 id="sidechain">6.4 Sidechain</h3>
         <p>The <strong>SC</strong> button under the GAIN fader is Dario's MIDI-triggered ducker — the classic pumping duck of a pad or bass against a kick. <strong>Tap</strong> it to switch the ducking on and off; <strong>long-press</strong> for its settings.</p>
         <p>In the settings fly-out:</p>
+        <div class="img-slot" id="img-10">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 10</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-sidechain.png</code></div>
+          <p><strong>Shoot:</strong> The sidechain fly-out from a long-press on SC, showing SOURCE SOUND (set to a named GM drum such as Kick, with the LEARN control visible) and the Depth / Attack / Hold / Release envelope faders. Ideally with a Dario Drum Kit loaded on the source voice so the defaulting behaviour is what's on screen.</p>
+          <p><strong>Caption:</strong> Long-press SC for the ducker: which sound triggers it, and the shape of the duck.</p>
+        </div>
         <ul>
           <li><strong>SOURCE SOUND</strong> narrows which of the source voice's notes trigger the duck — by General MIDI drum name, a raw note number, <span class="ui">ANY</span> note, or tap-to-<strong>LEARN</strong> (trigger the pad or step you want and Dario captures it). It defaults to <strong>Kick</strong> when the source is a Dario Drum Kit.</li>
           <li><strong>Depth · Attack · Hold · Release</strong> shape the duck envelope.</li>
@@ -423,6 +493,11 @@
         <h3 id="playheads">6.6 Transport Playheads</h3>
         <p>A thin strip of step lights sits just below the tab bar — <strong>five playheads</strong>, one per voice in the voice colour, plus one for <strong>FX 1</strong>. While the transport plays, each lights its current step and advances, wrapping at the loop end so you can see when a lane is about to restart.</p>
         <p>This strip is <strong>visible on every tab</strong>, so you always have a transport reference no matter where you're working.</p>
+        <div class="img-slot" id="img-11">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 11</span><span class="img-slot-pri p-opt">Optional</span><code>images/dario-playheads.png</code></div>
+          <p><strong>Shoot:</strong> A very tight, full-width crop of the playhead strip below the tab bar while the transport is running — five rows of step lights (four voice colours plus FX 1), each with its current step lit and the lanes visibly at different positions because their LENGTH and DIV/MULT differ. Freeze mid-bar so the offsets are obvious.</p>
+          <p><strong>Caption:</strong> Five playheads, one per voice plus FX 1 — each following its own lane length and speed.</p>
+        </div>
         <p>Each voice's playhead follows that voice's own sequencer settings — <strong>DIV/MULT</strong> and <strong>LENGTH</strong> — when it's in <span class="ui">SEQ</span> mode. In <span class="ui">AUv3</span> or <span class="ui">EXT</span> mode, where the built-in pattern isn't the note source, it shows a neutral 16-step, one-bar reference instead. The FX playhead is always a 16-step bar.</p>
       </section>
 
@@ -430,9 +505,19 @@
         <h2><span class="num">7</span>SEQUENCE Tab</h2>
         <p class="lead">A <strong>four-lane algorithmic step sequencer</strong> — one row per voice, in the voice colours. Each lane decides <em>how</em> its voice is played and, for the built-in sequencer, <em>what</em> it plays: a rhythm layered with a pitch engine, all snapped to the global Scale and Key.</p>
         <p>Reading a lane left to right: <strong>mode column → AU card → EXT card → SEQUENCE card</strong>. Everything on this tab is saved with the <a href="#grooveboxes">Groovebox</a>.</p>
+        <div class="img-slot" id="img-12">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 12</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-sequence.png</code></div>
+          <p><strong>Shoot:</strong> The whole SEQUENCE tab with four lanes in different states — one DRUMS lane with a GRIDS pattern, one MONO, one POLY, and one set to AUv3 or EXT so the dimmed/lit note-source behaviour shows. Transport running, playhead rings visible. This is the establishing shot for section 7.</p>
+          <p><strong>Caption:</strong> The SEQUENCE tab: four lanes, each with its own note source, lane type and pattern.</p>
+        </div>
 
         <h3 id="note-source">7.1 Note Source — SEQ / AUv3 / EXT</h3>
         <p>Three buttons on the far left pick the lane's <strong>note source</strong>. Exactly one is active; it lights its section and dims the other two.</p>
+        <div class="img-slot" id="img-13">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 13</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-note-source.png</code></div>
+          <p><strong>Shoot:</strong> One lane cropped from the left edge to the end of the EXT card, with the note source set to AUv3 so the AU card is lit and the EXT card dimmed. The AU card should have a Generator and a Processor loaded, and the EXT card should show its MIDI IN button and processor slot. A second variant with EXT active would also work, if you'd rather show the live-play path.</p>
+          <p><strong>Caption:</strong> The mode column picks the note source; the matching card lights up and the others dim.</p>
+        </div>
         <table class="param-table">
           <thead>
             <tr><th>Mode</th><th>What drives the voice</th></tr>
@@ -481,6 +566,11 @@
           <li><strong>The sliders row</strong> — the current algorithm's continuous parameters, as small draggable sliders with <span class="ui">‹</span> <span class="ui">›</span> nudges and a live read-out.</li>
         </ol>
         <p>Each lane has its own playhead; all lanes lock to the shared transport.</p>
+        <div class="img-slot" id="img-14">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 14</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-steps-page.png</code></div>
+          <p><strong>Shoot:</strong> One lane's STEPS page, annotated with the three rows called out: the 16-step surface (with the white playhead ring on the sounding step and the beat accents visible), the buttons row (ALGO, DIV/MULT, PLAY DIR, GROOVE, LENGTH, RATCHET, VEL) and the sliders row. Put the lane on EUCLID so PULSES and ROTATE are showing in the slider row.</p>
+          <p><strong>Caption:</strong> Every lane is three rows: the 16-step surface, the buttons row, and the current generator's sliders.</p>
+        </div>
 
         <h3 id="steps-page">7.3 STEPS — the Rhythm</h3>
 
@@ -513,6 +603,11 @@
           <li><strong>VEL</strong> — a <strong>per-step velocity</strong> editor (1–127). Drag a cell to set how hard that step hits: a loud step is an accent, a quiet one a ghost note. This is standard MIDI velocity, so every hosted synth and drum responds to it. GROOVE shapes on top.</li>
         </ul>
 
+        <div class="img-slot" id="img-15">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 15</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-step-editor.png</code></div>
+          <p><strong>Shoot:</strong> The same lane with RATCHET (or VEL) armed, so the 16 cells have become a per-step editor — bars of different heights across the grid, with the values readable. This is the "the surface doubles as an editor" idea, which is hard to picture from text alone. RATCHET is the more visually obvious of the two.</p>
+          <p><strong>Caption:</strong> Tap a per-step button and the 16 cells become that editor — here, ratchet counts per step.</p>
+        </div>
         <h4>Sliders (STEPS)</h4>
         <p>Each rhythm generator shows only its own sliders:</p>
         <ul>
@@ -530,6 +625,11 @@
 
         <h4>ALGO — the pitch generator</h4>
         <p>Sets each step's note (or, in POLY, the chord root). Every generator writes into a per-step pitch line you can view and hand-edit with the <strong>PITCH</strong> editor, and every note is snapped to the global Scale and Key.</p>
+        <div class="img-slot" id="img-16">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 16</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-notes-page.png</code></div>
+          <p><strong>Shoot:</strong> A MONO lane's NOTES page with the PITCH editor showing a real melodic line — cells at varying heights, each showing its semitone offset and in-key note name, a few cells dimmed where the step is off. Put the lane on TURING or WALK so the line looks generated rather than drawn. Include the buttons row (ARP, CHORD, PROG, INV, OCTAVE, TIE, GATE) and the DICE button.</p>
+          <p><strong>Caption:</strong> The NOTES page: a per-step pitch line, with each cell showing its offset and the in-key note it lands on.</p>
+        </div>
         <table class="param-table">
           <thead>
             <tr><th>Generator</th><th>What it does</th><th>Sliders</th></tr>
@@ -585,6 +685,11 @@
           <li><strong>Nine curated genre styles</strong>, listed alphabetically — <span class="ui">AFRO · AMBIENT · D&amp;B · FUNK · HIP-HOP · HOUSE · POP · R&amp;B · TECHNO</span>. Each is a <strong>bank of 8</strong> progressions (a signature one first, then popular alternates), each shown as the genre word over its roman-numeral shape — TECHNO's default is <span class="ui">i–VII</span>.</li>
         </ul>
         <p><strong>Picking one.</strong> Open the PROG palette, then <strong>tap</strong> a style to load its signature progression, or <strong>slide up and down on its cell</strong> to scrub through that style's eight. The cell shows the current shape, an <span class="ui">n/8</span> index, and a vertical segmented bar, so it reads as a slider. The palette <strong>stays open</strong> so you can audition styles and variations; it closes when you tap PROG again or move to another button. With a curated style chosen, a single <strong>PRESET</strong> scrubber appears in the slider row so you can keep adjusting with the palette closed.</p>
+        <div class="img-slot" id="img-17">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 17</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-prog-palette.png</code></div>
+          <p><strong>Shoot:</strong> The PROG palette open over the 16-step surface, showing OFF and GEN alongside the nine genre cells — each with its genre word, its roman-numeral shape, the n/8 index and the vertical segmented bar. Have one style selected so its cell is lit and the PRESET scrubber is visible in the slider row below.</p>
+          <p><strong>Caption:</strong> The PROG palette: nine genre banks of eight, each cell scrubbing through its progressions.</p>
+        </div>
         <div class="callout note">
           <strong>PROG constrains CHORD.</strong> While a progression is active, CHORD offers only the in-key diatonic voicings (DIA / DIA7 / DIA9) — and snaps to DIA if it was on a fixed shape — so a progression always voices musically.
         </div>
@@ -625,6 +730,11 @@
           <li>Choosing GRIDS <strong>switches all three of KICK / SNARE / HAT to GRIDS at once</strong> — they're one system and can't be half-on. Switch any one of them back to another ALGO to drop it out of the map while the other two keep running.</li>
         </ul>
         <p>You can see which generator each drum is using at a glance on the GRID view: each lane has a small <strong>ALGO button</strong> in the left gutter, lit when it's anything other than MANUAL. Tap it to jump to that sound's STEPS page.</p>
+        <div class="img-slot" id="img-18">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 18</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-grids.png</code></div>
+          <p><strong>Shoot:</strong> A DRUMS voice with GRIDS running: the GRID view showing all six drum lanes, with KICK / SNARE / HAT carrying interlocking generated patterns and their ALGO buttons lit in the left gutter, while CLAP / TOM / PERC sit on their own patterns. Include the X · Y · CHAOS · FILL sliders. If it's easier to read as two shots, a second at a different X/Y position makes the map idea land.</p>
+          <p><strong>Caption:</strong> GRIDS drives KICK, SNARE and HAT from one X / Y position, with FILL set per sound.</p>
+        </div>
 
         <h4>The four controls</h4>
         <table class="param-table">
@@ -827,6 +937,11 @@
           <li><strong>LFO A / LFO B</strong> — two general-purpose LFOs in their own accent colour. Each can target <strong>any</strong> parameter of <strong>any</strong> plug-in on the PERFORM tab, including FX 1, FX 2 and Master. There is no separate FX LFO.</li>
         </ul>
 
+        <div class="img-slot" id="img-19">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 19</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-modulate.png</code></div>
+          <p><strong>Shoot:</strong> The full MODULATE tab — the 2 × 5 grid of ten LFO cards. Have a mix of states: a few running with targets assigned, at least one switched off so the dimmed card with its still-bright ON/OFF button is visible, and the voice cards clearly in their voice colours against LFO A / B in the general accent.</p>
+          <p><strong>Caption:</strong> Ten LFOs in a fixed 2 × 5 grid: two per voice, plus two general-purpose.</p>
+        </div>
         <h3 id="lfo-card">9.2 Card Controls</h3>
         <p><strong>Top row:</strong></p>
         <ul>
@@ -849,8 +964,18 @@
           </tbody>
         </table>
 
+        <div class="img-slot" id="img-20">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 20</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-lfo-card.png</code></div>
+          <p><strong>Shoot:</strong> One LFO card, enlarged and annotated: the top row (wand, BIPOLAR, ON/OFF), the shape row, SYNC and GATE, and the four faders (RATE, RANGE with both handles apart, FADE, PHASE). Set SYNC on so RATE reads as a musical division rather than Hz.</p>
+          <p><strong>Caption:</strong> One LFO card: shape, sync, and the four faders that set rate, depth, fade-in and start phase.</p>
+        </div>
         <h3 id="lfo-assign">9.3 The Assign Card — Up to Six Targets</h3>
         <p>Tap <strong>Assign</strong>. One LFO can drive <strong>up to six destinations at once</strong>, listed under <strong>CURRENT TARGETS</strong>. Each target row has its own:</p>
+        <div class="img-slot" id="img-21">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 21</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-lfo-assign.png</code></div>
+          <p><strong>Shoot:</strong> The Assign card with four or five varied targets in CURRENT TARGETS — a plug-in parameter, a Mixer target, a Sequencer target (GRIDS X, say) and the Sidechain — each showing its DEPTH, INV and ✕, with one INV engaged. Below the list, the PLUG-IN PARAMETER / BUILT-IN / SEND MIDI sections should be visible.</p>
+          <p><strong>Caption:</strong> One LFO, up to six destinations — each with its own depth and inversion.</p>
+        </div>
         <ul>
           <li><strong>DEPTH</strong> (1–100 %) — how much of the LFO's swing that destination uses. 100 % is the full RANGE sweep; around 1 % is almost frozen.</li>
           <li><strong>INV</strong> — that destination follows the LFO inverted.</li>
@@ -898,6 +1023,11 @@
 
         <h3 id="scale-manual">10.1 MANUAL</h3>
         <p>The classic picker: a <strong>Key</strong> palette (C…B) over a <strong>Scale</strong> palette of fourteen presets — Major, Natural Minor, the modes, Harmonic and Melodic Minor, the pentatonics, Blues, Whole Tone and Chromatic. Pick any key and any scale directly. This is the full, unconstrained picker; choose <strong>Chromatic</strong> for no snapping.</p>
+        <div class="img-slot" id="img-22">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 22</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-scale-manual.png</code></div>
+          <p><strong>Shoot:</strong> The Scale fly-out on its MANUAL tab: the Key palette over the fourteen-scale palette, with a key and scale selected so the active states show. Pairs with IMAGE 23 — shoot both at the same size so they can sit side by side in a figure-compare.</p>
+          <p><strong>Caption:</strong> MANUAL: pick any key and any of the fourteen scales directly.</p>
+        </div>
 
         <h3 id="scale-finder">10.2 GENRE / EMOTION Finder</h3>
         <p>A filter finder that helps you land on a scale and key that fits the music you're making, without needing theory. Three columns work as filters, left to right:</p>
@@ -907,6 +1037,11 @@
           <li><strong>SCALE + KEY</strong> — the concrete combinations matching the first two columns. Tap one to apply it; a check marks the active choice.</li>
         </ol>
         <p>Either filter can be left on ALL. Pick a genre to see its most-common scales and keys; pick an emotion to see the ones that evoke that feeling; pick both to see the overlap. If a combination has no matches, the result column says so and suggests widening a filter back to ALL. With both on ALL, it lists the whole curated set.</p>
+        <div class="img-slot" id="img-23">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 23</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-scale-finder.png</code></div>
+          <p><strong>Shoot:</strong> The Scale fly-out on its GENRE / EMOTION tab, with a genre selected in the first column and an emotion in the second, so the third column shows a narrowed list of Scale + Key results with the active one ticked. Pick a combination that returns two or three results rather than one. Pairs with IMAGE 22.</p>
+          <p><strong>Caption:</strong> GENRE / EMOTION: filter by the music you're making, or the feeling you're after.</p>
+        </div>
         <div class="callout note">
           <strong>How the emotion filter matches.</strong> A feeling lives mainly in the <strong>mode</strong>, not the exact key — so choosing an emotion surfaces <em>every</em> key of that mode, not just one root. Choosing a genre narrows to that genre's own recommended combinations, in most-common-first order.
         </div>
@@ -981,6 +1116,11 @@
         <h3>Opening the assign dialog</h3>
         <p><strong>Long-press</strong> an assignable control: the <strong>P1–P8</strong> sliders on a voice, <strong>P1–P4</strong> on an FX card, or any of the tile <strong>buttons</strong>.</p>
         <p>A themed fly-out opens. Everything you set is <strong>staged</strong> — nothing changes until you tap <strong>SAVE</strong>. <strong>CANCEL</strong>, the <strong>✕</strong>, or tapping outside discards it. The sections, top to bottom:</p>
+        <div class="img-slot" id="img-24">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 24</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-assign-dialog.png</code></div>
+          <p><strong>Shoot:</strong> The assign fly-out from a long-press on a voice P-slider, with all its sections visible: SLIDER NAME, PLUG-IN PARAMETER (a parameter already picked, so the section shows its selection and ✕), BUILT-IN and SEND MIDI. Showing two destinations filled at once makes the "several destinations from one control" point directly.</p>
+          <p><strong>Caption:</strong> Long-press any assignable control: one slider can drive a plug-in parameter, a built-in target and a MIDI message at once.</p>
+        </div>
         <ul>
           <li><strong>SLIDER NAME / BUTTON NAME</strong> — an optional short label shown on the control. Leave it blank to fall back to the parameter name.</li>
           <li><strong>BEHAVIOUR</strong> (buttons only) — <strong>Toggle</strong> (a tap latches between min and max) or <strong>Momentary</strong> (max while held, back to min on release).</li>
@@ -1052,6 +1192,11 @@
             <tr><td><strong>Red dot</strong></td><td>Top-centre</td><td>The control has recorded <a href="#automation">automation</a>.</td></tr>
           </tbody>
         </table>
+        <div class="img-slot" id="img-25">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 25</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-badges.png</code></div>
+          <p><strong>Shoot:</strong> A tight crop of two or three adjacent sliders carrying different badges: one with the link badge and its parameter name, one under LFO control showing the waveform badge (and visibly dimmed/locked), and one carrying the red automation dot. Side by side in one crop, so the badges can be compared.</p>
+          <p><strong>Caption:</strong> The badges: link for a mapped parameter, a waveform when an LFO owns it, a red dot for recorded automation.</p>
+        </div>
         <p><strong>When an LFO owns a parameter.</strong> If an LFO is driving the same plug-in parameter a slider is mapped to, they'd fight over one value — so the LFO takes priority. The slider <strong>follows the LFO</strong> (you'll see it move), shows the waveform tag, and <strong>manual dragging is disabled</strong>. Turn the LFO off to take back hands-on control. Long-press still opens the assign dialog, so you can change or remove the mapping.</p>
         <p>The same rule applies to a <strong>SEND MIDI</strong> collision: if a slider sends a CC and that voice's LFO is sweeping the same message, the LFO wins. A slider only locks against the <em>matching</em> target — a slider on CC 15 stays free while the LFO drives CC 16.</p>
 
@@ -1095,6 +1240,11 @@
           <li><strong>Everything on the tab</strong> — <strong>hold</strong> CLR to clear all automation on the PERFORM tab at once.</li>
         </ul>
         <p>You can also long-press a single slider or button and choose <strong>Clear Automation</strong> from its config dialog.</p>
+        <div class="img-slot" id="img-26">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 26</span><span class="img-slot-pri p-opt">Optional</span><code>images/dario-clr-armed.png</code></div>
+          <p><strong>Shoot:</strong> The PERFORM tab with CLR armed and lit, showing several automated controls wearing the red eraser. Worth catching because the armed state changes the look of every automated control at once, which is hard to picture from the text.</p>
+          <p><strong>Caption:</strong> With CLR armed, every automated control shows a red eraser — tap one to clear just its automation.</p>
+        </div>
         <div class="callout note">
           <strong>CLR is never batched.</strong> Unlike MUTE, FADE, SOLO and ROLL, it acts immediately even while the <a href="#master-button">Master Button</a> latch is armed — so an accidental queue can never wipe your automation on commit.
         </div>
@@ -1142,6 +1292,11 @@
 
         <h3 id="voice-cog">13.3 Voice Settings (the cog)</h3>
         <p>Each VOICE section header has a small <strong>cog</strong> on its far left. Tap it for that voice's settings popover.</p>
+        <div class="img-slot" id="img-27">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 27</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-voice-cog.png</code></div>
+          <p><strong>Shoot:</strong> The voice settings popover open from a VOICE header cog, showing FADE CYCLES and the four ROLL rows (RATE, RAMP, LAUNCH/STOP, NOTE). Have ROLL → NOTE set to a named GM drum rather than CURRENT, so the note picker's behaviour is visible, and shoot it on a voice with a Dario Drum Kit loaded.</p>
+          <p><strong>Caption:</strong> The VOICE cog: fade length, and the four settings that shape this voice's roll.</p>
+        </div>
         <ul>
           <li><strong>FADE CYCLES</strong> — how many transport loops a FADE takes for this voice. Step through <span class="ui">1, 2, 3, 4, 6, 8, 12, 16, 32, 64, 128</span> (default <strong>2</strong>). Higher values give long, gradual swells; low values are quick fades.</li>
           <li><strong>ROLL → RATE</strong> — the roll subdivision: <span class="ui">1/8 · 1/16 · 1/16T · 1/32 · 1/32T</span>.</li>
@@ -1217,6 +1372,11 @@
         <table class="param-table">
           <thead>
             <tr><th>Control</th><th>Range</th></tr>
+        <div class="img-slot" id="img-28">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 28</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-drum-kit.png</code></div>
+          <p><strong>Shoot:</strong> The Dario Drum Kit window: the kit selector across the top with a kit chosen, and the six voice columns (KICK · SNARE · CLOSED HAT · OPEN HAT · CLAP · TOM) each with its four faders. Move a few faders off centre so the columns don't look identical.</p>
+          <p><strong>Caption:</strong> The Dario Drum Kit: pick a kit, then four controls per drum.</p>
+        </div>
           </thead>
           <tbody>
             <tr><td><strong>Vol</strong></td><td>Voice level.</td></tr>
@@ -1253,6 +1413,11 @@
         <p>It's intentionally <strong>dry</strong> — two oscillators into one filter, with amp and filter envelopes. No built-in LFOs and no effects; the sound stays clean and you shape it with Dario's own MODULATE LFOs and effects layer if you want more.</p>
         <p>Play a chord and up to eight notes sound at once; when they run out, the oldest makes way for the new one. Releasing a key fades the note out through its release stage — unlike the Drum Kit, which is one-shot.</p>
         <p>Open its window for the one-screen editor: a <strong>patch selector</strong> across the top and control cards left to right — <strong>OSC 1 · OSC 2 · AMP ENV · FILTER ENV · FILTER · GLIDE · OUT</strong>. Tap the small <span class="ui">▶</span> next to the title to audition the current patch.</p>
+        <div class="img-slot" id="img-29">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 29</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-poly-synth.png</code></div>
+          <p><strong>Shoot:</strong> The Dario Poly Synth window with a patch loaded that uses most of the controls — Pad or Supersaw — so the two oscillator cards, both envelopes, the filter card, GLIDE and OUT are all visibly set rather than at defaults. Include the patch selector and the ▶ audition button.</p>
+          <p><strong>Caption:</strong> The Dario Poly Synth: two oscillators, two envelopes, a filter and glide, on one screen.</p>
+        </div>
 
         <h4>Patches</h4>
         <p>Fifteen ship: <strong>Init, Bass, Pad, Lead, Keys, Pluck, Brass, Strings, Bass 2, Stab, Supersaw, Reese, Hollow, Organ</strong> and <strong>Bell</strong>. Selecting a patch resets every control <em>except</em> OUT.</p>
@@ -1279,6 +1444,11 @@
         <p class="lead">A built-in effects chain pinned to the top of the <strong>effect</strong> picker — a per-voice insert, an FX 1 / FX 2 bus slot, or a MASTER insert. One insert gives you seven independently-switchable stages, in this order:</p>
         <p><strong>Drive → Distortion → Comp → Delay → Reverb → Gain → Limiter</strong></p>
         <p>Each stage has its own <strong>power toggle</strong> in its card header, so you use only the stages you want.</p>
+        <div class="img-slot" id="img-30">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 30</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-fx.png</code></div>
+          <p><strong>Shoot:</strong> The Dario FX window showing the full chain — Drive, Distortion, Comp, Delay, Reverb, Gain, Limiter — with some stages powered on and others off, so the per-stage power toggles read clearly. Have the Delay on Sync so its Time fader shows a musical division, and make sure the value read-outs at the top of each fader are legible.</p>
+          <p><strong>Caption:</strong> Dario FX: seven stages in a fixed order, each with its own power toggle.</p>
+        </div>
         <table class="param-table">
           <thead>
             <tr><th>Stage</th><th>What it is</th><th>Controls</th></tr>
@@ -1306,6 +1476,11 @@
         <p class="lead">Send a voice's notes to an external MIDI device — a hardware synth, a drum machine, or another app — instead of making sound in Dario. Load the built-in <strong>MIDI Out</strong> "instrument" into a voice's instrument slot, alongside Dario Drum Kit and Poly Synth.</p>
         <p>Whatever drives that voice — the built-in step sequencer, a hosted AUv3 MIDI chain, or live EXT MIDI in — is routed straight out to the chosen device. The voice produces no audio of its own.</p>
         <p>Open its window to choose the <strong>Destination</strong> and <strong>Channel</strong>.</p>
+        <div class="img-slot" id="img-31">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 31</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-midi-out.png</code></div>
+          <p><strong>Shoot:</strong> The MIDI Out window with a real destination selected (a piece of hardware or another app, by name) and the Channel set — ideally showing the Pass-through option in the list. If you can catch a destination showing "(offline)", that's worth a second shot.</p>
+          <p><strong>Caption:</strong> MIDI Out: pick the destination and the channel, and the voice's notes go to your hardware instead of a plug-in.</p>
+        </div>
 
         <h4>Destination</h4>
         <p>The menu lists every external MIDI input Dario can see — other apps and hardware connected by USB, Bluetooth or network — plus <strong>None</strong>. A destination is remembered by the device itself, so a saved Groovebox reconnects to the same hardware next time. If the device isn't connected when you open the Groovebox, its name shows with <strong>(offline)</strong> and reconnects once it reappears.</p>
@@ -1347,6 +1522,11 @@
         <h3 id="audio-input">14.5 Audio Input</h3>
         <p class="lead">Run a live hardware input into a voice — a synth, a drum machine, a microphone, a modular rig — and process it with that voice's insert effects, sends, sidechain and mixer, exactly like a hosted instrument. Load the built-in <strong>Audio Input</strong> "instrument" into a voice's instrument slot, alongside Dario Drum Kit, Poly Synth and MIDI Out.</p>
         <p>Dario asks for microphone/input permission the first time. The voice stays silent until you open its window (tap the loaded slot) and tick the channels it should take.</p>
+        <div class="img-slot" id="img-32">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 32</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-audio-input.png</code></div>
+          <p><strong>Shoot:</strong> The Audio Input window with a multi-channel interface connected, in STEREO mode, showing the read-only INPUT DEVICE label with its "set in Menu › Audio Engine" hint, the MONO/STEREO switch, and the pair grid with one pair ticked and plenty of others visible (In 1 and In 2 … In 15 and In 16). A many-input device is what sells the feature.</p>
+          <p><strong>Caption:</strong> The Audio Input window: the device is read-only here, and this voice picks its own channels.</p>
+        </div>
 
         <h4>The input device is global</h4>
         <p>iOS binds <strong>one</strong> hardware input for the whole app, so the device is chosen <em>once</em>, in <strong>Menu → Audio Engine → Audio Input</strong> — not per voice. Every Audio Input and <a href="#external-instrument">External Instrument</a> voice shares it; only the <strong>channels</strong> are per voice. Each voice's own window shows the device as a read-only label, with a reminder of where to change it.</p>
@@ -1373,6 +1553,11 @@
         <h3 id="external-instrument">14.6 External Instrument</h3>
         <p class="lead"><a href="#midi-out">MIDI Out</a> and <a href="#audio-input">Audio Input</a> on a single voice: Dario sends the voice's notes out to an external device <em>and</em> brings that device's audio back into the same voice. The classic external-instrument round-trip — ideal for a USB synth that carries MIDI and audio down one cable.</p>
         <p>Load it into a voice's instrument slot like any other built-in; Dario asks for input permission the first time. Its window is simply the two editors side by side — <strong>left = MIDI Out</strong> (Destination and Channel), <strong>right = Audio Input</strong> (the device read-out, MODE, and the channel grid).</p>
+        <div class="img-slot" id="img-33">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 33</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-external-instrument.png</code></div>
+          <p><strong>Shoot:</strong> The External Instrument window showing both halves at once — MIDI Out on the left with a real hardware destination and channel, Audio Input on the right with the device read-out and a stereo pair ticked. The whole point is the side-by-side layout, so frame the full window.</p>
+          <p><strong>Caption:</strong> External Instrument: MIDI out to the device on the left, its audio back in on the right.</p>
+        </div>
         <ul>
           <li><strong>The MIDI side</strong> works exactly as in <a href="#midi-out">14.4 MIDI Out</a>: whatever drives the voice — the built-in sequencer, a hosted AUv3 MIDI chain, or live EXT MIDI in — is forwarded to the destination on <em>Pass-through</em> or a fixed channel, and the four mixer faders mirror as CC 7 / 10 / 91 / 92 so a volume ride or filter sweep reaches the synth too.</li>
           <li><strong>The audio side</strong> works exactly as in <a href="#audio-input">14.5 Audio Input</a>: the returning audio runs through the voice's inserts, sends, sidechain and mixer like any instrument. The device is the global one from Audio Engine settings; the channels are this voice's.</li>
@@ -1399,6 +1584,11 @@
 
         <h4>Reading the log</h4>
         <p>A scrolling table, one row per MIDI event, newest at the bottom, with alternating row backgrounds. It keeps the last <strong>250 events</strong>.</p>
+        <div class="img-slot" id="img-34">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 34</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-midi-monitor.png</code></div>
+          <p><strong>Shoot:</strong> The Dario MIDI Monitor with a busy log — a mix of NOTE ON / NOTE OFF, CC and bend rows across a couple of channels, so the TIME / SRC / CH / TYPE / DATA columns are all populated. Include the filter row (ALL / NOTES / CC / OTHER, FREEZE, CLEAR, CH ALL) at the top.</p>
+          <p><strong>Caption:</strong> The MIDI Monitor: every event at that point in the chain, with timing, channel, type and payload.</p>
+        </div>
         <table class="param-table">
           <thead>
             <tr><th>Column</th><th>Meaning</th></tr>
@@ -1438,6 +1628,11 @@
           <li><strong>DETAILS</strong> (right) — the selected groovebox's name and description, the AUv3 plug-ins it needs, and a <strong>Load Groovebox</strong> button.</li>
         </ul>
         <p>When you open the browser, the groovebox you currently have loaded is highlighted automatically, so you can see what's open and act on it.</p>
+        <div class="img-slot" id="img-35">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 35</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-groovebox-browser.png</code></div>
+          <p><strong>Shoot:</strong> The Groovebox browser open on the Factory category, with a groovebox selected so all three columns are populated — categories on the left, the list in the middle showing names, plug-in counts and dates, and the details panel on the right with its description, the AUv3s it needs, and the Load Groovebox button. If one of the listed plug-ins is missing from the device, that's the better shot: it shows the flagging.</p>
+          <p><strong>Caption:</strong> The Groovebox browser: category, list and details, with the plug-ins each setup needs.</p>
+        </div>
         <ul>
           <li><strong>User</strong> — your own saved grooveboxes. The only writable category.</li>
           <li><strong>Factory / Artist / Developer</strong> — ready-made grooveboxes with carefully selected AUv3s. Factory always includes <strong>Blank</strong>, a completely empty groovebox ready for your own plug-ins, assignments, sequencing and modulation. More curated content arrives with app updates.</li>
@@ -1523,6 +1718,11 @@
           <li>Choose <strong>Save &amp; Continue</strong> (keep it and go straight to the next control), <strong>Save &amp; Finish</strong>, or <strong>Cancel</strong>.</li>
         </ol>
         <p>So you arm <strong>once</strong> and map your whole controller in a single run.</p>
+        <div class="img-slot" id="img-36">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 36</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-midi-learn.png</code></div>
+          <p><strong>Shoot:</strong> The MAP CONTROL card mid-learn, showing a captured mapping in the "Dario control ← controller input" form (e.g. POLY SYNTH · Cutoff ← CC 74 · Ch 1), with Save & Continue / Save & Finish / Cancel visible and the Dario surface still reachable behind it.</p>
+          <p><strong>Caption:</strong> Arm once, then tap a control and move a knob — the card shows what it captured.</p>
+        </div>
         <div class="callout tip">
           <strong>Faster still.</strong> While the MAP CONTROL card is up, just <strong>tap the next Dario control</strong> — it saves the current mapping and immediately starts the next one, so a bank of faders becomes tap · move · tap · move. Grabbed the wrong knob? Move a different one and the mapping updates live. Tapped the wrong Dario control? Tap another and the target switches.
         </div>
@@ -1557,6 +1757,11 @@
         <h3>5. Seeing your mappings — and conflicts</h3>
         <p><strong>Menu → MIDI Control → MIDI Mappings</strong> lists every mapping: the Dario control on top and its controller input below. Each row has a <strong>trash</strong> button, and there's a <strong>Clear All Mappings</strong> at the bottom.</p>
         <p>If the same controller input is mapped to more than one Dario control, Dario flags it with a <strong>warning triangle</strong> — on that row, and on the MAP CONTROL card while you're mapping. It's a warning, not a block: one knob controlling several things is sometimes exactly what you want.</p>
+        <div class="img-slot" id="img-37">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 37</span><span class="img-slot-pri p-opt">Optional</span><code>images/dario-midi-mappings.png</code></div>
+          <p><strong>Shoot:</strong> The MIDI Mappings list expanded with several mappings, including at least one duplicate so a warning triangle is visible on the conflicting rows. Include a per-row trash button and the Clear All Mappings action at the bottom.</p>
+          <p><strong>Caption:</strong> Every mapping in one list, with a warning triangle where two of them share a controller input.</p>
+        </div>
 
         <h3>6. Transport buttons that send MMC</h3>
         <p>Some control surfaces — the KORG nanoKONTROL2-style transport section, for example — send their Play / Stop / Record buttons as <strong>MMC</strong> (MIDI Machine Control) rather than a CC or note. Dario follows these automatically, with no mapping needed, since MMC is a fixed standard: Play starts, Stop stops, Record arms recording while playing.</p>
@@ -1631,6 +1836,11 @@
           <li><strong>Long-press the padlock</strong> to open the scope fly-out and choose <em>what</em> the lock blocks for the current Groovebox.</li>
         </ul>
         <p>While armed, the actions you've chosen are suppressed. Everything else — moving sliders, playing, recording and playing back automation — keeps working normally.</p>
+        <div class="img-slot" id="img-38">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 38</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-perf-lock.png</code></div>
+          <p><strong>Shoot:</strong> The Performance Lock scope fly-out open from a long-press on the padlock, with a realistic gig scope ticked (Change Parameters, Plug-in Remove/Replace, Automation Clear) and the rest off. Shoot it while the lock is armed so the filled 🔒 LOCKED chip is visible in the master strip in the same frame.</p>
+          <p><strong>Caption:</strong> Long-press the padlock to choose what it blocks; the armed state shows as a filled LOCKED chip.</p>
+        </div>
 
         <h3>What it can block</h3>
         <table class="param-table">
@@ -1662,6 +1872,11 @@
         <h2><span class="num">19</span>Themes</h2>
         <p class="lead">Dario's colours are fully themeable. Pick a theme and the whole app recolours instantly — voices, effects, master, tabs, sliders, meters, strips and cards. Your choice is remembered across launches.</p>
         <p>Tap the <strong>hamburger</strong> menu, then under <strong>Appearance</strong> tap <strong>Theme</strong>. The change applies live — the app <em>and</em> the menu itself recolour as you choose, so you can preview each one in place.</p>
+        <div class="img-slot" id="img-39">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 39</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-theme-classic.png</code></div>
+          <p><strong>Shoot:</strong> The same PERFORM screen, same Groovebox, in Classic. Shoot IMAGES 39, 40 and 41 back to back without touching anything else, so the only variable is the theme — then they can sit side by side in a figure-compare.</p>
+          <p><strong>Caption:</strong> Classic — the original black and cyan look.</p>
+        </div>
 
         <h3>The themes</h3>
         <table class="param-table">
@@ -1687,12 +1902,22 @@
 
         <h3>The "panel" family</h3>
         <p>Cyan Inspiration, Mauve Mystique and Sage Serenity share one design that many people find the cleanest to read:</p>
+        <div class="img-slot" id="img-40">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 40</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-theme-cyan.png</code></div>
+          <p><strong>Shoot:</strong> The same PERFORM screen as IMAGE 39, in Cyan Inspiration — the flagship panel look. This is the one that shows what the panel family actually does: one flush surface colour, ink hairlines, grey-plastic buttons that turn solid ink when engaged. Make sure at least one button is engaged so that on-state is in the frame.</p>
+          <p><strong>Caption:</strong> Cyan Inspiration — the panel look: one flush surface, ink hairlines, and buttons that fill solid when engaged.</p>
+        </div>
         <ul>
           <li><strong>One flush surface colour.</strong> The page, the top and bottom strips, and the cards are all the same soft colour, so the app reads as one continuous panel.</li>
           <li><strong>Ink hairlines.</strong> Every edge — card borders, well borders, the line under each card's header, the strip dividers — is drawn in a single high-contrast "ink" colour, so structure is scored onto the panel rather than shaded.</li>
           <li><strong>Grey-plastic buttons.</strong> Every button rests as a grey "plastic" key with an ink border, and turns <strong>solid ink when engaged</strong>, so on-states are obvious at a glance.</li>
         </ul>
         <p>Cyan Inspiration is the original; Mauve Mystique and Sage Serenity are the same design in different soft hues.</p>
+        <div class="img-slot" id="img-41">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 41</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-theme-walnut.png</code></div>
+          <p><strong>Shoot:</strong> The same screen again in Walnut Console — cream aluminium panels in a dark walnut chassis. The third of the three theme shots; shoot it in the same session as IMAGES 39 and 40.</p>
+          <p><strong>Caption:</strong> Walnut Console — cream panels set into a dark chassis.</p>
+        </div>
 
         <h3>What doesn't change</h3>
         <p>The theme recolours <strong>Dario's own controls</strong> only. Some things stay the same on purpose:</p>
@@ -1708,6 +1933,11 @@
         <h2><span class="num">20</span>Menu &amp; Settings</h2>
         <p class="lead">The <strong>Menu</strong> is the app's settings home. Open it with the hamburger button on the right of the master strip; it slides in from the right edge as a full-height panel. Close it with the same hamburger at the top of the panel, or by tapping the dimmed area to the left.</p>
         <p>It has two levels, so the things you reach for most stay one tap away while deeper settings are tidied into their own pages. Tap <strong>‹ Menu</strong> at the top-left of any sub-page to go back.</p>
+        <div class="img-slot" id="img-42">
+          <div class="img-slot-top"><span class="img-slot-num">IMAGE 42</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-menu.png</code></div>
+          <p><strong>Shoot:</strong> The menu panel slid in from the right edge, at its top level: the Appearance pickers (Theme, Text Size, Bottom Row Labels), the Dario User Guide row, and the full settings list with its icons and chevrons. Shoot it over a running PERFORM tab so the dimmed surface behind it is visible.</p>
+          <p><strong>Caption:</strong> The menu: Appearance at the top, then one row per settings group.</p>
+        </div>
 
         <h3>Top level</h3>
         <ul>
