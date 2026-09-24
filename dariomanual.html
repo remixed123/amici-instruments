@@ -161,7 +161,7 @@
         <p>On screen the tracks are labelled <span class="ui">VOICE 1</span>–<span class="ui">VOICE 4</span>, and this guide follows that label. Each is a full track: an instrument slot, two insert effects, its own mixer channel, two sends, its own sequencer lane and its own pair of LFOs.</p>
         <p>What a track <em>is</em> depends on what you put in it and how you sequence it:</p>
         <ul>
-          <li>A <strong>drum track</strong> — a six-part percussion grid sequencer (<strong>KICK · SNARE · HAT · CLAP · TOM · PERC</strong>), each sound with its own pattern, generator and density. That is six parts from one track.</li>
+          <li>A <strong>drum track</strong> — a six-part percussion grid sequencer (<strong>KICK · SNARE · CH · OH · CLAP · TOM</strong>), each sound with its own pattern, generator and density. That is six parts from one track.</li>
           <li>A <strong>monophonic instrument</strong> — one note per step, for basslines, acid lines and leads.</li>
           <li>A <strong>polyphonic instrument</strong> — a chord per step, for pads, stabs and comping.</li>
           <li>A <strong>multi-part plug-in</strong> — an 8-track AUv3 drum machine, a multitimbral synth, a hosted groovebox. It sequences and mixes internally and Dario treats the whole thing as one track.</li>
@@ -550,7 +550,7 @@
             <tr><th>Type</th><th>What a firing step plays</th></tr>
           </thead>
           <tbody>
-            <tr><td><span class="ui">DRUMS</span></td><td>A multi-sound drum lane — <strong>KICK · SNARE · HAT · CLAP · TOM · PERC</strong>, each with its own pattern, on fixed General MIDI drum notes. Not pitch-aware, so the NOTES page is disabled. This is where <a href="#grids">GRIDS</a> lives.</td></tr>
+            <tr><td><span class="ui">DRUMS</span></td><td>A multi-sound drum lane — <strong>KICK · SNARE · CH · OH · CLAP · TOM</strong> (closed and open hat are separate sounds), each with its own pattern and its own outgoing MIDI note and channel — General MIDI by default, settable per sound on the <a href="#steps-page">STEPS</a> page. Not pitch-aware, so the NOTES page is disabled. This is where <a href="#grids">GRIDS</a> lives.</td></tr>
             <tr><td><span class="ui">MONO</span></td><td>One melodic <strong>note per step</strong> — the per-step pitch, snapped to the scale.</td></tr>
             <tr><td><span class="ui">POLY</span></td><td>A <strong>chord per step</strong> — a root plus the chosen CHORD shape.</td></tr>
           </tbody>
@@ -568,7 +568,7 @@
         <p>Each lane has its own playhead; all lanes lock to the shared transport.</p>
         <div class="img-slot" id="img-14">
           <div class="img-slot-top"><span class="img-slot-num">IMAGE 14</span><span class="img-slot-pri p-ess">Essential</span><code>images/dario-steps-page.png</code></div>
-          <p><strong>Shoot:</strong> One lane's STEPS page, annotated with the three rows called out: the 16-step surface (with the white playhead ring on the sounding step and the beat accents visible), the buttons row (ALGO, DIV/MULT, PLAY DIR, GROOVE, LENGTH, RATCHET, VEL) and the sliders row. Put the lane on EUCLID so PULSES and ROTATE are showing in the slider row.</p>
+          <p><strong>Shoot:</strong> One lane's STEPS page, annotated with the three rows called out: the 16-step surface (with the white playhead ring on the sounding step and the beat accents visible), the buttons row (ALGO, VEL, DIV/MULT, PLAY DIR, GROOVE, LENGTH, RATCHET, CHANNEL) and the sliders row. Put the lane on EUCLID so PULSES and ROTATE are showing in the slider row.</p>
           <p><strong>Caption:</strong> Every lane is three rows: the 16-step surface, the buttons row, and the current generator's sliders.</p>
         </div>
 
@@ -583,7 +583,7 @@
             <tr><td><strong>MANUAL</strong></td><td>You program the pattern by hand — tap cells on and off. Your hand-drawn pattern is <strong>kept safe</strong>: try EUCLID or PROB, switch back to MANUAL, and it returns exactly as you left it.</td></tr>
             <tr><td><strong>EUCLID</strong></td><td>Distributes <strong>PULSES</strong> hits as evenly as possible across the loop, then <strong>ROTATE</strong>s them. It <em>bakes</em> the result into the pattern, so you can hand-edit afterwards.</td></tr>
             <tr><td><strong>PROB</strong></td><td>Fills the whole loop, then thins it with <strong>CHANCE</strong> — a per-step fire probability that <strong>re-rolls every bar</strong>, so the pattern keeps evolving. Living hats and percussion.</td></tr>
-            <tr><td><strong>GRIDS</strong></td><td>A <strong>DRUMS-only</strong> shared-map generator, offered on KICK / SNARE / HAT. One X / Y position reads a map of curated grooves and produces three interlocking lines at once. See <a href="#grids">7.6</a>.</td></tr>
+            <tr><td><strong>GRIDS</strong></td><td>A <strong>DRUMS-only</strong> shared-map generator, offered on KICK / SNARE / CH. One X / Y position reads a map of curated grooves and produces three interlocking lines at once. See <a href="#grids">7.6</a>.</td></tr>
           </tbody>
         </table>
         <div class="callout note">
@@ -601,6 +601,8 @@
           <li><strong>LENGTH</strong> — the loop's <strong>last step</strong>, so a lane can be shorter than 16. Tap a step to make it the end; steps beyond it dim out. DIV/MULT, PLAY DIR and GROOVE all respect the shortened length.</li>
           <li><strong>RATCHET</strong> — a <strong>per-step</strong> editor. Drag a cell up or down to set <span class="ui">×1</span>–<span class="ui">×8</span> re-triggers, subdividing that step into evenly-spaced hits. Hat rolls and snare buzzes.</li>
           <li><strong>VEL</strong> — a <strong>per-step velocity</strong> editor (1–127). Drag a cell to set how hard that step hits: a loud step is an accent, a quiet one a ghost note. This is standard MIDI velocity, so every hosted synth and drum responds to it. GROOVE shapes on top.</li>
+          <li><strong>CHANNEL</strong> — the <strong>MIDI channel (1–16)</strong> this lane sends its notes on to the voice's instrument. Tap it and the 16 cells become a channel picker; the button shows the current channel and lights when it's anything but <strong>1</strong>, the default. Most plug-ins listen on channel 1, so you'll rarely touch it — but a <strong>multitimbral</strong> plug-in, one instance playing a different sound per channel, can be driven from several voices at once by giving each voice its own channel. In <span class="ui">DRUMS</span> mode the picker follows the selected <strong>SOUND</strong>, so each drum sound can send on its own channel.</li>
+          <li><strong>NOTE</strong> — <span class="ui">DRUMS</span> only, sitting to the right of CHANNEL: the <strong>MIDI note</strong> the selected <strong>SOUND</strong> sends to the voice's instrument, so you can line each lane up with whatever pad your drum plug-in maps. It's a <strong>two-stage palette</strong> across the step surface — tap an <strong>octave</strong> first (<span class="ui">OCT −1</span> … <span class="ui">OCT 9</span>, the full MIDI range, with octaves 2 and 3 flagged as the <span class="ui">GM KIT</span> and <span class="ui">GM PERC</span> ranges), then the <strong>semitone</strong> (<span class="ui">C</span> … <span class="ui">B</span>). In the second stage a <span class="ui">‹ BACK</span> cell on the far left returns to the octave list, and <span class="ui">OCT −</span> / <span class="ui">OCT +</span> cells bracket the twelve notes so you can shift octave without leaving the note view. General MIDI drum names (Kick, Snare, CH, OH, Clap, Tom, Crash, Ride…) ride along as labels, so the standard kit notes are easy to find. The button shows the current note — <span class="ui">C2</span> — and lights when it's moved off that sound's GM default. Each sound keeps its own note.</li>
         </ul>
 
         <div class="img-slot" id="img-15">
@@ -608,6 +610,13 @@
           <p><strong>Shoot:</strong> The same lane with RATCHET (or VEL) armed, so the 16 cells have become a per-step editor — bars of different heights across the grid, with the values readable. This is the "the surface doubles as an editor" idea, which is hard to picture from text alone. RATCHET is the more visually obvious of the two.</p>
           <p><strong>Caption:</strong> Tap a per-step button and the 16 cells become that editor — here, ratchet counts per step.</p>
         </div>
+        <div class="callout tip">
+          <strong>NOTE is how you match a third-party drum plug-in.</strong> Dario's own <a href="#drum-kit">Drum Kit</a> follows the General MIDI map, so the defaults line up with no work. A sampler or drum machine with its own layout won't — point each sound's NOTE at the pad you want and the lane plays it, with nothing to re-program inside the plug-in.
+        </div>
+        <div class="callout note">
+          <strong>Channel 1 is the safe default.</strong> Most plug-ins listen on channel 1, or on every channel — so a lane moved to another channel can go silent on a plug-in that only listens to one. Change it when you're driving a multitimbral plug-in from several voices, or when the voice's instrument is <a href="#midi-out">MIDI Out</a> on <em>Pass-through</em>: then this is the channel your external gear receives on.
+        </div>
+
         <h4>Sliders (STEPS)</h4>
         <p>Each rhythm generator shows only its own sliders:</p>
         <ul>
@@ -718,22 +727,22 @@
           <tbody>
             <tr><td>Bass drum</td><td><strong>KICK</strong></td></tr>
             <tr><td>Snare drum</td><td><strong>SNARE</strong></td></tr>
-            <tr><td>Hi-hat</td><td><strong>HAT</strong></td></tr>
+            <tr><td>Hi-hat</td><td><strong>CH</strong> (the closed hat)</td></tr>
           </tbody>
         </table>
-        <p>CLAP, TOM and PERC aren't part of the map — leave them on MANUAL, EUCLID or PROB and layer them on top.</p>
+        <p>The other three sounds — <strong>OH</strong>, <strong>CLAP</strong> and <strong>TOM</strong> — aren't part of the map. Leave them on MANUAL, EUCLID or PROB and layer them on top.</p>
 
         <h4>Turning it on</h4>
         <p>Put the voice in <span class="ui">DRUMS</span> mode, open a sound's STEPS page, tap <strong>ALGO</strong> and choose <strong>GRIDS</strong>.</p>
         <ul>
-          <li>GRIDS is offered <strong>only on KICK, SNARE and HAT</strong>. On the other sounds the option is greyed out with a small <span class="ui">K·S·H</span> hint.</li>
-          <li>Choosing GRIDS <strong>switches all three of KICK / SNARE / HAT to GRIDS at once</strong> — they're one system and can't be half-on. Switch any one of them back to another ALGO to drop it out of the map while the other two keep running.</li>
+          <li>GRIDS is offered <strong>only on KICK, SNARE and CH</strong> — the three sounds its map drives. The GRIDS cell in the ALGO palette carries a <span class="ui">Kick-Snare-CH</span> subtitle so its scope is clear before you tap it, and on OH, CLAP and TOM the cell is greyed out.</li>
+          <li>Choosing GRIDS <strong>switches all three of KICK / SNARE / CH to GRIDS at once</strong> — they're one system and can't be half-on. Switch any one of them back to another ALGO to drop it out of the map while the other two keep running.</li>
         </ul>
         <p>You can see which generator each drum is using at a glance on the GRID view: each lane has a small <strong>ALGO button</strong> in the left gutter, lit when it's anything other than MANUAL. Tap it to jump to that sound's STEPS page.</p>
         <div class="img-slot" id="img-18">
           <div class="img-slot-top"><span class="img-slot-num">IMAGE 18</span><span class="img-slot-pri p-rec">Recommended</span><code>images/dario-grids.png</code></div>
-          <p><strong>Shoot:</strong> A DRUMS voice with GRIDS running: the GRID view showing all six drum lanes, with KICK / SNARE / HAT carrying interlocking generated patterns and their ALGO buttons lit in the left gutter, while CLAP / TOM / PERC sit on their own patterns. Include the X · Y · CHAOS · FILL sliders. If it's easier to read as two shots, a second at a different X/Y position makes the map idea land.</p>
-          <p><strong>Caption:</strong> GRIDS drives KICK, SNARE and HAT from one X / Y position, with FILL set per sound.</p>
+          <p><strong>Shoot:</strong> A DRUMS voice with GRIDS running: the GRID view showing all six drum lanes, with KICK / SNARE / CH carrying interlocking generated patterns and their ALGO buttons lit in the left gutter, while OH / CLAP / TOM sit on their own patterns. Include the X · Y · CHAOS · FILL sliders. If it's easier to read as two shots, a second at a different X/Y position makes the map idea land.</p>
+          <p><strong>Caption:</strong> GRIDS drives KICK, SNARE and CH from one X / Y position, with FILL set per sound.</p>
         </div>
 
         <h4>The four controls</h4>
@@ -1335,7 +1344,7 @@
           <tbody>
             <tr><td><strong>Globals</strong></td><td>Tempo, master gain, limiter, and the sidechain settings.</td></tr>
             <tr><td><strong>PERFORM</strong></td><td>Every voice's volume, pan, FX sends, mute/solo, fade length, each still-loaded plug-in's own settings, control assignments, button modes, and recorded automation.</td></tr>
-            <tr><td><strong>SEQUENCE</strong></td><td>Each voice's mode, steps, DIV/MULT, play direction, groove and depth, loop length, and external-MIDI connection.</td></tr>
+            <tr><td><strong>SEQUENCE</strong></td><td>Each voice's mode, steps, DIV/MULT, play direction, groove and depth, loop length, the MIDI output channel and each drum sound's outgoing note, and external-MIDI connection.</td></tr>
             <tr><td><strong>MODULATE</strong></td><td>All LFOs and their targets.</td></tr>
           </tbody>
         </table>
@@ -1487,7 +1496,7 @@
 
         <h4>Channel</h4>
         <ul>
-          <li><strong>Pass-through</strong> — each note is sent on the channel it arrives on. This preserves a multitimbral or per-lane stream unchanged: the DRUMS grid's per-lane channels, or an AUv3 generator that already sets channels. Drive a multitimbral external drum machine this way.</li>
+          <li><strong>Pass-through</strong> — each note is sent on the channel it arrives on. This preserves a multitimbral or per-lane stream unchanged: the lane's <a href="#steps-page">STEPS CHANNEL</a>, the DRUMS grid's per-sound channels, or an AUv3 generator that already sets channels. Drive a multitimbral external drum machine this way.</li>
           <li><strong>1–16</strong> — remaps <em>every</em> note to that one fixed channel. Use this to drive a single hardware synth listening on one channel.</li>
         </ul>
         <p>Per-voice control messages have no single note channel, so in Pass-through they go out on <strong>channel 1</strong>; on a fixed channel they use that channel.</p>
@@ -1678,7 +1687,7 @@
             <tr><td><strong>Plug-ins</strong></td><td>Each voice's instrument and two effects, each FX bus's three effects, the three master effects, and the SEQUENCE tab's MIDI plug-ins — <strong>including each plug-in's own saved state</strong>, so its sound comes back, not just which plug-in it was.</td></tr>
             <tr><td><strong>Assignments &amp; automation</strong></td><td>Every slider and button mapping (with its custom name and button mode), and any recorded automation.</td></tr>
             <tr><td><strong>Mixer</strong></td><td>Per-voice volume, pan, mute, solo and FX sends; master gain, limiter and sidechain.</td></tr>
-            <tr><td><strong>SEQUENCE</strong></td><td>Each voice's mode, its full algorithmic pattern, per-step data, and its external MIDI-in source — re-connected by name if that device is present.</td></tr>
+            <tr><td><strong>SEQUENCE</strong></td><td>Each voice's mode, its full algorithmic pattern, per-step data, and its <a href="#steps-page">MIDI output channel</a> — with each drum sound's own channel and outgoing <strong>note</strong> on a DRUMS lane — plus its external MIDI-in source, re-connected by name if that device is present.</td></tr>
             <tr><td><strong>Audio input</strong></td><td>Which voices use <a href="#audio-input">Audio Input</a> or <a href="#external-instrument">External Instrument</a>, each one's channel selection and MONO/STEREO, and the rig's <strong>input device</strong> — remembered by the device itself and re-resolved against what's connected when you load.</td></tr>
             <tr><td><strong>Modulation</strong></td><td>Every LFO's full state and its up-to-six targets.</td></tr>
             <tr><td><strong>Global</strong></td><td>Tempo, the Scale and Key, and the performance-lock scope and armed state.</td></tr>
@@ -2008,6 +2017,8 @@
           <li>Check <strong>MUTE</strong> isn't on for that voice, and that no <em>other</em> voice has <strong>SOLO</strong> engaged.</li>
           <li>On the SEQUENCE tab, confirm the lane's <strong>note source</strong> matches where the notes are coming from: <span class="ui">SEQ</span> for the built-in sequencer, <span class="ui">AUv3</span> for a hosted MIDI generator, <span class="ui">EXT</span> for a keyboard.</li>
           <li>In DRUMS mode, remember the lane needs a hosted instrument to make sound — there's no fallback synth.</li>
+          <li>Check the lane's <a href="#steps-page">STEPS <strong>CHANNEL</strong></a>. If it's set to anything but 1 and the instrument only listens on channel 1, the notes arrive on a channel the plug-in ignores and you hear nothing. Set it back to 1, or set the plug-in to omni.</li>
+          <li>On a DRUMS lane, check that sound's <a href="#steps-page">STEPS <strong>NOTE</strong></a> too — the lane may be firing a note the plug-in has nothing mapped to. The button lights whenever a sound is off its General MIDI default.</li>
           <li>If the voice's instrument is <a href="#midi-out">MIDI Out</a>, it makes no audio by design.</li>
           <li>If it's <a href="#audio-input">Audio Input</a> or <a href="#external-instrument">External Instrument</a>, open its window and check it has <strong>channels ticked</strong> — an empty selection is silent — and that <strong>Menu → Audio Engine → Audio Input</strong> points at the interface your source is plugged into.</li>
         </ul>
@@ -2034,7 +2045,7 @@
         <ul>
           <li>Confirm the voice's instrument is the built-in <strong>MIDI Out</strong> or <a href="#external-instrument">External Instrument</a>, and that a <strong>Destination</strong> is selected in its window.</li>
           <li>If the destination shows <strong>(offline)</strong>, the device isn't connected — it reconnects automatically when it reappears.</li>
-          <li>Check the <strong>Channel</strong>: <em>Pass-through</em> sends each note on the channel it arrived on, which may not be what your synth is listening to. Pin it to a fixed 1–16 for a single mono/poly synth.</li>
+          <li>Check the <strong>Channel</strong>: <em>Pass-through</em> sends each note on the channel it arrived on — for the built-in sequencer that's the lane's <a href="#steps-page">STEPS CHANNEL</a> — which may not be what your synth is listening to. Pin it to a fixed 1–16 for a single mono/poly synth.</li>
           <li>Remember MUTE and SOLO affect MIDI Out the same way they affect audio.</li>
         </ul>
 
